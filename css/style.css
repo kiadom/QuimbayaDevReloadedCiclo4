@@ -19,12 +19,10 @@ body {
   width: 25em;
   margin: 5em auto;
   border-radius: 10px;
-  overflow: hidden;
+  overflow: auto;
   background-color: var(--light-bg);
   display: flex;
   justify-content: space-between;
-  overflow: hidden;
-
 }
 
 .contenedor-login {
@@ -41,6 +39,7 @@ body {
   align-items: center;
   padding-bottom: 1rem;
 }
+
 .logo {
   width: 12.5rem;
   display: flex;
@@ -102,6 +101,32 @@ body {
   background: center/9% url('../images/padlock.png'); 
   background-repeat: no-repeat; 
   background-position: 1em;
-  background-color: var(--blue-bg);
+  background-color: var(--blue-bg);  
   }
-  
+
+div.contenedor {
+  position: fixed;
+  right: 6%;
+
+}
+
+@media screen and (max-width: 1000px) {
+  .contenedor {
+      position: absolute;
+      left: 10%;
+      display: flex;
+      align-self: center;
+      justify-content: center;
+      
+  }
+}
+ 
+@media screen and (max-width: 500px) {
+  .contenedor {
+      width: 20em;
+      left: 6%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+}
