@@ -1,3 +1,8 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 :root {
   --light-bg: #eeeeee;
@@ -15,25 +20,40 @@ body {
   background-image: url('../images/plantilla-login-.png');
 }
 
-.padre {
+.contenedor_principal {
+  width: 90%;
+  height: 500px;
+  border: 50px solid rgba(0, 0, 0, 0.1);
+  padding: 5% 10%;
   background: var(--dark-bg);
+  background-clip: padding-box; 
   display: flex;
   justify-content: center;
-  margin: 0 auto;
-	width: 90%;
-  height: 90%;
 	max-width: 75rem;
   max-height: 75rem;
   
 }
 
-.hijo {
+.contenedor_interno {
   background: var(--light-bg);
   width: 90%;
-  padding: 20px;
   margin: 20px;
+}
+
+.contenedor_secundario {
+  width: 90%;
+  margin: 20px;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background-color: darkgray;
 }
 
 .titulo {
   background-color: var(--blue-bg);
+  padding: 5%;
+  color: var(--light-bg);
+}
+
+.tabulado{
+  padding-left: 10%;
 }
