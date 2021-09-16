@@ -15,118 +15,25 @@ body {
   background-image: url('../images/plantilla-login-.png');
 }
 
-.contenedor {
-  width: 25em;
-  margin: 5em auto;
-  border-radius: 10px;
-  overflow: auto;
-  background-color: var(--light-bg);
-  display: flex;
-  justify-content: space-between;
-}
-
-.contenedor-login {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items:center;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-} 
-
-.contenedor-logo{
-  box-sizing: border-box;
-  align-items: center;
-  padding-bottom: 1rem;
-}
-
-.logo {
-  width: 12.5rem;
+.padre {
+  background: var(--dark-bg);
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin: 0 auto;
+	width: 90%;
+  height: 90%;
+	max-width: 75rem;
+  max-height: 75rem;
+  
 }
 
-.contenedor-info {
-  width: 85%;
-  height: 11em;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.input, .boton {
+.hijo {
+  background: var(--light-bg);
   width: 90%;
-  height: 3.125rem;
-  font-size: 1em;
+  padding: 20px;
+  margin: 20px;
 }
 
-.input {
-  padding-left: 50px;
-  border: none;
-  border-radius: 5px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  box-sizing: border-box;
-}
-
-.input:hover {
-  border: 2px solid var(--grey-bg);
-}
-
-.boton {
-  width: 80%;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--light-bg);
-  border: none;
-  border-radius: 5px;
-  background-color: var(--grey-bg);
-  cursor: pointer;
-}
-
-.boton:hover {
-  border: 2px solid var(--blue-bg);
-}
-
-#user{
-  background: center/9% url('../images/user.png'); 
-  background-repeat: no-repeat; 
-  background-position: 1em;
+.titulo {
   background-color: var(--blue-bg);
-  }
-
-#password{
-  background: center/9% url('../images/padlock.png'); 
-  background-repeat: no-repeat; 
-  background-position: 1em;
-  background-color: var(--blue-bg);  
-  }
-
-div.contenedor {
-  position: fixed;
-  right: 6%;
-
-}
-
-@media screen and (max-width: 1000px) {
-  .contenedor {
-      position: absolute;
-      left: 10%;
-      display: flex;
-      align-self: center;
-      justify-content: center;
-      
-  }
-}
- 
-@media screen and (max-width: 500px) {
-  .contenedor {
-      width: 20em;
-      left: 6%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
 }
