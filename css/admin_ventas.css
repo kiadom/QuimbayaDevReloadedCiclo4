@@ -20,7 +20,7 @@ body {
   background-image: url('../images/plantilla-login-.png');
 }
 
-.contenedor_principal {
+.jm_contenedor_principal {
   width: 90%;
   height: 500px;
   border: 50px solid rgba(0, 0, 0, 0.1);
@@ -34,13 +34,13 @@ body {
   
 }
 
-.contenedor_interno {
+.jm_contenedor_interno {
   background: var(--light-bg);
   width: 90%;
   margin: 20px;
 }
 
-.contenedor_secundario_izquierdo {
+.jm_contenedor_secundario_izquierdo {
   width: 90%;
   margin: 20px;
   padding-top: 3%;
@@ -48,17 +48,17 @@ body {
   background-color: gainsboro;
 }
 
-.titulo {
+.jm_titulo {
   background-color: var(--blue-bg);
   padding: 5%;
   color: var(--light-bg);
 }
 
-.tabulado{
+.jm_tabulado{
   padding-left: 10%;
 }
 
-.contenedor_secundario_derecho {
+.jm_contenedor_secundario_derecho {
   width: 90%;
   margin: 20px;
   padding-top: 30%;
