@@ -8,11 +8,12 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  background-image: url('../images/plantilla-login-.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-color: var(--light-bg);
   height: 90vh;
-  background-image: url('../images/plantilla-login-.png');
+  overflow: auto;
 }
 
 .contenedor {
@@ -105,19 +106,17 @@ body {
   }
 
 div.contenedor {
-  position: fixed;
   right: 6%;
-
 }
 
 @media screen and (max-width: 1000px) {
   .contenedor {
-      position: absolute;
       left: 10%;
-      display: flex;
-      align-self: center;
-      justify-content: center;
-      
+      display:flex;
+  }
+  body{
+    height: 100vh;
+    background-size:auto;
   }
 }
  
@@ -125,8 +124,5 @@ div.contenedor {
   .contenedor {
       width: 20em;
       left: 6%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
   }
 }
