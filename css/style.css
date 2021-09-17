@@ -40,12 +40,12 @@ body {
   margin: 20px;
 }
 
-.contenedor_secundario {
+.contenedor_secundario_izquierdo {
   width: 90%;
   margin: 20px;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  background-color: darkgray;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  background-color: gainsboro;
 }
 
 .titulo {
@@ -56,4 +56,12 @@ body {
 
 .tabulado{
   padding-left: 10%;
+}
+
+.contenedor_secundario_derecho {
+  width: 90%;
+  margin: 20px;
+  padding-top: 30%;
+  padding-bottom: 5%;
+  text-align:center;
 }
