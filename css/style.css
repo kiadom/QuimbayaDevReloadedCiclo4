@@ -106,14 +106,20 @@ body {
   }
 
 div.contenedor {
-  right: 6%;
+  position: fixed;
+  right: 10%;
 }
 
 @media screen and (max-width: 1000px) {
   .contenedor {
-      left: 10%;
       display:flex;
   }
+
+  div.contenedor{
+    position: relative;
+    right: 0%;
+  }
+
   body{
     height: 100vh;
     background-size:auto;
@@ -123,6 +129,10 @@ div.contenedor {
 @media screen and (max-width: 500px) {
   .contenedor {
       width: 20em;
-      left: 6%;
+      left: 1%;
+
+  }
+  div.contenedor{
+    position: fixed;
   }
 }
