@@ -7,9 +7,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <title>Administrador de Ventas</title>
     <link rel="stylesheet" href="css/admin_ventas.css">
+    <link rel="stylesheet" href="css/sidebars.css">
     <link rel="shortcut icon" href="images/favicon.ico">
 </head>
 <body>
+
     <nav class="navbar navbar-dark" style="background-color: #222831;">
         <div class="container">
           <a class="navbar-brand">
@@ -17,25 +19,73 @@
           </a>
         </div>
     </nav>
-    <div class="jm_contenedor_principal">
-        <div class="jm_contenedor_interno">
-            <div class="jm_titulo">ADMINISTRADOR DE VENTAS</div>
-            <div class = "jm_contenedor_secundario_izquierdo">
-                <p class="jm_tabulado">HOME</p>
-            </div>
-            <div>
-                <p class="jm_tabulado">ADMINISTRACIÓN DE VENTAS</p>
+    
+    <main>
+
+        <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
+          <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+              <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                Gestión de la Información de Ventas
+              </button>
+              <div class="collapse show" id="home-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li><a href="#" class="link-dark rounded">Ingresar Pedido</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+                Maestro de Estados de Ventas
+              </button>
+              <div class="collapse" id="dashboard-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li><a href="#" class="link-dark rounded">Registrar el Estado de la Venta</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+                Gestión de la Información de los Vendedores
+              </button>
+              <div class="collapse" id="orders-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li><a href="#" class="link-dark rounded">Ingresar Información de los Vendedores</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="border-top my-3"></li>
+            <li class="mb-1">
+              <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+                Gestión de los Usuarios y Roles del Sistema
+              </button>
+              <div class="collapse" id="account-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li><a href="#" class="link-dark rounded">Gestión de Usuarios y Roles</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      
+        <div class="b-example-divider"></div>
+
+        <div class="jm_contenedor_principal">
+            <div class="jm_contenedor_interno">
+                <div class="jm_titulo">.</div>
+                <div class = "jm_contenedor_secundario">
+                    <p>BIENVENIDO</p>
+                    <br>
+                    <br>
+                    <p><b>MODULO DE ADMINISTRADOR DE VENTAS</b></p>
+                </div>
             </div>
         </div>
-        <div class="jm_contenedor_interno">
-            <div class="jm_titulo">.</div>
-            <div class = "jm_contenedor_secundario_derecho">
-                <p>BIENVENIDO</p>
-                <br>
-                <br>
-                <p><b>MODULO DE ADMINISTRADOR DE VENTAS</b></p>
-            </div>
-        </div>
-    </div>
+
+      </main>
+      
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/sidebars.js"></script>
+
 </body>
 </html>

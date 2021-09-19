@@ -24,41 +24,27 @@ body {
 .jm_contenedor_principal {
   width: 90%;
   height: 500px;
-  padding: 5% 10%;
-  background: var(--light-bg);
+  padding: 2% 10%;
   display: flex;
 	max-width: 75rem;
   max-height: 75rem;
 }
 
 .jm_contenedor_interno {
-  background: var(--light-bg);
   width: 90%;
   margin: 20px;
-}
-
-.jm_contenedor_secundario_izquierdo {
-  width: 90%;
-  margin: 20px;
-  padding-top: 3%;
-  padding-bottom: 3%;
-  background-color: gainsboro;
 }
 
 .jm_titulo {
   background-color: var(--blue-bg);
-  padding: 5%;
+  padding: 3%;
   color: var(--light-bg);
 }
 
-.jm_tabulado{
-  padding-left: 10%;
-}
-
-.jm_contenedor_secundario_derecho {
+.jm_contenedor_secundario {
   width: 90%;
   margin: 20px;
-  padding-top: 30%;
+  padding-top: 5%;
   padding-bottom: 5%;
   text-align:center;
 }
