@@ -3,7 +3,6 @@
   margin: 0;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 :root {
   --light-bg: #eeeeee;
   --dark-bg: #222831;
@@ -13,25 +12,23 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-size: cover;
+  background-image: url('../images/footerlogin.png');  
   background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
   background-color: var(--light-bg);
-  height: 90vh;
-  background-image: url('../images/plantilla-login-.png');
+  height: 100vh;
+  overflow: auto;
 }
 
 .jm_contenedor_principal {
   width: 90%;
   height: 500px;
-  border: 50px solid rgba(0, 0, 0, 0.1);
   padding: 5% 10%;
-  background: var(--dark-bg);
-  background-clip: padding-box; 
+  background: var(--light-bg);
   display: flex;
-  justify-content: center;
 	max-width: 75rem;
   max-height: 75rem;
-  
 }
 
 .jm_contenedor_interno {
