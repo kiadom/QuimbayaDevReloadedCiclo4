@@ -20,10 +20,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items:center;
-    padding-top: 2em;
+    padding-top: 4em;
     color: #00ADB5;
     border: none !important;
-    
   }
   .p-3 {
     background-color: transparent !important;
@@ -31,11 +30,16 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-weight: 600;    
+    font-weight: 600;   
+    border-radius: 10px; 
   }
   .p-3:hover{
     border: 2px solid var(--blue-bg);
     background-color: #393e462c !important;
+  }
+
+  #logo-user{
+    filter: invert();  
   }
 
   @media screen and (max-width: 1000px) {
