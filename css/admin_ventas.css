@@ -55,3 +55,7 @@ body {
   padding-left: 10%;
   text-align:left;
 }
+
+#logo-user{
+  filter: invert();  
+}
