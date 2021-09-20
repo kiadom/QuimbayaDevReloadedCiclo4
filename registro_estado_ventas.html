@@ -53,7 +53,7 @@
               </button>
               <div class="collapse" id="dashboard-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="#" class="link-dark rounded">Registrar el Estado de la Venta</a></li>
+                  <li><a href="registro_estado_ventas.html" class="link-dark rounded">Registrar el Estado de la Venta</a></li>
                 </ul>
               </div>
             </li>
@@ -85,9 +85,9 @@
         <div class="b-example-divider"></div>
 
         <div class="jm_contenedor_principal">
-          <div class="jm_titulo">GESTION DE LA INFORMACION DE VENTAS</div>
-          <div class="jm_subtitulo">INGRESAR PEDIDO</div>
-          <div class="jm_subtitulo2">INGRESE LA INFORMACIÓN DEL PEDIDO</div>
+          <div class="jm_titulo">REGISTRO DE ESTADO DE VENTAS</div>
+          
+          <div class="jm_subtitulo2">INGRESE ESTADO DE LA VENTA</div>
           <div class=jm_formulario>
             <table>
               <tr>
@@ -95,24 +95,28 @@
                 <td><p><input type="text" name="venta_id" size="30"></p></td>
               </tr>
               <tr>
-                <td><p>Venta Total: </p></td>
-                <td><p><input type="number" name="venta_total" size="30"></p></td>
+                <td><p>Fecha creación pedido: </p></td>
+                <td><p><input type="number" name="fecha_creación_pedido" size="30"></p></td>
               </tr>
               <tr>
-                <td><p>Detalle: </p></td>
-                <td><p><input type="text" name="detalle" size="30"></p></td>
+                <td><p>Fecha de Embalaje: </p></td>
+                <td><p><input type="text" name="fecha_de_embalaje" size="30"></p></td>
               </tr>
               <tr>
-                <td><p>Fecha de Pago: </p></td>
-                <td><p><input type="date" name="fecha_de_pago" size="30"></p></td>
+                <td><p>Fecha de despacho: </p></td>
+                <td><p><input type="date" name="fecha_de_despacho" size="30"></p></td>
               </tr>
               <tr>
-                <td><p>Fecha de Pago Futura:&emsp;&emsp;</p></td>
-                <td><p><input type="date" name="fecha_de_pago_futura" size="30"></p></td>
+                <td><p>Ruta:&emsp;&emsp;</p></td>
+                <td><p><input type="date" name="ruta" size="30"></p></td>
               </tr>
               <tr>
-                <td><p>Responsable: </p></td>
-                <td><p><input type="text" name="responsable" size="30"></p></td>
+                <td><p>Ubicación: </p></td>
+                <td><p><input type="text" name="ubicación" size="30"></p></td>
+              </tr>
+              <tr>
+                <td><p>Recepción: </p></td>
+                <td><p><input type="text" name="recepcion" size="30"></p></td>
               </tr>
             </table>
           </div>
