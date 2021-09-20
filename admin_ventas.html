@@ -24,16 +24,18 @@
 
         <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
           <ul class="list-unstyled ps-0">
+            
             <li class="mb-1">
               <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
                 Gestión de la Información de Ventas
               </button>
               <div class="collapse show" id="home-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="#" class="link-dark rounded">Ingresar Pedido</a></li>
+                  <li><a href="admin_ventas.html" class="link-dark rounded">Ingresar Pedido</a></li>
                 </ul>
               </div>
             </li>
+            <li class="border-top my-3"></li>
             <li class="mb-1">
               <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
                 Maestro de Estados de Ventas
@@ -44,6 +46,7 @@
                 </ul>
               </div>
             </li>
+            <li class="border-top my-3"></li>
             <li class="mb-1">
               <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
                 Gestión de la Información de los Vendedores
@@ -71,17 +74,38 @@
         <div class="b-example-divider"></div>
 
         <div class="jm_contenedor_principal">
-            <div class="jm_contenedor_interno">
-                <div class="jm_titulo">.</div>
-                <div class = "jm_contenedor_secundario">
-                    <p>BIENVENIDO</p>
-                    <br>
-                    <br>
-                    <p><b>MODULO DE ADMINISTRADOR DE VENTAS</b></p>
-                </div>
-            </div>
+          <div class="jm_titulo">GESTION DE LA INFORMACION DE VENTAS</div>
+          <div class="jm_subtitulo">INGRESAR PEDIDO</div>
+          <div class="jm_subtitulo2">INGRESE LA INFORMACIÓN DEL PEDIDO</div>
+          <div class=jm_formulario>
+            <table>
+              <tr>
+                <td><p>Venta ID:</p></td>
+                <td><p><input type="text" name="venta_id" size="50"></p></td>
+              </tr>
+              <tr>
+                <td><p>Venta Total:</p></td>
+                <td><p><input type="number" name="venta_total" size="50"></p></td>
+              </tr>
+              <tr>
+                <td><p>Detalle:</p></td>
+                <td><p><input type="text" name="detalle" size="50"></p></td>
+              </tr>
+              <tr>
+                <td><p>Fecha de Pago:</p></td>
+                <td><p><input type="date" name="fecha_de_pago" size="50"></p></td>
+              </tr>
+              <tr>
+                <td><p>Fecha de Pago Futura:</p></td>
+                <td><p><input type="date" name="fecha_de_pago_futura" size="50"></p></td>
+              </tr>
+              <tr>
+                <td><p>Responsable:</p></td>
+                <td><p><input type="text" name="responsable" size="50"></p></td>
+              </tr>
+            </table>
+          </div>
         </div>
-
       </main>
       
       <script src="js/bootstrap.bundle.min.js"></script>

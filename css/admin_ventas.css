@@ -24,27 +24,34 @@ body {
 .jm_contenedor_principal {
   width: 90%;
   height: 500px;
-  padding: 2% 10%;
-  display: flex;
 	max-width: 75rem;
   max-height: 75rem;
 }
 
-.jm_contenedor_interno {
-  width: 90%;
-  margin: 20px;
-}
-
 .jm_titulo {
   background-color: var(--blue-bg);
-  padding: 3%;
+  padding: 2%;
   color: var(--light-bg);
+  text-align:center;
+  font-weight: bold;
 }
 
-.jm_contenedor_secundario {
-  width: 90%;
-  margin: 20px;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  text-align:center;
+.jm_subtitulo {
+  padding: 2%;
+  color: var(--dark-bg);
+  font-weight: bold;
+  margin: 2%;
+}
+
+.jm_subtitulo2 {
+  padding: 2%;
+  background-color: var(--dark-bg);
+  color: var(--light-bg);
+  font-weight: bold;
+  margin: 2%;
+}
+
+.jm_formulario {
+  padding-left: 10%;
+  text-align:left;
 }
