@@ -84,11 +84,11 @@
       
         <div class="b-example-divider"></div>
 
-        <div class="jm_contenedor_principal">
-          <div class="jm_titulo">REGISTRO DE ESTADO DE VENTAS</div>
+        <div class="l_contenedor_principal">
+          <div class="l_titulo">REGISTRO DE ESTADO DE VENTAS</div>
           
-          <div class="jm_subtitulo2">INGRESE ESTADO DE LA VENTA</div>
-          <div class=jm_formulario>
+          <div class="l_subtitulo2">INGRESE ESTADO DE LA VENTA</div>
+          <form id="l_formulario" method="POST" action="data.php">
             <table>
               <tr>
                 <td><p>Venta ID:</p></td>
@@ -107,19 +107,27 @@
                 <td><p><input type="date" name="fecha_de_despacho" size="30"></p></td>
               </tr>
               <tr>
-                <td><p>Ruta;</p></td>
-                <td><p><input type="text" name="ruta" size="30"></p></td>
+                <td><p>Ruta:</p></td>                
+                <td><p><select id="ruta">
+                  <option value="norte">Norte</option>
+                  <option value="oriente">Oriente</option>
+                  <option value="sur">Sur</option>
+                  <option value="occidente">Occidente</option>
+                </select></p></td>              
               </tr>
               <tr>
                 <td><p>Ubicación: </p></td>
-                <td><p><input type="text" name="ubicación" size="30"></p></td>
+                <td><p><input type="url" name="ubicación" size="30"></p></td>
               </tr>
               <tr>
                 <td><p>Recepción: </p></td>
-                <td><p><input type="text" name="recepcion" size="30"></p></td>
+                <td><p><select id="recepcion">
+                  <option value="en_transito">En Transito</option>
+                  <option value="entregado">Entregado</option>
+                </select></p></td>
               </tr>
             </table>
-          </div>
+          </form>
         </div>
         
       </main>

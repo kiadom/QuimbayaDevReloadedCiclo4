@@ -17,18 +17,19 @@ body {
   background-position: bottom;
   background-size: contain;
   background-color: var(--light-bg);
-  height: 100vh;
+  
   overflow: auto;
 }
 
-.jm_contenedor_principal {
+.l_contenedor_principal {
   width: 90%;
-  height: 500px;
+  height: 300px;
+  
 	max-width: 75rem;
-  max-height: 75rem;
+  
 }
 
-.jm_titulo {
+.l_titulo {
   background-color: var(--blue-bg);
   padding: 2%;
   color: var(--light-bg);
@@ -36,14 +37,14 @@ body {
   font-weight: bold;
 }
 
-.jm_subtitulo {
+.l_subtitulo {
   padding: 2%;
   color: var(--dark-bg);
   font-weight: bold;
   margin: 2%;
 }
 
-.jm_subtitulo2 {
+.l_subtitulo2 {
   padding: 2%;
   background-color: var(--dark-bg);
   color: var(--light-bg);
@@ -51,13 +52,19 @@ body {
   margin: 2%;
 }
 
-.jm_formulario {
+#l_formulario {
   padding-left: 10%;
   text-align:left;
 }
 
+#ruta{
+  float: right;
+}
+#recepcion{
+  float: right;
+}
+
 input{
-  background-color: aquamarine;
   float: right;
   margin-left: 50px;
 }
@@ -67,7 +74,6 @@ input{
 }
 
 .piedepagina{
-  background-color: #393E46;
   background-image: url('../images/footerlogin.png');
   background-repeat: no-repeat;
   width: 100%;
