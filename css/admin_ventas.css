@@ -53,7 +53,8 @@ body {
 }
 
 #jm_formulario {
-  padding-left: 10%;
+  background-color: aquamarine;
+  padding-left: 50px;
   text-align:left;
 }
 
