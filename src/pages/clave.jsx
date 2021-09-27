@@ -1,5 +1,9 @@
-function clave_page(){
-    return <div>Esta es la pagina de clave</div>
+function ClavePage(){
+    return (
+        <div>
+            Esta es la pagina de clave
+        </div>
+    )
 }
 
-export default clave_page;
+export default ClavePage;

@@ -1,5 +1,9 @@
-function entrada_page(){
-    return <div>Esta es la pagina de entrada</div>
+function EntradaPage(){
+    return (
+        <div>
+            Esta es la pagina de entrada
+        </div>
+    )
 }
 
-export default entrada_page;
+export default EntradaPage;

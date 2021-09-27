@@ -1,15 +1,50 @@
 import Index from './pages';
-import admin_usuarios_page from './pages/admin_usuarios';
-import admin_vendedores_page from './pages/admin_vendedores';
-import admin_ventas_page from './pages/admin_ventas';
-import clave_page from './pages/clave';
-import entrada_page from './pages/entrada';
-import registro_estado_ventas_page from './pages/registro_estado_ventas';
+import AdminUsuariosPage from './pages/admin_usuarios';
+import AdminVendedoresPage from './pages/admin_vendedores';
+import AdminVentasPage from './pages/admin_ventas';
+import ClavePage from './pages/clave';
+import EntradaPage from './pages/entrada';
+import RegistroEstadoVentasPage from './pages/registro_estado_ventas';
 
 import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import './styles/modulos.css';
 import React from "react";
 
+function App() {
+  return (
+    <div className='App'>
+      <Router>
+        <Switch>
+          <Route path = '/admin_usuarios'>
+            <AdminUsuariosPage />
+          </Route>
+          <Route path = '/admin_vendedor'>
+            <AdminVendedoresPage />
+          </Route>
+          <Route path = '/admin_ventas'>
+            <AdminVentasPage />
+          </Route>
+          <Route path = '/clave'>
+            <ClavePage />
+          </Route>
+          <Route path = '/entrada'>
+            <EntradaPage />
+          </Route>
+          <Route path = '/registro_estado_ventas'>
+            <RegistroEstadoVentasPage />
+          </Route>
+          <Route path = '/'>
+            <Index />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
+  );
+}
+
+export default App; 
+
+/*
 function App() {
   return (
     <div className='App'>
@@ -43,3 +78,4 @@ function App() {
 }
 
 export default App; 
+*/
