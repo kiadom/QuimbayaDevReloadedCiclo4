@@ -1,7 +1,10 @@
+import logoheader from '../images/logoheader.png';
+import footerloginV2 from '../images/footerloginV2.png';
+
 function AdminUsuariosPage(){
     return (
         <div>
-            Esta es la pagina de administracion de usuarios
+            
             <div class="wrapper">
                 <div class="sidebar">
                     <div class="EncabezadoModulo">
@@ -39,7 +42,7 @@ function AdminUsuariosPage(){
                         </div>
 
                         <div class="iconCompany">
-                            <img src= "images\logoheader.png" alt="logo header" height="50px"/> 
+                            <img src= {logoheader} alt="logo header" height="50px"/> 
                         </div>
                     </div>
 
@@ -55,24 +58,14 @@ function AdminUsuariosPage(){
                                         <td>ID del Usuario:</td>
                                         <td><input type="text" name="id_usuario"/></td>
                                     </tr>
-                                    <tr>
-                                        <td><a href="#"><input class="botons" type="reset" value="Borrar ID"/></a></td>
-                                        <td><a href="#"><input class="botons" type="submit" value="Buscar Usuario"/></a></td>
-                                    </tr>
-                                </table>
-                            </form>
-                        </div>
 
-                        <div class="rp_formulario2">
-                            <form action="">
-                                <table class="tabla2">
                                     <tr>
                                         <td>Gestion de Informacion de Ventas</td>
                                         <td><input type="radio" name="gestion_informacion_ventas"/>Si
                                             <input type="radio" name="gestion_informacion_ventas"/>No
                                         </td>
                                     </tr>
-
+                                    
                                     <tr>
                                         <td>Maestro Estados de Ventas</td>
                                         <td><input type="radio" name="maestro_estados_ventas"/>Si
@@ -86,7 +79,7 @@ function AdminUsuariosPage(){
                                             <input type="radio" name="informacion_vendedores"/>No
                                         </td>
                                     </tr>
-                                    
+
                                     <tr>
                                         <td>Gestion de Usuarios y Roles</td>
                                         <td><input type="radio" name="roles_y_usuarios"/>Si
@@ -94,15 +87,22 @@ function AdminUsuariosPage(){
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td><a href="#"><input class="botons" type="reset" value="Borrar ID"/></a></td>
+                                        <td><a href="#"><input class="botons" type="submit" value="Buscar Usuario"/></a></td>
+                                    </tr>
                                 </table>
-
                             </form>
-
                         </div>
-
                     </div>
-
                 </div>
+
+                <footer>
+                    <div class="footer">
+                        <img src= {footerloginV2} alt="footer" height="50px"/>
+                    </div>
+                </footer>
+                
             </div>
 
         </div>
