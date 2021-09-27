@@ -1,0 +1,172 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+:root {
+  --light-bg: #eeeeee;
+  --dark-bg: #222831;
+  --grey-bg: #393E46;
+  --blue-bg: #00ADB5;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-image: url('../images/plantilla-login-.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--light-bg);
+  height: 90vh;
+  overflow: auto;
+}
+
+.contenedor {
+  width: 25em;
+  margin: 5em auto;
+  border-radius: 10px;
+  overflow: auto;
+  background-color: var(--light-bg);
+  display: flex;
+  justify-content: space-between;
+}
+
+.contenedor-login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+} 
+
+.contenedor-logo{
+  box-sizing: border-box;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+
+.logo {
+  width: 12.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-info {
+  width: 85%;
+  height: 11em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.input, .boton {
+  width: 90%;
+  height: 3.125rem;
+  font-size: 1em;
+}
+
+.input {
+  padding-left: 50px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+}
+
+.input:hover {
+  border: 2px solid var(--grey-bg);
+}
+
+.boton {
+  width: 80%;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--light-bg);
+  border: none;
+  border-radius: 5px;
+  background-color: var(--grey-bg);
+  cursor: pointer;
+}
+
+.boton:hover {
+  border: 2px solid var(--blue-bg);
+}
+
+#user{
+  background: center/9% url('../images/user.png'); 
+  background-repeat: no-repeat; 
+  background-position: 1em;
+  background-color: var(--blue-bg);
+  }
+
+#password{
+  background: center/9% url('../images/padlock.png'); 
+  background-repeat: no-repeat; 
+  background-position: 1em;
+  background-color: var(--blue-bg);  
+  }
+
+div.contenedor {
+  position: fixed;
+  right: 10%;
+}
+
+::placeholder{
+  color: var(--light-bg);
+}
+
+.contenedor-info-pass {
+  width: 85%;
+  height: 15em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.input-pass{
+  padding-left: 15px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+  width: 90%;
+  height: 3.125rem;
+  font-size: 1em;
+}
+
+#password-old, #password-new, #password-copy{
+  background-color: var(--blue-bg);  
+  }
+
+@media screen and (max-width: 1000px) {
+  .contenedor {
+      display:flex;
+  }
+
+  div.contenedor{
+    position: relative;
+    right: 0%;
+  }
+
+  body{
+    height: 100vh;
+    background-size:auto;
+  }
+}
+ 
+@media screen and (max-width: 500px) {
+  .contenedor {
+      width: 20em;
+      left: 1%;
+
+  }
+  div.contenedor{
+    position: fixed;
+  }
+}
