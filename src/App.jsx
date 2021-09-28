@@ -10,6 +10,10 @@ import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import './styles/modulos.css';
 import React from "react";
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faHome, faSearchDollar, faThermometerThreeQuarters, faIdCard, faUsersCog, faHamburger  } from "@fortawesome/free-solid-svg-icons";
+library.add(faHome, faSearchDollar, faThermometerThreeQuarters, faIdCard, faUsersCog, faHamburger);
+
 function App() {
   return (
     <div className='App'>

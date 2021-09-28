@@ -6,6 +6,12 @@ import Sidebar from "../components/Sidebar";
 
 import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faHome, faSearchDollar, faThermometerThreeQuarters, faIdCard, faUsersCog, faSignOutAlt, faBars  } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+library.add(faHome, faSearchDollar, faThermometerThreeQuarters, faIdCard, faUsersCog, faSignOutAlt, faBars);
+
+
 function AdminUsuariosPage(){
     return (
         <div>
@@ -14,7 +20,7 @@ function AdminUsuariosPage(){
                 <div className="sidebar">
                     
                     <div className="EncabezadoModulo">
-                        
+                        <FontAwesomeIcon icon={faUsersCog} size="5x" color='#00ADB5'/> 
                         <span className="icon"><i className="fas fa-users-cog fa-5x"></i></span>
                         <h3>GESTION DE USUARIOS Y ROLES</h3>
                     </div>
