@@ -27,7 +27,6 @@ function AdminUsuariosPage(){
                     <Sidebar />               
                 </div>
                
-
                 <div className="principal">
                     <Header />
 
@@ -88,6 +87,9 @@ function AdminUsuariosPage(){
                 <Footer/>
                 
             </div>
+
+            {/*Activacion de la hamburguesa*/}
+            <script src="js/hamburguesa.js"></script> */
 
         </div>
     );
