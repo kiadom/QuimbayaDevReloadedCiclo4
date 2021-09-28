@@ -3,12 +3,6 @@ import footerloginV2 from '../images/footerloginV2.png';
 import Footer from "../components/Footer";
 import Header from '../components/Header';
 import Sidebar from "../components/Sidebar";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faUsersCog } from '@fortawesome/free-solid-svg-icons';
-
-
-
-
 
 import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
@@ -20,7 +14,7 @@ function AdminUsuariosPage(){
                 <div className="sidebar">
                     
                     <div className="EncabezadoModulo">
-                        <FontAwesomeIcon icon={faUsersCog}/>
+                        
                         <span className="icon"><i className="fas fa-users-cog fa-5x"></i></span>
                         <h3>GESTION DE USUARIOS Y ROLES</h3>
                     </div>
@@ -77,7 +71,7 @@ function AdminUsuariosPage(){
 
                                     <tr>
                                         <td><a href="#"><input className="botons" type="reset" value="Borrar ID"/></a></td>
-                                        <td><a href="#"><input className="botons" type="submit" value="Buscar Usuario"/></a></td>
+                                        <td><a href="#"><input className="botons" type="submit" value="Actualizar Usuario"/></a></td>
                                     </tr>
                                 </table>
                             </form>
@@ -93,11 +87,6 @@ function AdminUsuariosPage(){
     );
 }
 
-function funcionuno(){
-    return(
-        <div>hola, este es mi primer componente</div>
-    );
-}
 
 export default AdminUsuariosPage;
 
