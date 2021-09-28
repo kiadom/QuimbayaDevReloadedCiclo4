@@ -1,26 +1,22 @@
-import Footer from "../components/Footer";
-import Header from '../components/Header';
 import Sidebar from "../components/Sidebar";
 
-function AdminVentasPage(){
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faHome, faSearchDollar, faThermometerThreeQuarters, faIdCard, faUsersCog, faSignOutAlt, faBars  } from "@fortawesome/free-solid-svg-icons";
+library.add(faHome, faSearchDollar, faThermometerThreeQuarters, faIdCard, faUsersCog, faSignOutAlt, faBars);
+
+const AdminVentasPage = () => {
     return (
         <div>
             <div className="wrapper">
-                <div className="sidebar">
-                    <div className="EncabezadoModulo">
-                        <span className="icon"><i className="fas fa-search-dollar fa-5x"></i></span>
-                        <h3>GESTION DE LA INFORMACION DE VENTAS</h3>
-                    </div>
-                    <Sidebar />
-                </div>
-                <div className="principal">
-                    <Header />
+                <Sidebar icono = {faSearchDollar} titulo = 'GESTION DE LA INFORMACION DE VENTAS'/>
 
+                <div className="principal">
                     <div className="Menu">
                         <div className="rp_titulo">GESTION DE LA INFORMACION DE VENTAS</div>
                         <div className="rp_subtitulo">INGRESE LA INFORMACION DEL PEDIDO</div>
                         
-                        <form className="rp_formulario1" id="formulario" method="POST" action="data.php">
+                        <div className="rp_formulario1">
+                            <form action="">
                             <table className="tabla">
                                 <tr>
                                     <td><p>Venta ID:</p></td>
@@ -47,23 +43,19 @@ function AdminVentasPage(){
                                     <td><p><input className="input" type="text" id="responsable" name="responsable" size="30"/></p></td>
                                 </tr>
                                 <tr>
-                                    <td><br/></td>
-                                    <td><br/></td>
-                                </tr>
-                                <tr>
                                     <td></td>
                                     <td>
                                         <button className="boton" type="button" onclick="ingresarPedido()">Ingresar Pedido</button>
                                     </td>
                                 </tr>
-                            </table>
-                        </form>
-                        <Footer />
+                                </table>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default AdminVentasPage;

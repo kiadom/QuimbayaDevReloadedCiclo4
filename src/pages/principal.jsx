@@ -4,12 +4,12 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faHome, faSearchDollar, faThermometerThreeQuarters, faIdCard, faUsersCog, faSignOutAlt, faBars  } from "@fortawesome/free-solid-svg-icons";
 library.add(faHome, faSearchDollar, faThermometerThreeQuarters, faIdCard, faUsersCog, faSignOutAlt, faBars);
 
-const Index = () => {
+const Principal = () => {
     return (
         <div>
-            Esta es la pagina Index
+            Esta es la pagina principal
         </div>
     )
 };
 
-export default Index;
+export default Principal;
