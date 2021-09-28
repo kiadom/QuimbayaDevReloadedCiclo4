@@ -1,5 +1,14 @@
 import logoheader from '../images/logoheader.png';
 import footerloginV2 from '../images/footerloginV2.png';
+import Footer from "../components/Footer";
+import Header from '../components/Header';
+import Sidebar from "../components/Sidebar";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faUsersCog } from '@fortawesome/free-solid-svg-icons';
+
+
+
+
 
 import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
@@ -9,59 +18,18 @@ function AdminUsuariosPage(){
             
             <div className="wrapper">
                 <div className="sidebar">
+                    
                     <div className="EncabezadoModulo">
+                        <FontAwesomeIcon icon={faUsersCog}/>
                         <span className="icon"><i className="fas fa-users-cog fa-5x"></i></span>
                         <h3>GESTION DE USUARIOS Y ROLES</h3>
                     </div>
-
-                    <ul>
-                        <li><a href="principal.html" >
-                            <span className="icon"><i className="fas fa-home"></i></span>
-                            <span className="item"></span>Inicio</a></li>
-                            <li title="Registrar Pedidos Realizados por los Clientes">
-                            <Link to = '/admin_ventas'>
-                                <span className="icon"><i className="fas fa-search-dollar"></i></span>
-                                <span className="item"></span>Informacion de Ventas
-                            </Link>
-                        </li>
-                        <li title="Establecer el Estado Actual de una Venta">
-                            <Link to = '/registro_estado_ventas'>
-                                <span className="icon"><i className="fas fa-thermometer-three-quarters"></i></span>
-                                <span className="item"></span>Estados de Ventas
-                            </Link>
-                        </li>
-                        <li title="Ingresar Información de un Vendedor">
-                            <Link to = '/admin_vendedores'>
-                                <span className="icon"><i className="fas fa-id-card"></i></span>
-                                <span className="item"></span>Información de Vendedores
-                            </Link>
-                        </li>
-                        <li title="Restringir y Otorgar Accesos al Sistema">
-                            <Link to = '/admin_usuarios'>
-                                <span className="icon"><i className="fas fa-users-cog"></i></span>
-                                <span className="item"></span>Gestión de Usuarios y Roles
-                            </Link>
-                        </li>
-                        <li title="Salir del Sistema">
-                            <Link to = '/'>
-                                <span className="icon"><i className="fas fa-sign-out-alt"></i></span>
-                                <span className="item"></span>Salir
-                            </Link>
-                        </li>
-                    </ul>
-                   
+                    <Sidebar />               
                 </div>
+               
 
                 <div className="principal">
-                    <div className="topNavBar">
-                        <div className="hamburger">
-                            <a href="#"><i className="fas fa-bars"></i></a>
-                        </div>
-
-                        <div className="iconCompany">
-                            <img src= {logoheader} alt="logo header" height="50px"/> 
-                        </div>
-                    </div>
+                    <Header />
 
                     <div className="Menu">
                         <div className="rp_titulo">GESTION DE USUARIOS Y ROLES</div>
@@ -91,7 +59,10 @@ function AdminUsuariosPage(){
                                     </tr>
 
                                     <tr>
-                                        <td>Gestion de Información de Vendedores</td>
+                                        <td>Gestion de Información de Vendedores
+                                        <funcionuno />
+                                        </td>
+
                                         <td><input type="radio" name="informacion_vendedores"/>Si
                                             <input type="radio" name="informacion_vendedores"/>No
                                         </td>
@@ -114,17 +85,19 @@ function AdminUsuariosPage(){
                     </div>
                 </div>
 
-                <footer>
-                    <div className="footer">
-                        <img src= {footerloginV2} alt="footer" height="50px"/>
-                        <img src= {footerloginV2} alt="footer" height="50px"/>
-                    </div>
-                </footer>
+                <Footer/>
                 
             </div>
 
         </div>
-    )
+    );
+}
+
+function funcionuno(){
+    return(
+        <div>hola, este es mi primer componente</div>
+    );
 }
 
 export default AdminUsuariosPage;
+
