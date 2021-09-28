@@ -10,7 +10,6 @@ import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import './styles/modulos.css';
 import React from "react";
 
-
 function App() {
   return (
     <div className='App'>

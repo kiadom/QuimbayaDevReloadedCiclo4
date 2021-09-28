@@ -1,50 +1,20 @@
-import logoheader from '../images/logoheader.png';
-import footerloginV2 from '../images/footerloginV2.png';
+import Footer from "../components/Footer";
+import Header from '../components/Header';
+import Sidebar from "../components/Sidebar";
 
 function AdminVentasPage(){
     return (
         <div>
             <div className="wrapper">
                 <div className="sidebar">
-
                     <div className="EncabezadoModulo">
                         <span className="icon"><i className="fas fa-search-dollar fa-5x"></i></span>
                         <h3>GESTION DE LA INFORMACION DE VENTAS</h3>
                     </div>
-
-                    <ul>
-                        <li><a href="principal.html" >
-                            <span className="icon"><i className="fas fa-home"></i></span>
-                            <span className="item"></span>Inicio</a></li>
-                        <li title="Registrar Pedidos Realizados por los Clientes"><a href="admin_ventas.html">
-                            <span className="icon"><i className="fas fa-search-dollar"></i></span>
-                            <span className="item"></span>Informacion de Ventas</a></li>
-                        <li title="Establecer el Estado Actual de una Venta"><a href="registro_estado_ventas.html">
-                            <span className="icon"><i className="fas fa-thermometer-three-quarters"></i></span>
-                            <span className="item"></span>Estados de Ventas</a></li>
-                        <li title="Ingresar Información de un Vendedor"><a href="admin_vendedores.html">
-                            <span className="icon"><i className="fas fa-id-card"></i></span>
-                            <span className="item"></span>Información de Vendedores</a></li>
-                        <li title="Restringir y Otorgar Accesos al Sistema"> <a href="admin_usuarios.html">
-                            <span className="icon"><i className="fas fa-users-cog"></i></span>
-                            <span className="item"></span>Gestión de Usuarios y Roles</a></li>
-                        <li  title="Salir del Sistema"><a href="">
-                            <span className="icon"><i className="fas fa-sign-out-alt"></i></span>
-                            <span className="item"></span>Salir</a></li>
-                    </ul>
-
+                    <Sidebar />
                 </div>
-                
                 <div className="principal">
-                    <div className="topNavBar">
-                        <div className="hamburger">
-                            <a href="#"><i className="fas fa-bars"></i></a>
-                        </div>
-                        
-                        <div className="iconCompany">
-                            <img src= {logoheader} alt="logo header" height="50px"/>
-                        </div>
-                    </div>
+                    <Header />
 
                     <div className="Menu">
                         <div className="rp_titulo">GESTION DE LA INFORMACION DE VENTAS</div>
@@ -88,13 +58,7 @@ function AdminVentasPage(){
                                 </tr>
                             </table>
                         </form>
-
-                        <footer>
-                            <div className="footer">
-                                <img src= {footerloginV2} alt="footer" height="50px"/>
-                                <img src= {footerloginV2} alt="footer" height="50px"/>
-                            </div>
-                        </footer>
+                        <Footer />
                     </div>
                 </div>
             </div>
