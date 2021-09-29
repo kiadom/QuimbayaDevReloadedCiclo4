@@ -1,4 +1,4 @@
-import Sidebar from "../components/Sidebar";
+import logologin from '../images/logologin.png';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faHome, faSearchDollar, faThermometerThreeQuarters, faIdCard, faUsersCog, faSignOutAlt, faBars  } from "@fortawesome/free-solid-svg-icons";
@@ -6,9 +6,20 @@ library.add(faHome, faSearchDollar, faThermometerThreeQuarters, faIdCard, faUser
 
 const Index = () => {
     return (
-        <div>
-            Esta es la pagina Index
-        </div>
+        <body className = 'bodyAuth'>
+            <div class="contenedor">
+                <div class="contenedor-login">
+                    <div class="contenedor-logo">
+                        <img class="logo" src={logologin} alt=""/>
+                    </div>
+                    <form>
+                        <input class="input" id="user" name='user' type="text" placeholder="Usuario" required/>
+                        <input class="input" id="password" name='password' type="password" placeholder="Contraseña" required/>
+                        <button class="boton" type="submit" onclick="obtenerdatos()">Ingresar</button>
+                    </form>
+                </div>
+            </div>
+        </body>
     )
 };
 

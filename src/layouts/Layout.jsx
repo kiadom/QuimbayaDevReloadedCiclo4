@@ -4,13 +4,13 @@ import Sidebar from "../components/Sidebar"
 
 const Layout = ({children}) => {
     return (
-        <div className = 'mainContainer'>
+        <div>
             <Sidebar/>
             <Header/>
             <main>{children}</main>
             <Footer/>
         </div>
     )
-}
+};
 
-export default Layout
+export default Layout;

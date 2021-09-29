@@ -1,8 +1,8 @@
 import footerloginV2 from '../images/footerloginV2.png';
 
-const Footer = () => {
+const FooterFull = () => {
     return (
-        <div className="wrapper">
+        <div>
             <footer className="principal">
                 <div className="footer">
                     <img src= {footerloginV2} alt="footer" height="60px"/>
@@ -12,4 +12,4 @@ const Footer = () => {
     )
 }
 
-export default Footer
+export default FooterFull

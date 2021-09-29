@@ -7,9 +7,12 @@ library.add(faHome, faSearchDollar, faThermometerThreeQuarters, faIdCard, faUser
 const AdminVendedoresPage = () => {
     return (
         <div>
-            Esta es la pagina de administracion de vendedores
+            <div classNameName="wrapper">
+                <Sidebar icono = {faIdCard} titulo = 'GESTION DE INFORMACION DE VENDEDORES'/>
+
+            </div>
         </div>
-    )
+    );
 };
 
 export default AdminVendedoresPage;

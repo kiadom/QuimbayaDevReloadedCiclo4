@@ -14,9 +14,11 @@ const Sidebar = (props) => {
                     <h3>{props.titulo}</h3>
                 </div>
                 <ul>
-                    <li><a href="principal.html" >
+                    <li><Link to = '/principal'>
                         <FontAwesomeIcon icon={faHome}/>
-                        <span className="item"></span>  Inicio</a></li>
+                        <span className="item"></span>  Inicio
+                        </Link>
+                    </li>
                     <li title="Registrar Pedidos Realizados por los Clientes">
                         <Link to = '/admin_ventas'>
                         <FontAwesomeIcon icon={faSearchDollar}/>

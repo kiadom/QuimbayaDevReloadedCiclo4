@@ -8,9 +8,12 @@ library.add(faHome, faSearchDollar, faThermometerThreeQuarters, faIdCard, faUser
 const RegistroEstadoVentasPage = () => {
     return (
         <div>
-            Esta es la pagina de registro de estado de ventas
+            <div classNameName="wrapper">
+                <Sidebar icono = {faThermometerThreeQuarters} titulo = 'MAESTRO DE ESTADOS DE VENTAS'/>
+
+            </div>
         </div>
-    )
+    );
 };
 
 export default RegistroEstadoVentasPage;
