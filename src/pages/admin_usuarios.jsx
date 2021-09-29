@@ -8,7 +8,6 @@ const AdminUsuariosPage = () => {
     return (
         <div>
             <div className="wrapper">
-<<<<<<< HEAD
                 <div className="sidebar">
                     
                     <div className="EncabezadoModulo">
@@ -19,10 +18,6 @@ const AdminUsuariosPage = () => {
                     <Sidebar />               
                 </div>
                
-=======
-                    <Sidebar icono = {faUsersCog} titulo = 'GESTION DE USUARIOS Y ROLES'/>
-
->>>>>>> main
                 <div className="principal">
                     <div className="Menu">
                         <div className="rp_titulo">GESTION DE USUARIOS Y ROLES</div>
@@ -63,13 +58,6 @@ const AdminUsuariosPage = () => {
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-
-            {/*Activacion de la hamburguesa*/}
-            <script src="js/hamburguesa.js"></script> */
-
-=======
->>>>>>> main
         </div>
     );
 };
