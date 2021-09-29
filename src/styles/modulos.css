@@ -27,6 +27,22 @@ body{
     background: #999a9b;
 }
 
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.mainContainer > main{
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.mainContainer > footer{
+    padding: 10px;
+}
+
 .wrapper .sidebar{
     background: #ffffff ;
     position:fixed;
@@ -166,7 +182,7 @@ body.active .wrapper .principal{
 
 
 .boton {
-  width: 80%;
+  width: 200px;
   height: 3.125rem;
   font-size: 1em;
   letter-spacing: 1px;
@@ -183,13 +199,10 @@ body.active .wrapper .principal{
 }
 
 .tabla{
-    height: 25em;
-    display: flex;
-    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     border-collapse: separate;
-    border-spacing: 20px 20px;
+    border-spacing: 80px 20px;
     font-weight: 600;
 }
 
@@ -204,6 +217,12 @@ body.active .wrapper .principal{
     letter-spacing: 1px;
     box-sizing: border-box;
   }
+
+.espacios {
+    
+    }
+
+
 
 .select{
     display: block;

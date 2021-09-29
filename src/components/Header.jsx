@@ -8,18 +8,20 @@ library.add(faHome, faSearchDollar, faThermometerThreeQuarters, faIdCard, faUser
 
 const Header = () => {
     return(
-        <header>
+        <div className="wrapper">
+            <header className="principal">
             <div className="topNavBar">
                 <div className="hamburger">
                     <FontAwesomeIcon icon={faBars}/> 
                     <a href="#"><i className="fas fa-bars"></i></a>
                 </div>
-                        
+
                 <div className="iconCompany">
                     <img src= {logoheader} alt="logo header" height="50px"/>
                 </div>
             </div>
-        </header>
+            </header>
+        </div>
     )
 };
 
