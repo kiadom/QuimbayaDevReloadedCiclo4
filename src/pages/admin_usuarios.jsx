@@ -22,41 +22,27 @@ const AdminUsuariosPage = () => {
                                         <td>ID del Usuario:</td>
                                         <td><input className="input" type="text" name="id_usuario"/></td>
                                     </tr>
-
+                                </table>
+                                <table className="tabla">
                                     <tr>
-                                        <td>Gestion de Informacion de Ventas</td>
-                                        <td><input type="radio" name="gestion_informacion_ventas"/>Si
-                                            <input type="radio" name="gestion_informacion_ventas"/>No
-                                        </td>
+                                        <td>Rol Autorizado</td>
+                                        <td><input type="radio" name="Administrador"/>  Administrador</td>             
+                                        <td><input type="radio" name="Vendedor"/>  Vendedor</td>
                                     </tr>
-                                    
+                                </table>
+                                <table className="tabla">    
                                     <tr>
-                                        <td>Maestro Estados de Ventas</td>
-                                        <td><input type="radio" name="maestro_estados_ventas"/>Si
-                                            <input type="radio" name="maestro_estados_ventas"/>No
-                                        </td>
+                                        <td>Estado Usuario</td>
+                                        <td><input type="radio" name="pendiente"/>  Pendiente</td>     
+                                        <td><input type="radio" name="autorizado"/>  Autorizado</td>
+                                        <td><input type="radio" name="no_autorizado"/>  No Autorizado</td>
                                     </tr>
-
+                                </table>
+                                <table className="tabla">
                                     <tr>
-                                        <td>Gestion de Información de Vendedores
-                                        <funcionuno />
-                                        </td>
-
-                                        <td><input type="radio" name="informacion_vendedores"/>Si
-                                            <input type="radio" name="informacion_vendedores"/>No
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Gestion de Usuarios y Roles</td>
-                                        <td><input type="radio" name="roles_y_usuarios"/>Si
-                                            <input type="radio" name="roles_y_usuarios"/>No
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td><a href="#"><input className="boton" type="reset" value="Borrar ID"/></a></td>
-                                        <td><a href="#"><input className="boton" type="submit" value="Actualizar Usuario"/></a></td>
+                                        <td><a href="#"><input className="boton" type="reset" value="Borrar"/></a></td>
+                                        <td><a href="#"><input className="boton" type="submit" value="Actualizar"/></a></td>
+                                        <td><a href="#"><input className="boton" type="submit" value="Generar Listado"/></a></td>
                                     </tr>
                                 </table>
                             </form>
