@@ -1,4 +1,3 @@
-import Icons from '../components/Icons';
 import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -53,7 +52,7 @@ const Sidebar = (props) => {
                 </ul>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Sidebar

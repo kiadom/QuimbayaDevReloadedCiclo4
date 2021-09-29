@@ -88,6 +88,19 @@ body{
     top:15%;
 }
 
+.wrapperFull .principal .topNavBar{
+    background-color: var(--grey-bg);
+    height: 80px;
+    display :flex;
+    justify-content:space-between;
+    padding: 0 15px;
+}
+
+.wrapperFull .principal .topNavBar .iconCompany img{
+    position:relative;
+    top:15%;
+}
+
 .wrapper .principal .topNavBar .hamburger a{
     font-size: 20px;
     color:var(--light-bg);

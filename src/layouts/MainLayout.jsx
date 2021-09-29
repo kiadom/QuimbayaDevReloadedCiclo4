@@ -3,9 +3,10 @@ import HeaderFull from "../components/HeaderFull"
 
 export const MainLayout = ({children}) => {
     return (
-        <div>
+        <div className = 'mainContainer'>
             <HeaderFull/>
             <main>{children}</main>
+            <FooterFull/>
         </div>
     )
 };

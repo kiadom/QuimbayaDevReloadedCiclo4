@@ -12,13 +12,21 @@
 
   .bodyMain {
     font-family: 'Roboto', sans-serif;
-    background-image: url('../images/footerloginV2.png');  
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: contain;
     background-color: var(--light-bg);
-    height: 100vh;
+    height: 80vh;
     overflow: auto;
+  }
+
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: hidden;
+  }
+
+  .mainContainer > main {
+    height: 100%;
+    overflow-y: scroll;
   }
 
   #grid {

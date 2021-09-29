@@ -13,8 +13,8 @@ const Index = () => {
                         <img class="logo" src={logologin} alt=""/>
                     </div>
                     <form>
-                        <input class="input" id="user" name='user' type="text" placeholder="Usuario" required/>
-                        <input class="input" id="password" name='password' type="password" placeholder="Contraseña" required/>
+                        <input class="input-pass" id="user" name='user' type="text" placeholder="Usuario" required/>
+                        <input class="input-pass" id="password" name='password' type="password" placeholder="Contraseña" required/>
                         <button class="boton" type="submit" onclick="obtenerdatos()">Ingresar</button>
                     </form>
                 </div>

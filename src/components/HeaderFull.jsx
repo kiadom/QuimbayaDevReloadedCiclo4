@@ -8,7 +8,7 @@ library.add(faHome, faSearchDollar, faThermometerThreeQuarters, faIdCard, faUser
 
 const HeaderFull = () => {
     return(
-        <div>
+        <div className="wrapperFull">
             <header className="principal">
             <div className="topNavBar">
                 <div className="hamburger">

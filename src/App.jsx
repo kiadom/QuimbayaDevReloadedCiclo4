@@ -14,7 +14,7 @@ import './styles/style.css';
 import './styles/style2.css';
 import './styles/modulos.css';
 
-import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import React from "react";
 
 function App() {

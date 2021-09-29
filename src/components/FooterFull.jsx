@@ -9,7 +9,7 @@ const FooterFull = () => {
                 </div>
             </footer>
         </div>
-    )
-}
+    );
+};
 
 export default FooterFull

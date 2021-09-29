@@ -4,7 +4,7 @@ import Sidebar from "../components/Sidebar"
 
 const Layout = ({children}) => {
     return (
-        <div>
+        <div className = 'mainContainer'>
             <Sidebar/>
             <Header/>
             <main>{children}</main>
