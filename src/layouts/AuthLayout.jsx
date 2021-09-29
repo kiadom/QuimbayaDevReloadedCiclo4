@@ -1,3 +1,4 @@
+import '../styles/style2.css';
 export const AuthLayout = ({children}) => {
     return (
         <div>

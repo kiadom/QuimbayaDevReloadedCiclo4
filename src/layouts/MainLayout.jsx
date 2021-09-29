@@ -1,5 +1,6 @@
 import FooterFull from "../components/FooterFull"
 import HeaderFull from "../components/HeaderFull"
+import '../styles/style.css';
 
 export const MainLayout = ({children}) => {
     return (

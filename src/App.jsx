@@ -10,9 +10,7 @@ import Layout from './layouts/Layout';
 import MainLayout from './layouts/MainLayout';
 import AuthLayout from './layouts/AuthLayout';
 
-import './styles/style.css';
-import './styles/style2.css';
-import './styles/modulos.css';
+
 
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import React from "react";
