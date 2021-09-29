@@ -182,7 +182,7 @@ body.active .wrapper .principal{
 
 
 .boton {
-  width: 80%;
+  width: 200px;
   height: 3.125rem;
   font-size: 1em;
   letter-spacing: 1px;
@@ -217,6 +217,12 @@ body.active .wrapper .principal{
     letter-spacing: 1px;
     box-sizing: border-box;
   }
+
+.espacios {
+    
+    }
+
+
 
 .select{
     display: block;
