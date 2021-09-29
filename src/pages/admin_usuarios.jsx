@@ -8,16 +8,8 @@ const AdminUsuariosPage = () => {
     return (
         <div>
             <div className="wrapper">
-                <div className="sidebar">
-                    
-                    <div className="EncabezadoModulo">
-                        <FontAwesomeIcon icon={faUsersCog} size="5x" color='#00ADB5'/> 
-                        <span className="icon"><i className="fas fa-users-cog fa-5x"></i></span>
-                        <h3>GESTION DE USUARIOS Y ROLES</h3>
-                    </div>
-                    <Sidebar />               
-                </div>
-               
+                    <Sidebar icono = {faUsersCog} titulo = 'GESTION DE USUARIOS Y ROLES'/>
+
                 <div className="principal">
                     <div className="Menu">
                         <div className="rp_titulo">GESTION DE USUARIOS Y ROLES</div>
