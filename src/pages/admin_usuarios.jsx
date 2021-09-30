@@ -57,7 +57,7 @@ const AdminUsuariosPage = () => {
                                     <tr>
                                         <td><p>Rol Autorizado:</p></td>
                                         <td><p>< select className="select" id="tipo_usuario" 
-                                        name="tipo_usuario" onSelectCapture={entrada}>
+                                        name="tipo_usuario" onChange={entrada}>
                                             <option selected disabled>Seleccione Tipo Usuario</option>
                                             <option value="administrador">Administrador</option>
                                             <option value="vendedor">Vendedor</option>
@@ -75,13 +75,7 @@ const AdminUsuariosPage = () => {
                                         </select></p></td> 
                                     </tr>
 
-                                    <tr>
-                                        <td><p>Fecha de Pago: </p></td>
-                                        <td><p><input className="input" type="date" id="fecha_de_pago" 
-                                        name="fecha_de_pago" size="30" onChange={entrada}/></p></td>
-                                    </tr>
-
-
+                                    
                                     <tr>
                                         <td><a href="#"><input className="boton2" type="reset" 
                                         value="Borrar"/></a></td>
