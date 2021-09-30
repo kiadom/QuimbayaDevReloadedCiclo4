@@ -26,7 +26,12 @@ const AdminVentasPage = () => {
     const enviarDatos = (e) => {
         e.preventDefault();
 
-        alert("Los datos del pedido ingresado son: \nID: "+ datos.venta_id + "\nVenta total: " + datos.venta_total+ "\nDetalle: " + datos.detalle+ "\nFecha de Pago: " + datos.fecha_de_pago+ "\nFecha de Pago Futura: " + datos.fecha_de_pago_futura+ "\nResponsable: " + datos.responsable);
+        alert("Los datos del pedido ingresado son: \nID: "+ datos.venta_id +
+         "\nVenta total: " + datos.venta_total+ 
+         "\nDetalle: " + datos.detalle+ 
+         "\nFecha de Pago: " + datos.fecha_de_pago+ 
+         "\nFecha de Pago Futura: " + datos.fecha_de_pago_futura+ 
+         "\nResponsable: " + datos.responsable);
     }
 
     return (

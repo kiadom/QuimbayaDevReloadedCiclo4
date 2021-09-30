@@ -174,12 +174,8 @@ body.active .wrapper .principal{
 }
 
 
-
-
-
-
 .boton {
-  width: 200px;
+  width: 80%;
   height: 3.125rem;
   font-size: 1em;
   letter-spacing: 1px;
@@ -194,6 +190,26 @@ body.active .wrapper .principal{
 .boton:hover {
   border: 2px solid var(--blue-bg);
 }
+
+
+.boton2 {
+    width:12em;
+    height: 3.125rem;
+    font-size: 1em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--light-bg);
+    border: none;
+    border-radius: 5px;
+    background-color: var(--grey-bg);
+    cursor: pointer;
+  }
+  
+  .boton2:hover {
+    border: 2px solid var(--blue-bg);
+  }
+  
+  
 
 .tabla{
     justify-content: space-around;
