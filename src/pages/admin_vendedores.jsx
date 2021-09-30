@@ -7,7 +7,6 @@ library.add(faHome, faSearchDollar, faThermometerThreeQuarters, faIdCard, faUser
 const AdminVendedoresPage = () => {
     return (
         <div>
-<<<<<<< HEAD
             <div className="wrapper">
                 <Sidebar icono = {faSearchDollar} titulo = 'GESTION DE INFORMACION DE VENDEDORES'/>
                         
@@ -65,12 +64,12 @@ const AdminVendedoresPage = () => {
                         </form>
                     </div>
                 </div>
-=======
+
             <div classNameName="wrapper">
                 <Sidebar icono = {faIdCard} titulo = 'GESTION DE INFORMACION DE VENDEDORES'/>
 
->>>>>>> 5c2278e6bc33c9381e8e6fe4688d0a8e6b144f86
             </div>
+        </div>
         </div>
     );
 };
