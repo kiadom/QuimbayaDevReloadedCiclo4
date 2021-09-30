@@ -39,7 +39,6 @@ const Index = () => {
         }else{
         alert("Datos incorrectos")
         }
-        
     }
 
     return (
