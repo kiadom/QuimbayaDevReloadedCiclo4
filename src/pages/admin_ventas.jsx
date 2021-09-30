@@ -45,7 +45,7 @@ const AdminVentasPage = () => {
                                 <tr>
                                     <td></td>
                                     <td>
-                                        <button className="boton" type="button" onclick="ingresarPedido()">Ingresar Pedido</button>
+                                        <button className="boton" type="button" onclick='ingresarPedido()'>Ingresar Pedido</button>
                                     </td>
                                 </tr>
                                 </table>

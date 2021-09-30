@@ -6,9 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 library.add(faHome, faSearchDollar, faThermometerThreeQuarters, faIdCard, faUsersCog, faSignOutAlt, faBars);
 
-const Header = () => {
+const HeaderFull = () => {
     return(
-        <div className="wrapper">
+        <div className="wrapperFull">
             <header className="principal">
             <div className="topNavBar">
                 <div className="hamburger">
@@ -22,7 +22,7 @@ const Header = () => {
             </div>
             </header>
         </div>
-    );
+    )
 };
 
-export default Header;
+export default HeaderFull;

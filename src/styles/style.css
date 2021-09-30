@@ -11,13 +11,13 @@
   --blue-bg: #00ADB5;
 }
 
-body {
+.bodyAuth {
   font-family: 'Roboto', sans-serif;
   background-image: url('../images/plantilla-login-.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-color: var(--light-bg);
-  height: 90vh;
+  height: 100vh;
   overflow: auto;
 }
 
@@ -129,9 +129,10 @@ div.contenedor {
 }
 
 .input-pass{
-  padding-left: 15px;
+  padding-left: 60px;
   border: none;
   border-radius: 5px;
+  margin: 2%;
   font-weight: 600;
   letter-spacing: 1px;
   box-sizing: border-box;

@@ -1,6 +1,7 @@
 import Footer from "../components/Footer"
 import Header from "../components/Header"
 import Sidebar from "../components/Sidebar"
+import '../styles/modulos.css';
 
 const Layout = ({children}) => {
     return (
@@ -11,6 +12,6 @@ const Layout = ({children}) => {
             <Footer/>
         </div>
     )
-}
+};
 
-export default Layout
+export default Layout;

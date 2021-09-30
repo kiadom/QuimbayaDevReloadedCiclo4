@@ -6,42 +6,60 @@ import ClavePage from './pages/clave';
 import PrincipalPage from './pages/principal';
 import RegistroEstadoVentasPage from './pages/registro_estado_ventas';
 
-import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
-import './styles/modulos.css';
-import React from "react";
 import Layout from './layouts/Layout';
+import MainLayout from './layouts/MainLayout';
+import AuthLayout from './layouts/AuthLayout';
+
+
+
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import React from "react";
 
 function App() {
   return (
-    <div className='App'>
-      <Router>
-        <Switch>
+    <Router>
+      <Switch>
+        <Route path = {['/admin_usuarios', '/admin_vendedores', '/admin_ventas', '/registro_estado_ventas']}>
           <Layout>
-            <Route path = '/admin_usuarios'>
-              <AdminUsuariosPage />
-            </Route>
-            <Route path = '/admin_vendedores'>
-              <AdminVendedoresPage />
-            </Route>
-            <Route path = '/admin_ventas'>
-              <AdminVentasPage />
-            </Route>
-            <Route path = '/clave'>
-              <ClavePage />
-            </Route>
-            <Route path = '/principal'>
-              <PrincipalPage />
-            </Route>
-            <Route path = '/registro_estado_ventas'>
-              <RegistroEstadoVentasPage />
-            </Route>
-            <Route path = '/'>
-              <Index />
-            </Route>
+            <Switch>
+              <Route path = '/admin_usuarios'>
+                <AdminUsuariosPage />
+              </Route>
+              <Route path = '/admin_vendedores'>
+                <AdminVendedoresPage />
+              </Route>
+              <Route path = '/admin_ventas'>
+                <AdminVentasPage />
+              </Route>
+              <Route path = '/registro_estado_ventas'>
+                <RegistroEstadoVentasPage />
+              </Route>
+            </Switch>
           </Layout>
-        </Switch>
-      </Router>
-    </div>
+        </Route>
+        <Route path = {['/principal']}>
+          <MainLayout>
+            <Switch>
+              <Route path = '/principal'>
+                <PrincipalPage />
+              </Route>
+            </Switch>
+          </MainLayout>
+        </Route>
+        <Route path = {['clave', '/']}>
+          <AuthLayout>
+            <Switch>
+            <Route path = '/clave'>
+                <ClavePage />
+              </Route>
+              <Route path = '/'>
+                <Index />
+              </Route>
+            </Switch>
+          </AuthLayout>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
