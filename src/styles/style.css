@@ -94,6 +94,7 @@
 
 .boton:hover {
   border: 2px solid var(--blue-bg);
+  background-color: #00ADB5;
 }
 
 #user{

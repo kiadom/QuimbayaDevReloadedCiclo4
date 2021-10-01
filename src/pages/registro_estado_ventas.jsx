@@ -8,31 +8,31 @@ const RegistroEstadoVentasPage = () => {
     return (
         <div>
             <div className="wrapper">
-                <Sidebar icono = {faThermometerThreeQuarters} titulo = 'REGISTRO DE ESTADO DE VENTAS'/>
+                <Sidebar icono = {faThermometerThreeQuarters} titulo = 'VENTAS'/>
 
                 <div className= "principal">
                     <div className="Menu">
-                        <div className="rp_titulo">REGISTRO DE ESTADO DE VENTAS</div>
-                        <div className="rp_subtitulo">INGRESE EL ESTADO DE VENTAS</div>
+                        <div className="rp_titulo">MAESTRO DE VENTAS</div>
+                        <div className="rp_subtitulo">VENTAS</div>
 
-                        <div className="rp_formulario1">
+                        <div className="rp_formulario">
                             <form action=''>
                                 <table className="tabla">
                                     <tr>
                                         <td><p>Venta ID:</p></td>
-                                        <td><p><input className="input" type="text" id="venta_id" name="venta_id" size="30"/></p></td>
+                                        <td><p><input className="input_m" type="text" id="venta_id" name="venta_id" size="30"/></p></td>
                                     </tr>
                                     <tr>
                                         <td><p>Fecha creación pedido:</p></td>
-                                        <td><p><input className="input" type="date" id="fecha_creación_pedido"name="fecha_creación_pedido" size="30"/></p></td>
+                                        <td><p><input className="input_m" type="date" id="fecha_creación_pedido"name="fecha_creación_pedido" size="30"/></p></td>
                                     </tr>
                                     <tr>
                                         <td><p>Fecha de Embalaje:</p></td>
-                                        <td><p><input className="input" type="date" id="fecha_de_embalaje" name="fecha_de_embalaje" size="30"/></p></td>
+                                        <td><p><input className="input_m" type="date" id="fecha_de_embalaje" name="fecha_de_embalaje" size="30"/></p></td>
                                     </tr>
                                     <tr>
                                         <td><p>Fecha de despacho:</p></td>
-                                        <td><p><input className="input" type="date" id="fecha_de_despacho" name="fecha_de_despacho" size="30"/></p></td>
+                                        <td><p><input className="input_m" type="date" id="fecha_de_despacho" name="fecha_de_despacho" size="30"/></p></td>
                                     </tr>
                                     <tr>
                                     <td><p>Ruta:</p></td>                
@@ -44,12 +44,14 @@ const RegistroEstadoVentasPage = () => {
                                         <option value="occidente">Occidente</option>
                                     </select></p></td>              
                                     </tr>
+                                    
+                                    <tfoot>
                                     <tr>
-                                    <td></td>
-                                    <td>
-                                        <button className="boton" type="button" onclick='ingresarEstado()'>INGRESAR ESTADO</button>
+                                    <td colSpan="2">
+                                        <button className="boton_m" type="button" onclick='ingresarEstado()'>INGRESAR ESTADO</button>
                                     </td>
-                                </tr>
+                                    </tr>
+                                        </tfoot>
                                 </table>
                             </form>
                         </div>

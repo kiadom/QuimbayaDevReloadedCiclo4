@@ -1,11 +1,10 @@
 import logo from '../images/logologin.png';
 import React, {useState} from "react";
 
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faHome, faSearchDollar, faThermometerThreeQuarters, faIdCard, faUsersCog, faSignOutAlt, faBars  } from "@fortawesome/free-solid-svg-icons";
-library.add(faHome, faSearchDollar, faThermometerThreeQuarters, faIdCard, faUsersCog, faSignOutAlt, faBars);
-
 const Index = () => {
+    
+    const [count, setCount] = useState(0)
+
     const [datos, setDatos] = useState({
         user: '',
         password: ''
@@ -24,7 +23,6 @@ const Index = () => {
         
         let credencial = new Map();
             credencial.set("administrador","admin")
-            credencial.set("operario","operario")
             credencial.set("vendedeor","vendedor")
         
         if (credencial.has(datos.user)){
@@ -34,10 +32,22 @@ const Index = () => {
                 return false;
             }else{
             alert("Datos incorrectos")
+            if (count === 3) {
+                alert("Excedió el numero de intentos permitidos. \nBLOQUEADO \ncomuniquese con TI")
+                document.getElementById('boton').disabled=true;
+                document.getElementById('user').disabled=true
+                document.getElementById('password').disabled=true;
+            }
             }
             
         }else{
         alert("Datos incorrectos")
+        if (count === 3) {
+            alert("Excedió el numero de intentos permitidos. \nBLOQUEADO \nComuniquese con TI")
+            document.getElementById('boton').disabled=true;
+            document.getElementById('user').disabled=true
+            document.getElementById('password').disabled=true;
+        }
         }
         
     }
@@ -54,7 +64,7 @@ const Index = () => {
                     <form className="contenedor-info" id="form" name="Ingreso" onSubmit={enviarDatos}>
                         <input className="input" id="user" name="user" type="text" placeholder="Usuario" onChange={entrada} required=""></input>
                         <input className="input" id="password" name="password" type="password" placeholder="Contraseña" onChange={entrada} required=""></input>
-                        <button className="boton" type="submit">Ingresar</button>
+                        <button className="boton" id="boton" type="submit" onClick={() => setCount(count+1)}>Ingresar</button>
                     </form>
 
                 </div>
