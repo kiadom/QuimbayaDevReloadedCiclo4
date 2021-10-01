@@ -49,7 +49,6 @@ const Index = () => {
             document.getElementById('password').disabled=true;
         }
         }
-        
     }
 
     return (

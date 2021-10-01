@@ -187,6 +187,26 @@ body.active .wrapper .principal{
   background-color: #00ADB5;
 }
 
+
+.boton2 {
+    width:12em;
+    height: 3.125rem;
+    font-size: 1em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--light-bg);
+    border: none;
+    border-radius: 5px;
+    background-color: var(--grey-bg);
+    cursor: pointer;
+  }
+  
+  .boton2:hover {
+    border: 2px solid var(--blue-bg);
+  }
+  
+  
+
 .tabla{
     border-collapse: separate;
     border-spacing: 80px 20px;
