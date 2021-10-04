@@ -1,32 +1,26 @@
-const express = require('express');
+//Se encarga de comprobar que las peticiones sean correctas para poder entrar o cancelarlas si hay problemas o fallas
+//Se encarga de configurar la informacion importante como base de datos o cabeceras
+
+//Libreria express para poder utilizar el servidor de Node
+const express = require('express'); 
+
+//Modulo de express que permite trabajar con el body de la peticion
 const bodyParser = require('body-parser');
-const router = express.Router();
-const response = require('./network/response');
 
-const app = express();
-app.use(bodyParser.json());
+//El router permite separar peticiones (cabeceras, metodos, URL)
+const router = require('./network/routes');
+
+const app = express(); //Inicializacion de express
+app.use(bodyParser.json()); //Metodo para trabajar exclusivo con ficheros json
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(router);
 
-router.get('/message', function(req, res){
-    console.log(req.headers);
-    res.header({
-        "custom-headers": "Nuestro valor personalizado",
-    })
-    response.success(req, res, 'Lista de mensajes');
-})
+router(app)
 
-router.post('/message', function(req, res){
-    console.log(req.query);
-    if(req.query.error == 'ok'){
-        response.error(req, res, 'Error inesperado', 500, "Es solo una simulacion de los errores");
-    }
-    else{
-        response.success(req, res, 'Añadido correctamente', 201);
-    }
-})
+//Uso de los medios estaticos, HTML y CSS, para cargar la app (En este caso los ficheros viejos)
+app.use('/', express.static('html_old'));
 
-app.use('/app', express.static('html_old'));
-
+//Ejecutar la aplicacion en el puerto 3000 (puerto default de las aplicaciones de Node)
 app.listen(3000);
+
+//Mensaje en consola para verificar que la aplicacion esta iniciada
 console.log('La aplicacion esta escuchando en http://localhost:3000');
