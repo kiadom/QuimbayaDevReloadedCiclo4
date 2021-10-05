@@ -20,7 +20,6 @@ router.get('/', function(req, res){
 })
 
 router.post('/', function(req, res){
-    
     controller.addProducto(req.body.producto_id, req.body.descripcion_producto, req.body.valor_unitario, req.body.estado)
         .then((fullProducto) => {
             response.success(req, res, fullProducto, 201);

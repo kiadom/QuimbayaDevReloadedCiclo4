@@ -16,11 +16,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 router(app)
 
-//Uso de los medios estaticos, HTML y CSS, para cargar la app (En este caso los ficheros viejos)
-app.use('/', express.static('html_old'));
+//Uso de los medios estaticos, HTML y CSS, para cargar la app
+//app.use('/', express.static('public'));
 
 //Ejecutar la aplicacion en el puerto 3000 (puerto default de las aplicaciones de Node)
-app.listen(3000);
+app.listen(3001);
 
 //Mensaje en consola para verificar que la aplicacion esta iniciada
-console.log('La aplicacion esta escuchando en http://localhost:3000');
+console.log('La aplicacion esta escuchando en http://localhost:3001');
