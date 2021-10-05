@@ -10,9 +10,9 @@ const router = express.Router();
 //Para cualquier ruta devuelva la funcion
 //La funcion tiene dos parametros, req y res. Son los dos parametros que tiene cualquier funcion HTTP
 router.post('/', function(req, res){
-    controller.registrarProducto(req.body.producto_id, req.body.descripcion_producto, req.body.valor_unitario, req.body.estado)
-        .then((fullProducto) => {
-            response.success(req, res, fullProducto, 201);
+    controller.registrarUsuario(req.body.usuario_id, req.body.rol, req.body.estado)
+        .then((fullUsuario) => {
+            response.success(req, res, fullUsuario, 201);
         })
         .catch(e => {
             response.error(req, res, 'Informacion invalida', 400, "Error en el controlador");
@@ -20,17 +20,17 @@ router.post('/', function(req, res){
 });
 
 router.get('/', function(req, res){
-    controller.listarProductos()
-        .then((listaProductos) => {
-            response.success(req, res, listaProductos, 200);
+    controller.listarUsuarios()
+        .then((listaUsuarios) => {
+            response.success(req, res, listaUsuarios, 200);
         })
         .catch(e => {
             response.error(req, res, 'Error inesperado', 500, e);
         })
 })
 
-router.patch('/:producto_id', function(req, res){
-    controller.actualizarProducto(req.params.producto_id, req.body.estado)
+router.patch('/:usuario_id', function(req, res){
+    controller.actualizarUsuario(req.params.usuario_id, req.body.rol)
         .then((data) => {
             response.success(req, res, data, 200);
         })

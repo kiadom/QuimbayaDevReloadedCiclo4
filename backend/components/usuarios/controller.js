@@ -5,44 +5,43 @@
 
 const store = require('./store');
 
-function registrarProducto(producto_id, descripcion_producto, valor_unitario, estado){
+function registrarUsuario(usuario_id, rol, estado){
     return new Promise((resolve, reject) => {
-        if (!producto_id || !descripcion_producto || !valor_unitario || !estado){
+        if (!usuario_id || !rol || !estado){
             console.error('[productoController] La informacion esta incompleta');
             return reject('Los datos son incorrectos');
         }
 
-        const fullProducto = {
-            producto_id: producto_id,
-            descripcion_producto: descripcion_producto,
-            valor_unitario: valor_unitario,
+        const fullUsuario = {
+            usuario_id: usuario_id,
+            rol: rol,
             estado: estado,
             date: new Date(),
         };
 
-    store.add(fullProducto);
-    resolve(fullProducto);
+    store.add(fullUsuario);
+    resolve(fullUsuario);
     })
 };
 
-function listarProductos(){
+function listarUsuarios(){
     return new Promise((resolve, reject) => {
         resolve(store.list());
     })
 }
 
-function actualizarProducto(producto_id, estado){
+function actualizarUsuario(usuario_id, rol){
     return new Promise(async (resolve, reject) => {
-        if(!producto_id || !estado){
+        if(!usuario_id || !rol){
             return reject('Datos invalidos')
         }
-        const result = await store.actualizarEstadoProducto(producto_id, estado);
+        const result = await store.actualizarRolUsuario(usuario_id, rol);
         resolve(result);
     })
 }
 
 module.exports = {
-    registrarProducto,
-    listarProductos,
-    actualizarProducto,
+    registrarUsuario,
+    listarUsuarios,
+    actualizarUsuario,
 };

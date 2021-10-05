@@ -19,7 +19,7 @@ router(app)
 //Uso de los medios estaticos, HTML y CSS, para cargar la app
 //app.use('/', express.static('public'));
 
-//Ejecutar la aplicacion en el puerto 3000 (puerto default de las aplicaciones de Node)
+//Ejecutar la aplicacion en el puerto 3001 (puerto default de las aplicaciones de Node)
 app.listen(3001);
 
 //Mensaje en consola para verificar que la aplicacion esta iniciada

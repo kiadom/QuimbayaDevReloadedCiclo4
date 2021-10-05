@@ -11,20 +11,27 @@ db.connect('mongodb+srv://QuimbayaDev-admin:7QWbDsJNaJGZIskx@clusterdbquimbayade
 });
 console.log('[db] Conectada con exito');
 
-function addProducto(producto){
+function registrarProducto(producto){
     const miProducto = new Model(producto);
     miProducto.save();
 }
 
-async function getProductos(){
+async function listarProductos(){
     const productos = await Model.find();
     return productos;
 }
 
+async function actualizarEstadoProducto(producto_id, estado){
+    const productoEncontrado = await Model.findOne({
+        _id: producto_id
+    });
+    productoEncontrado.estado = estado;
+    const productoActualizado = await productoEncontrado.save();
+    return productoActualizado;
+}
+
 module.exports = {
-    add: addProducto,
-    list: getProductos,
-    //get
-    //update
-    //delete
+    add: registrarProducto,
+    list: listarProductos,
+    actualizarEstadoProducto: actualizarEstadoProducto,
 }
