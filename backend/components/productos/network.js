@@ -20,7 +20,8 @@ router.post('/', function(req, res){
 });
 
 router.get('/', function(req, res){
-    controller.listarProductos()
+    const filtroProducto = req.query.producto_id || null;
+    controller.listarProductos(filtroProducto)
         .then((listaProductos) => {
             response.success(req, res, listaProductos, 200);
         })

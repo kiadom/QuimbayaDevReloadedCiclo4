@@ -20,7 +20,8 @@ router.post('/', function(req, res){
 });
 
 router.get('/', function(req, res){
-    controller.listarUsuarios()
+    const filtroUsuario = req.query.usuario_id || null;
+    controller.listarUsuarios(filtroUsuario)
         .then((listaUsuarios) => {
             response.success(req, res, listaUsuarios, 200);
         })

@@ -16,8 +16,12 @@ function registrarUsuario(usuario){
     miUsuario.save();
 }
 
-async function listarUsuarios(){
-    const usuarios = await Model.find();
+async function listarUsuarios(filtroUsuario){
+    let filtro = {};
+    if (filtroUsuario !== null){
+        filtro = {usuario_id: filtroUsuario};
+    }
+    const usuarios = await Model.find(filtro);
     return usuarios;
 }
 

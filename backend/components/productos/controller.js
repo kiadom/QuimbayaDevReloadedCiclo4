@@ -25,9 +25,9 @@ function registrarProducto(producto_id, descripcion_producto, valor_unitario, es
     })
 };
 
-function listarProductos(){
+function listarProductos(filtroProducto){
     return new Promise((resolve, reject) => {
-        resolve(store.list());
+        resolve(store.list(filtroProducto));
     })
 }
 

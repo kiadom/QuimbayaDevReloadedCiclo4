@@ -27,9 +27,9 @@ function registrarVenta(venta_id, venta_total, detalle, fecha_de_pago, fecha_de_
     })
 };
 
-function listarVentas(){
+function listarVentas(filtroVenta){
     return new Promise((resolve, reject) => {
-        resolve(store.list());
+        resolve(store.list(filtroVenta));
     })
 }
 

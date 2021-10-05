@@ -24,9 +24,9 @@ function registrarUsuario(usuario_id, rol, estado){
     })
 };
 
-function listarUsuarios(){
+function listarUsuarios(filtroUsuario){
     return new Promise((resolve, reject) => {
-        resolve(store.list());
+        resolve(store.list(filtroUsuario));
     })
 }
 

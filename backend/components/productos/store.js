@@ -16,8 +16,12 @@ function registrarProducto(producto){
     miProducto.save();
 }
 
-async function listarProductos(){
-    const productos = await Model.find();
+async function listarProductos(filtroProducto){
+    let filtro = {};
+    if (filtroProducto !== null){
+        filtro = {producto_id: filtroProducto};
+    }
+    const productos = await Model.find(filtro);
     return productos;
 }
 

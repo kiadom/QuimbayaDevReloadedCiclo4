@@ -16,8 +16,12 @@ function registrarVenta(venta){
     miVenta.save();
 }
 
-async function listarVentas(){
-    const ventas = await Model.find();
+async function listarVentas(filtroVenta){
+    let filtro = {};
+    if (filtroVenta !== null){
+        filtro = {venta_id: filtroVenta};
+    }
+    const ventas = await Model.find(filtro);
     return ventas;
 }
 
