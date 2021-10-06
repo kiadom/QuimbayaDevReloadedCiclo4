@@ -1,5 +1,6 @@
 import Sidebar from "../components/Sidebar";
 import React, {useState} from "react";
+import axios from "axios";
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {faCartArrowDown, faHome, faSearchDollar, faThermometerThreeQuarters, faIdCard, faUsersCog, faSignOutAlt, faBars  } from "@fortawesome/free-solid-svg-icons";
@@ -22,14 +23,33 @@ const RegistroProductosPage = () => {
         })
     }
 
-    const enviarDatos = (e) => {
+    const enviarDatos = async (e) => {
         e.preventDefault();
         alert("Los datos ingresados son: "+
         "\n \nProducto ID: " + datos.producto_id +
         "\nDescripción: " + datos.descripción_producto+ 
         "\nValor Unitario: " + datos.valor_unitario+
         "\nEstado: " + datos.estado);
+
+        const options = {
+            method: 'POST',
+            url: 'http://localhost:3001/productos',
+            headers: {'Content-Type': 'application/json'},
+            data: {
+              producto_id: datos.producto_id,
+              descripcion_producto: datos.descripción_producto,
+              valor_unitario: datos.valor_unitario,
+              estado: datos.estado
+            }
+          };
+          
+          await axios.request(options).then(function (response) {
+            console.log(response.data);
+          }).catch(function (error) {
+            console.error(error);
+          });
     }
+
     return (
         <div>
             <div className="wrapper">

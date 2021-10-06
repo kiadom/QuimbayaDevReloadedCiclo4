@@ -10,16 +10,14 @@ const bodyParser = require('body-parser');
 //El router permite separar peticiones (cabeceras, metodos, URL)
 const router = require('./network/routes');
 
+var cors = require('cors');
 const app = express(); //Inicializacion de express
 app.use(bodyParser.json()); //Metodo para trabajar exclusivo con ficheros json
 app.use(bodyParser.urlencoded({extended: false}));
 
-router(app)
+router(app.use(cors()));
 
-//Uso de los medios estaticos, HTML y CSS, para cargar la app
-//app.use('/', express.static('public'));
-
-//Ejecutar la aplicacion en el puerto 3001 (puerto default de las aplicaciones de Node)
+//Ejecutar la aplicacion en el puerto 3001
 app.listen(3001);
 
 //Mensaje en consola para verificar que la aplicacion esta iniciada
