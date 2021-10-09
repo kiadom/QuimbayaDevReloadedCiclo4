@@ -55,7 +55,7 @@ const AdminUsuariosPage = () => {
         });
     }
     
-    //obtener lista de usuarios desde el backend
+        //obtener lista de usuarios desde el backend
         if(mostrarTabla){
             obtenerUsuarios();
         }
