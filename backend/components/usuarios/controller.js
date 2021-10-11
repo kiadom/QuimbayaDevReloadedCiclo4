@@ -36,7 +36,7 @@ function actualizarUsuario(usuario_email, rol, estado){
         if(!usuario_email || !rol || !estado){
             return reject('Datos invalidos')
         }
-        const result = await store.actualizarRolUsuario(usuario_email, rol, estado);
+        const result = await store.actualizarDatosUsuario(usuario_email, rol, estado);
         resolve(result);
     })
 }
