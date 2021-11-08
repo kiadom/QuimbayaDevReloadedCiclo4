@@ -20,6 +20,16 @@ El grupo está conformado por:
 
 ## Carlos Mendez
 
+Licenciado en Educación Artística con Énfasis en Danza y Teatro. Gestor cultural, director y actor de teatro con 15 años de experiencia en formulación, coordinación y ejecución de proyectos artístico-culturales y formación artística para niños, jóvenes y adultos mayores. 
+
+El trabajo artístico lo ha llevado a ser autodidacta y a buscar herramientas que apoyen la escena, como la transmedia, y su trabajo como gestor lo ha llevado a implememntar el mundo de las TIC's a las organizaciones culturales.
+
+Actualmente, hace parte del programa Misión Tic del MinTIC adquiriendo herramientas como desarrollador WEB.
+
+- **[`Linkedin`](https://co.linkedin.com/in/carlos-andres-mendez-salamanca-b656a925)**
+- **[`GitHub`](https://github.com/carlosmendezs)**
+
+
 ## Rocio Pacheco
 
 ## Luis Rondon
