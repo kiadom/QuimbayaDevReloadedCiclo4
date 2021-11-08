@@ -28,7 +28,7 @@ El grupo está conformado por:
 
 Ingeniero Catastral y Geodesta, Especialista en Sistemas de Información Geográfica y candidato a Máster en Ciencias de la Información y las Comunicaciones con Énfasis en Geomática de la [Universidad Distrital Francisco José de Caldas](https://www.udistrital.edu.co/inicio) en la ciudad de Bogotá - Colombia. Poseo nivel intermedio en Inglés y Francés.
 
-Tengo experiencia laboral de 9 años con diferentes situaciones y tipos de información. Habilidades en el manejo de sistemas de información geográfica, análisis espaciales, bases de datos y diferentes lenguajes de programación. Gusto por las nuevas tecnologías como Machine Learning, Realidad Aumentada y 3D pero todo con un enfoque geográfico.
+Tengo experiencia laboral de 9 años con diferentes situaciones y tipos de información. Habilidades en el manejo de sistemas de información geográfica, análisis espaciales, bases de datos y diferentes lenguajes de programación. Me gustan las nuevas tecnologías como Machine Learning, Realidad Aumentada y 3D pero todo con un enfoque geográfico.
 
 Actualmente soy Instructor SIG en [Esri Colombia](https://www.esri.co/es-co/home) y profesor de SIG y Programación en [SuperProf](https://www.superprof.co/). También poseo una iniciativa llamada [GeoAR](https://instabio.cc/GeoARColombia) en donde quiero vincular la realidad aumentada con los SIG y darle un enfoque educativo.
 
