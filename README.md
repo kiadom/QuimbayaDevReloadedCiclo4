@@ -25,9 +25,9 @@ El grupo está conformado por:
 
 ## Rocio Pacheco
 
-## Luis Rondón
+## Luis Rondon
 
-## Juan Manuel Suárez
+## Juan Manuel Suarez
 
 <p align="center">
     <img src="https://github.com/kiadom/QuimbayaDevReloadedCiclo4/blob/main/images/footerlogin.png" width="50%" />
