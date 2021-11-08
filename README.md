@@ -41,5 +41,5 @@ En mis ratos libres me gusta hacer ejercicio, jugar videojuegos y ser mestro Pok
 - **[`Twitter`](https://twitter.com/IngJuanMaSuarez)**
 
 <p align="center">
-    <img src="https://github.com/kiadom/QuimbayaDevReloadedCiclo4/blob/main/images/footerlogin.png" width="90%" />
+    <img src="https://github.com/kiadom/QuimbayaDevReloadedCiclo4/blob/main/images/footerlogin.png" width="100%" />
 </p>
