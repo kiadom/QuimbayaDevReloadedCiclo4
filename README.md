@@ -32,7 +32,7 @@ Tengo experiencia laboral de 9 años con diferentes situaciones y tipos de infor
 
 Actualmente soy Instructor SIG en [Esri Colombia](https://www.esri.co/es-co/home) y profesor de SIG y Programación en [SuperProf](https://www.superprof.co/). También poseo una iniciativa llamada [GeoAR](https://instabio.cc/GeoARColombia) en donde quiero vincular la realidad aumentada con los SIG y darle un enfoque educativo.
 
-En mis ratos libres me gusta hacer ejercicio, escuchar musica, jugar videojuegos y ser mestro Pokémon
+En mis ratos libres me gusta hacer ejercicio :muscle:, escuchar musica :musical_note:, jugar videojuegos :video_game: y ser mestro Pokémon :satisfied:
 
 ### Redes Sociales
 
