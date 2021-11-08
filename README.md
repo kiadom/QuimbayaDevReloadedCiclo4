@@ -30,5 +30,5 @@ El grupo está conformado por:
 ## Juan Manuel Suarez
 
 <p align="center">
-    <img src="https://github.com/kiadom/QuimbayaDevReloadedCiclo4/blob/main/images/footerlogin.png" width="50%" />
+    <img src="https://github.com/kiadom/QuimbayaDevReloadedCiclo4/blob/main/images/footerlogin.png" width="90%" />
 </p>
