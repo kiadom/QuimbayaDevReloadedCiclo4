@@ -1,6 +1,3 @@
-# QDRCilo4
-Proyecto final Ciclo4
-
 <p align="center">
     <img src="https://github.com/kiadom/QuimbayaDevReloadedCiclo4/blob/main/images/logoheader.png" width="50%" />
 </p>
