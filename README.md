@@ -42,6 +42,17 @@ En mis ratos libres comparto con mi familia y amigos y practico yoga.
 - **[`GitHub`](https://github.com/RochiPacheco)**
 
 ## Luis Rondon
+Diseñador Gráfico de la Unipanamericana con más de 10 años de experiencia en el sector de impresos, músico con enfasis en guitarra tradicional de la Academia Luis A Calvo. Fundador de Arte Digital Urbano, empresa dedicada a estampados e impresos, y Kiadom agencia creativa dedicada a la realización de proyectos multimedia e ilustración, con miras a ampliar el portafolio a desarrollo web y programación. Ingles A2
+
+Proyectos musicales: Consumo Cuidado y Karnaval toda la vida.
+
+Apasionado del fútbol :soccer: y la lectura :books:
+
+- **[`Linkedin`](https://www.linkedin.com/in/luis-alonso-rondón-rodríguez-a91b82153/)**
+- **[`GitHub`](https://github.com/kiadom)**
+- **[`Facebook`](https://www.facebook.com/artedigitalurbanoadu)**
+- **[`Facebook`]https://www.facebook.com/01ktv)**
+
 
 ## Juan Manuel Suarez
 
