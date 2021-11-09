@@ -16,7 +16,21 @@ El grupo está conformado por:
 
 ## Nelson Cuervo
 
+Soy Tecnólogo en análisis y desarrollo de sistemas de información egresado SENA 2008, fui patrullero en la policía nacional por 3 años y medio, luego ingrese a trabajar en la empresa Media Commerce de la ciudad de Pereira, allí licitaron y ganaron el proyecto del mintic sobre los puntos vive digital, donde fui uno de los encargados de la parte del montaje tecnológico de dichos sitios.
+
+Posteriormente y con uno de mis compañeros de trabajo decidimos en el año 2016 emprender e iniciar nuestra propia empresa ISP "Internet Service Provider", desde entonces vengo dedicado a mi empresa y en este momento a retomar la programación, ya que desde hace bastante tiempo venia buscando cursos pero no sabía por dónde iniciar.
+
+Presentándose esta gran oportunidad con este curso donde las expectativas siempre han estado muy altas
+
+- **[`GitHub`](https://github.com/nacuervo)**
+
 ## Sara Maya
+
+Psicóloga de la Universidad de Antioquia y estudiante de Ingeniería Multimedia de la UNAD y hago parte del programa Misión Tic. Actualmente trabajo en Bancolombia apoyando la gestión de accesos de empleados Nequi.
+
+Me gustaría implementar mis conocimientos en el desarrollo de proyectos que tengan un beneficio para las personas, me interesa el desarrollo WEB, los videojuegos :video_game: :space_invader:, la música :violin:, el arte :art:
+
+- **[`GitHub`](https://github.com/smayav)**
 
 ## Carlos Mendez
 
