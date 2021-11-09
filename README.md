@@ -26,6 +26,12 @@ Presentándose esta gran oportunidad con este curso donde las expectativas siemp
 
 ## Sara Maya
 
+Psicóloga de la Universidad de Antioquia y estudiante de Ingeniería Multimedia de la UNAD y hago parte del programa Misión Tic. Actualmente trabajo en Bancolombia apoyando la gestión de accesos de empleados Nequi.
+
+Me gustaría implementar mis conocimientos en el desarrollo de proyectos que tengan un beneficio para las personas, me interesa el desarrollo WEB, los videojuegos :video_game: :space_invader:, la música :violin:, el arte :art:
+
+- **[`GitHub`](https://github.com/smayav)**
+
 ## Carlos Mendez
 
 Licenciado en Educación Artística con Énfasis en Danza y Teatro. Gestor cultural, director y actor de teatro con 15 años de experiencia en formulación, coordinación y ejecución de proyectos artístico-culturales y formación artística para niños, jóvenes y adultos mayores. 
