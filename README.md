@@ -65,7 +65,7 @@ Apasionado del fútbol :soccer: y la lectura :books:
 - **[`Linkedin`](https://www.linkedin.com/in/luis-alonso-rondón-rodríguez-a91b82153/)**
 - **[`GitHub`](https://github.com/kiadom)**
 - **[`Facebook`](https://www.facebook.com/artedigitalurbanoadu)**
-- **[`Facebook`]https://www.facebook.com/01ktv)**
+- **[`Facebook`](https://www.facebook.com/01ktv)**
 
 
 ## Juan Manuel Suarez
