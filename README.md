@@ -32,6 +32,11 @@ Actualmente, hace parte del programa Misión Tic del MinTIC adquiriendo herramie
 
 ## Rocio Pacheco
 
+Ingeniera Mecánica de la Universidad de America, Especialista en Finanzas de la Universidad de los Andes y Magister en Dirección de Neogcios de Inalde Business School, Experiencia directiva de mas de 20 años en las áreas de Finanzas y Supply Chain en empresas multinacionales, multilatinas y fammiliares del sector químico, farmacéutico y de consumo masivo. Renuncié al mundo corporativo para dedicarme al emprendimiento y a la docencia. Actualmente soy profesora de tiempo parcial de EDIME, escuela de negocios de Inalde para la gerencia media de las organizaciones en el área de finanzas y estoy en la etapa de ideación de mi segundo emprendimiento basado en TI, es por esto que me inscribí en el programa Mision TIC 2022 de Min TIC. En mis ratos libres comparto con mi familia y amigos y practico yoga.
+
+- **[`Linkedin`](https://www.linkedin.com/in/ingridrociopacheco/)**
+- **[`GitHub`](https://github.com/RochiPacheco)**
+
 ## Luis Rondon
 
 ## Juan Manuel Suarez
