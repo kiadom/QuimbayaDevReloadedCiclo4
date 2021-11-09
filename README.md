@@ -78,8 +78,6 @@ Actualmente soy Instructor SIG en [Esri Colombia](https://www.esri.co/es-co/home
 
 En mis ratos libres me gusta hacer ejercicio :muscle:, escuchar musica :musical_note:, jugar videojuegos :video_game: y ser mestro Pokémon :satisfied:
 
-### Mis Redes Sociales
-
 - **[`Linkedin`](https://linkedin.com/in/IngJuanMaSuarez)**
 - **[`GitHub`](https://github.com/IngJuanMaSuarez)**
 - **[`Twitter`](https://twitter.com/IngJuanMaSuarez)**
