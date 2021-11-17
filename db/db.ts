@@ -3,8 +3,8 @@ import {connect} from 'mongoose';
 
 const conectarBD = async() => {
     return await connect (
-        //"mongodb+srv://<User>:<Passvowrd>@bdgestionproyectosu.xa13k.mongodb.net/GestionProyectos?retryWrites=true&w=majority"
-        "mongodb+srv://<User>:<Passvowrd>@proyectociclo4.cq67b.mongodb.net/GestionProyectos?retryWrites=true&w=majority"
+        //"mongodb+srv://AdminRocioPacheco:RocioPacheco@bdgestionproyectosu.xa13k.mongodb.net/GestionProyectos?retryWrites=true&w=majority"
+        "mongodb+srv://AdminRocioPacheco:RocioPacheco@proyectociclo4.cq67b.mongodb.net/GestionProyectos?retryWrites=true&w=majority"
         
     )
     .then(()=> {

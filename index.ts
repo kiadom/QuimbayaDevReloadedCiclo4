@@ -87,45 +87,29 @@ const main = async ()=> {
     //    creadoPor: usuario3._id,
     //});
 
-    // Consulta usuario antes de modificarlo:
-    const usuario = await UserModel.findOne({_id: "61929c8b094d36962e6509a6" })
-    console.log("El usuario consultado es: ", usuario);
-
     // Modificaciones a la BD:
     // Modificación de usuario:
-    await UserModel.findOneAndUpdate(
-        {correo:"correolider@gmail.com"},
-        {
-        nombre:"Pedro", apellido:"Rodriguez"
-        }).then((u)=>{
-            console.log("Nombre y Apellido Actualizados", u);
-        })
-        .catch((e)=> {
-            console.error("Error actualizando el Estado de inscripción",e);
-        });
+    await UserModel.findOneAndUpdate({correo:"correolider@gmail.com"},
+        {nombre:"Juan", apellido:"Perez"})
+        .then((u)=>{console.log("Nombre y Apellido Actualizados", u);})
+        .catch((e)=> {console.error("Error actualizando el Nombre",e);});
 
     // Modificación estado inscripción:
     // OJO, SE ESTA LLAMANDO MAL EL ESTUDIANTE INSCRITO PORQUE SE ESTA LLAMANDO COMO STRING Y NO DEBE SER ASÍ.
-    //await InscriptionModel.findOneAndUpdate(
-    //    {estudianteInscrito:"61929c8c094d36962e6509a8"}, 
-    //    {
-    //    estadoInscripcion:"Aceptada",
-    //    }).then((u)=>{
-    //      console.log("Estado de inscripción Actualizado", u);
-    //    })
-    //    .catch((e)=> {
-    //      console.error("Error actualizando el Estado de inscripción",e);
-    //    });
+    await InscriptionModel.findOneAndUpdate ({_id:"61929c8c094d36962e6509b3"}, 
+        {estadoInscripcion:Enum_EstadoInscripcion.aceptada})
+        .then((u)=>{console.log("Estado de inscripción Actualizado", u);})
+        .catch((e)=> {console.error("Error actualizando el Estado de inscripción",e);});
 
     // Otras Consultas a la BD
-    const proyecto = await ProjectModel.findOne({_id: "61929c8c094d36962e6509ab" })
-    const objetivos = await ObjectiveModel.find({project: "61929c8c094d36962e6509ab" })
-    const inscripcion = await InscriptionModel.findOne({_id: "61929c8c094d36962e6509b3"})
-    const usuario2 = await UserModel.findOne({_id: "61929c8b094d36962e6509a6" })
-    console.log("El proyecto consultado es: ", proyecto);        
-    console.log("Los objetivos del proyecto son: ", objetivos);
-    console.log("La inscripción consultada es: ", inscripcion);
-    console.log("El usuario modificado es: ", usuario2);
+    //const proyecto = await ProjectModel.findOne({_id: "61929c8c094d36962e6509ab" })
+    //const objetivos = await ObjectiveModel.find({project: "61929c8c094d36962e6509ab" })
+    //const inscripcion = await InscriptionModel.findOne({_id: "61929c8c094d36962e6509b3"})
+    //const usuario = await UserModel.findOne({_id: "61929c8b094d36962e6509a6" })
+    //console.log("El proyecto consultado es: ", proyecto);        
+    //console.log("Los objetivos del proyecto son: ", objetivos);
+    //console.log("La inscripción consultada es: ", inscripcion);
+    //console.log("El usuario modificado es: ", usuario);
     
     
     
