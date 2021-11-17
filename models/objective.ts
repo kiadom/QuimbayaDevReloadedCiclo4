@@ -14,13 +14,11 @@ const objectivesSchema = new Schema <Objective>({
         type: String,
         required: true,
     },
-    
     tipo: {
         type: String, 
         enum: Enum_TipoObjetivo,
         required: true,
     },
-    
     proyecto: {
         type: Schema.Types.ObjectId,
         ref: ProjectModel,        
@@ -28,6 +26,6 @@ const objectivesSchema = new Schema <Objective>({
 });
 
 // se define el modelo:
-const ObjectiveModel = model("Objective", objectivesSchema, "ObjectivesRocio");
+const ObjectiveModel = model("Objective", objectivesSchema, "Objectives");
 
-export {ObjectiveModel} ;
+export { ObjectiveModel } ;

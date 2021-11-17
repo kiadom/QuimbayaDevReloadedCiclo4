@@ -17,20 +17,9 @@ const userSchema = new Schema<User>({
         required: true,
         unique: true,
         validate: {
-            //Las lineas de abajo equivalen a una validacion pobre
-            //de que se cumpla el formato del correo electrónico:
-            //validator: (email)=>{
-            //    if ( email.includes("@") && email.includes(".") ){
-            //        return true;
-            //    }
-            //    else {
-            //       return false; 
-            //    }
-            //},
-            //message:"El formato de correo está mal",
             validator: (email) => {
+                // Expresion reegular, valida el correo electrónico
                 return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
-                // esto se llama expresion reegular, la de arriba es para correo electrónico
             },
             message: 'El formato del correo está mal.',
         },
@@ -57,13 +46,10 @@ const userSchema = new Schema<User>({
         type: String,
         enum: Enum_EstadoUsuario,
         default: Enum_EstadoUsuario.pendiente
-    },    
-
+    },
 });
 
 // se define el modelo:
-const UserModel = model("User", userSchema, "UsersRocio");
+const UserModel = model("User", userSchema, "Users");
 
-export {UserModel} ;
-// tambien se puede así: export default UserModel, pero de esta forma, 
-//cualquiera del grupo puede cambiar en nombre de la variable
+export { UserModel } ;

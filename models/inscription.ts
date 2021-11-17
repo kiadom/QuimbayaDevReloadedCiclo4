@@ -3,8 +3,6 @@ import { Enum_EstadoInscripcion } from "./enums";
 import { ProjectModel } from "./project";
 import { UserModel } from "./user";
 
-
-
 interface Inscription {
     fecha_ingreso: Date;
     fecha_engreso: Date;
@@ -41,6 +39,6 @@ const inscriptionSchema = new Schema <Inscription>({
 });
 
 // se define el modelo:
-const InscriptionModel = model("Inscription", inscriptionSchema, "InscriptionsRocio");
+const InscriptionModel = model("Inscription", inscriptionSchema, "Inscriptions");
 
-export {InscriptionModel} ;
+export { InscriptionModel } ;

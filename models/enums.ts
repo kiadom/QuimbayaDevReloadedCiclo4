@@ -28,10 +28,9 @@ enum Enum_EstadoInscripcion{
     pendiente = "Pendiente" //adicioné este estado para que sea el inicial
 }
 
-
 enum Enum_TipoObjetivo{
     general = "General",
     especifico = "Especifico" ,
 }
 
-export { Enum_Rol, Enum_EstadoUsuario, Enum_EstadoProyecto, Enum_FaseProyecto, Enum_EstadoInscripcion, Enum_TipoObjetivo};
+export { Enum_Rol, Enum_EstadoUsuario, Enum_EstadoProyecto, Enum_FaseProyecto, Enum_EstadoInscripcion, Enum_TipoObjetivo };

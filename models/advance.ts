@@ -32,16 +32,14 @@ const advanceSchema = new Schema <Advance>({
         ref: ProjectModel,
         reequired: true,        
     },
-
     creadoPor: {
         type: Schema.Types.ObjectId,
         ref: UserModel,
         required: true,
     },
-
 });
 
 // se define el modelo:
-const AdvanceModel = model("Advance", advanceSchema, "AdvancesRocio");
+const AdvanceModel = model("Advance", advanceSchema, "Advances");
 
-export {AdvanceModel} ;
+export { AdvanceModel } ;
