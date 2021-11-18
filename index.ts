@@ -6,6 +6,7 @@ import { ObjectiveModel } from "./models/objective";
 import { InscriptionModel } from "./models/inscription";
 import { AdvanceModel } from "./models/advance";
 import { Enum_EstadoInscripcion, Enum_EstadoProyecto, Enum_EstadoUsuario, Enum_Rol, Enum_TipoObjetivo, Enum_FaseProyecto } from "./models/enums";
+import { ObservationModel } from './models/observation';
 
 /** Permite usar variables de entorno, se definen en el archivo .env */
 dotenv.config();
@@ -76,10 +77,16 @@ const crearRegistros = async () => {
     const avance1 = await AdvanceModel.create ({
        fechaAvance: Date.now(),
        descripcion: "Se crea una lista de referencias bibliograficas a consultar",
-       observaciones: ["Debes consultar al menos 30 referencias bibliograficas, realiza un analisis para determinar el futuro del tema"],
        proyecto: proyecto1._id, 
        creadoPor: usuario3._id,
     });
+
+    const observaciones1 = await ObservationModel.create ({
+       fechaObservacion: Date.now(),
+       observacionesLider: "Debes consultar al menos 30 referencias bibliograficas, realiza un analisis para determinar el futuro del tema",
+       avance: avance1._id,
+       creadoPor: usuario2._id,
+    })
 }
 
 const realizarConsultas = async () => {
