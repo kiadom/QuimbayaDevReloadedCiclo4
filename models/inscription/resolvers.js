@@ -1,7 +1,10 @@
 import { InscriptionModel } from "./inscription.js";
 
 const resolversInscripcion = {
+
     Query:{
+
+        
         Inscripciones: 
 
         async (parent, args) =>{
@@ -21,6 +24,14 @@ const resolversInscripcion = {
                 estudianteInscrito: args.estudianteInscrito,
             })
             return inscripcionCreada;
+        },
+
+        aprobarInscripcion: async(parent, args) =>{
+            const inscripcionAprobada = await InscriptionModel.findByIdAndUpdate(args.id, {
+                estado: "Aprobado",
+                fecha_ingreso: Date.now(),
+            })
+            return inscripcionAprobada;
         }
     }
 };
