@@ -30,6 +30,12 @@ enum  Enum_EstadoUsuario{
         GENERAL
         ESPECIFICO
     }
+
+    enum Enum_EstadoInscripcion{
+        ACEPTADA
+        RECHAZADA
+        PENDIENTE
+    }
 `;
 
 export { tiposEnums };
