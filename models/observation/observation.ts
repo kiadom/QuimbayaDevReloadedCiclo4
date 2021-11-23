@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
-import { AdvanceModel } from "./advance";
-import { UserModel } from "./user";
+import { AdvanceModel } from "../advance/advance";
+import { ModeloUsuario } from "../usuario/usuario";
 
 interface Observation {
     fechaObservacion: Date;
@@ -26,7 +26,7 @@ const observationSchema = new Schema <Observation>({
     },
     creadoPor: {
         type: Schema.Types.ObjectId,
-        ref: UserModel,
+        ref: ModeloUsuario,
         required: true,
     },
 })
