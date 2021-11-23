@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { ProjectModel } from "../project/project.js";
-import { UserModel } from "../user/user.js";
+import { ModeloUsuario } from "../usuario/usuario.js";
 
 const { Schema, model } = mongoose;
 
@@ -26,7 +26,7 @@ const inscriptionSchema = new Schema ({
     },
     estudianteInscrito: {
         type: Schema.Types.ObjectId,
-        ref: UserModel,
+        ref: ModeloUsuario,
         reequired: true,        
     },
 });
