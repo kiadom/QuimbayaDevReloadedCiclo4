@@ -5,10 +5,10 @@
 # Sprint 2
 En la rama main se encuentra el código final del SPrint 2 (Creación y Modelamiento en Bases de Datos en MongoDB). Los pasos para ejecutar el proyecto son:
 
-- [Crear el Entorno de Trabajo](#entorno-trabajo)
-- [Instalar los Módulos](#instalar-modulos)
-- [Crear el Archivo de Variables de Entorno](#variables-entorno)
-- [Iniciar el Servidor](#iniciar-servidor)
+- [Crear el Entorno de Trabajo](#crear-el-entorno-de-trabajo)
+- [Instalar los Módulos](#instalar-los-modulos)
+- [Crear el Archivo de Variables de Entorno](#crear-el-archivo-de-variables-de-entorno)
+- [Iniciar el Servidor](#iniciar-el-servidor)
 - [Crear Documentos](#crear-documentos)
 - [Consultar Documentos](#consultar-documentos)
 
