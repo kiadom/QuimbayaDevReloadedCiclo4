@@ -31,7 +31,7 @@ const observationSchema = new Schema <Observation>({
     },
 })
 
-// se define el modelo:
+// // se define el modelo:
 const ObservationModel = model("Observation", observationSchema, "Observations");
 
 export { ObservationModel } ;

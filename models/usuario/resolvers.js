@@ -22,7 +22,7 @@ const resolversUsuario = {
                 identificacion:args.identificacion,
                 nombre:args.nombre,
                 apellido:args.apellido,
-                contrasena:args.contrasena,
+                // contrasena:args.contrasena,
                 rol:args.rol
             });
             return usuarioCreado;
@@ -34,10 +34,12 @@ const resolversUsuario = {
                 identificacion:args.identificacion,
                 nombre:args.nombre,
                 apellido:args.apellido,
-                contrasena: args.contrasena,
+                // contrasena: args.contrasena,
                 rol:args.rol,
                 estado: args.estado
-            });
+            },
+                {new:true} //esto se utiliza para traer los datos nuevos al actualizar
+            );
             return usuarioEditado;
         },
 
@@ -51,7 +53,7 @@ const resolversUsuario = {
             }else if(Object.keys(args).includes('identificacion')){
                 const usuarioEliminado = await ModeloUsuario.findOneAndDelete({identificacion:args.identificacion});
                 return usuarioEliminado;
-            }
+            };
         },
     },
 };

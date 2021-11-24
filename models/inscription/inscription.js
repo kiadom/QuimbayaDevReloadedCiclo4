@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { ProjectModel } from "../project/project.js";
+import { ModeloProyecto } from "../proyecto/proyecto.js";
 import { ModeloUsuario } from "../usuario/usuario.js";
 
 const { Schema, model } = mongoose;
@@ -21,7 +21,7 @@ const inscriptionSchema = new Schema ({
     },
     proyecto: {
         type: Schema.Types.ObjectId,
-        ref: ProjectModel,
+        ref: ModeloProyecto,
         reequired: true,        
     },
     estudianteInscrito: {
@@ -31,7 +31,7 @@ const inscriptionSchema = new Schema ({
     },
 });
 
-// se define el modelo:
+// // se define el modelo:
 const InscriptionModel = model("Inscription", inscriptionSchema, "Inscriptions");
 
 export { InscriptionModel } ;

@@ -1,11 +1,11 @@
 import mongoose from 'mongoose';
 import { ModeloUsuario } from "../usuario/usuario.js";
-import { ObjectiveModel } from "../objective/objective.js";
+import { ModeloObjetivo } from "../objetivo/objetivo.js";
 
 const { Schema, model} = mongoose;
 
 //definir el esquema:
-const projectSchema = new Schema({
+const esquemaProyecto = new Schema({
     nombre: {
         type: String,
         required: true,
@@ -41,11 +41,11 @@ const projectSchema = new Schema({
     objetivo: [{
         type: Schema.Types.ObjectId,
         required: true,
-        ref: ObjectiveModel,
+        ref: ModeloObjetivo,
     }]
 });
 
 // se define el modelo:
-const ProjectModel = model("Proyecto", projectSchema, "Projects");
+const ModeloProyecto = model("Proyecto", esquemaProyecto, "Proyectos");
 
-export { ProjectModel } ;
+export { ModeloProyecto } ;
