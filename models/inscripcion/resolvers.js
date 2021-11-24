@@ -1,4 +1,4 @@
-import { InscriptionModel } from "./inscription.js";
+import { ModeloInscripcion } from "./inscripcion.js";
 
 const resolversInscripcion = {
 
@@ -8,7 +8,7 @@ const resolversInscripcion = {
         Inscripciones: 
 
         async (parent, args) =>{
-            const inscripciones = await InscriptionModel.find();
+            const inscripciones = await ModeloInscripcion.find();
 
         return inscripciones;
         },
@@ -17,7 +17,7 @@ const resolversInscripcion = {
 
     Mutation:{
         crearInscripcion: async(parent, args) =>{
-            const inscripcionCreada = await InscriptionModel.create({
+            const inscripcionCreada = await ModeloInscripcion.create({
                 fecha_ingreso: args.fecha_ingreso,
                 estado: args.estado,
                 proyecto: args.proyecto,
@@ -27,10 +27,11 @@ const resolversInscripcion = {
         },
 
         aprobarInscripcion: async(parent, args) =>{
-            const inscripcionAprobada = await InscriptionModel.findByIdAndUpdate(args.id, {
+            const inscripcionAprobada = await ModeloInscripcion.findByIdAndUpdate(args.id, {
                 estado: "Aprobado",
                 fecha_ingreso: Date.now(),
-            })
+            },
+            {new: true});
             return inscripcionAprobada;
         }
     }

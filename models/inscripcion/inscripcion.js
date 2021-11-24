@@ -5,7 +5,7 @@ import { ModeloUsuario } from "../usuario/usuario.js";
 const { Schema, model } = mongoose;
 
 //definir el esquema:
-const inscriptionSchema = new Schema ({
+const esquemaInscripcion = new Schema ({
     fecha_ingreso: {
         type: Date,
         required: true,
@@ -32,6 +32,6 @@ const inscriptionSchema = new Schema ({
 });
 
 // // se define el modelo:
-const InscriptionModel = model("Inscription", inscriptionSchema, "Inscriptions");
+const ModeloInscripcion = model("Inscripcion", esquemaInscripcion, "Inscripciones");
 
-export { InscriptionModel } ;
+export { ModeloInscripcion } ;

@@ -3,7 +3,7 @@ import { tiposEnums } from '../models/enums/tipos.js';
 import { tiposUsuario } from '../models/usuario/tipos.js';
 import { tiposProyecto } from '../models/proyecto/tipos.js';
 import { tiposObjetivo } from '../models/objetivo/tipos.js';
-import { tiposInscripcion } from '../models/inscription/tipos.js';
+import { tiposInscripcion } from '../models/inscripcion/tipos.js';
 
 const tiposGlobales = gql`
     scalar Date
