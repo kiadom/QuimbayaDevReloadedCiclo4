@@ -8,12 +8,9 @@ const tiposUsuario = gql`
         identificacion: String!
         nombre: String!
         apellido: String!
-        contrasena: String!
+        # contrasena: String!
         rol: Enum_Rol!
         estado: Enum_EstadoUsuario
-        """ projects:[Project]
-        advances:[Advance]
-        inscriptions:[Inscription] """
     }
 
     type Query {
@@ -27,7 +24,7 @@ const tiposUsuario = gql`
             identificacion: String!
             nombre: String!
             apellido: String!
-            contrasena: String!
+            # contrasena: String!
             rol: Enum_Rol!
             estado: Enum_EstadoUsuario
         ):Usuario
@@ -38,7 +35,7 @@ const tiposUsuario = gql`
             identificacion: String!
             nombre: String!
             apellido: String!
-            contrasena: String!
+            # contrasena: String!
             rol: Enum_Rol!
             estado: Enum_EstadoUsuario
         ): Usuario

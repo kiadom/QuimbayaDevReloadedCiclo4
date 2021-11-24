@@ -1,39 +1,39 @@
-import { InscriptionModel } from "./inscription.js";
+// import { InscriptionModel } from "./inscription.js";
 
-const resolversInscripcion = {
+// const resolversInscripcion = {
 
-    Query:{
+//     Query:{
 
         
-        Inscripciones: 
+//         Inscripciones: 
 
-        async (parent, args) =>{
-            const inscripciones = await InscriptionModel.find();
+//         async (parent, args) =>{
+//             const inscripciones = await InscriptionModel.find();
 
-        return inscripciones;
-        },
+//         return inscripciones;
+//         },
 
-    },
+//     },
 
-    Mutation:{
-        crearInscripcion: async(parent, args) =>{
-            const inscripcionCreada = await InscriptionModel.create({
-                fecha_ingreso: args.fecha_ingreso,
-                estado: args.estado,
-                proyecto: args.proyecto,
-                estudianteInscrito: args.estudianteInscrito,
-            })
-            return inscripcionCreada;
-        },
+//     Mutation:{
+//         crearInscripcion: async(parent, args) =>{
+//             const inscripcionCreada = await InscriptionModel.create({
+//                 fecha_ingreso: args.fecha_ingreso,
+//                 estado: args.estado,
+//                 proyecto: args.proyecto,
+//                 estudianteInscrito: args.estudianteInscrito,
+//             })
+//             return inscripcionCreada;
+//         },
 
-        aprobarInscripcion: async(parent, args) =>{
-            const inscripcionAprobada = await InscriptionModel.findByIdAndUpdate(args.id, {
-                estado: "Aprobado",
-                fecha_ingreso: Date.now(),
-            })
-            return inscripcionAprobada;
-        }
-    }
-};
+//         aprobarInscripcion: async(parent, args) =>{
+//             const inscripcionAprobada = await InscriptionModel.findByIdAndUpdate(args.id, {
+//                 estado: "Aprobado",
+//                 fecha_ingreso: Date.now(),
+//             })
+//             return inscripcionAprobada;
+//         }
+//     }
+// };
 
-export {resolversInscripcion};
+// export {resolversInscripcion};
