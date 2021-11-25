@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import { ProjectModel } from "../project/project.js";
-import { UserModel } from "../user/user.js";
+import { ModeloProyecto } from "../proyecto/proyecto.js";
+import { ModeloUsuario } from "../usuario/usuario.js";
 
 const { Schema, model } = mongoose;
 
@@ -15,7 +15,7 @@ const { Schema, model } = mongoose;
 // Sino javascript
 
 //definir el esquema:
-const advanceSchema = new Schema ({
+const esquemaAvance = new Schema ({
     fechaAvance: {
         type: Date,
         required: true,
@@ -26,12 +26,12 @@ const advanceSchema = new Schema ({
     },
     proyecto: {
         type: Schema.Types.ObjectId,
-        ref: ProjectModel,
+        ref: ModeloProyecto,
         required: true,        
     },
     creadoPor: {
         type: Schema.Types.ObjectId,
-        ref: UserModel,
+        ref: ModeloUsuario,
         required: true,
     },
     observaciones: [
@@ -42,6 +42,6 @@ const advanceSchema = new Schema ({
 });
 
 // se define el modelo:
-const AdvanceModel = model("Advance", advanceSchema, "Advances");
+const ModeloAvance = model("Avance", esquemaAvance, "Avances");
 
-export { AdvanceModel } ;
+export { ModeloAvance } ;

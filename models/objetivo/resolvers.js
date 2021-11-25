@@ -1,16 +1,16 @@
-import { ObjectiveModel } from "./objective.js";
+import { ModeloObjetivo } from "./objetivo.js";
 
 const resolversObjetivo = {
 
     Query: {
 
         Objetivos: async (parent, args) => {
-            const objetivos = await ObjectiveModel.find();
+            const objetivos = await ModeloObjetivo.find();
             return objetivos;
         },
 
         Objetivo: async (parent, args) => {
-            const objetivo = await ObjectiveModel.findOne({_id:args._id});
+            const objetivo = await ModeloObjetivo.findOne({_id:args._id});
             return objetivo;
         }
     },
@@ -18,7 +18,7 @@ const resolversObjetivo = {
     Mutation: {
 
         crearObjetivo: async (parent, args) => {
-            const objetivoCreado = await ObjectiveModel.create({
+            const objetivoCreado = await ModeloObjetivo.create({
                 descripcion: args.descripcion,
                 tipo: args.tipo,
             });
@@ -26,15 +26,15 @@ const resolversObjetivo = {
         },
 
         editarObjetivo: async (parent, args) => {
-            const objetivoEditado = await ObjectiveModel.findByIdAndUpdate(args._id, {
+            const objetivoEditado = await ModeloObjetivo.findByIdAndUpdate(args._id, {
                 descripcion: args.descripcion,
                 tipo: args.tipo,
-            });
+            }, { new: true });
             return objetivoEditado;
         },
 
         eliminarObjetivo: async (panrent, args) => {
-            const objetivoEliminado = await ObjectiveModel.findOneAndDelete({ 
+            const objetivoEliminado = await ModeloObjetivo.findOneAndDelete({ 
                 _id: args._id 
             });
             return objetivoEliminado;

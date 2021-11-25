@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const { Schema, model} = mongoose;
 
 //definir el esquema:
-const objectivesSchema = new Schema({
+const esquemaObjetivo = new Schema({
     descripcion: {
         type: String,
         required: true,
@@ -16,6 +16,6 @@ const objectivesSchema = new Schema({
 });
 
 // se define el modelo:
-const ObjectiveModel = model("Objective", objectivesSchema, "Objectives");
+const ModeloObjetivo = model("Objetivo", esquemaObjetivo, "Objetivos");
 
-export { ObjectiveModel } ;
+export { ModeloObjetivo } ;
