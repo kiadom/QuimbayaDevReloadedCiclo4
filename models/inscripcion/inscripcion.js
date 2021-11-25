@@ -12,7 +12,7 @@ const esquemaInscripcion = new Schema ({
     },
     fecha_egreso: {
         type: Date,
-        required: true,
+        required: false,
     },
     estadoInscripcion: {
         type: String,
