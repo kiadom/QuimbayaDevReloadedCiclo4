@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
-import { ProjectModel } from "./project";
-import { UserModel } from "./user";
+import { ModeloProyecto } from "../proyecto/proyecto.js";
+import { ModeloUsuario } from "../usuario/usuario";
 
 interface Advance {
     fechaAvance: Date;
@@ -21,17 +21,17 @@ const advanceSchema = new Schema <Advance>({
     },
     proyecto: {
         type: Schema.Types.ObjectId,
-        ref: ProjectModel,
+        ref: ModeloProyecto,
         required: true,        
     },
     creadoPor: {
         type: Schema.Types.ObjectId,
-        ref: UserModel,
+        ref: ModeloUsuario,
         required: true,
     },
 });
 
-// se define el modelo:
+// // se define el modelo:
 const AdvanceModel = model("Advance", advanceSchema, "Advances");
 
 export { AdvanceModel } ;
