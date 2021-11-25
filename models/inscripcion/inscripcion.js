@@ -8,7 +8,7 @@ const { Schema, model } = mongoose;
 const esquemaInscripcion = new Schema ({
     fecha_ingreso: {
         type: Date,
-        required: true,
+        required: false,
     },
     fecha_egreso: {
         type: Date,
@@ -17,7 +17,7 @@ const esquemaInscripcion = new Schema ({
     estadoInscripcion: {
         type: String,
         enum: ['ACEPTADA', 'RECHAZADA', 'PENDIENTE' ],
-        default: 'PENDIENTE', // esto lo adioné dado que puse estado inscripc. pendiente
+        default: 'PENDIENTE',
     },
     proyecto: {
         type: Schema.Types.ObjectId,
