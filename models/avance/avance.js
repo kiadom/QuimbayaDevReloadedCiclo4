@@ -4,16 +4,6 @@ import { ModeloUsuario } from "../usuario/usuario.js";
 
 const { Schema, model } = mongoose;
 
-//interface Advance {
-//    fechaAvance: Date;
-//    descripcion: string;
-//    proyecto: Schema.Types.ObjectId; 
-//    creadoPor: Schema.Types.ObjectId;
-//    observaciones: [string]; //luego se eliminará
-//}
-// Las linesa de arriba ya no van porque ahora ya no es con Typescript
-// Sino javascript
-
 //definir el esquema:
 const esquemaAvance = new Schema ({
     fechaAvance: {
@@ -34,11 +24,9 @@ const esquemaAvance = new Schema ({
         ref: ModeloUsuario,
         required: true,
     },
-    observaciones: [
-        {
+    observaciones: [{
           type: String,
-        },
-      ],
+    }],
 });
 
 // se define el modelo:

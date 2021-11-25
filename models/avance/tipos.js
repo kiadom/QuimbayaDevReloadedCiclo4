@@ -26,4 +26,4 @@ const tiposAvance = gql`
   }
 `;
 
-export { tiposAvance };
+export {tiposAvance};
