@@ -27,6 +27,10 @@ const esquemaAvance = new Schema ({
     observaciones: [{
           type: String,
     }],
+
+    //observacionesPor: {
+    //},
+
 });
 
 // se define el modelo:

@@ -7,8 +7,8 @@ const tiposAvance = gql`
     fecha: Date!
     descripcion: String!
     proyecto: Proyecto!
-    observaciones: [String]
     creadoPor: Usuario!
+    observaciones: [String]
   }
 
   type Query {
@@ -23,7 +23,23 @@ const tiposAvance = gql`
         proyecto: String!, 
         creadoPor: String!
         ): Avance
+
+    editarAvance(
+        _id: String!
+        descripcion: String!
+    ): Proyecto
+
+    eliminarAvance(
+        _id: String
+        descripcion: String!
+    ): Avance
   }
 `;
 
 export {tiposAvance};
+
+//adicionarObservacion(
+//  _id: String
+//  observaciones: String!
+//  comentadoPor: String!
+//)
