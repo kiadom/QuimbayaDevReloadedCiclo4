@@ -5,12 +5,14 @@ const resolversProyecto = {
     Query: {
 
         Proyectos: async (parent, args) => {
-            const proyectos = await ModeloProyecto.find().populate('lider').populate('objetivo');
+            //const proyectos = await ModeloProyecto.find().populate('lider').populate('objetivo');
+            const proyectos = await ModeloProyecto.find().populate('lider').populate('objetivo').populate('avances');
             return proyectos;
         },
 
         Proyecto: async (parent, args) => {
-            const proyecto = await ModeloProyecto.findOne({_id:args._id}).populate('lider').populate('objetivo');
+            //const proyecto = await ModeloProyecto.findOne({_id:args._id}).populate('lider').populate('objetivo');
+            const proyecto = await ModeloProyecto.findOne({_id:args._id}).populate('lider').populate('objetivo').populate('avances');
             return proyecto;
         }
     },

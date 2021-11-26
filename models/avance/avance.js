@@ -28,8 +28,11 @@ const esquemaAvance = new Schema ({
           type: String,
     }],
 
-    //observacionesPor: {
-    //},
+    comentadoPor: {
+        type: Schema.Types.ObjectId,
+        ref: ModeloUsuario,
+        required: false,
+    },
 
 });
 

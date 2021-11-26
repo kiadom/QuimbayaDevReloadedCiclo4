@@ -43,7 +43,20 @@ const esquemaProyecto = new Schema({
         required: true,
         ref: ModeloObjetivo,
     }]
-});
+}
+,{
+    toJSON: { virtuals: true }, //parte del virtual populate para avances
+    toObject: {virtuals: true }, //parte del virtual populate para avances
+}
+);
+
+//VirtualPopulate para traer todos los avances del proyecto:
+esquemaProyecto.virtual("avances",{
+    ref:"Avance",
+    localField:"_id",
+    foreignField: "proyecto"
+})
+
 
 // se define el modelo:
 const ModeloProyecto = model("Proyecto", esquemaProyecto, "Proyectos");
