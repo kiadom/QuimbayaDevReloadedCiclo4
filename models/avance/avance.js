@@ -6,7 +6,7 @@ const { Schema, model } = mongoose;
 
 //definir el esquema:
 const esquemaAvance = new Schema ({
-    fechaAvance: {
+    fecha: {
         type: Date,
         required: true,
     },
