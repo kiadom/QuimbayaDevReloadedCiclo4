@@ -9,9 +9,9 @@ const resolversAvance = {
           return avances;
         },
         filtrarAvance: async (parents, args) => {
-          const avanceFiltrado = await ModeloAvance.find({ proyecto: args._id })
-            //.populate('proyecto')
-            //.populate('creadoPor');
+          const avanceFiltrado = await ModeloAvance.find({ proyecto: args.idProyecto })
+            .populate('proyecto')
+            .populate('creadoPor');
           return avanceFiltrado;
         },
       },
@@ -26,6 +26,30 @@ const resolversAvance = {
             });
             return avanceCreado;
         },
+
+        editarAvance: async (parent, args) => {
+          const avanceEditado = await ModeloAvance.findByIdAndUpdate(args._id, {
+            descripcion: args.descripcion,
+            creadoPor: args.creadoPor,
+          }, { new: true });
+          return avanceEditado;
+        },
+
+        eliminarAvance: async (parent, args) => {
+            const avanceEliminado = await ModeloAvance.findOneAndDelete({ 
+              _id: args._id 
+            });
+            return avanceEliminado;
+        },
+
+        adicionarObservacion: async (parent, args) => {
+          const observacionesRealizadas = await ModeloAvance.findByIdAndUpdate(args._id, {
+            observacionesRealizadas: args.adicionarObservacion
+          }, { new: true });
+          return observacionesRealizadas;
+        },
+
+
     }
 };
 
