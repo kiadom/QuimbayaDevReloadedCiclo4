@@ -26,12 +26,12 @@ const esquemaProyecto = new Schema({
     estado:{
         type: String,
         enum: ["ACTIVO", "INACTIVO"],
-        default: ["INACTIVO"],
+        default: "INACTIVO",
     },
     fase:{
         type: String,
-        enum: ["INICIADO", "EN_DESARROLLO", "TERMINADO"],
-        default: ["NULA"],
+        enum: ["INICIADO", "EN_DESARROLLO", "TERMINADO", "NULA"],
+        default: "NULA",
     },
     lider: {
         type: Schema.Types.ObjectId,
@@ -56,7 +56,6 @@ esquemaProyecto.virtual("avances",{
     localField:"_id",
     foreignField: "proyecto"
 })
-
 
 // se define el modelo:
 const ModeloProyecto = model("Proyecto", esquemaProyecto, "Proyectos");
