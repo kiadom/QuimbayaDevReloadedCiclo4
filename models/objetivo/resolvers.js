@@ -2,19 +2,6 @@ import { ModeloObjetivo } from "./objetivo.js";
 
 const resolversObjetivo = {
 
-    Query: {
-
-        Objetivos: async (parent, args) => {
-            const objetivos = await ModeloObjetivo.find();
-            return objetivos;
-        },
-
-        Objetivo: async (parent, args) => {
-            const objetivo = await ModeloObjetivo.findOne({_id:args._id});
-            return objetivo;
-        }
-    },
-
     Mutation: {
 
         crearObjetivo: async (parent, args) => {
@@ -31,13 +18,6 @@ const resolversObjetivo = {
                 tipo: args.tipo,
             }, { new: true });
             return objetivoEditado;
-        },
-
-        eliminarObjetivo: async (panrent, args) => {
-            const objetivoEliminado = await ModeloObjetivo.findOneAndDelete({ 
-                _id: args._id 
-            });
-            return objetivoEliminado;
         },
     }
 };

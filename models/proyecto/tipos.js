@@ -14,15 +14,14 @@ const tiposProyecto = gql`
         objetivo: [Objetivo]!
         avances: [Avance] 
     }
-    
 
     type Query {
         
         Proyectos: [Proyecto]
-        
-        Proyecto(
-            _id: String!
-        ): Proyecto
+
+        ProyectosPorLider(
+            lider: String!
+        ): [Proyecto]
     }
 
     type Mutation {
@@ -39,19 +38,14 @@ const tiposProyecto = gql`
         ): Proyecto
 
         editarProyecto(
-            _id: String!
-            estado: Enum_EstadoProyecto!
-            fase: Enum_FaseProyecto!
-        ): Proyecto
-
-        eliminarProyecto(
             _id: String
             nombre: String
+            presupuesto: Float
+            estado: Enum_EstadoProyecto
+            fase: Enum_FaseProyecto
+            objetivo: [String]
         ): Proyecto
     }
 `;
 
 export { tiposProyecto };
-
-//va en la linea 15: 
-//
