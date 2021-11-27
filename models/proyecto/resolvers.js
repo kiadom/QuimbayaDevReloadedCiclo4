@@ -9,6 +9,11 @@ const resolversProyecto = {
             return proyectos;
         },
 
+        Proyecto: async (parent, args) => {
+            const proyecto = await ModeloProyecto.findOne({_id:args._id}).populate('lider').populate('objetivo').populate('avances');
+            return proyecto;
+        }
+
         ProyectosPorLider: async (parent, args) => {
             const proyectosPorLider = await ModeloProyecto.find({lider:args.lider}).populate('objetivo').populate('avances');
             return proyectosPorLider;
