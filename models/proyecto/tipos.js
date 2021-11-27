@@ -19,6 +19,10 @@ const tiposProyecto = gql`
         
         Proyectos: [Proyecto]
 
+        Proyecto(
+            _id: String!
+        ): Proyecto
+
         ProyectosPorLider(
             lider: String!
         ): [Proyecto]
