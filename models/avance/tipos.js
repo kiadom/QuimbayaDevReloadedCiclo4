@@ -8,13 +8,14 @@ const tiposAvance = gql`
     descripcion: String!
     proyecto: Proyecto!
     creadoPor: Usuario!
-    comentadoPor: Usuario
-    observaciones: [String]
+    lider: Usuario
+    observacionesLider: String
   }
 
   type Query {
     Avances: [Avance]
     filtrarAvance(idProyecto: String!): [Avance]
+    filtrarObservacionesLider(idProyecto: String!): [Avance]
     }
 
   type Mutation {
@@ -36,10 +37,11 @@ const tiposAvance = gql`
     ): Avance
 
 
-    adicionarObservacion(
-        _id: String
-        observaciones: String!
-        comentadoPor: String!
+    registrarObservacion(
+        _id: String!
+        fechaObservaciones: Date!
+        observacionesLider: String!
+        lider: String!
     ): Avance
 
   }

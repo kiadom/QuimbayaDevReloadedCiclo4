@@ -14,6 +14,16 @@ const resolversAvance = {
             .populate('creadoPor');
           return avanceFiltrado;
         },
+        filtrarObservacionesLider: async (parents, args) => {
+          const observacionesLiderFiltrado = await ModeloAvance.find({ proyecto: args.idProyecto })
+            .populate('proyecto')
+            .populate('lider');
+          return observacionesLiderFiltrado;
+        },
+
+
+
+
       },
 
     Mutation: {
@@ -42,11 +52,13 @@ const resolversAvance = {
             return avanceEliminado;
         },
 
-        adicionarObservacion: async (parent, args) => {
-          const observacionesRealizadas = await ModeloAvance.findByIdAndUpdate(args._id, {
-            observacionesRealizadas: args.adicionarObservacion
+        registrarObservacion: async (parent, args) => {
+          const observacionesLider = await ModeloAvance.findByIdAndUpdate(args._id, {
+            fechaObservaciones: args.fechaObservaciones,
+            observacionesLider: args.observacionesLider,
+            lider: args.lider,
           }, { new: true });
-          return observacionesRealizadas;
+          return observacionesLider;
         },
 
 

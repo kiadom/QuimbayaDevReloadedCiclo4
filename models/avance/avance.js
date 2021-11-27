@@ -24,11 +24,12 @@ const esquemaAvance = new Schema ({
         ref: ModeloUsuario,
         required: true,
     },
-    observaciones: [{
-          type: String,
-    }],
+    observacionesLider: {
+        type: String,
+        required: false,
+    },
 
-    comentadoPor: {
+    lider: {
         type: Schema.Types.ObjectId,
         ref: ModeloUsuario,
         required: false,
