@@ -26,12 +26,12 @@ const esquemaProyecto = new Schema({
     estado:{
         type: String,
         enum: ["ACTIVO", "INACTIVO"],
-        default: ["INACTIVO"],
+        default: "INACTIVO",
     },
     fase:{
         type: String,
-        enum: ["INICIADO", "EN_DESARROLLO", "TERMINADO"],
-        default: ["NULA"],
+        enum: ["INICIADO", "EN_DESARROLLO", "TERMINADO", "NULA"],
+        default: "NULA",
     },
     lider: {
         type: Schema.Types.ObjectId,
@@ -43,7 +43,19 @@ const esquemaProyecto = new Schema({
         required: true,
         ref: ModeloObjetivo,
     }]
-});
+}
+,{
+    toJSON: { virtuals: true }, //parte del virtual populate para avances
+    toObject: {virtuals: true }, //parte del virtual populate para avances
+}
+);
+
+//VirtualPopulate para traer todos los avances del proyecto:
+esquemaProyecto.virtual("avances",{
+    ref:"Avance",
+    localField:"_id",
+    foreignField: "proyecto"
+})
 
 // se define el modelo:
 const ModeloProyecto = model("Proyecto", esquemaProyecto, "Proyectos");

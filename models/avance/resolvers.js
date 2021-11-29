@@ -9,11 +9,21 @@ const resolversAvance = {
           return avances;
         },
         filtrarAvance: async (parents, args) => {
-          const avanceFiltrado = await ModeloAvance.find({ proyecto: args._id })
-            //.populate('proyecto')
-            //.populate('creadoPor');
+          const avanceFiltrado = await ModeloAvance.find({ proyecto: args.idProyecto })
+            .populate('proyecto')
+            .populate('creadoPor');
           return avanceFiltrado;
         },
+        filtrarObservacionesLider: async (parents, args) => {
+          const observacionesLiderFiltrado = await ModeloAvance.find({ proyecto: args.idProyecto })
+            .populate('proyecto')
+            .populate('lider');
+          return observacionesLiderFiltrado;
+        },
+
+
+
+
       },
 
     Mutation: {
@@ -26,6 +36,32 @@ const resolversAvance = {
             });
             return avanceCreado;
         },
+
+        editarAvance: async (parent, args) => {
+          const avanceEditado = await ModeloAvance.findByIdAndUpdate(args._id, {
+            descripcion: args.descripcion,
+            creadoPor: args.creadoPor,
+          }, { new: true });
+          return avanceEditado;
+        },
+
+        eliminarAvance: async (parent, args) => {
+            const avanceEliminado = await ModeloAvance.findOneAndDelete({ 
+              _id: args._id 
+            });
+            return avanceEliminado;
+        },
+
+        registrarObservacion: async (parent, args) => {
+          const observacionesLider = await ModeloAvance.findByIdAndUpdate(args._id, {
+            fechaObservaciones: args.fechaObservaciones,
+            observacionesLider: args.observacionesLider,
+            lider: args.lider,
+          }, { new: true });
+          return observacionesLider;
+        },
+
+
     }
 };
 

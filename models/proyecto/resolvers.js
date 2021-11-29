@@ -5,13 +5,18 @@ const resolversProyecto = {
     Query: {
 
         Proyectos: async (parent, args) => {
-            const proyectos = await ModeloProyecto.find().populate('lider').populate('objetivo');
+            const proyectos = await ModeloProyecto.find().populate('lider').populate('objetivo').populate('avances');
             return proyectos;
         },
 
         Proyecto: async (parent, args) => {
-            const proyecto = await ModeloProyecto.findOne({_id:args._id}).populate('lider').populate('objetivo');
+            const proyecto = await ModeloProyecto.findOne({_id:args._id}).populate('lider').populate('objetivo').populate('avances');
             return proyecto;
+        },
+
+        ProyectosPorLider: async (parent, args) => {
+            const proyectosPorLider = await ModeloProyecto.find({lider:args.lider}).populate('objetivo').populate('avances');
+            return proyectosPorLider;
         }
     },
 
@@ -37,27 +42,11 @@ const resolversProyecto = {
                 presupuesto: args.presupuesto,
                 estado: args.estado,
                 fase: args.fase,
-                lider: args.lider,
                 objetivo: args.objetivo,
             }, { new: true });
             return proyectoEditado;
         },
-
-        eliminarProyecto: async (panrent, args) => {
-            if (Object.keys(args).includes("_id")){
-                const proyectoEliminado = await ModeloProyecto.findOneAndDelete({ 
-                    _id: args._id 
-                });
-                return proyectoEliminado;
-            }
-            
-            if (Object.keys(args).includes("nombre")){
-                const proyectoEliminado = await ModeloProyecto.findOneAndDelete({ 
-                    nombre: args.nombre 
-                });
-                return proyectoEliminado;
-            }
-        },
+        
     },
 };
 

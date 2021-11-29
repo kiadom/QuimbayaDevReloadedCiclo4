@@ -8,15 +8,6 @@ const tiposObjetivo = gql`
         tipo: Enum_TipoObjetivo!
     }
 
-    type Query {
-        
-        Objetivos: [Objetivo]
-        
-        Objetivo(
-            _id: String!
-        ): Objetivo
-    }
-
     type Mutation {
         
         crearObjetivo(
@@ -28,10 +19,6 @@ const tiposObjetivo = gql`
             _id: String!
             descripcion: String!
             tipo: Enum_TipoObjetivo!
-        ): Objetivo
-
-        eliminarObjetivo(
-            _id: String
         ): Objetivo
     }
 `;

@@ -6,7 +6,7 @@ const { Schema, model } = mongoose;
 
 //definir el esquema:
 const esquemaAvance = new Schema ({
-    fechaAvance: {
+    fecha: {
         type: Date,
         required: true,
     },
@@ -24,9 +24,17 @@ const esquemaAvance = new Schema ({
         ref: ModeloUsuario,
         required: true,
     },
-    observaciones: [{
-          type: String,
-    }],
+    observacionesLider: {
+        type: String,
+        required: false,
+    },
+
+    lider: {
+        type: Schema.Types.ObjectId,
+        ref: ModeloUsuario,
+        required: false,
+    },
+
 });
 
 // se define el modelo:
