@@ -17,6 +17,10 @@ type Query{
     Inscripcion(
             _id: String!
         ): Inscripcion
+    
+    InscripcionPorEstudiante(
+            estudianteInscrito: String!
+    ): [Inscripcion]
 
 }
 

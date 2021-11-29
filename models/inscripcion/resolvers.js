@@ -4,14 +4,20 @@ const resolversInscripcion = {
 
     Query:{
 
-        
-        Inscripciones: 
-
-        async (parent, args) =>{
-            const inscripciones = await ModeloInscripcion.find();
-
-        return inscripciones;
+        Inscripciones: async (parent, args) => {
+            const inscripciones = await ModeloInscripcion.find().populate('estudianteInscrito').populate('proyecto');
+            return inscripciones;
         },
+
+        Inscripcion: async (parent, args) => {
+            const inscripcion = await ModeloInscripcion.findOne({_id:args._id}).populate('estudianteInscrito').populate('proyecto');
+            return inscripcion;
+        },
+
+        InscripcionPorEstudiante: async (parent, args) => {
+            const inscripcionPorEstudiante = await ModeloInscripcion.find({estudianteInscrito:args.estudianteInscrito}).populate('proyecto');
+            return inscripcionPorEstudiante;
+        }
 
     },
 

@@ -26,8 +26,8 @@ const esquemaInscripcion = new Schema ({
     },
     estudianteInscrito: {
         type: Schema.Types.ObjectId,
-        ref: ModeloUsuario,
-        reequired: true,        
+        required: true,
+        ref: ModeloUsuario,        
     },
 });
 
