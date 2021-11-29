@@ -47,7 +47,7 @@ const resolversInscripcion = {
                 fecha_egreso: Date.now(),
             },
             {new: true});
-            return inscripcionAprobada;
+            return inscripcionRechazada;
         }
     }
 };
