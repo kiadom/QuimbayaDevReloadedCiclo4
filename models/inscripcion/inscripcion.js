@@ -22,12 +22,13 @@ const esquemaInscripcion = new Schema ({
     proyecto: {
         type: Schema.Types.ObjectId,
         ref: ModeloProyecto,
-        reequired: true,        
+        required: true,  
+             
     },
     estudianteInscrito: {
         type: Schema.Types.ObjectId,
-        ref: ModeloUsuario,
-        reequired: true,        
+        required: true,
+        ref: ModeloUsuario,        
     },
 });
 
