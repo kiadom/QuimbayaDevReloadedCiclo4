@@ -8,14 +8,24 @@ const tiposUsuario = gql`
         identificacion: String!
         nombre: String!
         apellido: String!
-        # contrasena: String!
+        contrasena: String!
         rol: Enum_Rol!
+        estado: Enum_EstadoUsuario
+    }
+
+    # query por correo para evidenciar HU2 clave encriptada
+    type Correo{
+        _id: ID!
+        nombre:String!
+        correo: String!
+        contrasena: String!
         estado: Enum_EstadoUsuario
     }
 
     type Query {
         Usuarios: [Usuario]
         Usuario(_id:String!): Usuario
+        Correo(correo:String!):Correo
     }
 
     type Mutation {
@@ -24,7 +34,7 @@ const tiposUsuario = gql`
             identificacion: String!
             nombre: String!
             apellido: String!
-            # contrasena: String!
+            contrasena: String!
             rol: Enum_Rol!
             estado: Enum_EstadoUsuario
         ):Usuario
