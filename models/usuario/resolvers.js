@@ -13,6 +13,12 @@ const resolversUsuario = {
             });
             return usuario;
         },
+
+        // query por correo para evidenciar HU2 clave encriptada
+        Correo: async (parent, args)=>{
+            const correo = await ModeloUsuario.findOne({correo:args.correo});
+            return correo;
+        },
     },
 
     Mutation:{
@@ -22,7 +28,7 @@ const resolversUsuario = {
                 identificacion:args.identificacion,
                 nombre:args.nombre,
                 apellido:args.apellido,
-                // contrasena:args.contrasena,
+                contrasena: args.contrasena,
                 rol:args.rol
             });
             return usuarioCreado;

@@ -57,6 +57,12 @@ esquemaProyecto.virtual("avances",{
     foreignField: "proyecto"
 })
 
+esquemaProyecto.virtual("inscripciones",{
+    ref:"Inscripcion",
+    localField:"_id",
+    foreignField: "proyecto"
+})
+
 // se define el modelo:
 const ModeloProyecto = model("Proyecto", esquemaProyecto, "Proyectos");
 
