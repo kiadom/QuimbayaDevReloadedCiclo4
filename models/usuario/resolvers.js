@@ -25,11 +25,14 @@ const resolversUsuario = {
                 // contrasena:args.contrasena,
                 rol:args.rol
             });
+            if (Object.keys(args).includes('estado')){
+                usuarioCreado.estado = args.estado;
+            }
             return usuarioCreado;
         },
 
         editarUsuario: async (parent, args) => {
-            const usuarioEditado = await ModeloUsuario.findOneAndUpdate(args._id,{
+            const usuarioEditado = await ModeloUsuario.findByIdAndUpdate(args._id,{
                 correo:args.correo,
                 identificacion:args.identificacion,
                 nombre:args.nombre,
