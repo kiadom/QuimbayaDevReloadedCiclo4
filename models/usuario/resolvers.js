@@ -28,7 +28,6 @@ const resolversUsuario = {
                 identificacion:args.identificacion,
                 nombre:args.nombre,
                 apellido:args.apellido,
-                contrasena: args.contrasena,
                 rol:args.rol
             });
             return usuarioCreado;

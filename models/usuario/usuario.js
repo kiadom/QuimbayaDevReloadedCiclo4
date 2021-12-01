@@ -31,11 +31,11 @@ const esquemaUsuario =
                 type: String,
                 required: true,
             },
-            contrasena:{
-                type: String,
-                required: true,
-                unique: true,
-            },
+            // contrasena:{
+            //     type: String,
+            //     required: true,
+            //     unique: true,
+            // },
             rol:{
                 type: String,
                 required: true,
