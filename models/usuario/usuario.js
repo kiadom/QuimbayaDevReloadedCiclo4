@@ -46,29 +46,29 @@ const esquemaUsuario =
                 default: "PENDIENTE",
             },
         },
-        //{
-            //toJSON: { virtuals: true }, // So `res.json()` and other `JSON.stringify()` functions include virtuals
-            //toObject: { virtuals: true } // So `console.log()` and other functions that use `toObject()` include virtuals
-        //}
+        {
+            toJSON: { virtuals: true }, // So `res.json()` and other `JSON.stringify()` functions include virtuals
+            toObject: { virtuals: true } // So `console.log()` and other functions that use `toObject()` include virtuals
+        }
     );
 
-//     esquemaUsuario.virtual('proyectos',{
-//         ref: 'Proyecto',
-//         localField:'_id',
-//         foreignField:'lider',
-//     });
+    esquemaUsuario.virtual('proyectos',{
+        ref: 'Proyecto',
+        localField:'_id',
+        foreignField:'lider',
+    });
 
-//     esquemaUsuario.virtual('avances',{
-//         ref: 'Avance',
-//         localField:'_id',
-//         foreignField:'creadoPor',
-//     });
+    esquemaUsuario.virtual('avances',{
+        ref: 'Avance',
+        localField:'_id',
+        foreignField:'creadoPor',
+    });
 
-//    esquemaUsuario.virtual('inscripciones',{
-//         ref: 'Inscripcion',
-//         localField:'_id',
-//         foreignField:'estudiante',
-//     });
+   esquemaUsuario.virtual('inscripciones',{
+        ref: 'Inscripcion',
+        localField:'_id',
+        foreignField:'estudianteInscrito',
+    });
 
 // se define el modelo:
 const ModeloUsuario = model("Usuario", esquemaUsuario, "Usuarios");

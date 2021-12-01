@@ -9,8 +9,11 @@ const tiposUsuario = gql`
         nombre: String!
         apellido: String!
         # contrasena: String!
-        rol: Enum_Rol!
+        rol: Enum_Rol
         estado: Enum_EstadoUsuario
+        proyectos:[Proyecto]
+        avances:[Avance]
+        inscripciones:[Inscripcion]
     }
 
     type Query {
@@ -36,8 +39,7 @@ const tiposUsuario = gql`
             nombre: String!
             apellido: String!
             # contrasena: String!
-            rol: Enum_Rol!
-            estado: Enum_EstadoUsuario
+            estado: Enum_EstadoUsuario!
         ): Usuario
 
         eliminarUsuario(

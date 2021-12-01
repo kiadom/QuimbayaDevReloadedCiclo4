@@ -3,7 +3,7 @@ import { ModeloUsuario } from "./usuario.js"
 const resolversUsuario = {
     Query:{
         Usuarios: async (parent, args) => {
-            const usuarios = await ModeloUsuario.find();
+            const usuarios = await ModeloUsuario.find().populate('proyectos').populate('avances').populate('inscripciones');
             return usuarios;
         },
 
@@ -29,13 +29,12 @@ const resolversUsuario = {
         },
 
         editarUsuario: async (parent, args) => {
-            const usuarioEditado = await ModeloUsuario.findOneAndUpdate(args._id,{
+            const usuarioEditado = await ModeloUsuario.findByIdAndUpdate(args._id,{
                 correo:args.correo,
                 identificacion:args.identificacion,
                 nombre:args.nombre,
                 apellido:args.apellido,
                 // contrasena: args.contrasena,
-                rol:args.rol,
                 estado: args.estado
             },
                 {new:true} //esto se utiliza para traer los datos nuevos al actualizar
