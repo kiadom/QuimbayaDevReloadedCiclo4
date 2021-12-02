@@ -2,15 +2,14 @@
     <img src="https://github.com/kiadom/QuimbayaDevReloadedCiclo4/blob/main/images/logoheader.png" width="50%" />
 </p>
 
-# Sprint 2
-En la rama main se encuentra el código final del SPrint 2 (Creación y Modelamiento en Bases de Datos en MongoDB). Los pasos para ejecutar el proyecto son:
+# Sprint 3
+En la rama main se encuentra el código final del Sprint 3 (Desarrollo de backend). Los pasos para ejecutar el proyecto son:
 
 - [Crear el Entorno de Trabajo](#crear-el-entorno-de-trabajo)
 - [Instalar los Módulos](#instalar-los-modulos)
 - [Crear el Archivo de Variables de Entorno](#crear-el-archivo-de-variables-de-entorno)
 - [Iniciar el Servidor](#iniciar-el-servidor)
-- [Crear Documentos](#crear-documentos)
-- [Consultar Documentos](#consultar-documentos)
+- [Ejecutar Querys y Mutations](#ejecutar-querys-y-mutations)
 
 <br>
 
@@ -33,15 +32,11 @@ en la raiz del proyecto crear un arhivo con nombre .env (si, empieza con .) en e
 
 El servidor se inicia usando YARN, ejecutar en la consola de Visual Studio Code el comando:
 ```yarn start```
-Si en la consola sale el mensaje "Conexion Exitosa" es que la configuración del entorno y cadena de conexión ha sido satisfactoria. Ya se pueden realizar inserciones de documentos en Mongo y consulta de los mismos.
+Si en la consola sale el mensaje "Conexion Exitosa" y "Servidor Listo" es que la configuración del entorno y cadena de conexión ha sido satisfactoria. Ya se pueden realizar consultas y ediciones en Mongo.
 
-## Crear Documentos
+## Ejecutar Querys y Mutations
 
-En el archivo index.ts quitarle el comentario a la linea 143 (crearRegistros();), detener el servidor y volver a ejecutarlo. Se crearán la colección VerificacionTutorSprint2 y los documentos, Advances, Inscriptions, Objectives, Observations, Projects y Users.
-
-## Consultar Documento
-
-En el archivo index.ts quitarle el comentario a la linea 144 (realizarConsultas();) y comentarear la linea 143 que se descomentareo previamente, detener el servidor y volver a ejecutarlo. Se harán diferentes consultas que se mostrarán en consola.
+En el navegador de su preferencia ingresar la URL http://localhost:4000/graphql. Desde allí se pueden hacer consultas (Querys), inserciones y ediciones de datos (Mutations) según cada una de las historias de usuario.
 
 <p align="center">
     <img src="https://github.com/kiadom/QuimbayaDevReloadedCiclo4/blob/main/images/footerlogin.png" width="100%" />
