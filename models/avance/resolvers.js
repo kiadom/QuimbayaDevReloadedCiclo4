@@ -20,10 +20,10 @@ const resolversAvance = {
             .populate('lider');
           return observacionesLiderFiltrado;
         },
+        
 
 
-
-
+        
       },
 
     Mutation: {
