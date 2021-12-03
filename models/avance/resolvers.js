@@ -17,13 +17,10 @@ const resolversAvance = {
         filtrarObservacionesLider: async (parents, args) => {
           const observacionesLiderFiltrado = await ModeloAvance.find({ proyecto: args.idProyecto })
             .populate('proyecto')
-            .populate('lider');
+            .populate('lider')
+            .populate('creadoPor');
           return observacionesLiderFiltrado;
         },
-        
-
-
-        
       },
 
     Mutation: {
