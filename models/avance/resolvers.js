@@ -21,9 +21,11 @@ const resolversAvance = {
             .populate('creadoPor');
           return observacionesLiderFiltrado;
         },
-        ProyectosPorLider: async (parent, args) => {
-          const proyectosPorLider = await ModeloProyecto.find({lider:args.lider}).populate('objetivo').populate('avances');
-          return proyectosPorLider;
+        AvancesPorProyecto: async (parent, args) => {
+          const avancesPorProyecto = await ModeloAvance.find({proyecto:args.proyecto}).populate('lider')
+          .populate('creadoPor')
+          .populate('proyecto');
+          return avancesPorProyecto;
       }
       },
 

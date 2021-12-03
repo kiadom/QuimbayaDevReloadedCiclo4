@@ -16,6 +16,7 @@ const tiposAvance = gql`
     Avances: [Avance]
     filtrarAvance(idProyecto: String!): [Avance]
     filtrarObservacionesLider(idProyecto: String!): [Avance]
+    AvancesPorProyecto(proyecto: String!): [Avance]
     }
     
 
