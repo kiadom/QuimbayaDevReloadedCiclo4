@@ -10,9 +10,18 @@ const resolversProyecto = {
         },
 
         Proyecto: async (parent, args) => {
-            const proyecto = await ModeloProyecto.findOne({_id:args._id}).populate('lider').populate('objetivo').populate('avances');
+            const proyecto = await ModeloProyecto.findOne({_id:args._id}).populate('lider').populate('objetivo')
+            .populate({path:'avances', populate: {path:'creadoPor'}});
             return proyecto;
         },
+
+        Inscripciones: async (parent, args) => {
+            const inscripciones = await ModeloInscripcion.find().populate('estudianteInscrito')
+            .populate({path:'proyecto', populate: {path:'lider'}});
+            return inscripciones;
+        },
+
+
 
         ProyectosPorLider: async (parent, args) => {
             const proyectosPorLider = await ModeloProyecto.find({lider:args.lider}).populate('objetivo').populate('avances');
