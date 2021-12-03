@@ -1,7 +1,7 @@
 import { ModeloInscripcion } from "./inscripcion.js";
 
 const resolversInscripcion = {
-
+    
     Query:{
 
         Inscripciones: async (parent, args) => {
