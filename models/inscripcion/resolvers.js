@@ -5,7 +5,9 @@ const resolversInscripcion = {
     Query:{
 
         Inscripciones: async (parent, args) => {
-            const inscripciones = await ModeloInscripcion.find().populate('estudianteInscrito').populate('proyecto');
+            const inscripciones = await ModeloInscripcion.find().populate('estudianteInscrito').populate({path:'proyecto', populate: {
+                path:'lider'
+            }});
             return inscripciones;
         },
 
