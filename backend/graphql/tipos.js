@@ -11,8 +11,4 @@ const tiposGlobales = gql`
 `;
 
 
-<<<<<<< HEAD:graphql/tipos.js
 export const tipos = [tiposGlobales, tiposEnums, tiposUsuario, tiposProyecto, tiposObjetivo, tiposInscripcion, tiposAvance]
-=======
-export const tipos = [tiposGlobales, tiposEnums, tiposUsuario, tiposProyecto, tiposObjetivo, tiposInscripcion, tiposAvance]
->>>>>>> c29da4692f5e514f1a5c97fed2f9dfb4700975bd:backend/graphql/tipos.js
