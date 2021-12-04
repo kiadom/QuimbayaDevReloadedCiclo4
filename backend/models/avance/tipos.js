@@ -1,7 +1,6 @@
 import { gql } from 'apollo-server-express';
 
 const tiposAvance = gql`
-
   type Avance {
     _id: ID!
     fecha: Date!
@@ -11,7 +10,6 @@ const tiposAvance = gql`
     lider: Usuario
     observacionesLider: String
   }
-
   type Query {
     Avances: [Avance]
     filtrarAvance(idProyecto: String!): [Avance]
@@ -19,8 +17,6 @@ const tiposAvance = gql`
     AvancesPorProyecto(proyecto: String!): [Avance]
     }
     
-
-
   type Mutation {
     
     crearAvance(
@@ -29,17 +25,22 @@ const tiposAvance = gql`
         proyecto: String! 
         creadoPor: String!
         ): Avance
-
     editarAvance(
         _id: String!
         descripcion: String!
         creadoPor: String!
         ): Avance
+<<<<<<< HEAD:models/avance/tipos.js
 
     eliminarAvance(
         _id:String!
         ): Avance
 
+=======
+    eliminarAvance(
+        _id:String!
+        ): Avance
+>>>>>>> c29da4692f5e514f1a5c97fed2f9dfb4700975bd:backend/models/avance/tipos.js
     registrarObservacion(
         _id: String!
         fechaObservaciones: Date!
@@ -50,4 +51,3 @@ const tiposAvance = gql`
 `;
 
 export {tiposAvance};
-
