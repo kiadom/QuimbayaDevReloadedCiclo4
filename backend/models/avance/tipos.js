@@ -30,17 +30,9 @@ const tiposAvance = gql`
         descripcion: String!
         creadoPor: String!
         ): Avance
-<<<<<<< HEAD:models/avance/tipos.js
-
     eliminarAvance(
         _id:String!
         ): Avance
-
-=======
-    eliminarAvance(
-        _id:String!
-        ): Avance
->>>>>>> c29da4692f5e514f1a5c97fed2f9dfb4700975bd:backend/models/avance/tipos.js
     registrarObservacion(
         _id: String!
         fechaObservaciones: Date!
