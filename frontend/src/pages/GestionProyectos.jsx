@@ -6,89 +6,77 @@ import { GET_PROYECTOS } from "../graphql/proyectos/querys";
 const GestionProyectos = () => {
 
     /* ESTADOS QUE PERMITEN CONTROLAR LA VISIBILIDAD DE LAS INTERFACES */
-    // const [textoBoton, setTextoBoton] = useState('Ver Listado de Proyectos' );
-    // const [mostrarTabla, setMostrarTabla] = useState(true);
+    const [textoBoton, setTextoBoton] = useState('Ver Listado de Proyectos' );
+    const [mostrarTabla, setMostrarTabla] = useState(true);
 
     const { data } = useQuery(GET_PROYECTOS);
 
     useEffect(() => {
-        console.log("data servidor", data);
+        console.log("Datos obtenidos por el QUERY", data);
     }, [data]);
 
     /* SE DEFINE EL TEXTO DEL BOTON, INICIALMENTE SERÁ "Registrar Proyecto" Y MOSTRARÁ LA INTERFAZ DE TABLA*/
-    // useEffect(()=>{
-    //     if (mostrarTabla) {
-    //         setTextoBoton('Registrar Proyecto');
-    //     }
-    //     else {
-    //         setTextoBoton('Ver Listado de Proyectos');
-    //     }
-    // },[mostrarTabla]);
+    useEffect(()=>{
+        if (mostrarTabla) {
+            setTextoBoton('Registrar Proyecto');
+        }
+        else {
+            setTextoBoton('Ver Listado de Proyectos');
+        }
+    },[mostrarTabla]);
 
     /* EN ESTE RETURN VA EL BOTON QUE PERMITE CAMBIAR DE INTERFAZ. 
     AL DAR CLIC SOBRE ESTE, CAMBIA EL ESTADO DE mostrarTabla, LLAMANDO ASI AL FORMULARIO*/
     return (
         <div className="body-text">
 
-            <h1>Lista de Proyectos</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>_id</th>
-                        <th>nombre</th>
-                        <th>presupuesto</th>
-                        <th>fechaInicio</th>
-                        <th>fechaFin</th>
-                        <th>estado</th>
-                        <th>fase</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {data && 
-                        data.Proyectos.map((p) => {
-                            return (
-                                <tr key = { p._id }>
-                                    <td>{ p._id }</td>
-                                    <td>{ p.nombre }</td>
-                                    <td>{ p.presupuesto }</td>
-                                    <td>{ p.fechaInicio }</td>
-                                    <td>{ p.fechaFin }</td>
-                                    <td>{ p.estado }</td>
-                                    <td>{ p.fase }</td>
-                                </tr>
-                            )
-                        })}
-                </tbody>
-            </table>
-
-            {/* <button onClick = {() => {
+            <button onClick = {() => {
                 setMostrarTabla (!mostrarTabla);
                 }}
             >{ textoBoton }</button>
-            { mostrarTabla ? (<TablaProyectos/>) : (<FormularioRegistroProyectos />)} */}
+            { mostrarTabla ? (<TablaProyectos listaProyectos = { data }/>) : (<FormularioRegistroProyectos />)}
 
         </div>
     );
 };
 
 /* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA LA TABLA QUE MUESTRA EL LISTADO DE PROYECTOS */
-const TablaProyectos = () => {
+const TablaProyectos = ({ listaProyectos }) => {
     return (
         <div>
             <h1>Lista de Proyectos</h1>
             <table>
                 <thead>
                     <tr>
-                        <th>_id</th>
-                        <th>nombre</th>
-                        <th>presupuesto</th>
-                        <th>fechaInicio</th>
-                        <th>fechaFin</th>
-                        <th>estado</th>
-                        <th>fase</th>
+                        <th>Nombre</th>
+                        <th>Objetivo General</th>
+                        <th>Presupuesto</th>
+                        <th>Fecha de Inicio</th>
+                        <th>Fecha de Finalizacion</th>
+                        <th>Identificacion Lider</th>
+                        <th>Nombre Lider</th>
+                        <th>Estado</th>
+                        <th>Fase</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
+                    { listaProyectos && 
+                        listaProyectos.Proyectos.map((p) => {
+                            return (
+                                <tr key = { p._id }>
+                                    <td>{ p.nombre }</td>
+                                    <td>{ p.objetivo[0].descripcion }</td>
+                                    <td>{ p.presupuesto }</td>
+                                    <td>{ p.fechaInicio }</td>
+                                    <td>{ p.fechaFin }</td>
+                                    <td>{ p.lider.identificacion }</td>
+                                    <td>{ p.lider.nombre }</td>
+                                    <td>{ p.estado }</td>
+                                    <td>{ p.fase }</td>
+                                </tr>
+                            )
+                        })}
                 </tbody>
             </table>
         </div>
