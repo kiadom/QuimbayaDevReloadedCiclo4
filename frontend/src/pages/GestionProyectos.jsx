@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useQuery } from "@apollo/client";
-import { GET_PROYECTOS } from "../graphql/proyectos/querys";
+import { useMutation, useQuery } from '@apollo/client';
+
+import { GET_PROYECTOS, GET_PROYECTO } from '../graphql/proyectos/querys';
+import { CREAR_PROYECTO } from "../graphql/proyectos/mutations";
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 const GestionProyectos = () => {
@@ -79,6 +81,10 @@ const TablaProyectos = ({ listaProyectos }) => {
         </div>
     )
 }
+
+/* FUTURA FUNCION PARA CREAR UN PROYECTO, SE DEBE INVOCAR AL DAR CLIC SOBRE EL BOTON EN LA INTERFAZ DEL FORMULARIO */
+const CrearProyecto = () => {
+};
 
 /* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA EL FORMULARIO PARA REGISTRAR LOS PROYECTOS */
 const FormularioRegistroProyectos = ()=> {

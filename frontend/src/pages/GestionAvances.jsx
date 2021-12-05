@@ -6,6 +6,6 @@ const GestionAvances = () => {
             <h1>MODULO DE GESTION DE AVANCES</h1>
         </div>
     )
-}
+};
 
 export { GestionAvances };
