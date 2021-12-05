@@ -1,32 +1,71 @@
 import React, { useEffect, useState } from "react";
+import { useQuery } from "@apollo/client";
+import { GET_PROYECTOS } from "../graphql/proyectos/querys";
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 const GestionProyectos = () => {
 
     /* ESTADOS QUE PERMITEN CONTROLAR LA VISIBILIDAD DE LAS INTERFACES */
-    const [textoBoton, setTextoBoton] = useState('Ver Listado de Proyectos' );
-    const [mostrarTabla, setMostrarTabla] = useState(true);
+    // const [textoBoton, setTextoBoton] = useState('Ver Listado de Proyectos' );
+    // const [mostrarTabla, setMostrarTabla] = useState(true);
+
+    const { data } = useQuery(GET_PROYECTOS);
+
+    useEffect(() => {
+        console.log("data servidor", data);
+    }, [data]);
 
     /* SE DEFINE EL TEXTO DEL BOTON, INICIALMENTE SERÁ "Registrar Proyecto" Y MOSTRARÁ LA INTERFAZ DE TABLA*/
-    useEffect(()=>{
-        if (mostrarTabla) {
-            setTextoBoton('Registrar Proyecto');
-        }
-        else {
-            setTextoBoton('Ver Listado de Proyectos');
-        }
-    },[mostrarTabla]);
+    // useEffect(()=>{
+    //     if (mostrarTabla) {
+    //         setTextoBoton('Registrar Proyecto');
+    //     }
+    //     else {
+    //         setTextoBoton('Ver Listado de Proyectos');
+    //     }
+    // },[mostrarTabla]);
 
     /* EN ESTE RETURN VA EL BOTON QUE PERMITE CAMBIAR DE INTERFAZ. 
     AL DAR CLIC SOBRE ESTE, CAMBIA EL ESTADO DE mostrarTabla, LLAMANDO ASI AL FORMULARIO*/
     return (
         <div className="body-text">
 
-            <button onClick = {() => {
+            <h1>Lista de Proyectos</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>_id</th>
+                        <th>nombre</th>
+                        <th>presupuesto</th>
+                        <th>fechaInicio</th>
+                        <th>fechaFin</th>
+                        <th>estado</th>
+                        <th>fase</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data && 
+                        data.Proyectos.map((p) => {
+                            return (
+                                <tr key = { p._id }>
+                                    <td>{ p._id }</td>
+                                    <td>{ p.nombre }</td>
+                                    <td>{ p.presupuesto }</td>
+                                    <td>{ p.fechaInicio }</td>
+                                    <td>{ p.fechaFin }</td>
+                                    <td>{ p.estado }</td>
+                                    <td>{ p.fase }</td>
+                                </tr>
+                            )
+                        })}
+                </tbody>
+            </table>
+
+            {/* <button onClick = {() => {
                 setMostrarTabla (!mostrarTabla);
                 }}
             >{ textoBoton }</button>
-            { mostrarTabla ? (<TablaProyectos/>) : (<FormularioRegistroProyectos />)}
+            { mostrarTabla ? (<TablaProyectos/>) : (<FormularioRegistroProyectos />)} */}
 
         </div>
     );
@@ -40,14 +79,13 @@ const TablaProyectos = () => {
             <table>
                 <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Objetivos</th>
-                        <th>Presupuesto</th>
-                        <th>Fechas</th>
-                        <th>Nombre Lider</th>
-                        <th>Estado</th>
-                        <th>Fase</th>
-                        <th>Accion</th>
+                        <th>_id</th>
+                        <th>nombre</th>
+                        <th>presupuesto</th>
+                        <th>fechaInicio</th>
+                        <th>fechaFin</th>
+                        <th>estado</th>
+                        <th>fase</th>
                     </tr>
                 </thead>
                 <tbody>
