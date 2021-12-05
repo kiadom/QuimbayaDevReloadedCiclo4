@@ -144,6 +144,6 @@ const FormularioRegistroProyectos = ()=> {
             </form>
         </div>
     )
-}
+};
 
 export { GestionAvances };
