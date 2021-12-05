@@ -1,15 +1,26 @@
 import { gql } from '@apollo/client';
 
+
 const GET_AVANCES = gql`
-    query Avances {
-    Avances {
-      proyecto {nombre}
-      fecha
-      descripcion
-      creadoPor {nombre}
-      lider {nombre}
+    query Proyectos {
+        Proyectos {
+            _id
+            nombre
+            objetivo {
+                descripcion
+                tipo
+            }
+            presupuesto
+            fechaInicio
+            fechaFin
+            lider {
+                identificacion
+                nombre
+            }
+            estado
+            fase
+        }
     }
-  }
 `;
 
-export {GET_AVANCES};
+export { GET_AVANCES };
