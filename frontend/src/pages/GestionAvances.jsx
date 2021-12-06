@@ -40,36 +40,41 @@ const GestionAvances = () => {
                 setMostrarTabla (!mostrarTabla);
                 }}
             >{ textoBoton }</button>
-            { mostrarTabla ? (<TablaProyectos listaProyectos = { data }/>) : (<FormularioRegistroProyectos />)}
+            { mostrarTabla ? (<TablaAvances listaAvances = { data }/>) : (<FormularioRegistroAvances />)}
 
         </div>
     );
 };
 
 /* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA LA TABLA QUE MUESTRA EL LISTADO DE AVANCES */
-const TablaProyectos = ({ listaProyectos }) => {
+const TablaAvances = ({ listaAvances }) => {
     return (
         <div>
             <h1>Lista de Avances</h1>
-            {/*<table>
+            <table>
                 <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Objetivo General</th>
+                        <th>Nombre Proyecto</th>
+                        <th>Fecha</th>
+                        <th>Descripcion Avance</th>
+                        <th>Observaciones Lider</th>
                     </tr>
                 </thead>
                 <tbody>
-                    { listaProyectos && 
-                        listaProyectos.Proyectos.map((p) => {
+                    { listaAvances && 
+                        listaAvances.Avances.map((a) => {
                             return (
-                                <tr key = { p._id }>
-                                    <td>{ p.nombre }</td>
-                                    <td>{ p.objetivo[0].descripcion }</td>
+                                <tr key = { a._id }>
+                                    <td>{ a.proyecto.nombre }</td>
+                                    <td>{ a.fecha }</td>
+                                    <td>{ a.descripcion }</td>
+                                    <td>{ a.observacionesLider }</td>
                                 </tr>
                             )
                         })}
+                    
                 </tbody>
-            </table>*/}
+            </table>
         </div>
     )
 }
@@ -79,7 +84,7 @@ const CrearProyecto = () => {
 };
 
 /* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA EL FORMULARIO PARA REGISTRAR LOS PROYECTOS */
-const FormularioRegistroProyectos = ()=> {
+const FormularioRegistroAvances = ()=> {
     return (
         <div>
             <h1>Ingrese el Proyecto</h1>
