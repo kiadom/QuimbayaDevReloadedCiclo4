@@ -1,21 +1,12 @@
+import React from 'react';
 import logo from './media/logoLogin.png';
 
 
 const Index = () => {
-    return(
-        <body className ="bodyIndex">
-            <div className ="contenedor">
-                <div className="contenedor-login">
-
-                    <div className ="contenedor-logo">
-                        <image className="logo" src={logo} alt="logo"></image>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </body>
+    return (
+        <div className="body-text">
+            <h1>Index</h1>
+        </div>
     )
 };
 
