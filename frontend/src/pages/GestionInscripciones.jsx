@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import { useQuery, useMutation } from "@apollo/client";
 import {GET_INSCRIPCIONES} from "../graphql/inscripciones/queries";
-import { toast } from 'react-toastify';
+//import { toast } from 'react-toastify';
 //import { Link } from 'react-router-dom';
 //import {APROBAR_INSCRIPCION, RECHAZAR_INSCRIPCION} from "../graphql/inscripciones/mutaciones";
 
@@ -15,7 +15,7 @@ const GestionInscripciones = () => {
 
     useEffect(() => {
         if (error) {
-          toast.error('Error consultando las inscripciones');
+          //toast.error('Error consultando las inscripciones');
         }
       }, [error]);
     
