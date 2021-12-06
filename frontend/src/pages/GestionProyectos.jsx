@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useMutation, useQuery } from '@apollo/client';
+import { useFormData } from "../hooks/useFormData";
 
 import { GET_PROYECTOS, GET_PROYECTO } from '../graphql/proyectos/querys';
 import { CREAR_PROYECTO } from "../graphql/proyectos/mutations";
@@ -82,23 +83,28 @@ const TablaProyectos = ({ listaProyectos }) => {
     )
 }
 
-/* FUTURA FUNCION PARA CREAR UN PROYECTO, SE DEBE INVOCAR AL DAR CLIC SOBRE EL BOTON EN LA INTERFAZ DEL FORMULARIO */
-const CrearProyecto = () => {
-};
-
 /* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA EL FORMULARIO PARA REGISTRAR LOS PROYECTOS */
 const FormularioRegistroProyectos = ()=> {
+
+    const { form, formData, updateFormData } = useFormData();
+    const [crearProyecto, { data }] = useMutation(CREAR_PROYECTO);
+
+    const submitForm = (e) => {
+        e.preventDefault();
+        crearProyecto({ variables: formData });
+    };
+    
     return (
         <div>
             <h1>Ingrese el Proyecto</h1>
-            <form>
+            <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
                 <table>
                     <tr>
                         <td>
                             <p>Nombre del Proyecto: </p>
                         </td>
                         <td>
-                            <input type = "text" required/>
+                            <input name = 'nombre' type = "text" required/>
                         </td>
                     </tr>
                     <tr>
@@ -106,15 +112,7 @@ const FormularioRegistroProyectos = ()=> {
                             <p>Objetivo General: </p>
                         </td>
                         <td>
-                            <input type = "text" required/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Objetivo Especifico: </p>
-                        </td>
-                        <td>
-                            <input type = "text" required/>
+                            <input name = 'objetivo' type = "text" required/>
                         </td>
                     </tr>
                     <tr>
@@ -122,12 +120,12 @@ const FormularioRegistroProyectos = ()=> {
                             <p>Presupuesto: </p>
                         </td>
                         <td>
-                            <input type = "number" required/>
+                            <input name = 'presupuesto' type = "number" required/>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type = "button" value = "Registrar proyecto" />
+                            <input type = "submit" value = "Registrar proyecto" />
                         </td>
                     </tr>
                 </table>
