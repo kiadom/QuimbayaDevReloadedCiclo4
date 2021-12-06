@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_AVANCES, GET_AVANCES2 } from '../graphql/avances/querys';
 
-
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 const GestionAvances = () => {
 
@@ -35,7 +34,6 @@ const GestionAvances = () => {
     AL DAR CLIC SOBRE ESTE, CAMBIA EL ESTADO DE mostrarTabla, LLAMANDO ASI AL FORMULARIO*/
     return (
         <div className="body-text">
-
             <button onClick = {() => {
                 setMostrarTabla (!mostrarTabla);
                 }}
@@ -51,7 +49,6 @@ const TablaAvances = ({ listaAvances }) => {
     return (
         <div>
             <h1>Lista de Avances</h1>
-                
                 <table>
                     <thead>
                         <tr>
