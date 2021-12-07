@@ -1,6 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
+  "license": "MIT",
   "private": false,
   "dependencies": {
     "@apollo/client": "^3.5.5",
