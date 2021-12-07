@@ -4,13 +4,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 
 import { ModulesLayout } from './layouts/ModulesLayout';
-import { PrincipalLayout } from './layouts/principalLayout';
-
 import { GestionAvances } from './pages/GestionAvances';
 import { GestionInscripciones } from './pages/GestionInscripciones';
 import { GestionProyectos } from './pages/GestionProyectos';
 import { GestionUsuarios } from './pages/GestionUsuarios';
-import {Principal} from './pages/Principal';
+
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/graphql",
@@ -29,13 +27,7 @@ function App() {
               <Route exact path="/GestionUsuarios" element={<GestionUsuarios/>}/>              
             </Routes>
           </ModulesLayout>          
-   {/* traer layouts nuevos */}
-
-          <PrincipalLayout>
-            <Routes>
-              <Route exact path="/Principal" element={<Principal/>}/>              
-            </Routes>
-          </PrincipalLayout>
+   {/* traer layouts nuevos */}         
       </Router>
     </ApolloProvider>
 
