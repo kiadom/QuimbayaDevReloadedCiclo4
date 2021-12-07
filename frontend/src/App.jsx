@@ -8,7 +8,7 @@ import { GestionAvances } from './pages/GestionAvances';
 import { GestionInscripciones } from './pages/GestionInscripciones';
 import { GestionProyectos } from './pages/GestionProyectos';
 import { GestionUsuarios } from './pages/GestionUsuarios';
-import {Index} from './pages/Index';
+import { Index } from './pages/Index';
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/graphql",
