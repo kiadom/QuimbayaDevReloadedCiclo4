@@ -4,7 +4,7 @@ import '../styles/estilos.css';
 
 function Header(){
     return (
-        <div class="header">
+        <div className="header">
             <div className="logoNerdALert">
                 <img src={ logoNerd } alt="logo header" />
             </div>

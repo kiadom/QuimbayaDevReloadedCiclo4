@@ -2,7 +2,7 @@ import { gql } from 'apollo-server-express';
 
 const tiposProyecto = gql`
 
-    type Proyecto {
+type Proyecto {
         _id: ID!
         nombre: String!
         presupuesto: Float!
@@ -41,7 +41,6 @@ const tiposProyecto = gql`
             lider: String!
             objetivo: [String]!
         ): Proyecto
-
         editarProyecto(
             _id: String
             nombre: String
@@ -52,5 +51,6 @@ const tiposProyecto = gql`
         ): Proyecto
     }
 `;
+
 
 export { tiposProyecto };
