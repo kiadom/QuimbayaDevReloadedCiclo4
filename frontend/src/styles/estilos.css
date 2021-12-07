@@ -3,11 +3,19 @@
   padding: 0px;
 }
 
+:root {
+  --light-bg: #E6DDC4;
+  --dark-bg: #F0A500;
+  --grey-bg: #092133;
+  --blue-bg: #344857;
+  --black-bg: #000000;
+}
+
 .header {
   width: 100%;
   padding: 60px;
   text-align: center;
-  background: #1abc9c;
+  background-color: var(--grey-bg);
   color: white;
   font-size: 30px;
 }
