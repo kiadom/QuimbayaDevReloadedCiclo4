@@ -1,12 +1,21 @@
 import React from 'react';
-import '../styles/App.css';
+import logoNerd from '../media/logoheader.png';
 
-function Header(){
+function Header  () {
     return (
-        <div class="header">
-            <h1>Este es el Header</h1>
+        <div className="header">
+            <div className="logoNerdALert">
+                <img src={ logoNerd } alt="logo header" />
+            </div>
+            <button className="botonIngreso">
+                INGRESO
+            </button>
+            <button className="botonRegistro">
+                REGISTRO
+            </button>
+            
         </div>
     )
 }
 
-export { Header };
+export {Header} ;

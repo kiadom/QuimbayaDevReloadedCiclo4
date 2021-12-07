@@ -4,9 +4,10 @@ import { Header } from "../components/Header";
 import { Sidebar } from "../components/Sidebar";
 import { Footer } from "../components/Footer";
 
-function ModulesLayout({ children }){
+
+function ModulesLayout ({ children }){
     return (
-        <div>
+        <div className='prueba'>
             <Header />
             <Sidebar />
             <main>{ children }</main>
@@ -15,4 +16,4 @@ function ModulesLayout({ children }){
     )
 }
 
-export { ModulesLayout };
+export { ModulesLayout } ;

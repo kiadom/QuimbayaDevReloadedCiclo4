@@ -5,7 +5,7 @@ const resolversProyecto = {
     Query: {
 
         Proyectos: async (parent, args) => {
-            const proyectos = await ModeloProyecto.find().populate('lider').populate('objetivo').populate('avances');
+            const proyectos = await ModeloProyecto.find().populate('lider').populate('objetivo').populate('avances').populate('inscripciones');
             return proyectos;
         },
 
@@ -20,6 +20,13 @@ const resolversProyecto = {
             .populate({path:'proyecto', populate: {path:'lider'}});
             return inscripciones;
         },
+
+        /*Inscripciones: async (parent, args, context) => {
+            const inscripciones = await ModeloInscripcion.find({
+                proyecto: parent._id,
+            });
+            return inscripciones;
+        },*/
 
 
 

@@ -1,13 +1,25 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+:root {
+  --light-bg: #eeeeee;
+  --dark-bg: #F0A500;
+  --grey-bg: #344857;
+  --blue-bg: #092133;
+  --black-bg: #000000;
+}
 .header {
-  padding: 60px;
-  text-align: center;
-  background: #1abc9c;
-  color: white;
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  background-color: var(--grey-bg);
+  color: #344857;
   font-size: 30px;
 }
 
 .body-text {
-  margin-left: 150px;
+  margin-left: 10px;
   font-size: 18px;
 }
 
@@ -16,7 +28,7 @@
   width: 150px;
   position: absolute;
   left: 0;
-  top: 0;
+  top: 20;
   padding-top: 40px;
   background-color: lightblue;
 }

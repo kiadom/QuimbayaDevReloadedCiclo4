@@ -5,6 +5,8 @@ import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 
 import { ModulesLayout } from './layouts/ModulesLayout';
 import AuthLayout from './layouts/AuthLayout';
+import { PrincipalLayout } from './layouts/principalLayout';
+
 import { GestionAvances } from './pages/GestionAvances';
 import { GestionInscripciones } from './pages/GestionInscripciones';
 import { GestionProyectos } from './pages/GestionProyectos';
@@ -14,6 +16,7 @@ import Login from './pages/auth/Login';
 import { AuthContext } from "./context/authContext";
 
 
+import {Principal} from './pages/Principal';
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/graphql",
@@ -51,12 +54,15 @@ function App() {
               <Route exact path="Registro" element={<Registro />} />
               <Route exact path="Login" element={<Login />} />
             </Route>
+            <Route path="/Principal" element={<PrincipalLayout/>}>
+              <Route exact path="/Principal" element={<Principal/>}/>              
+            </Route>
           </Routes>
-
-
         </Router>
       </AuthContext.Provider>
     </ApolloProvider>
+
+
   );
 }
 
