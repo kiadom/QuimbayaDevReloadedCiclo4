@@ -1,11 +1,23 @@
 import React from 'react'
+import { LoginPrincipal } from '../components/LoginPrincipal';
 
-const Principal = () => {
+function Principal () {
     return (
-        <div className= 'body-text'>
-            <p>AQUI VA LA MAGIA</p>
+       
             
-        </div>
+            <div className= 'contenedor'>
+                <div className='contenedor-logo'>
+                    <LoginPrincipal />
+                    <p>Hola</p>
+                    <p>Hola</p>
+                    <p>Hola</p>
+                    <p>Hola</p>
+                    <p>Hola</p>
+                    <p>Hola</p>
+                </div>
+                
+            </div>
+        
     )
 }
 

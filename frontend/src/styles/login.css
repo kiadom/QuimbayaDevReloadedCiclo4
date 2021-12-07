@@ -1,8 +1,23 @@
-.login {
-  width: 100%;
-  padding: 60px;
-  text-align: center;
-  background: #1a4dbc;
-  color: rgb(233, 18, 18);
-  font-size: 30px;
+*{
+  margin: 0px;
+  padding: 0px;
+}
+:root {
+  --light-bg: #eeeeee;
+  --dark-bg: #F0A500;
+  --grey-bg: #344857;
+  --blue-bg: #092133;
+  --black-bg: #000000;
+}
+
+.bodyPrincipal{
+  background-color: var(--dark-bg);
+  /* background-image: url('../media/imagenPrincipal.jpg'); */
+  background-size: cover;
+  height: 100vh;
+
+}
+
+.loginPrincipal{
+  background-color: violet;
 }

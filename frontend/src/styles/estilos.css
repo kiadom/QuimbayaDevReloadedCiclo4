@@ -2,26 +2,24 @@
   margin: 0px;
   padding: 0px;
 }
-
+:root {
+  --light-bg: #eeeeee;
+  --dark-bg: #F0A500;
+  --grey-bg: #344857;
+  --blue-bg: #092133;
+  --black-bg: #000000;
+}
 .header {
   width: 100%;
   padding: 10px;
-  text-align: center;
-  background-color: var(--blue-bg);
-  color: white;
-  font-size: 30px;
-}
-.wrap {
-  width: 100%;
-  padding: 10px;
-  text-align: center;
-  background-color: var(--blue-bg);
-  color: white;
+  text-align: left;
+  background-color: var(--grey-bg);
+  color: #344857;
   font-size: 30px;
 }
 
 .body-text {
-  margin-left: 150px;
+  margin-left: 10px;
   font-size: 18px;
 }
 

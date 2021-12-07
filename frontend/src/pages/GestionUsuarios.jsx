@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GestionUsuarios = () => {
+function GestionUsuarios (){
     return (
         <div className="body-text">
             <h1>MODULO DE GESTION DE USUARIOS</h1>
@@ -8,4 +8,4 @@ const GestionUsuarios = () => {
     )
 };
 
-export { GestionUsuarios };
+export { GestionUsuarios }  ;

@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/estilos.css';
 
 function Sidebar(){
     return (

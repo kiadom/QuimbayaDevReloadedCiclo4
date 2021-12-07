@@ -1,12 +1,13 @@
-import React from 'react'
-import '../styles/estilos.css';
+import { LoginPrincipal } from '../components/LoginPrincipal';
+import '../styles/login.css';
 
-export default function PrincipalLayout({ children }) {
+function PrincipalLayout ({ children }) {
     return (
-        <div>
+        <div className='luis'>
+            <LoginPrincipal/>
             <main>{ children }</main>
         </div>
     )
-};
+}
 
-export { PrincipalLayout };
+export  { PrincipalLayout } ;

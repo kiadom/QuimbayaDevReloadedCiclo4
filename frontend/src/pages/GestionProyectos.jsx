@@ -35,7 +35,7 @@ const GestionProyectos = () => {
                 setMostrarTabla (!mostrarTabla);
                 }}
             >{ textoBoton }</button>
-            { mostrarTabla ? (<TablaProyectos listaProyectos = { data }/>) : (<FormularioRegistroProyectos />)}
+             {/* { mostrarTabla ? (<TablaProyectos listaProyectos = { data }/>) : (<FormularioRegistroProyectos />)} */}
 
         </div>
     );

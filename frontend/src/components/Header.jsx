@@ -1,8 +1,7 @@
 import React from 'react';
 import logoNerd from '../media/logoheader.png';
-import '../styles/estilos.css';
 
-function Header(){
+function Header  () {
     return (
         <div className="header">
             <div className="logoNerdALert">
@@ -19,4 +18,4 @@ function Header(){
     )
 }
 
-export { Header };
+export {Header} ;
