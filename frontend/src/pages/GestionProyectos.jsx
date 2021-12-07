@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useMutation, useQuery } from '@apollo/client';
 import { useFormData } from "../hooks/useFormData";
 
-import { GET_PROYECTOS, GET_PROYECTO } from '../graphql/proyectos/querys';
+import { GET_PROYECTOS, GET_PROYECTO } from '../graphql/proyectos/queries';
 import { CREAR_PROYECTO } from "../graphql/proyectos/mutations";
+import { CREAR_OBJETIVO } from "../graphql/objetivos/mutations";
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 const GestionProyectos = () => {
@@ -50,9 +51,10 @@ const TablaProyectos = ({ listaProyectos }) => {
                     <tr>
                         <th>Nombre</th>
                         <th>Objetivo General</th>
+                        <th>Objetivos Especificos</th>
                         <th>Presupuesto</th>
                         <th>Fecha de Inicio</th>
-                        <th>Fecha de Finalizacion</th>
+                        <th>Fecha de Terminacion</th>
                         <th>Identificacion Lider</th>
                         <th>Nombre Lider</th>
                         <th>Estado</th>
@@ -67,6 +69,7 @@ const TablaProyectos = ({ listaProyectos }) => {
                                 <tr key = { p._id }>
                                     <td>{ p.nombre }</td>
                                     <td>{ p.objetivo[0].descripcion }</td>
+                                    <td>{ p.objetivo[1].descripcion } <p/> { p.objetivo[2].descripcion }</td>
                                     <td>{ p.presupuesto }</td>
                                     <td>{ p.fechaInicio }</td>
                                     <td>{ p.fechaFin }</td>
@@ -81,13 +84,13 @@ const TablaProyectos = ({ listaProyectos }) => {
             </table>
         </div>
     )
-}
+};
 
 /* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA EL FORMULARIO PARA REGISTRAR LOS PROYECTOS */
 const FormularioRegistroProyectos = ()=> {
 
     const { form, formData, updateFormData } = useFormData();
-    const [crearProyecto, { data }] = useMutation(CREAR_PROYECTO);
+    const [crearProyecto, { data }] = useMutation(CREAR_OBJETIVO);
 
     const submitForm = (e) => {
         e.preventDefault();
@@ -101,26 +104,18 @@ const FormularioRegistroProyectos = ()=> {
                 <table>
                     <tr>
                         <td>
-                            <p>Nombre del Proyecto: </p>
+                            <p>Descripcion: </p>
                         </td>
                         <td>
-                            <input name = 'nombre' type = "text" required/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Objetivo General: </p>
-                        </td>
-                        <td>
-                            <input name = 'objetivo' type = "text" required/>
+                            <input name = 'descripcion' type = "text" required/>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <p>Presupuesto: </p>
+                            <p>Tipo: </p>
                         </td>
                         <td>
-                            <input name = 'presupuesto' type = "number" required/>
+                            <input name = 'tipo' type = "text" required/>
                         </td>
                     </tr>
                     <tr>
@@ -132,6 +127,6 @@ const FormularioRegistroProyectos = ()=> {
             </form>
         </div>
     )
-}
+};
 
 export { GestionProyectos };
