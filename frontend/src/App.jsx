@@ -28,7 +28,7 @@ function App() {
               <Route exact path="/Principal" element={<Principal/>}/>
             </Routes>
           </ModulesLayout>
-
+   {/* traer layouts nuevos */}
 
       </Router>
     </ApolloProvider>
