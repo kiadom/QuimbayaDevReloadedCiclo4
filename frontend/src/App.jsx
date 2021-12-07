@@ -12,7 +12,6 @@ import { GestionProyectos } from './pages/GestionProyectos';
 import { GestionUsuarios } from './pages/GestionUsuarios';
 import {Principal} from './pages/Principal';
 
-
 const client = new ApolloClient({
   uri: "http://localhost:4000/graphql",
   cache: new InMemoryCache()
