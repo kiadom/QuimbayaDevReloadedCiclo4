@@ -13,10 +13,7 @@ function Sidebar(){
                     <FontAwesomeIcon icon={faAddressCard} size="5x" color='#092133'/>
                     <h4>Gestión Usuarios</h4>
                 </div>
-                <div className ="EncabezadoModulo">
-                    <img className='logoside' rc={imagen}/>
-                    <h4>Gestión Inscripciones</h4>
-                </div>
+                
             </div>
         </div>
     )

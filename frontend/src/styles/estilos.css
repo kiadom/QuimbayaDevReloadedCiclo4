@@ -56,10 +56,19 @@ header {
   margin: 120px 5px;
   padding-top: 5px;
   left: 0;
-  top: 5;
-  float: left;
+  top: 5;  
+  background-color:#eeeeee;
+}
+.wrapper .sidebar .EncabezadoModulo{
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-align: center;
   
-  background-color: lightblue;
+  
+}
+
+.wrapper .sidebar .EncabezadoModulo .icon{
+  color:var(--dark-bg);
 }
 
 .sidebar .div {
