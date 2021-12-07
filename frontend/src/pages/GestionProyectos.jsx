@@ -7,7 +7,7 @@ import { useFormData } from "../hooks/useFormData";
 import { CREAR_OBJETIVO } from "../graphql/objetivos/mutations";
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
-const GestionProyectos = () => {
+function GestionProyectos () {
 
     /* ESTADOS QUE PERMITEN CONTROLAR LA VISIBILIDAD DE LAS INTERFACES */
     const [textoBoton, setTextoBoton] = useState('Ver Listado de Proyectos' );

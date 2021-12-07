@@ -8,7 +8,7 @@ import Button from '../components/Button';
 //import {APROBAR_INSCRIPCION} from "../graphql/inscripciones/mutations";
 
 
-const GestionInscripciones = () => {
+function GestionInscripciones () {
 
     const { data, error, loading } = useQuery(GET_INSCRIPCIONES);
 
@@ -18,7 +18,7 @@ const GestionInscripciones = () => {
         }
       }, [error]);
     
-      if (loading) return <div>Cargando....</div>;
+      if (loading) return <div className ='cargando'>Cargando....</div>;
 
 
     return (
