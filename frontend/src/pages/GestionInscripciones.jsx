@@ -53,7 +53,7 @@ const GestionInscripciones = () => {
                                     <td>{ i.fecha_egreso }</td>
                                     <td><button disabled={i.estadoInscripcion !== 'PENDIENTE'} 
                                     onClick={() => {
-                                        <AprobarInscripcion/>;
+                                        // <AprobarInscripcion/>;
                                       }}
                                       >Aprobar</button>
                                          
