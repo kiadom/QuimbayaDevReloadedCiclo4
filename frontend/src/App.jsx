@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 
 import { ModulesLayout } from './layouts/ModulesLayout';
-import { PrincipalLayout } from './layouts/PrincipalLayout';
+import { PrincipalLayout } from './layouts/principalLayout';
 
 import { GestionAvances } from './pages/GestionAvances';
 import { GestionInscripciones } from './pages/GestionInscripciones';
