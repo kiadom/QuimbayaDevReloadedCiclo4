@@ -1,7 +1,9 @@
 import React, {useEffect} from 'react';
-import { useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import {GET_INSCRIPCIONES} from "../graphql/inscripciones/queries";
 import { toast } from 'react-toastify';
+import { CREAR_INSCRIPCION } from '../graphql/inscripciones/mutations';
+import Button from '../components/Button';
 
 //import {APROBAR_INSCRIPCION} from "../graphql/inscripciones/mutations";
 
@@ -67,7 +69,34 @@ const GestionInscripciones = () => {
 
 };
 
+/*
+//en el modulo proyectos, donde vaya a quedar el boton pongo lo siguiente:
+//<CrearInscripcion  idProyecto={proyecto.id}/>
+
+const CrearInscripcion = ({idProyecto, estado}) => {
+    const [crearInscripcion, {data, loading, error}] = useMutation(CREAR_INSCRIPCION);
+// esto cuando tenga el login, para que traiga la informacion del usuario desde el entorno, le quito arriba idUsuario
+const {userData} = useUser();
+    useEffect(()=>{
+       if (data) {
+           console.log(data);
+           toast.success('Inscripción creada con exito');
+       }
+    }, [data]);
+
+    const Inscribirse = () =>{
+        crearInscripcion({variables: {proyecto: idProyecto, estudiante: userData.id}})
+    }
+
+    return(
+        <Button
+        onClick={()=> Inscribirse()}
+        disabled={estado === 'INACTIVO'}
+        loading={loading}
+        text='Inscribirme'
+        />
+    )
+};*/
 
 
-
-export { GestionInscripciones, };
+export { GestionInscripciones};
