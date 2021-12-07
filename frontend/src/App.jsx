@@ -9,7 +9,7 @@ import { GestionInscripciones } from './pages/GestionInscripciones';
 import { GestionProyectos } from './pages/GestionProyectos';
 import { GestionUsuarios } from './pages/GestionUsuarios';
 import {Principal} from './pages/Principal';
-import { PrincipalLayout } from "./layouts/PrincipalLayout";
+import { PrincipalLayout } from "./layouts/principalLayout";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/graphql",
