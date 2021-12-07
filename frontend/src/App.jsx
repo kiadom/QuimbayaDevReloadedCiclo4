@@ -26,13 +26,13 @@ function App() {
               <Route exact path="/GestionInscripciones" element={<GestionInscripciones/>}/>
               <Route exact path="/GestionProyectos" element={<GestionProyectos/>}/>
               <Route exact path="/GestionUsuarios" element={<GestionUsuarios/>}/>
-              
+              <Route exact path="/Principal" element={<Principal/>}/>
             </Routes>
           </ModulesLayout>
    {/* traer layouts nuevos */}
-          <PrincipalLayout>
+          {/* <PrincipalLayout>
           <Route exact path="/Principal" element={<Principal/>}/>
-          </PrincipalLayout>
+          </PrincipalLayout> */}
 
       </Router>
     </ApolloProvider>
