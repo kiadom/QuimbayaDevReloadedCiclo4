@@ -1,28 +1,23 @@
 import React, {useEffect} from 'react';
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import {GET_INSCRIPCIONES} from "../graphql/inscripciones/queries";
-//import { toast } from 'react-toastify';
-//import { Link } from 'react-router-dom';
-//import {APROBAR_INSCRIPCION, RECHAZAR_INSCRIPCION} from "../graphql/inscripciones/mutaciones";
+import { toast } from 'react-toastify';
+
+//import {APROBAR_INSCRIPCION} from "../graphql/inscripciones/mutations";
+
 
 const GestionInscripciones = () => {
 
     const { data, error, loading } = useQuery(GET_INSCRIPCIONES);
 
-    /*useEffect(() => {
-        console.log("data servidor", data);
-    }, [data]);*/
-
     useEffect(() => {
         if (error) {
-          //toast.error('Error consultando las inscripciones');
+          toast.error('Error consultando las inscripciones');
         }
       }, [error]);
     
       if (loading) return <div>Cargando....</div>;
 
-
-     
 
     return (
 
@@ -54,10 +49,14 @@ const GestionInscripciones = () => {
                                     <td>{ i.estadoInscripcion }</td>
                                     <td>{ i.fecha_ingreso }</td>
                                     <td>{ i.fecha_egreso }</td>
-                                    <td><button 
-                                    disabled={i.estadoInscripcion !== 'PENDIENTE'}>Aprobar</button>
-                                    <button
-                                    disabled={i.estadoInscripcion !== 'PENDIENTE'}>Rechazar</button></td>
+                                    <td><button disabled={i.estadoInscripcion !== 'PENDIENTE'} 
+                                    onClick={() => {
+                                        <AprobarInscripcion/>;
+                                      }}
+                                      >Aprobar</button>
+                                         
+                                    
+                                   </td>
                                 </tr>
                             )
                         })}
@@ -68,19 +67,7 @@ const GestionInscripciones = () => {
 
 };
 
-/*const AprobarInscripcion = () => {
 
-    const [{ aprobarInscripcion, data: dataAprobar, error: errorAprobar, loading: loadingAprobar } = useMutation(APROBAR_INSCRIPCION); ]
-    if (loadingAprobar) return <div>Cargando....</div>;
-    const aprobarI= (i)=>{
-        aprobar({APROBAR_INSCRIPCION});
 
-};
 
-const RechazarInscripcion = () => {
-
-    const { aprobar, data: dataRechazar, error: errorRechazar, loading: loadingRechazar } = useMutation(RECHAZAR_INSCRIPCION); 
-    if (loadingRechazar) return <div>Cargando....</div>;
-}*/
-
-export { GestionInscripciones}
+export { GestionInscripciones, };
