@@ -21,13 +21,13 @@ const resolversProyecto = {
             return inscripciones;
         },
 
-        InscripcionesPorProyecto: async (parent, args, context) => {
+        /*InscripcionesPorProyecto: async (parent, args, context) => {
             const inscripcionesPorProyecto = await ModeloInscripcion.find({
                 proyecto: parent._id,
             });
             return inscripcionesPorProyecto;
         },
-
+*/
 
 
         ProyectosPorLider: async (parent, args) => {

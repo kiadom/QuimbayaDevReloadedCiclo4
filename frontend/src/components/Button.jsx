@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import ReactLoading from 'react-loading';
 
 const Button = ({ disabled, loading, text, onClick = () => {} }) => {
@@ -14,4 +14,4 @@ const Button = ({ disabled, loading, text, onClick = () => {} }) => {
   );
 };
 
-export default Button;
+export default Button;*/
