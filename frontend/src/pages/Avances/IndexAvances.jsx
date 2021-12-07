@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useQuery, useMutation } from '@apollo/client';
-import { GET_PROYECTOSMODAVANCE } from '../graphql/avances/querys';
+//import { GET_PROYECTOSMODAVANCE } from '../graphql/avances/querys';
+import { GET_PROYECTOSMODAVANCE } from "../../graphql/avances/querys";
 
 const IndexAvances = () => {
 
@@ -33,6 +34,7 @@ const TablaAvances = ({ listaAvances }) => {
                     <tr>
                         <th>ID Proyecto</th>
                         <th>Nombre</th>
+                        <th>Detalle Avances</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,6 +44,7 @@ const TablaAvances = ({ listaAvances }) => {
                                 <tr key = { p._id }>
                                     <td>{ p._id }</td>
                                     <td>{ p.nombre }</td>
+                                    <td></td>
                                 </tr>
                             )
                         })}

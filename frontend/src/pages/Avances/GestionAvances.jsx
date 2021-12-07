@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useQuery, useMutation } from '@apollo/client';
-import { GET_AVANCES, GET_AVANCES2 } from '../graphql/avances/querys';
+import { GET_AVANCES2, GET_AVANCES  } from "../../graphql/avances/querys";
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 const GestionAvances = () => {
@@ -11,6 +11,7 @@ const GestionAvances = () => {
 
     /* PLANTILLA PARA HACER LA PETICION GET DE PROYECTOS. EL RETORNO SE ALMACENA EN data */
     const { data } = useQuery(GET_AVANCES2);
+   
     //const { blablabal } = useQuery(GET_AVANCES);//no los esta trayendo
 
     useEffect(() => {

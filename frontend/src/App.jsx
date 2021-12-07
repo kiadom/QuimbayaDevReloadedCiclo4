@@ -4,12 +4,12 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 
 import { ModulesLayout } from './layouts/ModulesLayout';
-import { GestionAvances } from "./pages/GestionAvances";
+import { GestionAvances } from "./pages/Avances/GestionAvances";
 import { GestionInscripciones } from './pages/GestionInscripciones';
 import { GestionProyectos } from './pages/GestionProyectos';
 import { GestionUsuarios } from './pages/GestionUsuarios';
 
-import { IndexAvances } from "./pages/IndexAvances";
+import { IndexAvances } from "./pages/Avances/IndexAvances";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/graphql",
@@ -22,11 +22,11 @@ function App() {
       <Router>
           <ModulesLayout>
             <Routes>
-              <Route exact path="/GestionAvances" element={<GestionAvances/>}/>
+              <Route exact path="/Avances/GestionAvances" element={<GestionAvances/>}/>
               <Route exact path="/GestionInscripciones" element={<GestionInscripciones/>}/>
               <Route exact path="/GestionProyectos" element={<GestionProyectos/>}/>
               <Route exact path="/GestionUsuarios" element={<GestionUsuarios/>}/>
-              <Route exact path="/IndexAvances" element={<IndexAvances/>}/>
+              <Route exact path="/Avances/IndexAvances" element={<IndexAvances/>}/>
             </Routes>
           </ModulesLayout>
       </Router>
