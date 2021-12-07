@@ -13,9 +13,17 @@
 
 .header {
   width: 100%;
-  padding: 60px;
+  padding: 10px;
   text-align: center;
-  background-color: var(--grey-bg);
+  background-color: var(--blue-bg);
+  color: white;
+  font-size: 30px;
+}
+.wrap {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background-color: var(--blue-bg);
   color: white;
   font-size: 30px;
 }

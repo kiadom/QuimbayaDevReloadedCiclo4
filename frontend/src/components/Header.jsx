@@ -1,5 +1,5 @@
 import React from 'react';
-import logoNerd from './media/logoheader.png';
+import logoNerd from '../media/logoheader.png';
 import '../styles/estilos.css';
 
 function Header(){
@@ -8,7 +8,13 @@ function Header(){
             <div className="logoNerdALert">
                 <img src={ logoNerd } alt="logo header" />
             </div>
-            <h1>Este es el Header</h1>
+            <button className="botonIngreso">
+                INGRESO
+            </button>
+            <button className="botonRegistro">
+                REGISTRO
+            </button>
+            
         </div>
     )
 }
