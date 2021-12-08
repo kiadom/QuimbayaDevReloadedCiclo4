@@ -57,15 +57,7 @@ function App() {
               <Route exact path="/auth/Login" element={<Login />} />
             </Routes>
           </AuthLayout>
-          
         </Router>
-
-          {/* <Routes>
-            <Route path='/auth' element={<AuthLayout />}>
-              <Route exact path="Registro" element={<Registro />} />
-              <Route exact path="Login" element={<Login />} />
-            </Route>
-          </Routes> */}
 
       </AuthContext.Provider>
     </ApolloProvider>
