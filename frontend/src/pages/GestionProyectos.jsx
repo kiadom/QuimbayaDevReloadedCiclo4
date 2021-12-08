@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useMutation, useQuery } from '@apollo/client';
 import { useFormData } from "../hooks/useFormData";
 
-// import { GET_PROYECTOS, GET_PROYECTO } from '../graphql/proyectos/queries';
-// import { CREAR_PROYECTO } from "../graphql/proyectos/mutations";
+import { GET_PROYECTOS, GET_PROYECTO } from '../graphql/proyectos/queries';
+import { CREAR_PROYECTO } from "../graphql/proyectos/mutations";
 import { CREAR_OBJETIVO } from "../graphql/objetivos/mutations";
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
@@ -14,7 +14,7 @@ function GestionProyectos () {
     const [mostrarTabla, setMostrarTabla] = useState(true);
 
     /* PLANTILLA PARA HACER LA PETICION GET DE PROYECTOS. EL RETORNO SE ALMACENA EN data */
-    // const { data } = useQuery(GET_PROYECTOS);
+    const { data } = useQuery(GET_PROYECTOS);
 
     /* SE DEFINE EL TEXTO DEL BOTON, INICIALMENTE SERÁ "Registrar Proyecto" Y MOSTRARÁ LA INTERFAZ DE TABLA*/
     useEffect(()=>{
@@ -35,7 +35,7 @@ function GestionProyectos () {
                 setMostrarTabla (!mostrarTabla);
                 }}
             >{ textoBoton }</button>
-             {/* { mostrarTabla ? (<TablaProyectos listaProyectos = { data }/>) : (<FormularioRegistroProyectos />)} */}
+             { mostrarTabla ? (<TablaProyectos listaProyectos = { data }/>) : (<FormularioRegistroProyectos />)}
 
         </div>
     );
