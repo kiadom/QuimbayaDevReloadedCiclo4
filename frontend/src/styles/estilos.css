@@ -39,8 +39,8 @@ header {
   margin: 5px;
   width: 100%;
   height: 120px;
-  padding: 10px;
-  text-align: left;
+  padding: 0px;
+  text-align: center;
   background-color: var(--grey-bg);
   color: #344857;
   font-size: 30px;
@@ -96,10 +96,17 @@ header {
   margin-left: 300px;
   margin-top:20px ;
 }
+/* estilos del navbar */
 
 .wrapper .principal .topNavBar .iconCompany img{
   position:relative;
   top:15%;
+}
+.wrapper .principal .topNavBar .iconCompany img{
+  
+  margin: -5px 3px;
+
+  
 }
 
 .footer {
