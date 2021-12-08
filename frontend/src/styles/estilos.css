@@ -18,13 +18,15 @@
 .mainContainer {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: max-content;
   overflow-y: hidden;
   background-color: var(--blue-bg);
+  color: #eeeeee;
 }
 
+/* wrapper de header */
 .wrapper{
-  background: #F0A500;
+  background: #eeeeee;
   
 }
 
@@ -36,9 +38,9 @@
 header {
   margin: 5px;
   width: 100%;
-  height: 100px;
-  padding: 10px;
-  text-align: left;
+  height: 120px;
+  padding: 0px;
+  text-align: center;
   background-color: var(--grey-bg);
   color: #344857;
   font-size: 30px;
@@ -47,28 +49,40 @@ header {
 
 
 .wrapper .sidebar {
-  margin-left: 10px;
+  margin-left: 5px;
   font-size: 18px;
-  background: #092133;
-  height: 100%;
+  height: 100%; 
   width: 220px;
   position: absolute;
-  margin: 120px 5px;
+  margin: 140px 5px;
   padding-top: 5px;
   left: 0;
   top: 5;  
   background-color:#eeeeee;
+  color: #092133;
+  
+  
 }
 .wrapper .sidebar .EncabezadoModulo{
   margin-top: 20px;
   margin-bottom: 30px;
-  text-align: center;
-  
-  
+  text-align: center;  
+}
+
+.wrapper .sidebar .EncabezadoModulo h4{
+  color: var(--blue-bg);
+  padding-top: 20px ;
+  margin: 1px 0 50px;
+}
+
+.wrapper .sidebar ul li{
+  display: block;
+  padding: 20px 35px;
+  border-bottom: 1px solid var(--blue-bg);
 }
 
 .wrapper .sidebar .EncabezadoModulo .icon{
-  color:var(--dark-bg);
+  background-color: #F0A500;
 }
 
 .sidebar .div {
@@ -81,6 +95,18 @@ header {
 .cargando{
   margin-left: 300px;
   margin-top:20px ;
+}
+/* estilos del navbar */
+
+.wrapper .principal .topNavBar .iconCompany img{
+  position:relative;
+  top:15%;
+}
+.wrapper .principal .topNavBar .iconCompany img{
+  
+  margin: -5px 3px;
+
+  
 }
 
 .footer {
