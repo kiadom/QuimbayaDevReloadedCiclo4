@@ -52,5 +52,4 @@ type Proyecto {
     }
 `;
 
-
 export { tiposProyecto };

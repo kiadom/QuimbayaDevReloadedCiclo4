@@ -21,15 +21,6 @@ const resolversProyecto = {
             return inscripciones;
         },
 
-        /*Inscripciones: async (parent, args, context) => {
-            const inscripciones = await ModeloInscripcion.find({
-                proyecto: parent._id,
-            });
-            return inscripciones;
-        },*/
-
-
-
         ProyectosPorLider: async (parent, args) => {
             const proyectosPorLider = await ModeloProyecto.find({lider:args.lider}).populate('objetivo').populate('avances');
             return proyectosPorLider;
