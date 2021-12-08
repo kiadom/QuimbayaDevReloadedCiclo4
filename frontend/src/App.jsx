@@ -7,6 +7,7 @@ import { ModulesLayout } from './layouts/ModulesLayout';
 import { GestionAvances } from './pages/GestionAvances';
 import { GestionInscripciones } from './pages/GestionInscripciones';
 import { GestionProyectos } from './pages/GestionProyectos';
+import { GestionProyectosEditar } from './pages/GestionProyectosEditar';
 import { GestionUsuarios } from './pages/GestionUsuarios';
 
 
@@ -24,6 +25,7 @@ function App() {
               <Route exact path="/GestionAvances" element={<GestionAvances/>}/>
               <Route exact path="/GestionInscripciones" element={<GestionInscripciones/>}/>
               <Route exact path="/GestionProyectos" element={<GestionProyectos/>}/>
+              <Route exact path="/GestionProyectos/Editar/:_id" element={<GestionProyectosEditar/>}/>
               <Route exact path="/GestionUsuarios" element={<GestionUsuarios/>}/>              
             </Routes>
           </ModulesLayout>          

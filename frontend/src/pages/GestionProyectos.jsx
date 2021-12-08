@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
+
 import { useMutation, useQuery } from '@apollo/client';
 import { useFormData } from "../hooks/useFormData";
 
-import { GET_PROYECTOS, GET_PROYECTO } from '../graphql/proyectos/queries';
+import { GET_PROYECTOS } from '../graphql/proyectos/queries';
 import { CREAR_PROYECTO } from "../graphql/proyectos/mutations";
-import { CREAR_OBJETIVO } from "../graphql/objetivos/mutations";
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 function GestionProyectos () {
@@ -29,7 +30,7 @@ function GestionProyectos () {
     /* EN ESTE RETURN VA EL BOTON QUE PERMITE CAMBIAR DE INTERFAZ. 
     AL DAR CLIC SOBRE ESTE, CAMBIA EL ESTADO DE mostrarTabla, LLAMANDO ASI AL FORMULARIO*/
     return (
-        <div className="body-text">
+        <div className = "body-text">
 
             <button onClick = {() => {
                 setMostrarTabla (!mostrarTabla);
@@ -77,6 +78,11 @@ const TablaProyectos = ({ listaProyectos }) => {
                                     <td>{ p.lider.nombre }</td>
                                     <td>{ p.estado }</td>
                                     <td>{ p.fase }</td>
+                                    <td>
+                                        <Link to = {`/GestionProyectos/Editar/${ p._id }`}>
+                                            <button onClick={() => {}}> Editar </button>
+                                        </Link>
+                                    </td>
                                 </tr>
                             )
                         })}
@@ -90,11 +96,13 @@ const TablaProyectos = ({ listaProyectos }) => {
 const FormularioRegistroProyectos = ()=> {
 
     const { form, formData, updateFormData } = useFormData();
-    const [crearProyecto, { data }] = useMutation(CREAR_OBJETIVO);
+    const [crearProyecto ] = useMutation(CREAR_PROYECTO);
 
     const submitForm = (e) => {
         e.preventDefault();
-        crearProyecto({ variables: formData });
+        crearProyecto({ 
+            variables: formData 
+        });
     };
     
     return (
@@ -104,23 +112,58 @@ const FormularioRegistroProyectos = ()=> {
                 <table>
                     <tr>
                         <td>
-                            <p>Descripcion: </p>
+                            <p>Nombre: </p>
                         </td>
                         <td>
-                            <input name = 'descripcion' type = "text" required/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Tipo: </p>
-                        </td>
-                        <td>
-                            <input name = 'tipo' type = "text" required/>
+                            <input 
+                                name = 'nombre' 
+                                type = "text" 
+                                required
+                            />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type = "submit" value = "Registrar proyecto" />
+                            <p>Objetivo General: </p>
+                        </td>
+                        <td>
+                            <input 
+                                name = 'objetivo_general' 
+                                type = "text" 
+                                required
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Objetivos Especificos: </p>
+                        </td>
+                        <td>
+                            <input 
+                                name = 'objetivos_especificos' 
+                                type = "text" 
+                                required
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Presupuesto: </p>
+                        </td>
+                        <td>
+                            <input 
+                                name = 'presupuesto' 
+                                type = "text" 
+                                required
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input 
+                                type = "submit" 
+                                value = "Registrar Proyecto" 
+                            />
                         </td>
                     </tr>
                 </table>
