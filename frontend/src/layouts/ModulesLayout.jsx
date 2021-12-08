@@ -6,13 +6,13 @@ import '../styles/estilos.css'
 
 function ModulesLayout ({ children }){
     return (
-        <div className='mainContainer'>
+        <div className = 'mainContainer'>
             <Sidebar />
             <Header />
             <main>{ children }</main>
             <Footer />
         </div>
-    )
-}
+    );
+};
 
 export { ModulesLayout } ;

@@ -1,10 +1,9 @@
-//import logo from './logo.svg';
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 
 import { ModulesLayout } from './layouts/ModulesLayout';
-import AuthLayout from './layouts/AuthLayout';
+import { AuthLayout } from './layouts/AuthLayout';
 import { GestionAvances } from './pages/GestionAvances';
 import { GestionInscripciones } from './pages/GestionInscripciones';
 import { GestionProyectos } from './pages/GestionProyectos';
@@ -34,28 +33,42 @@ function App() {
     }
     setLoadingAuth(false);
   };
+
   return (
     <ApolloProvider client={client}>
       <AuthContext.Provider value={{ authToken, setToken, loadingAuth }}>
-        <Router>
 
-          <Routes>
-            <Route path='/' element={<ModulesLayout />}>
-              <Route exact path="/GestionAvances" element={<GestionAvances />} />
-              <Route exact path="/GestionInscripciones" element={<GestionInscripciones />} />
-              <Route exact path="/GestionProyectos" element={<GestionProyectos />} />
+        <Router>
+          <ModulesLayout>
+            <Routes>
+              <Route exact path="/GestionAvances" element={<GestionAvances/>}/>
+              <Route exact path="/GestionInscripciones" element={<GestionInscripciones/>}/>
+              <Route exact path="/GestionProyectos" element={<GestionProyectos/>}/>
               <Route exact path="/GestionProyectos/Editar/:_id" element={<GestionProyectosEditar />}/>
-              <Route exact path="/GestionUsuarios" element={<GestionUsuarios />} />
-            </Route>
+              <Route exact path="/GestionUsuarios" element={<GestionUsuarios />}/>         
+              <Route exact path="/auth/Registro" element={<Registro />} />
+              <Route exact path="/auth/Login" element={<Login />} />     
+            </Routes>
+          </ModulesLayout>
+
+          <AuthLayout>
+            <Routes>
+              <Route exact path="/auth/Registro" element={<Registro />} />
+              <Route exact path="/auth/Login" element={<Login />} />
+            </Routes>
+          </AuthLayout>
+          
+        </Router>
+
+          {/* <Routes>
             <Route path='/auth' element={<AuthLayout />}>
               <Route exact path="Registro" element={<Registro />} />
               <Route exact path="Login" element={<Login />} />
             </Route>
-          </Routes>
-        </Router>
+          </Routes> */}
+
       </AuthContext.Provider>
     </ApolloProvider>
-
   );
 }
 
