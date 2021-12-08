@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 
 import { useMutation, useQuery } from '@apollo/client';
-import { useFormData } from "../hooks/useFormData";
+import useFormData from "../hooks/useFormData";
 
 import { GET_PROYECTOS } from '../graphql/proyectos/queries';
 import { CREAR_PROYECTO } from "../graphql/proyectos/mutations";
