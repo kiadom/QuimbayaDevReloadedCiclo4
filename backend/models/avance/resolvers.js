@@ -33,6 +33,7 @@ const resolversAvance = {
         crearAvance: async(parent,args)=> {
             const avanceCreado = ModeloAvance.create({
                 fecha: args.fecha,
+                titulo: args.titulo,
                 descripcion: args.descripcion,
                 proyecto: args.proyecto,
                 creadoPor: args.creadoPor,

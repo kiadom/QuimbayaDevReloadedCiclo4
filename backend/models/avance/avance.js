@@ -10,10 +10,17 @@ const esquemaAvance = new Schema ({
         type: Date,
         required: true,
     },
-    descripcion: {
-        type: String,
+
+    titulo: {
+    type: String,
         required: true,
     },
+
+    descripcion: {
+    type: String,
+        required: true,
+    },
+
     proyecto: {
         type: Schema.Types.ObjectId,
         ref: ModeloProyecto,

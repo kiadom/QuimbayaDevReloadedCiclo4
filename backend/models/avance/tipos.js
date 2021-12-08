@@ -4,6 +4,7 @@ const tiposAvance = gql`
   type Avance {
     _id: ID!
     fecha: Date!
+    titulo: String!
     descripcion: String!
     proyecto: Proyecto!
     creadoPor: Usuario!
@@ -21,6 +22,7 @@ const tiposAvance = gql`
     
     crearAvance(
         fecha: Date! 
+        titulo: String!
         descripcion: String!
         proyecto: String! 
         creadoPor: String!
