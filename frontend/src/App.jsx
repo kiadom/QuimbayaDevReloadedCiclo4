@@ -23,12 +23,12 @@ function App() {
       <Router>
           <ModulesLayout>
             <Routes>
-              <Route exact path="/Avances/DetalleAvances" element={<DetalleAvances/>}/>
               <Route exact path="/GestionInscripciones" element={<GestionInscripciones/>}/>
               <Route exact path="/GestionProyectos" element={<GestionProyectos/>}/>
               <Route exact path="/GestionUsuarios" element={<GestionUsuarios/>}/>
               <Route exact path="/Avances/IndexAvances" element={<IndexAvances/>}/>
               <Route exact path="/Avances/AvancesPorProyecto/:proyecto" element={<AvancesPorProyecto/>}/>
+              <Route exact path="/Avances/DetalleAvances/:_id" element={<DetalleAvances/>}/>
             </Routes>
           </ModulesLayout>
       </Router>

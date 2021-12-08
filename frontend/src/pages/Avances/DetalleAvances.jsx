@@ -11,9 +11,10 @@ const DetalleAvances = () => {
     const [mostrarTabla, setMostrarTabla] = useState(true);
 
     /* PLANTILLA PARA HACER LA PETICION GET DE AVANCES. EL RETORNO SE ALMACENA EN data */
-    const { data } = useQuery(GET_AVANCES2);
-   
-    //const { blablabal } = useQuery(GET_AVANCES);//no los esta trayendo
+    const { _id } = useParams();
+    const { data } = useQuery(GET_AVANCES2,{
+        variables:{ _id }
+    });
 
     useEffect(() => {
         console.log("Datos obtenidos con GET_AVANCES2", data);
@@ -46,34 +47,17 @@ const DetalleAvances = () => {
 };
 
 /* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA LA TABLA QUE MUESTRA EL LISTADO DE AVANCES */
-const TablaAvances = ({ listaAvances }) => {
+const TablaAvances = () => {
     return (
         <div>
-            <h1>Lista de Avances</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nombre Proyecto</th>
-                            <th>Fecha</th>
-                            <th>Descripcion Avance</th>
-                            <th>Observaciones Lider</th>
-                            <th>Avance creado por</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        { listaAvances && 
-                            listaAvances.Avances.map((a) => {
-                                return (
-                                    <tr key = { a._id }>
-                                        <td>{ a.proyecto.nombre }</td>
-                                        <td>{ a.fecha }</td>
-                                        <td>{ a.descripcion }</td>
-                                        <td>{ a.observacionesLider }</td>
-                                    </tr>
-                                )
-                            })}
-                    </tbody>
-                </table>
+            <h1>Detalle de Avances</h1>
+            {/*
+                        <td>{ data.filtrarAvance.fecha }</td>
+                        <td>{ data.filtrarAvance.titulo }</td>
+                        <td>{ data.filtrarAvance.descripcion }</td>
+                        <td>{ data.filtrarAvance.observacionesLider }</td>
+            */}
+    
         </div>
     )
 }
