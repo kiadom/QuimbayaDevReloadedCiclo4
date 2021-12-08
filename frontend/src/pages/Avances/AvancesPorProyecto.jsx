@@ -48,11 +48,10 @@ const TablaAvances = ({ listaAvances }) => {
                 <table>
                     <thead>
                         <tr>
+                            <th>ID Avance</th>
                             <th>Fecha</th>
-                            <th>Detalle Avance</th>
-                            <th>Observaciones Lider</th>
-                            <th>Creado Por</th>
-                            <th>Lider</th>
+                            <th>Titulo Avance</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -60,11 +59,12 @@ const TablaAvances = ({ listaAvances }) => {
                         listaAvances.AvancesPorProyecto.map((p) => {
                             return (
                                 <tr key = { p.proyecto }>
+                                    <td>{ p._id }</td>
                                     <td>{ p.fecha }</td>
-                                    <td>{ p.descripcion }</td>
-                                    <td>{ p.observacionesLider }</td>
+                                    <td>{ p.titulo }</td>
+                                    
                                     <td>
-                                        <Link to = {`/avances/AvancesPorProyecto/${p._id}` }>
+                                        <Link to = {`/avances/DetalleAvances/${p._id}` }>
                                             {/*<FontAwesomeIcon icon={faPencilAlt}/>*/}
                                             Detalles Avance
                                         </Link> 

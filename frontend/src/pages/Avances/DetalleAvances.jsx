@@ -4,7 +4,7 @@ import { GET_AVANCES2, GET_AVANCES  } from "../../graphql/avances/querys";
 import { useParams, Link } from "react-router-dom";
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
-const GestionAvances = () => {
+const DetalleAvances = () => {
 
     /* ESTADOS QUE PERMITEN CONTROLAR LA VISIBILIDAD DE LAS INTERFACES */
     const [textoBoton, setTextoBoton] = useState('Ver Listado de Avances' );
@@ -116,4 +116,4 @@ const FormularioRegistroAvances = ()=> {
     )
 }
 
-export { GestionAvances };
+export { DetalleAvances };

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 
 import { ModulesLayout } from './layouts/ModulesLayout';
-import { GestionAvances } from "./pages/Avances/GestionAvances";
+import { DetalleAvances } from "./pages/Avances/DetalleAvances";
 import { GestionInscripciones } from './pages/GestionInscripciones';
 import { GestionProyectos } from './pages/GestionProyectos';
 import { GestionUsuarios } from './pages/GestionUsuarios';
@@ -23,7 +23,7 @@ function App() {
       <Router>
           <ModulesLayout>
             <Routes>
-              <Route exact path="/Avances/GestionAvances" element={<GestionAvances/>}/>
+              <Route exact path="/Avances/DetalleAvances" element={<DetalleAvances/>}/>
               <Route exact path="/GestionInscripciones" element={<GestionInscripciones/>}/>
               <Route exact path="/GestionProyectos" element={<GestionProyectos/>}/>
               <Route exact path="/GestionUsuarios" element={<GestionUsuarios/>}/>

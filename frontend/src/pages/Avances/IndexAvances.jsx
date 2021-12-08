@@ -33,9 +33,9 @@ const TablaAvances = ({ listaAvances }) => {
                 <table>
                 <thead>
                     <tr>
-                        <th>ID Proyecto</th>
-                        <th>Nombre</th>
-                        <th>Detalle Avances</th>
+                        <th>ID </th>
+                        <th>Nombre Proyecto</th>
+                        <th>Lider Proyecto </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,10 +45,11 @@ const TablaAvances = ({ listaAvances }) => {
                                 <tr key = { p._id }>
                                     <td>{ p._id }</td>
                                     <td>{ p.nombre }</td>
+                                    <td>{ (p.lider.nombre)+" "+(p.lider.apellido) }</td>
                                     <td>
                                         <Link to = {`/avances/AvancesPorProyecto/${p._id}` }>
                                             {/*<FontAwesomeIcon icon={faPencilAlt}/>*/}
-                                            Detalles Avance
+                                            Ver Avances
                                         </Link> 
                                     </td>
                                 </tr>

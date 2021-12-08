@@ -9,6 +9,7 @@ const GET_AVANCES2 = gql`
         _id
         nombre
       }
+      titulo
       descripcion
       observacionesLider
     }
@@ -20,16 +21,23 @@ const GET_PROYECTOSMODAVANCE = gql`
   Proyectos {
     _id
     nombre
+    lider {
+      nombre
+      apellido
+    }
   }
 }
 `
 const GET_AVANCESPORPROYECTO = gql`
 query AvancesPorProyecto($proyecto: String!) {
   AvancesPorProyecto(proyecto: $proyecto) {
+    _id
     fecha
-    descripcion
-    observacionesLider
-    
+    creadoPor {
+      nombre
+      apellido
+    }
+    titulo
   }
 }
 `
