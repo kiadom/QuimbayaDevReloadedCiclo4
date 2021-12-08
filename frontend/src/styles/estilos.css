@@ -21,6 +21,7 @@
   height: 100vh;
   overflow-y: hidden;
   background-color: var(--blue-bg);
+  color: #eeeeee;
 }
 
 .wrapper{
@@ -62,9 +63,13 @@ header {
 .wrapper .sidebar .EncabezadoModulo{
   margin-top: 20px;
   margin-bottom: 30px;
-  text-align: center;
-  
-  
+  text-align: center;  
+}
+
+.wrapper .sidebar .EncabezadoModulo h4{
+  color: var(--blue-bg);
+  padding-top: 20px ;
+  margin: 1px 0 50px;
 }
 
 .wrapper .sidebar .EncabezadoModulo .icon{

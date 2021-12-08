@@ -12,6 +12,11 @@ function Sidebar(){
                 <div className ="EncabezadoModulo">
                     <FontAwesomeIcon icon={faAddressCard} size="5x" color='#092133'/>
                     <h4>Gestión Usuarios</h4>
+                    <ul>
+                        <li>
+                            
+                        </li>
+                    </ul>
                 </div>
                 
             </div>
