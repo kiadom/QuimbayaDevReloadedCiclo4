@@ -24,8 +24,9 @@
   color: #eeeeee;
 }
 
+/* wrapper de header */
 .wrapper{
-  background: #F0A500;
+  background: #eeeeee;
   
 }
 
@@ -37,7 +38,7 @@
 header {
   margin: 5px;
   width: 100%;
-  height: 100px;
+  height: 120px;
   padding: 10px;
   text-align: left;
   background-color: var(--grey-bg);
@@ -53,12 +54,14 @@ header {
   height: 100%; 
   width: 220px;
   position: absolute;
-  margin: 120px 5px;
+  margin: 140px 5px;
   padding-top: 5px;
   left: 0;
   top: 5;  
   background-color:#eeeeee;
   color: #092133;
+  
+  
 }
 .wrapper .sidebar .EncabezadoModulo{
   margin-top: 20px;
@@ -75,7 +78,7 @@ header {
 .wrapper .sidebar ul li{
   display: block;
   padding: 20px 35px;
-  border-bottom: 1px solid var(--dark-bg);
+  border-bottom: 1px solid var(--blue-bg);
 }
 
 .wrapper .sidebar .EncabezadoModulo .icon{
