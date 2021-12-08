@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_AVANCES2, GET_AVANCES  } from "../../graphql/avances/querys";
+import { useParams, Link } from "react-router-dom";
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 const GestionAvances = () => {
@@ -9,7 +10,7 @@ const GestionAvances = () => {
     const [textoBoton, setTextoBoton] = useState('Ver Listado de Avances' );
     const [mostrarTabla, setMostrarTabla] = useState(true);
 
-    /* PLANTILLA PARA HACER LA PETICION GET DE PROYECTOS. EL RETORNO SE ALMACENA EN data */
+    /* PLANTILLA PARA HACER LA PETICION GET DE AVANCES. EL RETORNO SE ALMACENA EN data */
     const { data } = useQuery(GET_AVANCES2);
    
     //const { blablabal } = useQuery(GET_AVANCES);//no los esta trayendo
@@ -17,9 +18,8 @@ const GestionAvances = () => {
     useEffect(() => {
         console.log("Datos obtenidos con GET_AVANCES2", data);
     }, [data]);
-    //useEffect(() => {
-    //    console.log("Datos obtenidos con GET_AVANCES", blablabal);
-    //}, [blablabal]);
+
+    
 
     /* SE DEFINE EL TEXTO DEL BOTON, INICIALMENTE SERÁ "Registrar Avance" Y MOSTRARÁ LA INTERFAZ DE TABLA*/
     useEffect(()=>{
@@ -74,37 +74,6 @@ const TablaAvances = ({ listaAvances }) => {
                             })}
                     </tbody>
                 </table>
-                
-
-            <h1>Lista de Proyectos</h1>
-                {/*}
-                <table>
-                <thead>
-                    <tr>
-                        <th>Nombre Proyecto</th>
-                        <th>Fecha</th>
-                        <th>Descripcion Avance</th>
-                        <th>Observaciones Lider</th>
-                        <th>Avance creado por</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    { listaAvances && 
-                        listaAvances.Proyectos.map((p) => {
-                            return (
-                                <tr key = { p._id }>
-                                    <td>{ p.proyecto }</td>
-                                    <td>{ p.fecha }</td>
-                                    <td>{ p.descripcion }</td>
-                                    <td>{ p.observacionesLider }</td>
-                                    <td>{ p.fecha }</td>
-                                </tr>
-                            )
-                        })}
-                </tbody>
-            </table>
-            */}
-
         </div>
     )
 }

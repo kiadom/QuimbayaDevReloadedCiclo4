@@ -10,6 +10,7 @@ import { GestionProyectos } from './pages/GestionProyectos';
 import { GestionUsuarios } from './pages/GestionUsuarios';
 
 import { IndexAvances } from "./pages/Avances/IndexAvances";
+import { AvancesPorProyecto} from "./pages/Avances/AvancesPorProyecto";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/graphql",
@@ -27,6 +28,7 @@ function App() {
               <Route exact path="/GestionProyectos" element={<GestionProyectos/>}/>
               <Route exact path="/GestionUsuarios" element={<GestionUsuarios/>}/>
               <Route exact path="/Avances/IndexAvances" element={<IndexAvances/>}/>
+              <Route exact path="/Avances/AvancesPorProyecto/:proyecto" element={<AvancesPorProyecto/>}/>
             </Routes>
           </ModulesLayout>
       </Router>

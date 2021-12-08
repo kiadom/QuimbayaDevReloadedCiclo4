@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useQuery, useMutation } from '@apollo/client';
-//import { GET_PROYECTOSMODAVANCE } from '../graphql/avances/querys';
 import { GET_PROYECTOSMODAVANCE } from "../../graphql/avances/querys";
+import { Link } from "react-router-dom";
+
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { faUsersCog, faPencilAlt,faTrash,faCheck} from "@fortawesome/free-solid-svg-icons";
 
 const IndexAvances = () => {
 
-        /* PLANTILLA PARA HACER LA PETICION GET DE PROYECTOS. EL RETORNO SE ALMACENA EN data */
+        /* PLANTILLA PARA HACER LA PETICION GET DE AVANCES. EL RETORNO SE ALMACENA EN data */
         const { data } = useQuery(GET_PROYECTOSMODAVANCE);
-        //const { blablabal } = useQuery(GET_AVANCES);//no los esta trayendo
+
     
         useEffect(() => {
             console.log("Datos obtenidos con GET_PROYECTOSMODAVANCE", data);
         }, [data]);
-        //useEffect(() => {
-        //    console.log("Datos obtenidos con GET_AVANCES", blablabal);
-        //}, [blablabal]);
+        
     
 
     return (
@@ -44,7 +45,12 @@ const TablaAvances = ({ listaAvances }) => {
                                 <tr key = { p._id }>
                                     <td>{ p._id }</td>
                                     <td>{ p.nombre }</td>
-                                    <td></td>
+                                    <td>
+                                        <Link to = {`/avances/AvancesPorProyecto/${p._id}` }>
+                                            {/*<FontAwesomeIcon icon={faPencilAlt}/>*/}
+                                            Detalles Avance
+                                        </Link> 
+                                    </td>
                                 </tr>
                             )
                         })}

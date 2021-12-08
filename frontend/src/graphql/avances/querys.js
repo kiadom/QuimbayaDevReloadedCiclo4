@@ -23,5 +23,16 @@ const GET_PROYECTOSMODAVANCE = gql`
   }
 }
 `
+const GET_AVANCESPORPROYECTO = gql`
+query AvancesPorProyecto($proyecto: String!) {
+  AvancesPorProyecto(proyecto: $proyecto) {
+    fecha
+    descripcion
+    observacionesLider
+    
+  }
+}
+`
 
-export { GET_AVANCES2, GET_PROYECTOSMODAVANCE };
+
+export { GET_AVANCES2, GET_PROYECTOSMODAVANCE, GET_AVANCESPORPROYECTO };
