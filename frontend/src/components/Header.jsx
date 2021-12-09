@@ -7,17 +7,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function Header  () {
     return (
         <div className="wrapper">
-            <header className="principal">
-            <div className="topNavBar">
-                <div className="hamburger">
-                    <br />
-                    <FontAwesomeIcon icon={faBars}/> 
-                </div>
-
+            {/* //no haynecesidad de poner class name// */}
+            <header className="principal"> 
+            {/* <div className="topNavBar"> */}
                 <div className="iconCompany">
                     <img src= {logoheader} alt="logo-header" height="70px"/>
                 </div>
-            </div>
+                <div className='botonHeader'>
+                <p>Registro</p>
+                <p>Ingreso</p>
+                <p>Usuario</p>
+                </div>
+                
+
+            {/* </div> */}
             </header>
         </div>
     );
