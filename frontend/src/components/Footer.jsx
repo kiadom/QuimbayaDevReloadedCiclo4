@@ -1,10 +1,12 @@
 import React from 'react';
+import quimbayadev from '../media/logofooter.png';
 
 function Footer(){
     return (
         <div className='unpocomas'>
             <div class="footer">
-                <p>Este es el footer</p>
+                {/* <img src={quimbayadev}/> */}
+                <p>QuimbayaDev</p>
             </div>
         </div>
     )
