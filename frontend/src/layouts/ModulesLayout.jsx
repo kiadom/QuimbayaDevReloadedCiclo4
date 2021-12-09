@@ -1,4 +1,5 @@
 import React from 'react';
+import { Outlet } from 'react-router';
 import { Header } from "../components/Header";
 import { Sidebar } from "../components/Sidebar";
 import { Footer } from "../components/Footer";
@@ -11,6 +12,7 @@ function ModulesLayout ({ children }){
             <Header />
             <main>{ children }</main>
             <Footer />
+            <Outlet />
         </div>
     );
 };
