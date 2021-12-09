@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { useMutation, useQuery } from '@apollo/client';
 import useFormData from "../hooks/useFormData";
 
 import { GET_PROYECTOS } from '../graphql/proyectos/queries';
 import { CREAR_PROYECTO } from "../graphql/proyectos/mutations";
+import {CREAR_INSCRIPCION} from "../graphql/inscripciones/mutations";
+import { ButtonLoading} from '../components/ButtonLoading'
+import {useUser} from '../context/userContext'
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 function GestionProyectos () {
@@ -17,19 +21,13 @@ function GestionProyectos () {
     /* PLANTILLA PARA HACER LA PETICION GET DE PROYECTOS. EL RETORNO SE ALMACENA EN data */
     const { data } = useQuery(GET_PROYECTOS);
 
-    useEffect(() => {
-        console.log("Datos obtenidos por el QUERY UNO", data);
-    }, [data]);
-
-
-
     /* SE DEFINE EL TEXTO DEL BOTON, INICIALMENTE SERÁ "Registrar Proyecto" Y MOSTRARÁ LA INTERFAZ DE TABLA*/
     useEffect(()=>{
         if (mostrarTabla) {
             setTextoBoton('Registrar Proyecto');
         }
         else {
-            setTextoBoton('Ver Listado de Proyectos');
+            setTextoBoton('Regresar al Listado de Proyectos');
         }
     },[mostrarTabla]);
 
@@ -86,8 +84,14 @@ const TablaProyectos = ({ listaProyectos }) => {
                                     <td>{ p.fase }</td>
                                     <td>
                                         <Link to = {`/GestionProyectos/Editar/${ p._id }`}>
-                                            <button onClick={() => {}}> Editar </button>
+                                            <button onClick={() => {}}> Actualizar </button>
                                         </Link>
+                                        <Link to = {``}>
+                                            <button onClick={() => {}}> Inscribirse </button>
+                                        </Link>
+                                        
+                                            {/*<CrearInscripcion  idProyecto={p._id}/>*/}
+                                        
                                     </td>
                                 </tr>
                             )
@@ -177,5 +181,29 @@ const FormularioRegistroProyectos = ()=> {
         </div>
     )
 };
+
+/*const CrearInscripcion = ({idProyecto, estado}) => {
+    const [crearInscripcion, {data: dataInscripcion, loading, error}] = useMutation(CREAR_INSCRIPCION);
+    const {userData} = useUser();
+    useEffect(()=>{
+       if (dataInscripcion) {
+           console.log(dataInscripcion);
+           toast.success('Inscripción creada con exito');
+       }
+    }, [dataInscripcion]);
+
+    const Inscribirse = () =>{
+        crearInscripcion({variables: {proyecto: idProyecto, estudianteInscrito: userData.id}})
+    }
+
+    return(
+        <ButtonLoading
+        onClick={()=> Inscribirse()}
+        disabled={estado === 'INACTIVO'}
+        loading={loading}
+        text='Inscribirse'
+        />
+    )
+};*/
 
 export { GestionProyectos };

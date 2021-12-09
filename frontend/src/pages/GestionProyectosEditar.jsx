@@ -1,43 +1,44 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 import { useMutation, useQuery } from '@apollo/client';
 import useFormData from "../hooks/useFormData";
 
 import { GET_PROYECTO } from '../graphql/proyectos/queries';
-import { CREAR_PROYECTO } from "../graphql/proyectos/mutations"
+import { EDITAR_PROYECTO } from "../graphql/proyectos/mutations"
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 function GestionProyectosEditar () {
 
     /* PLANTILLA PARA HACER LA PETICION GET DE PROYECTOS. EL RETORNO SE ALMACENA EN data */
     const { _id } = useParams();
-    const { data } = useQuery(GET_PROYECTO, {
+    const { data: queryData } = useQuery(GET_PROYECTO, {
         variables: { _id },
     });
 
+    const { form, formData, updateFormData } = useFormData();
+    const [editarProyecto, { data: mutationData }] = useMutation(EDITAR_PROYECTO);
+
+    const submitForm = (e) => {
+        e.preventDefault();
+        editarProyecto({
+            variables: { _id, ...formData },
+        });
+    };
+    
     /* EN ESTE RETURN VA EL BOTON QUE PERMITE CAMBIAR DE INTERFAZ. 
     AL DAR CLIC SOBRE ESTE, CAMBIA EL ESTADO DE mostrarTabla, LLAMANDO ASI AL FORMULARIO*/
     return (
         <div className = "body-text">
-            <FormularioEdicionProyectos idProyectoSeleccionado = { _id } datosProyectoSeleccionado = { data }/>
-        </div>
-    );
-};
-
-/* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA EL FORMULARIO PARA REGISTRAR LOS PROYECTOS */
-const FormularioEdicionProyectos = ({ idProyectoSeleccionado, datosProyectoSeleccionado })=> {  
-
-    const { form, formData, updateFormData } = useFormData();
-    const [crearProyecto ] = useMutation(CREAR_PROYECTO);
-
-    const submitForm = (e) => {
-        e.preventDefault();
-        crearProyecto({ variables: formData });
-    };
-    
-    return (
-        <div>
-            <h1>ID del Proyecto Seleccionado: { idProyectoSeleccionado }</h1>
+            <table>
+                <tr>
+                    <td>
+                        <Link to = {`/GestionProyectos`}>
+                            <button onClick={() => {}}> Regresar al Listado de Proyectos </button>
+                        </Link>
+                    </td>
+                </tr>
+            </table>
+            <h1>ID del Proyecto Seleccionado: { _id }</h1>
             <h1>Ingrese los nuevos datos del Proyecto</h1>
             <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
                 <table>
@@ -48,9 +49,8 @@ const FormularioEdicionProyectos = ({ idProyectoSeleccionado, datosProyectoSelec
                         <td>
                             <input 
                                 name = 'nombre' 
-                                // defaultValue = { datosProyectoSeleccionado.Proyecto.nombre } 
+                                // defaultValue = { mutationData.Proyecto.nombre } 
                                 type = "text" 
-                                required
                             />
                         </td>
                     </tr>
@@ -61,9 +61,8 @@ const FormularioEdicionProyectos = ({ idProyectoSeleccionado, datosProyectoSelec
                         <td>
                             <input 
                                 name = 'objetivo_general' 
-                                // defaultValue = { datosProyectoSeleccionado.Proyecto.objetivo[0].descripcion } 
+                                // defaultValue = { mutationData.Proyecto.objetivo[0].descripcion } 
                                 type = "text" 
-                                required
                             />
                         </td>
                     </tr>
@@ -74,9 +73,8 @@ const FormularioEdicionProyectos = ({ idProyectoSeleccionado, datosProyectoSelec
                         <td>
                             <input 
                                 name = 'objetivos_especificos' 
-                                // defaultValue = { datosProyectoSeleccionado.Proyecto.objetivo[1].descripcion }
+                                // defaultValue = { mutationData.Proyecto.objetivo[1].descripcion, " / ", datosProyectoSeleccionado.Proyecto.objetivo[2].descripcion }
                                 type = "text" 
-                                required
                             />
                         </td>
                     </tr>
@@ -87,9 +85,8 @@ const FormularioEdicionProyectos = ({ idProyectoSeleccionado, datosProyectoSelec
                         <td>
                             <input 
                                 name = 'presupuesto' 
-                                // defaultValue = { datosProyectoSeleccionado.Proyecto.presupuesto } 
+                                // defaultValue = { mutationData.Proyecto.presupuesto } 
                                 type = "text" 
-                                required
                             />
                         </td>
                     </tr>

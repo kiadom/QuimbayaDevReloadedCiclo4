@@ -9,8 +9,10 @@ function Sidebar(){
         <div className="wrapper">
             <div className ="sidebar">
                 <div className ="EncabezadoModulo">
-                    <FontAwesomeIcon icon={ faProjectDiagram } size="5x" color='#092133'/>
-                    <h4>Gestión Proyectos</h4>
+                    <div className='iconoEncabezado'>
+                    <FontAwesomeIcon className ="iconoEncabezado" icon={ faProjectDiagram } size="5x" color='#092133'/>
+                    </div>
+                    <h4 className='tituloEncabezado'>Gestión Proyectos</h4>
                     <ul>
                         <li>
                         {/* <Link to ='/GestionProyectos'> */}
