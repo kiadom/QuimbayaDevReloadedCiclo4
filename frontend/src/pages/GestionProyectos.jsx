@@ -10,6 +10,7 @@ import { CREAR_PROYECTO } from "../graphql/proyectos/mutations";
 import {CREAR_INSCRIPCION} from "../graphql/inscripciones/mutations";
 import { ButtonLoading} from '../components/ButtonLoading'
 import {useUser} from '../context/userContext'
+import {Enum_EstadoProyecto, Enum_FaseProyecto} from '../utils/enums'
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 function GestionProyectos () {
@@ -80,8 +81,8 @@ const TablaProyectos = ({ listaProyectos }) => {
                                     <td>{ p.fechaFin }</td>
                                     <td>{ p.lider.identificacion }</td>
                                     <td>{ p.lider.nombre }</td>
-                                    <td>{ p.estado }</td>
-                                    <td>{ p.fase }</td>
+                                    <td>{Enum_EstadoProyecto[p.estado]}</td>
+                                    <td>{Enum_FaseProyecto[p.fase]}</td>
                                     <td>
                                         <Link to = {`/GestionProyectos/Editar/${ p._id }`}>
                                             <button onClick={() => {}}> Actualizar </button>

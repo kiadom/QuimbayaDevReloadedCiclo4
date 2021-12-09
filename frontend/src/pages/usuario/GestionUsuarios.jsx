@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client'
 import { GET_USUARIOS } from '../../graphql/usuarios/querys'
 import { Enum_Rol, Enum_EstadoUsuario } from '../../utils/enums';
@@ -9,6 +9,9 @@ import {faPen} from "@fortawesome/free-solid-svg-icons";
 
 const GestionUsuarios = () => {
     const { data, error, loading } = useQuery(GET_USUARIOS);
+
+    const [testoBoton, setTextoBoton] = useState('Ver Listado de Usuarios');
+    const [mostrarTabla, setMostrarTabla] = useState(true);
 
     useEffect(() => {
         console.log('data servidor', data);
@@ -23,6 +26,7 @@ const GestionUsuarios = () => {
     return (
         <div className="body-text">
             <h1>MODULO DE GESTION DE USUARIOS</h1>
+            <br/>
             <table>
                 <thead>
                     <tr>
@@ -50,11 +54,8 @@ const GestionUsuarios = () => {
                                     <td>{Enum_EstadoUsuario[u.estado]}</td>
                                     <td>
                                         <Link to={`/GestionUsuarios/Editar/${u._id}`}>
-                                            <FontAwesomeIcon icon={ faPen } size="1x" color='#FFFFFF' className='cursor-pointer'/> 
+                                            <FontAwesomeIcon icon={ faPen } size="1x" color='#FFFFFF' className='cursor-pointer text-gray-600 hover:text-gray-900'/> 
                                         </Link>
-                                        {/* <Link to={`/usuarios/editar/${u._id}`}>
-                                            <i className='text-yellow-600 hover:text-yellow-400 cursor-pointer' {<FontAwesomeIcon icon={faPen} />} />
-                                        </Link> */}
                                     </td>
                                 </tr>
                             )

@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {  useQuery } from "@apollo/client";
 import {GET_INSCRIPCIONES} from "../graphql/inscripciones/queries";
 import { toast } from 'react-toastify';
+import { Enum_EstadoInscripcion } from '../utils/enums'
 
 function GestionInscripciones () {
 
@@ -43,7 +44,7 @@ function GestionInscripciones () {
                                     <td>{i.proyecto.nombre}</td>
                                     <td>{ (i.proyecto.lider.nombre)+' '+(i.proyecto.lider.apellido)}</td>
                                     <td>{ (i.estudianteInscrito.nombre)+' '+(i.estudianteInscrito.apellido)}</td>
-                                    <td>{ i.estadoInscripcion }</td>
+                                    <td>{Enum_EstadoInscripcion[ i.estadoInscripcion]}</td>
                                     <td>{ i.fecha_ingreso }</td>
                                     <td>{ i.fecha_egreso }</td>
                                     <td><button disabled={i.estadoInscripcion !== 'PENDIENTE'} 
