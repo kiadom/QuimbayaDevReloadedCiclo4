@@ -4,13 +4,13 @@ const GET_AVANCES2 = gql`
   query DetalleAvances($_id: String!) {
     DetalleAvances(_id: $_id) {
     _id
-    fecha
     titulo
-    descripcion
+    fecha
     creadoPor {
       nombre
       apellido
     }
+    descripcion
     observacionesLider
   }
 }
