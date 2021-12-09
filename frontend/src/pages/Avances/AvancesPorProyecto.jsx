@@ -3,6 +3,8 @@ import { useQuery, useMutation } from '@apollo/client';
 import { GET_AVANCESPORPROYECTO } from "../../graphql/avances/querys";
 import { useParams, Link } from "react-router-dom";
 
+
+
 const AvancesPorProyecto = () => {
 
     /* ESTADOS QUE PERMITEN CONTROLAR LA VISIBILIDAD DE LAS INTERFACES */
@@ -18,6 +20,9 @@ const AvancesPorProyecto = () => {
         console.log("Datos obtenidos con GET_AVANCESPORPROYECTO", data);
     }, [data]);
 
+
+
+
     /* SE DEFINE EL TEXTO DEL BOTON, INICIALMENTE SERÁ "Registrar Avance" Y MOSTRARÁ LA INTERFAZ DE TABLA*/
     useEffect(()=>{
         if (mostrarTabla) {
@@ -28,6 +33,8 @@ const AvancesPorProyecto = () => {
         }
     },[mostrarTabla]);
 
+
+
     return (
         <div className="body-text">
             <button onClick = {() => {
@@ -35,10 +42,11 @@ const AvancesPorProyecto = () => {
                 }}
             >{ textoBoton }</button>
             { mostrarTabla ? (<TablaAvances listaAvances = { data }/>) : (<FormularioRegistroAvances />)}
-
         </div>
     );
 };
+
+
 
 const TablaAvances = ({ listaAvances }) => {
     return (
@@ -55,6 +63,7 @@ const TablaAvances = ({ listaAvances }) => {
                         </tr>
                     </thead>
                     <tbody>
+                        
                         { listaAvances && 
                         listaAvances.AvancesPorProyecto.map((p) => {
                             return (
@@ -65,13 +74,14 @@ const TablaAvances = ({ listaAvances }) => {
                                     
                                     <td>
                                         <Link to = {`/avances/DetalleAvances/${p._id}` }>
-                                            {/*<FontAwesomeIcon icon={faPencilAlt}/>*/}
+                                           
                                             Detalles Avance
                                         </Link> 
                                     </td>
                                 </tr>
                             )
                         })}
+                    
                     </tbody>
                 </table>
         </div>

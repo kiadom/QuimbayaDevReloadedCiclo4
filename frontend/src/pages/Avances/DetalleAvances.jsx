@@ -1,63 +1,90 @@
 import React, { useEffect, useState } from "react";
 import { useQuery, useMutation } from '@apollo/client';
-import { GET_AVANCES2, GET_AVANCES  } from "../../graphql/avances/querys";
+import { GET_AVANCES2, GET_AVANCESPORPROYECTO   } from "../../graphql/avances/querys";
 import { useParams, Link } from "react-router-dom";
+
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 const DetalleAvances = () => {
 
     /* ESTADOS QUE PERMITEN CONTROLAR LA VISIBILIDAD DE LAS INTERFACES */
     const [textoBoton, setTextoBoton] = useState('Ver Listado de Avances' );
-    const [mostrarTabla, setMostrarTabla] = useState(true);
+    const [detallarAvance, setdetallarAvance] = useState(true);
 
-    /* PLANTILLA PARA HACER LA PETICION GET DE AVANCES. EL RETORNO SE ALMACENA EN data */
+    /*PLANTILLA PARA HACER LA PETICION GET DE AVANCES. EL RETORNO SE ALMACENA EN data */
     const { _id } = useParams();
     const { data } = useQuery(GET_AVANCES2,{
-        variables:{ _id }
+        variables:{ _id },
     });
 
     useEffect(() => {
         console.log("Datos obtenidos con GET_AVANCES2", data);
     }, [data]);
+    
 
     
 
     /* SE DEFINE EL TEXTO DEL BOTON, INICIALMENTE SERÁ "Registrar Avance" Y MOSTRARÁ LA INTERFAZ DE TABLA*/
     useEffect(()=>{
-        if (mostrarTabla) {
-            setTextoBoton('Registrar Avance');
+        if (detallarAvance) {
+            setTextoBoton('Registrar Nuevo Avance');
         }
         else {
-            setTextoBoton('Ver Listado de Avances');
+            setTextoBoton('Ver Detalle del Avance');
         }
-    },[mostrarTabla]);
+    },[detallarAvance]);
 
     /* EN ESTE RETURN VA EL BOTON QUE PERMITE CAMBIAR DE INTERFAZ. 
     AL DAR CLIC SOBRE ESTE, CAMBIA EL ESTADO DE mostrarTabla, LLAMANDO ASI AL FORMULARIO*/
     return (
         <div className="body-text">
             <button onClick = {() => {
-                setMostrarTabla (!mostrarTabla);
+                setdetallarAvance (!detallarAvance);
                 }}
             >{ textoBoton }</button>
-            { mostrarTabla ? (<TablaAvances listaAvances = { data }/>) : (<FormularioRegistroAvances />)}
-
+            { detallarAvance ? (<TablaAvances listaAvances = { data }/>) : (<FormularioRegistroAvances />)}
         </div>
     );
 };
 
+
 /* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA LA TABLA QUE MUESTRA EL LISTADO DE AVANCES */
-const TablaAvances = () => {
+const TablaAvances = ({ listaAvances }) => {
     return (
         <div>
             <h1>Detalle de Avances</h1>
-            {/*
-                        <td>{ data.filtrarAvance.fecha }</td>
-                        <td>{ data.filtrarAvance.titulo }</td>
-                        <td>{ data.filtrarAvance.descripcion }</td>
-                        <td>{ data.filtrarAvance.observacionesLider }</td>
-            */}
-    
+                
+            <table>
+                    <thead>
+                        <tr>
+                            <th>ID Avance</th>
+                            <th>Fecha</th>
+                            <th>Titulo Avance</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                         {/*
+                        { listaAvances && 
+                        listaAvances.DetalleAvances.map((p) => {
+                            return (
+                                <tr key = { p.proyecto }>
+                                    <td>{ p._id }</td>
+                                    <td>{ p.fecha }</td>
+                                    <td>{ p.titulo }</td>
+                                    
+                                    <td>
+                                                                                  
+                                            Detalles Avance
+                                        
+                                    </td>
+                                   
+                                </tr>
+                            )
+                        })}
+                         */}
+                    </tbody>
+                </table>   
         </div>
     )
 }
@@ -91,7 +118,7 @@ const FormularioRegistroAvances = ()=> {
                     </tr>
                     <tr>
                         <td>
-                            <input type = "button" value = "Registrar Avance" />
+                            <input type = "button" value = "Guardar Avance" />
                         </td>
                     </tr>
                 </table>

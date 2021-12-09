@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 const GET_AVANCES2 = gql`
-  query FiltrarAvance($_id: String!) {
-  filtrarAvance(_id: $_id) {
+  query DetalleAvances($_id: String!) {
+    DetalleAvances(_id: $_id) {
     _id
     fecha
     titulo
