@@ -4,7 +4,7 @@ import { useMutation, useQuery } from '@apollo/client';
 import useFormData from "../hooks/useFormData";
 
 import { GET_PROYECTO } from '../graphql/proyectos/queries';
-import { CREAR_PROYECTO } from "../graphql/proyectos/mutations"
+import { EDITAR_PROYECTO } from "../graphql/proyectos/mutations"
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 function GestionProyectosEditar () {
@@ -28,7 +28,7 @@ function GestionProyectosEditar () {
 const FormularioEdicionProyectos = ({ idProyectoSeleccionado, datosProyectoSeleccionado })=> {  
 
     const { form, formData, updateFormData } = useFormData();
-    const [crearProyecto ] = useMutation(CREAR_PROYECTO);
+    const [crearProyecto ] = useMutation(EDITAR_PROYECTO);
 
     const submitForm = (e) => {
         e.preventDefault();
@@ -50,7 +50,6 @@ const FormularioEdicionProyectos = ({ idProyectoSeleccionado, datosProyectoSelec
                                 name = 'nombre' 
                                 // defaultValue = { datosProyectoSeleccionado.Proyecto.nombre } 
                                 type = "text" 
-                                required
                             />
                         </td>
                     </tr>
@@ -63,7 +62,6 @@ const FormularioEdicionProyectos = ({ idProyectoSeleccionado, datosProyectoSelec
                                 name = 'objetivo_general' 
                                 // defaultValue = { datosProyectoSeleccionado.Proyecto.objetivo[0].descripcion } 
                                 type = "text" 
-                                required
                             />
                         </td>
                     </tr>
@@ -76,7 +74,6 @@ const FormularioEdicionProyectos = ({ idProyectoSeleccionado, datosProyectoSelec
                                 name = 'objetivos_especificos' 
                                 // defaultValue = { datosProyectoSeleccionado.Proyecto.objetivo[1].descripcion }
                                 type = "text" 
-                                required
                             />
                         </td>
                     </tr>
@@ -89,7 +86,6 @@ const FormularioEdicionProyectos = ({ idProyectoSeleccionado, datosProyectoSelec
                                 name = 'presupuesto' 
                                 // defaultValue = { datosProyectoSeleccionado.Proyecto.presupuesto } 
                                 type = "text" 
-                                required
                             />
                         </td>
                     </tr>

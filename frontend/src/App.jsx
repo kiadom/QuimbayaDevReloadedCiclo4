@@ -46,8 +46,6 @@ function App() {
               <Route exact path="/GestionProyectos" element={<GestionProyectos/>}/>
               <Route exact path="/GestionProyectos/Editar/:_id" element={<GestionProyectosEditar />}/>
               <Route exact path="/GestionUsuarios" element={<GestionUsuarios />}/>         
-              <Route exact path="/auth/Registro" element={<Registro />} />
-              <Route exact path="/auth/Login" element={<Login />} />     
             </Routes>
           </ModulesLayout>
 
