@@ -17,6 +17,12 @@ function GestionProyectos () {
     /* PLANTILLA PARA HACER LA PETICION GET DE PROYECTOS. EL RETORNO SE ALMACENA EN data */
     const { data } = useQuery(GET_PROYECTOS);
 
+    useEffect(() => {
+        console.log("Datos obtenidos por el QUERY UNO", data);
+    }, [data]);
+
+
+
     /* SE DEFINE EL TEXTO DEL BOTON, INICIALMENTE SERÁ "Registrar Proyecto" Y MOSTRARÁ LA INTERFAZ DE TABLA*/
     useEffect(()=>{
         if (mostrarTabla) {
