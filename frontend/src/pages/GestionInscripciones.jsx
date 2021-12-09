@@ -1,12 +1,7 @@
 import React, {useEffect} from 'react';
-import { useMutation, useQuery } from "@apollo/client";
+import {  useQuery } from "@apollo/client";
 import {GET_INSCRIPCIONES} from "../graphql/inscripciones/queries";
 import { toast } from 'react-toastify';
-import { CREAR_INSCRIPCION } from '../graphql/inscripciones/mutations';
-import Button from '../components/Button';
-
-//import {APROBAR_INSCRIPCION} from "../graphql/inscripciones/mutations";
-
 
 function GestionInscripciones () {
 
@@ -52,10 +47,11 @@ function GestionInscripciones () {
                                     <td>{ i.fecha_ingreso }</td>
                                     <td>{ i.fecha_egreso }</td>
                                     <td><button disabled={i.estadoInscripcion !== 'PENDIENTE'} 
-                                    onClick={() => {
-                                        // <AprobarInscripcion/>;
-                                      }}
+                                    
                                       >Aprobar</button>
+                                      <button disabled={i.estadoInscripcion !== 'PENDIENTE'} 
+                                    
+                                    >Rechazar</button>
                                          
                                     
                                    </td>

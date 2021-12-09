@@ -5,27 +5,33 @@ const resolversAvance = {
     Query: {
         Avances: async (parent, args) => {
           const avances = await ModeloAvance.find().populate('proyecto')
+          .populate('lider')
           .populate('creadoPor');
           return avances;
         },
-        filtrarAvance: async (parents, args) => {
-          const avanceFiltrado = await ModeloAvance.find({ proyecto: args.idProyecto })
-            .populate('proyecto')
-            .populate('creadoPor');
-          return avanceFiltrado;
+
+        DetalleAvances: async (parent, args) => {
+          const detalleAvances = await ModeloAvance.findOne({_id:args._id})
+          .populate('proyecto')  
+          .populate('creadoPor');
+          return detalleAvances;
         },
+
+        AvancesPorProyecto: async (parent, args) => {
+          const avancesPorProyecto = await ModeloAvance.find({proyecto:args.proyecto})
+          .populate('lider')
+          .populate('creadoPor')
+          .populate('proyecto');
+          return avancesPorProyecto;
+        },
+        
         filtrarObservacionesLider: async (parents, args) => {
           const observacionesLiderFiltrado = await ModeloAvance.find({ proyecto: args.idProyecto })
             .populate('proyecto')
             .populate('lider')
             .populate('creadoPor');
           return observacionesLiderFiltrado;
-        },
-        AvancesPorProyecto: async (parent, args) => {
-          const avancesPorProyecto = await ModeloAvance.find({proyecto:args.proyecto}).populate('lider')
-          .populate('creadoPor')
-          .populate('proyecto');
-          return avancesPorProyecto;
+        
       }
       },
 
@@ -33,6 +39,7 @@ const resolversAvance = {
         crearAvance: async(parent,args)=> {
             const avanceCreado = ModeloAvance.create({
                 fecha: args.fecha,
+                titulo: args.titulo,
                 descripcion: args.descripcion,
                 proyecto: args.proyecto,
                 creadoPor: args.creadoPor,

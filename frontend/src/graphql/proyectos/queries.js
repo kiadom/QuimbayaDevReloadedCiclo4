@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 const GET_PROYECTOS = gql`
-    query Proyectos {
+    query ConsutaProyectos {
         Proyectos {
             _id
             nombre
