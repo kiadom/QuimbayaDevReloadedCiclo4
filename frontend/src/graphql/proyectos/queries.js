@@ -42,6 +42,6 @@ const GET_PROYECTO = gql`
             fase
         }
     }
-`
+`;
 
 export { GET_PROYECTOS, GET_PROYECTO };

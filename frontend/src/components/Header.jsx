@@ -1,12 +1,26 @@
 import React from 'react';
-import '../styles/App.css';
+import logoheader from '../media/logoheader.png';
 
-function Header(){
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {faBars} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+function Header  () {
     return (
-        <div class="header">
-            <h1>Este es el Header</h1>
-        </div>
-    )
-}
+        <div className="wrapper">
+            <header className="principal">
+            <div className="topNavBar">
+                <div className="hamburger">
+                    <br />
+                    <FontAwesomeIcon icon={faBars}/> 
+                </div>
 
-export { Header };
+                <div className="iconCompany">
+                    <img src= {logoheader} alt="logo-header" height="70px"/>
+                </div>
+            </div>
+            </header>
+        </div>
+    );
+};
+
+export {Header} ;

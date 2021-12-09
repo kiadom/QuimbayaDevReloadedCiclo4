@@ -28,8 +28,12 @@ const resolversUsuario = {
                 identificacion:args.identificacion,
                 nombre:args.nombre,
                 apellido:args.apellido,
+                contrasena: args.contrasena,
                 rol:args.rol
-            });
+            });            
+            if (Object.keys(args).includes('estado')){
+                usuarioCreado.estado = args.estado;
+            }
             return usuarioCreado;
         },
 

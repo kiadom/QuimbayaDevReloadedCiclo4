@@ -1,7 +1,18 @@
 import { ModeloInscripcion } from "./inscripcion.js";
+import { ModeloProyecto } from "../proyecto/proyecto.js";
+import { ModeloUsuario } from "../usuario/usuario.js";
 
 const resolversInscripcion = {
 
+    Inscripcion: {
+        /*proyecto: async (parent, args, context) => {
+          return await ModeloProyecto.findOne({ _id: parent.proyecto });
+        },*/
+        estudianteInscrito: async (parent, args, context) => {
+          return await ModeloUsuario.findOne({ _id: parent.estudianteInscrito });
+        },
+
+    },
     Query:{
 
         Inscripciones: async (parent, args) => {
@@ -50,8 +61,8 @@ const resolversInscripcion = {
             },
             {new: true});
             return inscripcionRechazada;
-        }
-    }
+        },
+    },
 };
 
 export {resolversInscripcion};

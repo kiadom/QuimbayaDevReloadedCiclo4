@@ -1,18 +1,18 @@
 import React from 'react';
-
 import { Header } from "../components/Header";
 import { Sidebar } from "../components/Sidebar";
 import { Footer } from "../components/Footer";
+import '../styles/estilos.css'
 
-function ModulesLayout({ children }){
+function ModulesLayout ({ children }){
     return (
-        <div>
-            <Header />
+        <div className = 'mainContainer'>
             <Sidebar />
+            <Header />
             <main>{ children }</main>
             <Footer />
         </div>
-    )
-}
+    );
+};
 
-export { ModulesLayout };
+export { ModulesLayout } ;
