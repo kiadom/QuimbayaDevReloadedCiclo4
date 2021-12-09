@@ -9,24 +9,29 @@ const resolversAvance = {
           .populate('creadoPor');
           return avances;
         },
-        filtrarAvance: async (parents, args) => {
-          const avanceFiltrado = await ModeloAvance.find({ proyecto: args.idProyecto })
-            .populate('proyecto')
-            .populate('creadoPor');
-          return avanceFiltrado;
+
+        DetalleAvances: async (parent, args) => {
+          const detalleAvances = await ModeloAvance.findOne({_id:args._id})
+          .populate('proyecto')  
+          .populate('creadoPor');
+          return detalleAvances;
         },
+
+        AvancesPorProyecto: async (parent, args) => {
+          const avancesPorProyecto = await ModeloAvance.find({proyecto:args.proyecto})
+          .populate('lider')
+          .populate('creadoPor')
+          .populate('proyecto');
+          return avancesPorProyecto;
+        },
+        
         filtrarObservacionesLider: async (parents, args) => {
           const observacionesLiderFiltrado = await ModeloAvance.find({ proyecto: args.idProyecto })
             .populate('proyecto')
             .populate('lider')
             .populate('creadoPor');
           return observacionesLiderFiltrado;
-        },
-        AvancesPorProyecto: async (parent, args) => {
-          const avancesPorProyecto = await ModeloAvance.find({proyecto:args.proyecto}).populate('lider')
-          .populate('creadoPor')
-          .populate('proyecto');
-          return avancesPorProyecto;
+        
       }
       },
 

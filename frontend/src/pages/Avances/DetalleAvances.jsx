@@ -72,13 +72,9 @@ const TablaAvances = ({ listaAvances }) => {
                                     <td>{ p._id }</td>
                                     <td>{ p.fecha }</td>
                                     <td>{ p.titulo }</td>
-                                    
                                     <td>
-                                                                                  
-                                            Detalles Avance
-                                        
+                                        Detalles Avance
                                     </td>
-                                   
                                 </tr>
                             )
                         })}
