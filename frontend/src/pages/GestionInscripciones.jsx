@@ -24,19 +24,23 @@ const GestionInscripciones  = () => {
       <div >
       <h1>Inscripciones</h1>
         <div >
-          <AccordionInscripcion
-            titulo='Inscripciones aprobadas'
-            data={data.Inscripciones.filter((el) => el.estadoInscripcion === 'ACEPTADA')}
-          />
-          <AccordionInscripcion
+
+        <AccordionInscripcion
             titulo='Inscripciones pendientes'
             data={data.Inscripciones.filter((el) => el.estadoInscripcion === 'PENDIENTE')}
             refetch={refetch}
           />
           <AccordionInscripcion
+            titulo='Inscripciones aprobadas'
+            data={data.Inscripciones.filter((el) => el.estadoInscripcion === 'ACEPTADA')}
+          />
+          
+          <AccordionInscripcion
             titulo='Inscripciones rechazadas'
             data={data.Inscripciones.filter((el) => el.estadoInscripcion === 'RECHAZADA')}
           />
+
+          
         </div>
       </div>
     </div>
@@ -67,16 +71,29 @@ const Inscripcion = ({ inscripcion, refetch }) => {
 
   useEffect(() => {
     if (data) {
-      toast.success('Modificado con exito');
+      toast.success('Aprobado con exito');
       refetch();
     }
   }, [data]);
 
   useEffect(() => {
     if (error) {
-      toast.error('Error modificando la inscripcion');
+      toast.error('Error aprobando la inscripcion');
     }
   }, [error]);
+
+  useEffect(() => {
+    if (dataRechazar) {
+      toast.success('Rechazado con exito');
+      refetch();
+    }
+  }, [dataRechazar]);
+
+  useEffect(() => {
+    if (errorRechazar) {
+      toast.error('Error rechazando la inscripcion');
+    }
+  }, [errorRechazar]);
 
   const AInscripcion = () => {
     aprobarInscripcion({
@@ -95,38 +112,59 @@ const Inscripcion = ({ inscripcion, refetch }) => {
   };
 
   return (
-    <div className='bg-gray-900 text-gray-50 flex flex-col p-6 m-2 rounded-lg shadow-xl'>
+    <div >
 
-        
-      <span>{inscripcion.proyecto.nombre}</span>
-      <span>{inscripcion.estudianteInscrito.nombre}</span>
-      <span>{inscripcion.estadoInscripcion}</span>
-      <div>
-      {inscripcion.estadoInscripcion === 'PENDIENTE' && (
-        <ButtonLoading
-          onClick={() => {
-            AInscripcion();
-          }}
-          text='Aprobar Inscripcion'
-          loading={loading}
-          disabled={false}
-        />
-        )}
-        </div>
-        <div>
-        {inscripcion.estadoInscripcion === 'PENDIENTE' && (
-        <ButtonLoading
-          onClick={() => {
-            RInscripcion();
-          }}
-          text='Rechazar Inscripcion'
-          loading={loading}
-          disabled={false}
-        />
-        )}
-      </div>
-    </div>
+        <table>
+                <thead>
+                    <tr>
+                        <th>_id</th>
+                        <th>Proyecto</th>
+                        <th>Lider del proyecto</th>
+                        <th>Estudiante Inscrito</th>
+                        <th>Estado</th>
+                        <th>Fecha de ingreso</th>
+                        <th>Fecha de egreso</th>
+                        <th>Editar</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr key = { inscripcion._id }>
+                                    <td>{ inscripcion._id}</td>
+                                    <td>{inscripcion.proyecto.nombre}</td>
+                                    <td>{ (inscripcion.proyecto.lider.nombre)+' '+(inscripcion.proyecto.lider.apellido)}</td>
+                                    <td>{ (inscripcion.estudianteInscrito.nombre)+' '+(inscripcion.estudianteInscrito.apellido)}</td>
+                                    <td>{ inscripcion.estadoInscripcion }</td>
+                                    <td>{ inscripcion.fecha_ingreso }</td>
+                                    <td>{ inscripcion.fecha_egreso }</td>                        
+                                    <td>{inscripcion.estadoInscripcion === 'PENDIENTE' && (
+                                        <ButtonLoading
+                                        onClick={() => {
+                                            AInscripcion();
+                                        }}
+                                        text='Aprobar Inscripcion'
+                                        loading={loading}
+                                        disabled={false}
+                                        />
+                                        )}</td>                                  
+                                    <td>
+                                    {inscripcion.estadoInscripcion === 'PENDIENTE' && (
+                                        <ButtonLoading
+                                        onClick={() => {
+                                            RInscripcion();
+                                        }}
+                                        text='Rechazar Inscripcion'
+                                        loading={loading}
+                                        disabled={false}
+                                        />
+                                        )} 
+                                    </td>
+                                    </tr>
+                                    </tbody>
+            </table>
+            </div>
   );
+      
 };
 
 export { GestionInscripciones};
