@@ -7,7 +7,7 @@ import { AuthLayout } from './layouts/AuthLayout';
 import { GestionInscripciones } from './pages/GestionInscripciones';
 import { GestionProyectos } from './pages/GestionProyectos';
 import { GestionProyectosEditar } from './pages/GestionProyectosEditar';
-import { GestionUsuarios } from './pages/GestionUsuarios';
+import GestionUsuarios from './pages/usuario/GestionUsuarios';
 import Registro from './pages/auth/Registro';
 import Login from './pages/auth/Login';
 import { AuthContext } from "./context/authContext";
