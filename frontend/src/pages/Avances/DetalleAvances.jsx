@@ -64,11 +64,11 @@ const TablaAvances = ({ listaAvances }) => {
                         </tr>
                     </thead>
                     <tbody>
-                         {/*
+                        {/*
                         { listaAvances && 
                         listaAvances.DetalleAvances.map((p) => {
                             return (
-                                <tr key = { p.proyecto }>
+                                <tr key = { p._id }>
                                     <td>{ p._id }</td>
                                     <td>{ p.fecha }</td>
                                     <td>{ p.titulo }</td>
@@ -78,7 +78,7 @@ const TablaAvances = ({ listaAvances }) => {
                                 </tr>
                             )
                         })}
-                         */}
+                    */}
                     </tbody>
                 </table>   
         </div>

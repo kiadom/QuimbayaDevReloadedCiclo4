@@ -1,9 +1,10 @@
 .header {
-  padding: 1px;
+  width: 100%;
+  padding: 10px;
   text-align: center;
-  background: #13b0b5;
-  color: white;
-  font-size: 20px;
+  background-color: var(--blue-bg);
+  color: rgb(28, 73, 141);
+  font-size: 30px;
 }
 
 .body-text {
@@ -16,7 +17,7 @@
   width: 150px;
   position: absolute;
   left: 0;
-  top: 0;
+  top: 20;
   padding-top: 40px;
   background-color: lightblue;
 }
