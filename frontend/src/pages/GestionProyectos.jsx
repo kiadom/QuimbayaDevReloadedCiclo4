@@ -17,19 +17,13 @@ function GestionProyectos () {
     /* PLANTILLA PARA HACER LA PETICION GET DE PROYECTOS. EL RETORNO SE ALMACENA EN data */
     const { data } = useQuery(GET_PROYECTOS);
 
-    useEffect(() => {
-        console.log("Datos obtenidos por el QUERY UNO", data);
-    }, [data]);
-
-
-
     /* SE DEFINE EL TEXTO DEL BOTON, INICIALMENTE SERÁ "Registrar Proyecto" Y MOSTRARÁ LA INTERFAZ DE TABLA*/
     useEffect(()=>{
         if (mostrarTabla) {
             setTextoBoton('Registrar Proyecto');
         }
         else {
-            setTextoBoton('Ver Listado de Proyectos');
+            setTextoBoton('Regresar al Listado de Proyectos');
         }
     },[mostrarTabla]);
 
@@ -86,7 +80,10 @@ const TablaProyectos = ({ listaProyectos }) => {
                                     <td>{ p.fase }</td>
                                     <td>
                                         <Link to = {`/GestionProyectos/Editar/${ p._id }`}>
-                                            <button onClick={() => {}}> Editar </button>
+                                            <button onClick={() => {}}> Actualizar </button>
+                                        </Link>
+                                        <Link to = {``}>
+                                            <button onClick={() => {}}> Inscribirse </button>
                                         </Link>
                                     </td>
                                 </tr>

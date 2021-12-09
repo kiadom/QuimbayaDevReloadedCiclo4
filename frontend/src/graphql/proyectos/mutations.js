@@ -48,7 +48,23 @@ const EDITAR_PROYECTO = gql`
             estado: $estado, 
             fase: $fase, 
             objetivo: $objetivo
-        )
+        ) {
+            _id
+            nombre
+            objetivo {
+                descripcion
+                tipo
+            }
+            presupuesto
+            fechaInicio
+            fechaFin
+            lider {
+                identificacion
+                nombre
+            }
+            estado
+            fase
+        }
     }
 `;
 
