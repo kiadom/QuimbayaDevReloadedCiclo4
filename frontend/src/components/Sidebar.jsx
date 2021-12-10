@@ -19,7 +19,7 @@ function Sidebar(){
                     <h4 className='tituloEncabezado'>Gestión Proyectos</h4>
                     <ul>
                         <li>
-                        <NavLink to ='/GestionProyectos'>
+                        <NavLink to ='/GestionProyectos' activeClassName='decortexto'>
                             <FontAwesomeIcon icon={faHome} size='1x' color='#092133'/>
                             <span className=''></span> Inicio
                         </NavLink>
