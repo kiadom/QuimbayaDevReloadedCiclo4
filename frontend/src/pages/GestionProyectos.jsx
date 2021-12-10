@@ -35,14 +35,14 @@ function GestionProyectos () {
         return (
             <div className = "body-text">
                 <div className="rp_titulo">GESTIÓN DE PROYECTOS</div>
-                
-                <button onClick = {() => {
-                    setMostrarTabla (!mostrarTabla);
-                    }}
-                    className="boton_1">{ textoBoton }
-                </button>
-                 { mostrarTabla ? (<TablaProyectos listaProyectos = { data }/>) : (<FormularioRegistroProyectos />)}
-    
+                <div className="rend_Dinamica">
+                    <button onClick = {() => {
+                        setMostrarTabla (!mostrarTabla);
+                        }}
+                        className="boton_1">{ textoBoton }
+                    </button>
+                    { mostrarTabla ? (<TablaProyectos listaProyectos = { data }/>) : (<FormularioRegistroProyectos />)}
+                </div>
             </div>
         );
     }        

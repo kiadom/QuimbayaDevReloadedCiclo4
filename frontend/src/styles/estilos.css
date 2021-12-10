@@ -17,16 +17,11 @@
 
 body{
   background-color: var(--blue-bg);
-  
-  
 }
 
-/* .mainContainer { 
-    height: 100%; 
-    display: flex; 
-    overflow-y: hidden;
-       
- } */
+.wrapper{
+  display: flex;
+}
 
 /* estilos del header */
 header {
@@ -42,15 +37,6 @@ header {
 }
 
 /* estilos del navbar */
-
-/* .principal{
-  margin: 5px;
-  display: flex;  
-  height: max-content;
-  margin:auto;
-  
-} */
-
 /* .topNavBar{
   margin: auto;
   margin: 10px;
@@ -92,20 +78,19 @@ header {
 /* estilos del .sidebar */
 .sidebar {
   display: flex;
-  height: max-content;
+  height: 100%;
   position: absolute;
   width: 200px;
-  margin: 150px 0px 10px 11px;
+  margin: 150px 0px 0px 11px;
   background-color:var(--light-bg);
   color: #092133;
-  
 }
 
 .EncabezadoModulo{
   justify-content: center;
   margin: auto;
   margin-top: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .iconoEncabezado{
@@ -120,8 +105,11 @@ header {
 }
 
 .EncabezadoModulo ul{ 
-  justify-content: flex-start;
-  
+  justify-content: flex-start;  
+}
+
+.decortexto{
+  text-decoration: none;
 }
 
 .wrapper .sidebar ul li{
@@ -149,7 +137,7 @@ header {
   display: block;
   float: right;
   width: 81%;
-  height: 1000px;
+  height: 100%;
   color: var(--light-bg);
   background-color : var(--blue-bg);
   padding: 0%;
@@ -181,12 +169,11 @@ header {
   cursor: pointer;
 }
 
-.rp_formulario{
+/* .rp_formulario{
   display: flexbox;
   justify-content: space-between;
-  margin: auto;
-  
-}
+  margin: auto;  
+} */
 
 .rp_subtitulo{
   padding-block:11px ;
@@ -199,6 +186,13 @@ header {
   font-size: 17px;
 }
 
+.rend_Dinamica{
+  margin-top: 2px;
+  margin-left: auto;
+  width: 100%;
+  color:var(--dark-bg);
+}
+
 .rp_subtitulo h1{
   margin-left: 10px;
 }
@@ -206,6 +200,7 @@ header {
 .table{
   border: 1px solid var(--blue-bg);
   margin-top: 11px;
+  margin-bottom: 66px;
   height: max-content;
   color: var(--blue-bg);
   background-color: var(--light-bg);
@@ -238,33 +233,19 @@ tbody tr td{
   padding-block: 2px;
 }
 
-/* .unpocomas .footer{
-  margin: auto;
-  position: absolute;
-  bottom: 0px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  background-color: rgb(163, 33, 33)  ;
-} */
-  /* .footer{
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    width: 70%;
-    height: 50px;
-    display:flex;
-    position:absolute;
-    /* top: 400px; */
-    /* bottom:0px; */
-    /* margin-top: 100px;  */
-/* } */
-
-/* .footer p{
-  background-color: violet;
-} */
-
 .footer {
+  padding: 11px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: max-content;
+  background-color:var(--grey-bg);
+  color: white;
+  text-align: center;
+}
+
+/* .footer {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -272,4 +253,4 @@ tbody tr td{
   background-color:var(--grey-bg);
   color: white;
   text-align: center;
-}
+} */
