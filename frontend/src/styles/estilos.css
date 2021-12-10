@@ -201,17 +201,21 @@ header {
 }
 
 .table{
+  border: 1px solid var(--blue-bg);
   margin-top: 11px;
   height: max-content;
   color: var(--blue-bg);
   background-color: var(--light-bg);
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .table thead{
-  padding: 10px;
-  background-color: var(--blue-bg);
-  color: var(--light-bg);
+  color: var(--blue-bg);
+  
+}
+.table thead th {
+  border-bottom: 1px solid var(--blue-bg);
+ 
 }
 
 /* .unpocomas .footer{
