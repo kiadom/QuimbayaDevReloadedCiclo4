@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import logo from '../../media/logoheader.png'
 import Input from '../../components/Input';
 import ButtonLoading from '../../components/ButtonLoading';
 import { Link } from 'react-router-dom';
@@ -35,7 +36,9 @@ const Login = () => {
 
     return (
         <div className='login'>
-            {/* <h1 >Iniciar sesión</h1> */}
+            <div>
+                <img src={logo} alt="logo" />
+            </div>
             <form className='logueo' onSubmit={submitForm} onChange={updateFormData} ref={form}>
                 <p><Input className='correo' type='email' label='Correo' placeholder='Correo' required={true} /></p>
                 <p><Input name='contrasena' type='password' label='Contraseña' required={true} /></p>
