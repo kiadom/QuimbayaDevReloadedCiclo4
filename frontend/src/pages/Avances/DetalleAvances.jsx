@@ -34,8 +34,8 @@ function DetalleAvances () {
                 <table>
                     <tr>
                         <td>
-                            <Link to = {`/Avances/AvancesPorProyecto/${_id}`}>
-                                <button onClick={() => {}}> Regresar al Listado de Proyectos </button>
+                            <Link to = {``}>
+                                <button onClick={() => {}}> Regresar al Listado Avances del Proyecto </button>
                             </Link>
                         </td>
                     </tr>
