@@ -25,6 +25,8 @@ function GestionProyectosEditar () {
         });
     };
 
+    console.log("datos del formulario ", formData);
+
     /* SI loading ES FALSO, ES DECIR SI YA NO ESTÁ CARGANDO, SE RENDERIZA EL FORMULARIO PARA EDITAR EL PROYECTO SELECCIONADO */
     if(!loadingData){
         return (

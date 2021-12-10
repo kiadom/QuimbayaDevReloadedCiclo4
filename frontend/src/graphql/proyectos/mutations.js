@@ -35,25 +35,27 @@ const EDITAR_PROYECTO = gql`
 
     mutation EditarProyecto(
         $_id: String, 
-        $nombre: String
+        $nombre: String,
+        # $presupuesto: Float,
     ) {
         editarProyecto(
             _id: $_id, 
-            nombre: $nombre
+            nombre: $nombre,
+            # presupuesto: $presupuesto, 
         ) {
             _id
             nombre
-            objetivo {
-                _id
-            }
-            presupuesto
-            fechaInicio
-            fechaFin
-            lider {
-                _id
-            }
-            estado
-            fase
+            # objetivo {
+            #     _id
+            # }
+            # presupuesto
+            # fechaInicio
+            # fechaFin
+            # lider {
+            #     _id
+            # }
+            # estado
+            # fase
         }
     }
 `;
