@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom';
 
 import { useMutation, useQuery } from '@apollo/client';
 import useFormData from "../hooks/useFormData";
+import { toast } from 'react-toastify';
+import  ButtonLoading from '../components/ButtonLoading';
+import { useUser } from '../context/userContext';
 
 import { GET_PROYECTOS } from '../graphql/proyectos/queries';
 import { CREAR_PROYECTO } from "../graphql/proyectos/mutations";
+import {CREAR_INSCRIPCION} from '../graphql/inscripciones/mutations'
 import {Enum_EstadoProyecto, Enum_FaseProyecto} from '../utils/enums'
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
@@ -34,6 +38,7 @@ function GestionProyectos () {
     if (!loading){
         return (
             <div className = "body-text">
+<<<<<<< HEAD
                 <div className="rp_titulo">GESTIÓN DE PROYECTOS</div>
                 <div className="rend_Dinamica">
                     <button onClick = {() => {
@@ -43,6 +48,17 @@ function GestionProyectos () {
                     </button>
                     { mostrarTabla ? (<TablaProyectos listaProyectos = { data }/>) : (<FormularioRegistroProyectos />)}
                 </div>
+=======
+                <div className ="rp_titulo">GESTIÓN DE PROYECTOS</div>
+                
+                <button onClick = {() => {
+                    setMostrarTabla (!mostrarTabla);
+                    }}
+                    className = "boton_1">{ textoBoton }
+                </button>
+                 { mostrarTabla ? (<TablaProyectos listaProyectos = { data }/>) : (<FormularioRegistroProyectos />)}
+    
+>>>>>>> 902c24377f367f4a6cbf706c0ea58703e5d00bf9
             </div>
         );
     }        
@@ -58,9 +74,9 @@ function GestionProyectos () {
 /* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA LA TABLA QUE MUESTRA EL LISTADO DE PROYECTOS */
 const TablaProyectos = ({ listaProyectos }) => {
     return (
-        <div className="rp_formulario">
-            <h1 className="rp_subtitulo">Lista de Proyectos</h1>
-            <table className="table">
+        <div className = "rp_formulario">
+            <h1 className = "rp_subtitulo">Lista de Proyectos</h1>
+            <table className = "table">
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -95,12 +111,11 @@ const TablaProyectos = ({ listaProyectos }) => {
                                         <Link to = {`/GestionProyectos/Editar/${ p._id }`}>
                                             <button onClick={() => {}}> Actualizar </button>
                                         </Link>
-                                        <Link to = {``}>
-                                            <button onClick={() => {}}> Inscribirse </button>
-                                        </Link>
-                                        
-                                            {/*<CrearInscripcion  idProyecto={p._id}/>*/}
-                                        
+                                        <InscripcionProyecto
+                                                idProyecto={p._id}
+                                                estado={p.estado}
+                                                inscripciones={p.inscripciones}
+                                                />
                                     </td>
                                 </tr>
                             )
@@ -120,7 +135,7 @@ const FormularioRegistroProyectos = ()=> {
     const submitForm = (e) => {
         e.preventDefault();
         crearProyecto({ 
-            variables: {formData, presupuesto: parseFloat(formData.presupuesto), fechaInicio: Date("2021-12-10")} 
+            variables: {formData, presupuesto: parseFloat(formData.presupuesto)} 
         });
     };
 
@@ -128,7 +143,7 @@ const FormularioRegistroProyectos = ()=> {
     
     return (
         <div>
-            <h1>Ingrese el Proyecto</h1>
+            <h1 className = "rp_subtitulo">Ingrese el Proyecto</h1>
             <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
                 <table>
                     <tr>
@@ -181,9 +196,9 @@ const FormularioRegistroProyectos = ()=> {
                     </tr>
                     <tr>
                         <td>
-                            <input 
+                            <input className="boton_1"
                                 type = "submit" 
-                                value = "Registrar Proyecto" 
+                                value = "Registrar Nuevo Proyecto" 
                             />
                         </td>
                     </tr>
@@ -191,6 +206,47 @@ const FormularioRegistroProyectos = ()=> {
             </form>
         </div>
     )
+};
+
+const InscripcionProyecto = ({ idProyecto, estado, inscripciones }) => {
+    const [estadoInscripcion, setEstadoInscripcion] = useState('');
+    const [crearInscripcion, { data, loading, error }] = useMutation(CREAR_INSCRIPCION);
+    const { userData } = useUser();
+  
+    useEffect(() => {
+      if (userData && inscripciones) {
+        const flt = inscripciones.filter((el) => el.estudianteInscrito._id === userData._id);
+        if (flt.length > 0) {
+          setEstadoInscripcion(flt[0].estadoInscripcion);
+        }
+      }
+    }, [userData, inscripciones]);
+  
+    useEffect(() => {
+      if (data) {
+        console.log(data);
+        toast.success('inscripcion creada con exito');
+      }
+    }, [data]);
+  
+    const confirmarInscripcion = () => {
+      crearInscripcion({ variables: { proyecto: idProyecto, estudianteInscrito: userData._id } });
+    };
+  
+    return (
+      <>
+        {estadoInscripcion !== '' ? (
+          <span>Ya estas inscrito en este proyecto y el estado es {estadoInscripcion}</span>
+        ) : (
+          <ButtonLoading
+            onClick={() => confirmarInscripcion()}
+            disabled={estado === 'INACTIVO'}
+            loading={loading}
+            text='Inscribirse'
+          />
+        )}
+      </>
+    );
 };
 
 export { GestionProyectos };
