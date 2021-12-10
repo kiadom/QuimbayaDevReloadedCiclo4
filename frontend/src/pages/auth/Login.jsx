@@ -34,7 +34,7 @@ const Login = () => {
     }, [dataMutation, setToken, navigate]);
 
     return (
-        <div>
+        <div className='login'>
             <h1 >Iniciar sesión</h1>
             <form onSubmit={submitForm} onChange={updateFormData} ref={form}>
                 <p><Input name='correo' type='email' label='Correo' required={true} /></p>

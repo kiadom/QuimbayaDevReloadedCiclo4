@@ -38,20 +38,17 @@ function Sidebar(){
                         </NavLink> 
                         </li>
                         <li>
-<<<<<<< HEAD
                         {/* <Link to ='/GestionProyectos'> */}
                             <FontAwesomeIcon icon={faProjectDiagram} size='1x' color='#092133'/>
                             <span className=''></span> Proyectos
                         {/* </Link> */}
                         </li>
                         <li>
+                            
                         {/* <Link to ='/GestionProyectos'> */}
-=======
-                        <NavLink to ='/Avances'> 
->>>>>>> efa4acc53f9c515545fd81ff287477119c2bdab9
                             <FontAwesomeIcon icon={faClipboardCheck} size='1x' color='#092133'/>
                             <span className=''></span> Avances
-                        </NavLink> 
+                        
                         </li>
                     </ul>
                 </div>

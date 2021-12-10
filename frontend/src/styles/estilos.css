@@ -184,7 +184,7 @@ header {
 
 .rp_formulario{
   display: flexbox;
-  justify-content: center;
+  justify-content: space-between;
   margin: auto;
   
 }
