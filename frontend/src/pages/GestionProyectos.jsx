@@ -8,7 +8,6 @@ import  ButtonLoading from '../components/ButtonLoading';
 import { useUser } from '../context/userContext';
 import PrivateComponent from '../components/PrivateComponent';
 
-
 import { GET_PROYECTOS } from '../graphql/proyectos/queries';
 import { CREAR_PROYECTO } from "../graphql/proyectos/mutations";
 import {CREAR_INSCRIPCION} from '../graphql/inscripciones/mutations'
@@ -40,12 +39,12 @@ function GestionProyectos () {
     if (!loading){
         return (
             <div className = "body-text">
-                <div className="rp_titulo">GESTIÓN DE PROYECTOS</div>
+                <div className ="rp_titulo">GESTIÓN DE PROYECTOS</div>
                 
                 <button onClick = {() => {
                     setMostrarTabla (!mostrarTabla);
                     }}
-                    className="boton_1">{ textoBoton }
+                    className = "boton_1">{ textoBoton }
                 </button>
                  { mostrarTabla ? (<TablaProyectos listaProyectos = { data }/>) : (<FormularioRegistroProyectos />)}
     
@@ -64,9 +63,9 @@ function GestionProyectos () {
 /* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA LA TABLA QUE MUESTRA EL LISTADO DE PROYECTOS */
 const TablaProyectos = ({ listaProyectos }) => {
     return (
-        <div className="rp_formulario">
-            <h1 className="rp_subtitulo">Lista de Proyectos</h1>
-            <table className="table">
+        <div className = "rp_formulario">
+            <h1 className = "rp_subtitulo">Lista de Proyectos</h1>
+            <table className = "table">
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -127,7 +126,7 @@ const FormularioRegistroProyectos = ()=> {
     const submitForm = (e) => {
         e.preventDefault();
         crearProyecto({ 
-            variables: {formData, presupuesto: parseFloat(formData.presupuesto), fechaInicio: Date("2021-12-10")} 
+            variables: {formData, presupuesto: parseFloat(formData.presupuesto)} 
         });
     };
 
@@ -135,7 +134,7 @@ const FormularioRegistroProyectos = ()=> {
     
     return (
         <div>
-            <h1>Ingrese el Proyecto</h1>
+            <h1 className = "rp_subtitulo">Ingrese el Proyecto</h1>
             <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
                 <table>
                     <tr>
@@ -188,9 +187,9 @@ const FormularioRegistroProyectos = ()=> {
                     </tr>
                     <tr>
                         <td>
-                            <input 
+                            <input className="boton_1"
                                 type = "submit" 
-                                value = "Registrar Proyecto" 
+                                value = "Registrar Nuevo Proyecto" 
                             />
                         </td>
                     </tr>
@@ -246,6 +245,6 @@ const InscripcionProyecto = ({ idProyecto, estado, inscripciones, fase }) => {
         )}
       </>
     );
-  };
+};
 
 export { GestionProyectos };
