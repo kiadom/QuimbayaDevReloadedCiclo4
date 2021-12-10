@@ -35,11 +35,13 @@ function GestionProyectos () {
     if (!loading){
         return (
             <div className = "body-text">
-    
+                <div className="rp_titulo">GESTIÓN DE PROYECTOS</div>
+                
                 <button onClick = {() => {
                     setMostrarTabla (!mostrarTabla);
                     }}
-                >{ textoBoton }</button>
+                    className="boton_1">{ textoBoton }
+                </button>
                  { mostrarTabla ? (<TablaProyectos listaProyectos = { data }/>) : (<FormularioRegistroProyectos />)}
     
             </div>
@@ -58,8 +60,8 @@ function GestionProyectos () {
 /* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA LA TABLA QUE MUESTRA EL LISTADO DE PROYECTOS */
 const TablaProyectos = ({ listaProyectos }) => {
     return (
-        <div>
-            <h1>Lista de Proyectos</h1>
+        <div className="rp_formulario">
+            <h1 className="rp_subtitulo">Lista de Proyectos</h1>
             <table>
                 <thead>
                     <tr>
