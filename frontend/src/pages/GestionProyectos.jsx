@@ -38,7 +38,6 @@ function GestionProyectos () {
     if (!loading){
         return (
             <div className = "body-text">
-<<<<<<< HEAD
                 <div className="rp_titulo">GESTIÓN DE PROYECTOS</div>
                 <div className="rend_Dinamica">
                     <button onClick = {() => {
@@ -48,17 +47,6 @@ function GestionProyectos () {
                     </button>
                     { mostrarTabla ? (<TablaProyectos listaProyectos = { data }/>) : (<FormularioRegistroProyectos />)}
                 </div>
-=======
-                <div className ="rp_titulo">GESTIÓN DE PROYECTOS</div>
-                
-                <button onClick = {() => {
-                    setMostrarTabla (!mostrarTabla);
-                    }}
-                    className = "boton_1">{ textoBoton }
-                </button>
-                 { mostrarTabla ? (<TablaProyectos listaProyectos = { data }/>) : (<FormularioRegistroProyectos />)}
-    
->>>>>>> 902c24377f367f4a6cbf706c0ea58703e5d00bf9
             </div>
         );
     }        
