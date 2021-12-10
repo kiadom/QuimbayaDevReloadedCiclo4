@@ -217,19 +217,21 @@ tbody tr td{
   text-align: center;
 }
 
-
+/*estilos del loguin*/
 
 .login{
   padding: 11px;
   width:max-content;
-  display: block;
+  display: inline;
+  margin-top: auto;
   justify-content: center;
   align-items: center;
   background-color:var(--grey-bg);
-  position: absolute;
-  top: 45%;
+  position: fixed;
+  top: 25%;
   right: 30%;
   border-radius: 11px;
+  
 }
 
 .login img{  
@@ -270,7 +272,7 @@ tbody tr td{
 }
 
 .contenedorfoto{
-  wfont-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-image: url('../media/ImagenPrincipal.jpg');
   background-size: cover;
   background-repeat: no-repeat;
