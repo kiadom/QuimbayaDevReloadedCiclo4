@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 import { useMutation, useQuery } from '@apollo/client';
 import useFormData from "../hooks/useFormData";
 
 import { GET_PROYECTOS } from '../graphql/proyectos/queries';
 import { CREAR_PROYECTO } from "../graphql/proyectos/mutations";
-import {CREAR_INSCRIPCION} from "../graphql/inscripciones/mutations";
-import { ButtonLoading} from '../components/ButtonLoading'
-import {useUser} from '../context/userContext'
 import {Enum_EstadoProyecto, Enum_FaseProyecto} from '../utils/enums'
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
@@ -19,10 +15,10 @@ function GestionProyectos () {
     const [textoBoton, setTextoBoton] = useState('Ver Listado de Proyectos' );
     const [mostrarTabla, setMostrarTabla] = useState(true);
 
-    /* PLANTILLA PARA HACER LA PETICION GET DE PROYECTOS. EL RETORNO SE ALMACENA EN data */
+    /* PLANTILLA PARA HACER LA PETICION GET DE PROYECTOS. EL RETORNO SE ALMACENA EN data. loadingData PERMITE CONTROLAR CUANDO SE CARGA EL QUERY  */
     const { data, loading } = useQuery(GET_PROYECTOS);
     
-    /* SE DEFINE EL TEXTO DEL BOTON, INICIALMENTE SERÁ "Registrar Proyecto" Y MOSTRARÁ LA INTERFAZ DE TABLA*/
+    /* SE DEFINE EL TEXTO DEL BOTON, INICIALMENTE SERÁ "Registrar Proyecto" Y MOSTRARÁ LA INTERFAZ TABLA*/
     useEffect(()=>{
         if (mostrarTabla) {
             setTextoBoton('Registrar Proyecto');
@@ -32,6 +28,9 @@ function GestionProyectos () {
         }
     },[mostrarTabla]);
 
+    /* SI loading ES FALSO, ES DECIR SI YA NO ESTÁ CARGANDO, SE RENDERIZA LA INTERFAZ TablaProyectos
+    EN ESTE RETURN VA EL BOTON QUE PERMITE CAMBIAR DE INTERFAZ. 
+    AL DAR CLIC SOBRE ESTE, CAMBIA EL ESTADO DE mostrarTabla, LLAMANDO ASI AL FORMULARIO */
     if (!loading){
         return (
             <div className = "body-text">
@@ -48,8 +47,7 @@ function GestionProyectos () {
         );
     }        
 
-    /* EN ESTE RETURN VA EL BOTON QUE PERMITE CAMBIAR DE INTERFAZ. 
-    AL DAR CLIC SOBRE ESTE, CAMBIA EL ESTADO DE mostrarTabla, LLAMANDO ASI AL FORMULARIO*/
+    /* SI loading ES VERDADERO, ES DECIR SI ESTÁ CARGANDO, SE MUESTRA UN MENSAJE INFORMANDO AL USUARIO DE ESTO */
     return (
         <div className = "body-text">
             <h1>Cargando</h1>
@@ -122,9 +120,11 @@ const FormularioRegistroProyectos = ()=> {
     const submitForm = (e) => {
         e.preventDefault();
         crearProyecto({ 
-            variables: formData 
+            variables: {formData, presupuesto: parseFloat(formData.presupuesto), fechaInicio: Date("2021-12-10")} 
         });
     };
+
+    console.log(Date.now());
     
     return (
         <div>
@@ -143,7 +143,7 @@ const FormularioRegistroProyectos = ()=> {
                             />
                         </td>
                     </tr>
-                    <tr>
+                    {/* <tr>
                         <td>
                             <p>Objetivo General: </p>
                         </td>
@@ -166,7 +166,7 @@ const FormularioRegistroProyectos = ()=> {
                                 required
                             />
                         </td>
-                    </tr>
+                    </tr> */}
                     <tr>
                         <td>
                             <p>Presupuesto: </p>
@@ -174,7 +174,7 @@ const FormularioRegistroProyectos = ()=> {
                         <td>
                             <input 
                                 name = 'presupuesto' 
-                                type = "text" 
+                                type = "number" 
                                 required
                             />
                         </td>
@@ -192,29 +192,5 @@ const FormularioRegistroProyectos = ()=> {
         </div>
     )
 };
-
-/*const CrearInscripcion = ({idProyecto, estado}) => {
-    const [crearInscripcion, {data: dataInscripcion, loading, error}] = useMutation(CREAR_INSCRIPCION);
-    const {userData} = useUser();
-    useEffect(()=>{
-       if (dataInscripcion) {
-           console.log(dataInscripcion);
-           toast.success('Inscripción creada con exito');
-       }
-    }, [dataInscripcion]);
-
-    const Inscribirse = () =>{
-        crearInscripcion({variables: {proyecto: idProyecto, estudianteInscrito: userData.id}})
-    }
-
-    return(
-        <ButtonLoading
-        onClick={()=> Inscribirse()}
-        disabled={estado === 'INACTIVO'}
-        loading={loading}
-        text='Inscribirse'
-        />
-    )
-};*/
 
 export { GestionProyectos };

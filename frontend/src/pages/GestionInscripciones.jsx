@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-//import PrivateRoute from 'components/PrivateRoute';
 import {GET_INSCRIPCIONES} from "../graphql/inscripciones/queries";
 import {APROBAR_INSCRIPCION} from '../graphql/inscripciones/mutations';
 import {RECHAZAR_INSCRIPCION} from '../graphql/inscripciones/mutations';

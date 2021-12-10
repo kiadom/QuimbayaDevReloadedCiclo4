@@ -46,9 +46,12 @@ const Login = () => {
                 />
             </form>
             <span>¿No tienes una cuenta?</span>
-            <Link to='/auth/registro'>
-                <span>Regístrate</span>
-            </Link>
+            <div>
+                <Link to='/auth/registro'>
+                    <span>Regístrate</span>
+                </Link>
+            </div>
+
         </div>
     );
 };

@@ -5,7 +5,7 @@ const CREAR_PROYECTO = gql`
     mutation CrearProyecto(
         $nombre: String!, 
         $presupuesto: Float!, 
-        $objetivo: [String]!
+        $objetivo: [String]
     ) {
         crearProyecto(
             nombre: $nombre, 
@@ -35,35 +35,27 @@ const EDITAR_PROYECTO = gql`
 
     mutation EditarProyecto(
         $_id: String, 
-        $nombre: String, 
-        $presupuesto: Float, 
-        $estado: Enum_EstadoProyecto, 
-        $fase: Enum_FaseProyecto, 
-        $objetivo: [String]
+        $nombre: String,
+        $presupuesto: Float,
     ) {
         editarProyecto(
             _id: $_id, 
-            nombre: $nombre, 
+            nombre: $nombre,
             presupuesto: $presupuesto, 
-            estado: $estado, 
-            fase: $fase, 
-            objetivo: $objetivo
         ) {
             _id
             nombre
-            objetivo {
-                descripcion
-                tipo
-            }
+            # objetivo {
+            #     _id
+            # }
             presupuesto
-            fechaInicio
-            fechaFin
-            lider {
-                identificacion
-                nombre
-            }
-            estado
-            fase
+            # fechaInicio
+            # fechaFin
+            # lider {
+            #     _id
+            # }
+            # estado
+            # fase
         }
     }
 `;
