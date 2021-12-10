@@ -30,17 +30,17 @@ function GestionProyectosEditar () {
     if(!queryLoading){
         return (
             <div className = "body-text">
+                <div className ="rp_titulo">GESTIÓN DE PROYECTOS</div>
                 <table>
                     <tr>
                         <td>
                             <Link to = {`/GestionProyectos`}>
-                                <button onClick={() => {}}> Regresar al Listado de Proyectos </button>
+                                <button onClick={() => {}} className = "boton_1"> Regresar al Listado de Proyectos </button>
                             </Link>
                         </td>
                     </tr>
                 </table>
-                <h1>ID del Proyecto Seleccionado: { _id }</h1>
-                <h1>Ingrese los nuevos datos del Proyecto</h1>
+                <h1 className = "rp_subtitulo">Ingrese los nuevos datos del Proyecto</h1>
                 <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
                     <table>
                         <tr>
@@ -93,7 +93,7 @@ function GestionProyectosEditar () {
                         </tr>
                         <tr>
                             <td>
-                                <input 
+                                <input className = "boton_1"
                                     type = "submit" 
                                     value = "Guardar cambios" 
                                 />
