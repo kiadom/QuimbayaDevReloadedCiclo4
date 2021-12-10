@@ -10,6 +10,7 @@ import { CREAR_PROYECTO } from "../graphql/proyectos/mutations";
 import {CREAR_INSCRIPCION} from "../graphql/inscripciones/mutations";
 import { ButtonLoading} from '../components/ButtonLoading'
 import {useUser} from '../context/userContext'
+import {Enum_EstadoProyecto, Enum_FaseProyecto} from '../utils/enums'
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 function GestionProyectos () {
@@ -19,8 +20,8 @@ function GestionProyectos () {
     const [mostrarTabla, setMostrarTabla] = useState(true);
 
     /* PLANTILLA PARA HACER LA PETICION GET DE PROYECTOS. EL RETORNO SE ALMACENA EN data */
-    const { data } = useQuery(GET_PROYECTOS);
-
+    const { data, loading } = useQuery(GET_PROYECTOS);
+    
     /* SE DEFINE EL TEXTO DEL BOTON, INICIALMENTE SERÁ "Registrar Proyecto" Y MOSTRARÁ LA INTERFAZ DE TABLA*/
     useEffect(()=>{
         if (mostrarTabla) {
@@ -31,17 +32,25 @@ function GestionProyectos () {
         }
     },[mostrarTabla]);
 
+    if (!loading){
+        return (
+            <div className = "body-text">
+    
+                <button onClick = {() => {
+                    setMostrarTabla (!mostrarTabla);
+                    }}
+                >{ textoBoton }</button>
+                 { mostrarTabla ? (<TablaProyectos listaProyectos = { data }/>) : (<FormularioRegistroProyectos />)}
+    
+            </div>
+        );
+    }        
+
     /* EN ESTE RETURN VA EL BOTON QUE PERMITE CAMBIAR DE INTERFAZ. 
     AL DAR CLIC SOBRE ESTE, CAMBIA EL ESTADO DE mostrarTabla, LLAMANDO ASI AL FORMULARIO*/
     return (
         <div className = "body-text">
-
-            <button onClick = {() => {
-                setMostrarTabla (!mostrarTabla);
-                }}
-            >{ textoBoton }</button>
-             { mostrarTabla ? (<TablaProyectos listaProyectos = { data }/>) : (<FormularioRegistroProyectos />)}
-
+            <h1>Cargando</h1>
         </div>
     );
 };
@@ -80,8 +89,8 @@ const TablaProyectos = ({ listaProyectos }) => {
                                     <td>{ p.fechaFin }</td>
                                     <td>{ p.lider.identificacion }</td>
                                     <td>{ p.lider.nombre }</td>
-                                    <td>{ p.estado }</td>
-                                    <td>{ p.fase }</td>
+                                    <td>{Enum_EstadoProyecto[p.estado]}</td>
+                                    <td>{Enum_FaseProyecto[p.fase]}</td>
                                     <td>
                                         <Link to = {`/GestionProyectos/Editar/${ p._id }`}>
                                             <button onClick={() => {}}> Actualizar </button>
