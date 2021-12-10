@@ -6,6 +6,7 @@ import useFormData from "../hooks/useFormData";
 import { toast } from 'react-toastify';
 import  ButtonLoading from '../components/ButtonLoading';
 import { useUser } from '../context/userContext';
+import PrivateComponent from '../components/PrivateComponent';
 
 
 import { GET_PROYECTOS } from '../graphql/proyectos/queries';
@@ -100,13 +101,13 @@ const TablaProyectos = ({ listaProyectos }) => {
                                         <Link to = {`/GestionProyectos/Editar/${ p._id }`}>
                                             <button onClick={() => {}}> Actualizar </button>
                                         </Link>
-                                        <InscripcionProyecto
-                                                idProyecto={p._id}
-                                                estado={p.estado}
-                                                inscripciones={p.inscripciones}
-                                                />
-
-                                        
+                                        <PrivateComponent roleList={['ESTUDIANTE']}>
+                                            <InscripcionProyecto
+                                                    idProyecto={p._id}
+                                                    estado={p.estado}
+                                                    inscripciones={p.inscripciones}
+                                                    />
+                                        </PrivateComponent>
                                     </td>
                                 </tr>
                             )
@@ -199,7 +200,7 @@ const FormularioRegistroProyectos = ()=> {
     )
 };
 
-const InscripcionProyecto = ({ idProyecto, estado, inscripciones }) => {
+const InscripcionProyecto = ({ idProyecto, estado, inscripciones, fase }) => {
     const [estadoInscripcion, setEstadoInscripcion] = useState('');
     const [crearInscripcion, { data, loading, error }] = useMutation(CREAR_INSCRIPCION);
     const { userData } = useUser();
@@ -216,10 +217,17 @@ const InscripcionProyecto = ({ idProyecto, estado, inscripciones }) => {
     useEffect(() => {
       if (data) {
         console.log(data);
-        toast.success('inscripcion creada con exito');
+        toast.success('inscripción creada con exito');
       }
     }, [data]);
   
+    useEffect(() => {
+        if (error) {
+          console.log(error);
+          toast.error('error al crear la inscripción');
+        }
+      }, [error]);
+
     const confirmarInscripcion = () => {
       crearInscripcion({ variables: { proyecto: idProyecto, estudianteInscrito: userData._id } });
     };
@@ -231,7 +239,7 @@ const InscripcionProyecto = ({ idProyecto, estado, inscripciones }) => {
         ) : (
           <ButtonLoading
             onClick={() => confirmarInscripcion()}
-            disabled={estado === 'INACTIVO'}
+            disabled={estado === 'INACTIVO' }
             loading={loading}
             text='Inscribirse'
           />
