@@ -12,18 +12,16 @@ import { NavLink } from 'react-router-dom';
 function Header  () {
     return (
         <div className="wrapper">
-            {/* //no haynecesidad de poner class name// */}
             <header className="principal"> 
-            {/* <div className="topNavBar"> */}
-                <div className="iconCompany">
-                    <img src= {logoheader} alt="logo-header" height="70px"/>
-                </div>
-                <div className='botonHeader'>
+              <div className="iconCompany">
+                <img src= {logoheader} alt="logo-header" height="70px"/>
+              </div>
+              <div className='botonHeader'>
                 <p>Registro</p>
                 <p>Ingreso</p>
                 <p>Usuario</p>
                 <p><Logout/></p>
-                </div>
+              </div>
                 
 
             {/* </div> */}
