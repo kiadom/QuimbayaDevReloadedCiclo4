@@ -206,16 +206,25 @@ header {
   height: max-content;
   color: var(--blue-bg);
   background-color: var(--light-bg);
-  font-size: 11px;
+  /* font-size: 11px; */
+  text-align: left;
 }
 
-.table thead{
-  color: var(--blue-bg);
-  
-}
 .table thead th {
-  border-bottom: 1px solid var(--blue-bg);
+  font-size: 9px;
+  border-right: 1px solid var(--blue-bg);
  
+}
+
+.proyectos{
+  background-color:var(--ligth-bg);
+  padding: 2px;
+  border: 2px ;
+}
+
+tbody tr td{
+  font-size: 9px;
+  border-bottom: 1px solid var(--blue-bg);
 }
 
 /* .unpocomas .footer{

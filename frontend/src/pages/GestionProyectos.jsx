@@ -80,7 +80,7 @@ const TablaProyectos = ({ listaProyectos }) => {
                     { listaProyectos && 
                         listaProyectos.Proyectos.map((p) => {
                             return (
-                                <tr key = { p._id }>
+                                <tr className="proyectos" key = { p._id }>
                                     <td>{ p.nombre }</td>
                                     <td>{ p.objetivo[0].descripcion }</td>
                                     <td>{ p.objetivo[1].descripcion } <p/> { p.objetivo[2].descripcion }</td>
