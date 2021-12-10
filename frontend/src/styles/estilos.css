@@ -17,16 +17,11 @@
 
 body{
   background-color: var(--blue-bg);
-  
-  
 }
 
-/* .mainContainer { 
-    height: 100%; 
-    display: flex; 
-    overflow-y: hidden;
-       
- } */
+.wrapper{
+  display: flex;
+}
 
 /* estilos del header */
 header {
@@ -38,19 +33,10 @@ header {
   background-color:var(--grey-bg);
   color: var(--blue-bg);  
   margin: 11px;
-  padding: 40px;  
+  padding: 20px 0px 30px 40px;  
 }
 
 /* estilos del navbar */
-
-/* .principal{
-  margin: 5px;
-  display: flex;  
-  height: max-content;
-  margin:auto;
-  
-} */
-
 /* .topNavBar{
   margin: auto;
   margin: 10px;
@@ -71,7 +57,7 @@ header {
   display: flex;
   position: absolute;
   right: 80px;
-  top: 123px; 
+  top: 73px; 
   
 }
 
@@ -92,20 +78,19 @@ header {
 /* estilos del .sidebar */
 .sidebar {
   display: flex;
-  height: max-content;
+  height: 100%;
   position: absolute;
-  width: 220px;
-  margin: 201px 0px 10px 11px;
+  width: 200px;
+  margin: 150px 0px 0px 11px;
   background-color:var(--light-bg);
   color: #092133;
-  
 }
 
 .EncabezadoModulo{
   justify-content: center;
   margin: auto;
   margin-top: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .iconoEncabezado{
@@ -120,8 +105,11 @@ header {
 }
 
 .EncabezadoModulo ul{ 
-  justify-content: flex-start;
-  
+  justify-content: flex-start;  
+}
+
+.decortexto{
+  text-decoration: none;
 }
 
 .wrapper .sidebar ul li{
@@ -148,8 +136,8 @@ header {
 .body-text {
   display: block;
   float: right;
-  width: 79%;
-  height: 1000px;
+  width: 81%;
+  height: 100%;
   color: var(--light-bg);
   background-color : var(--blue-bg);
   padding: 0%;
@@ -160,20 +148,19 @@ header {
 }
 
 .body-text .rp_titulo{
+  text-align: left;
   background-color: var(--grey-bg);
-  color:var(--light-bg);
-  text-align:center;
+  color:var(--light-bg);  
   font-weight: bold;   
-  padding: 2%;
+  padding-block: 11px;
+  padding-inline-start: 19px;
 }
 
 .boton_1{
   margin: 11px;
-  width: 250px;
   padding:  10px;
-  font-size: 1em;
+  font-size: 14px;
   font-weight: bold;
-  letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--blue-bg);
   border: none;
@@ -182,65 +169,83 @@ header {
   cursor: pointer;
 }
 
-.rp_formulario{
+/* .rp_formulario{
   display: flexbox;
-  justify-content: center;
-  margin: auto;
-  
-}
+  justify-content: space-between;
+  margin: auto;  
+} */
 
 .rp_subtitulo{
-  width: 100%;
+  padding-block:11px ;
+  padding-inline-start: 19px;
   background-color: var(--grey-bg);
   margin-top: 5px;
-  margin-right: 11px; 
-  height: 0%;
   color:var(--light-bg);
-  text-align:center;
+  text-align:left;
   font-weight: bold;
+  font-size: 17px;
+}
+
+.rend_Dinamica{
+  margin-top: 2px;
+  margin-left: auto;
+  width: 100%;
+  color:var(--dark-bg);
+}
+
+.rp_subtitulo h1{
+  margin-left: 10px;
 }
 
 .table{
+  border: 1px solid var(--blue-bg);
   margin-top: 11px;
+  margin-bottom: 66px;
   height: max-content;
   color: var(--blue-bg);
   background-color: var(--light-bg);
-  font-size: 10px;
+  /* font-size: 11px; */
+  
 }
 
-.table thead{
-  padding: 10px;
-  background-color: var(--blue-bg);
+.table thead th {
+  padding-block: 5px;
+  text-size-adjust: 10px;
+  text-align: center;
   color: var(--light-bg);
+  background-color: var(--grey-bg);
+  font-size: 10px;
+  border-right: 1px solid var(--blue-bg);
+  border-bottom: 1px solid var(--blue-bg);
+ 
 }
 
-/* .unpocomas .footer{
-  margin: auto;
-  position: absolute;
-  bottom: 0px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  background-color: rgb(163, 33, 33)  ;
-} */
-  /* .footer{
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    width: 70%;
-    height: 50px;
-    display:flex;
-    position:absolute;
-    /* top: 400px; */
-    /* bottom:0px; */
-    /* margin-top: 100px;  */
-/* } */
+.proyectos{
+  background-color:var(--ligth-bg);
+  padding: 2px;
+  border: 2px ;
+}
 
-/* .footer p{
-  background-color: violet;
-} */
+tbody tr td{
+  font-size: 10px;
+  border-right: 1px solid var(--blue-bg);
+  border-bottom: 1px solid var(--blue-bg);
+  padding-block: 2px;
+}
 
 .footer {
+  padding: 11px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: max-content;
+  background-color:var(--grey-bg);
+  color: white;
+  text-align: center;
+}
+
+/* .footer {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -248,4 +253,4 @@ header {
   background-color:var(--grey-bg);
   color: white;
   text-align: center;
-}
+} */
