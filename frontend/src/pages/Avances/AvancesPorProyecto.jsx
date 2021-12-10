@@ -52,33 +52,33 @@ const TablaAvances = ({ listaAvances }) => {
                             return (
                                <tr key = { p.proyecto }>
                                     <tr>
-                                    <td>Titulo: </td>
-                                    <td>{ p.titulo }</td>
-                                    <td><Link to = {`/avances/DetalleAvances/${p._id}` }>
-                                            <button onClick={() => {}}> Editar Avance </button>
-                                        </Link> </td>
+                                        <td>Titulo: </td>
+                                        <td>{ p.titulo }</td>
+                                        <td><Link to = {`/avances/DetalleAvances/${p._id}` }>
+                                                <button onClick={() => {}}> Editar Avance </button>
+                                            </Link> </td>
                                     </tr>
 
                                     <tr>
-                                    <td>Proyecto: </td>
-                                    <td>{ p.proyecto.nombre }</td>
+                                        <td>Proyecto: </td>
+                                        <td>{ p.proyecto.nombre }</td>
                                     </tr>
                                     
                                     <tr>
-                                    <td>ID del Avance: </td>
-                                    <td>{ p._id}</td>
+                                        <td>ID del Avance: </td>
+                                        <td>{ p._id}</td>
                                     </tr>
                                     <tr>
-                                    <td>Fecha:</td>
-                                    <td>{ p.fecha}</td>    
+                                        <td>Fecha:</td>
+                                        <td>{ p.fecha}</td>    
                                     </tr>
                                     <tr>
-                                    <td>Detalle del Avance:</td>
-                                    <td>{ p.descripcion}</td>    
+                                        <td>Detalle del Avance:</td>
+                                        <td>{ p.descripcion}</td>    
                                     </tr>
                                     <tr>
-                                    <td>Observaciones Lider:</td>
-                                    <td>{ p.observacionesLider}</td>    
+                                        <td>Observaciones Lider:</td>
+                                        <td>{ p.observacionesLider}</td>    
                                     </tr>
                                     
 

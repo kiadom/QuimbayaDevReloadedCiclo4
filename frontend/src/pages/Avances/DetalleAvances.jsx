@@ -81,8 +81,11 @@ function DetalleAvances () {
                                 <p>Descripcion: </p>
                             </td>
                             <td>
-                                { queryData.DetalleAvances.descripcion } 
-                                
+                                <input 
+                                    name = 'descripcion' 
+                                    defaultValue = { queryData.DetalleAvances.descripcion } 
+                                    type = "text" 
+                                />
                             </td>
                         </tr>
 
