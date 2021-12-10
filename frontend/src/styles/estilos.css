@@ -148,7 +148,6 @@ header {
 .body-text {
   display: block;
   float: right;
-  width:max-content;
   width: 79%;
   height: 1000px;
   color: var(--light-bg);
@@ -184,6 +183,8 @@ header {
 }
 
 .rp_formulario{
+  display: flexbox;
+  justify-content: center;
   margin: auto;
   
 }
@@ -196,6 +197,12 @@ header {
   color:var(--light-bg);
   text-align:center;
   font-weight: bold;
+}
+
+.table{  
+  position: relative;
+  width: 100%;
+  font-size: 0.95em;
 }
 /* .unpocomas .footer{
   margin: auto;

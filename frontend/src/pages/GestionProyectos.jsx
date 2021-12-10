@@ -62,7 +62,7 @@ const TablaProyectos = ({ listaProyectos }) => {
     return (
         <div className="rp_formulario">
             <h1 className="rp_subtitulo">Lista de Proyectos</h1>
-            <table>
+            <table className="table">
                 <thead>
                     <tr>
                         <th>Nombre</th>
