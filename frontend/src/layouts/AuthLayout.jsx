@@ -5,6 +5,7 @@ function AuthLayout ({ children }) {
   return (
     <div className='body-text'>
       <div className='flex w-full h-full'>
+        <p>ALGO QUE DECIR POR ACA</p>
         <div className='w-full h-full  overflow-y-scroll'>
           <Outlet />
           <main>{ children }</main>

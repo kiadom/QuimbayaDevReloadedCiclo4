@@ -41,6 +41,7 @@ type Proyecto {
             lider: String!
             objetivo: [String]!
         ): Proyecto
+        
         editarProyecto(
             _id: String
             nombre: String
