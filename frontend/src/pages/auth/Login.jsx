@@ -35,14 +35,14 @@ const Login = () => {
 
     return (
         <div className='login'>
-            <h1 >Iniciar sesión</h1>
-            <form onSubmit={submitForm} onChange={updateFormData} ref={form}>
-                <p><Input name='correo' type='email' label='Correo' required={true} /></p>
+            {/* <h1 >Iniciar sesión</h1> */}
+            <form className='logueo' onSubmit={submitForm} onChange={updateFormData} ref={form}>
+                <p><Input className='correo' type='email' label='Correo' placeholder='Correo' required={true} /></p>
                 <p><Input name='contrasena' type='password' label='Contraseña' required={true} /></p>
                 <ButtonLoading
                     disabled={Object.keys(formData).length === 0}
                     loading={mutationLoading}
-                    text='Iniciar Sesión'
+                    text='Iniciar Sesión'                    
                 />
             </form>
             <span>¿No tienes una cuenta?</span>
