@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
+import {GET_INSCRIPCIONES} from "../graphql/inscripciones/queries";
+import {APROBAR_INSCRIPCION} from '../graphql/inscripciones/mutations';
+import {RECHAZAR_INSCRIPCION} from '../graphql/inscripciones/mutations';
 import  ButtonLoading from '../components/ButtonLoading';
 import PrivateComponent from '../components/PrivateComponent';
 import { toast } from 'react-toastify';
@@ -9,9 +12,9 @@ import {
   AccordionDetailsStyled,
 } from '../components/Accordion';
 
-import {GET_INSCRIPCIONES} from "../graphql/inscripciones/queries";
-import {APROBAR_INSCRIPCION} from '../graphql/inscripciones/mutations';
-import {RECHAZAR_INSCRIPCION} from '../graphql/inscripciones/mutations';
+// import {GET_INSCRIPCIONES} from "../graphql/inscripciones/queries";
+// import {APROBAR_INSCRIPCION} from '../graphql/inscripciones/mutations';
+// import {RECHAZAR_INSCRIPCION} from '../graphql/inscripciones/mutations';
 import {Enum_EstadoInscripcion} from '../utils/enums'
 
 

@@ -19,10 +19,6 @@ body{
   background-color: var(--blue-bg);
 }
 
-.wrapper{
-  display: flex;
-}
-
 /* estilos del header */
 header {
   height: max-content; /* toma el tamaño de su contenido a lo largo */
