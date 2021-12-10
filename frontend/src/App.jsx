@@ -7,7 +7,8 @@ import { AuthLayout } from './layouts/AuthLayout';
 import { GestionInscripciones } from './pages/GestionInscripciones';
 import { GestionProyectos } from './pages/GestionProyectos';
 import { GestionProyectosEditar } from './pages/GestionProyectosEditar';
-import { GestionUsuarios } from './pages/GestionUsuarios';
+import GestionUsuarios from './pages/usuario/GestionUsuarios';
+import EstadoUsuarios from "./pages/usuario/EstadoUsuarios";
 import Registro from './pages/auth/Registro';
 import Login from './pages/auth/Login';
 import { AuthContext } from "./context/authContext";
@@ -44,24 +45,28 @@ function App() {
       <AuthContext.Provider value={{ authToken, setToken, loadingAuth }}>
 
         <Router>
-          <ModulesLayout>
+ 
             <Routes>
-              <Route exact path="/GestionUsuarios" element={<GestionUsuarios/>}/>
-              <Route exact path="/GestionProyectos" element={<GestionProyectos/>}/>
-              <Route exact path="/GestionProyectos/Editar/:_id" element={<GestionProyectosEditar />}/>
-              <Route exact path="/GestionInscripciones" element={<GestionInscripciones/>}/>
-              <Route exact path="/Avances/IndexAvances" element={<IndexAvances/>}/>
-              <Route exact path="/Avances/AvancesPorProyecto/:proyecto" element={<AvancesPorProyecto/>}/>
+            <Route path='/' element={<ModulesLayout />}>
+              <Route path="/GestionUsuarios" element={<GestionUsuarios/>}/>
+              <Route path="/GestionUsuarios/Editar/:_id" element={<EstadoUsuarios/>}/>
+              <Route path="/GestionProyectos" element={<GestionProyectos/>}/>
+              <Route path="/GestionProyectos/Editar/:_id" element={<GestionProyectosEditar />}/>
+              <Route path="/GestionInscripciones" element={<GestionInscripciones/>}/>
+              <Route path="/Avances/IndexAvances" element={<IndexAvances/>}/>
+              <Route path="/Avances/AvancesPorProyecto/:proyecto" element={<AvancesPorProyecto/>}/>
               <Route path="/Avances/DetalleAvances/:_id" element={<DetalleAvances/>}/>
+              </Route>
+              <Route path='/auth' element={<AuthLayout />}>
+              <Route path="Registro" element={<Registro />} />
+              <Route path="Login" element={<Login />} />
+              </Route>
             </Routes>
-          </ModulesLayout>
 
-          <AuthLayout>
-            <Routes>
-              <Route exact path="/auth/Registro" element={<Registro />} />
-              <Route exact path="/auth/Login" element={<Login />} />
-            </Routes>
-          </AuthLayout>
+
+       
+
+    
         </Router>
 
       </AuthContext.Provider>

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useQuery, useMutation } from '@apollo/client';
-import { GET_AVANCESPORPROYECTO } from "../../graphql/avances/querys";
+import { GET_AVANCESPORPROYECTO } from "../../graphql/avances/queries";
 import { useParams, Link } from "react-router-dom";
 
 
@@ -51,8 +51,12 @@ const TablaAvances = ({ listaAvances }) => {
                 <table>
                     <thead>
                         <tr>
+                            <th>ID Del Avance</th>
                             <th>Fecha</th>
                             <th>Titulo Avance</th>
+                            {/*
+                            <th>Detalle del Avance</th>
+                            */}
                             
                         </tr>
                     </thead>
@@ -64,11 +68,12 @@ const TablaAvances = ({ listaAvances }) => {
                                     <td>{ p._id}</td>
                                     <td>{ p.fecha }</td>
                                     <td>{ p.titulo }</td>
-                                    
+                                    {/*
+                                    <td>{ p.descripcion }</td>
+                                    */}
                                     <td>
                                         <Link to = {`/avances/DetalleAvances/${p._id}` }>
-                                            {/*<FontAwesomeIcon icon={faPencilAlt}/>*/}
-                                            Detalles Avance
+                                            <button onClick={() => {}}> Actualizar </button>
                                         </Link> 
                                     </td>
                                 </tr>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useQuery, useMutation } from '@apollo/client';
-import { GET_AVANCES2 } from "../../graphql/avances/querys";
+import { GET_AVANCES2 } from "../../graphql/avances/queries";
 import { useParams, Link } from "react-router-dom";
 //import { Link } from "react-router-dom";
 import Input from "../../components/Input";

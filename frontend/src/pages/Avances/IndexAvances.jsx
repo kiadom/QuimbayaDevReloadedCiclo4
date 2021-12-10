@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useQuery, useMutation } from '@apollo/client';
-import { GET_PROYECTOSMODAVANCE } from "../../graphql/avances/querys";
+import { GET_PROYECTOSMODAVANCE } from "../../graphql/avances/queries";
 import { Link } from "react-router-dom";
 
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

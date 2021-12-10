@@ -39,6 +39,7 @@ query AvancesPorProyecto($proyecto: String!) {
       apellido
     }
     titulo
+    descripcion
   }
 }
 `
