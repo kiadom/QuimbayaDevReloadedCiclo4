@@ -18,13 +18,42 @@ mutation EditarUsuario(
       estado: $estado
     ) {
       _id
-      correo
       identificacion
       nombre
       apellido
+      correo
       estado
+      rol
     }
   }
 `;
 
-export { EDITAR_USUARIO };
+const EDITAR_PERFIL = gql`
+mutation EditarUsuario(
+    $id: String!
+    $correo: String!
+    $identificacion: String!
+    $nombre: String!
+    $apellido: String!
+    $estado: Enum_EstadoUsuario!
+  ) {
+    editarUsuario(
+      _id: $id
+      correo: $correo
+      identificacion: $identificacion
+      nombre: $nombre
+      apellido: $apellido
+      estado: $estado
+    ) {
+      _id
+      identificacion
+      nombre
+      apellido
+      correo
+      estado
+      rol
+    }
+  }
+`;
+
+export { EDITAR_USUARIO, EDITAR_PERFIL };

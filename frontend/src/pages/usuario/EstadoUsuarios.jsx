@@ -8,6 +8,9 @@ import { toast } from 'react-toastify';
 import Input from '../../components/Input';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
+import DropDown from '../../components/DropDown';
+import { Enum_EstadoUsuario } from '../../utils/enums';
+import ButtonLoading from '../../components/ButtonLoading';
 
 const EstadoUsuarios = () => {
 
@@ -22,26 +25,23 @@ const EstadoUsuarios = () => {
         variables: { _id },
     });
 
-    console.log(queryData);
+    console.log("este es el queryData",queryData);
 
-    const [editarUsuario, { data: mutationData, loading: mutationLoading, error: mutationError }] =
-        useMutation(EDITAR_USUARIO);
+    const [editarUsuario, { 
+        data: mutationData, 
+        loading: mutationLoading, 
+        error: mutationError 
+    }] = useMutation(EDITAR_USUARIO);
 
     const submitForm = (e) => {
         e.preventDefault();
-        console.log('fd', formData);
+        console.log('FormData', formData);
         delete formData.rol;
         editarUsuario({
             variables: { _id, ...formData },
         });
     };
-
-    useEffect(() => {
-        if (mutationData) {
-          toast.success('Usuario modificado correctamente');
-        }
-    }, [mutationData]);
-    
+  
     useEffect(() => {
         if (mutationError) {
           toast.error('Error modificando el usuario');
@@ -51,6 +51,14 @@ const EstadoUsuarios = () => {
           toast.error('Error consultando el usuario');
         }
     }, [queryError, mutationError]);
+
+    useEffect(() => {
+        if (mutationData) {
+          toast.success('Usuario modificado correctamente');
+        }
+    }, [mutationData]);
+
+    if (queryLoading) return <div>Cargando....</div>;
 
     return (
         <div className="body-text">
@@ -69,43 +77,43 @@ const EstadoUsuarios = () => {
                     label='Nombre de la persona:'
                     type='text'
                     name='nombre'
-                    /* defaultValue={queryData.Usuario.nombre} */
+                    defaultValue={queryData.Usuario.nombre}
                     required={true}
                 />
                 <Input
                     label='Apellido de la persona:'
                     type='text'
                     name='apellido'
-                    /* defaultValue={queryData.Usuario.apellido} */
+                    defaultValue={queryData.Usuario.apellido}
                     required={true}
                 />
                 <Input
                     label='Correo de la persona:'
                     type='email'
                     name='correo'
-                    /* defaultValue={queryData.Usuario.correo} */
+                    defaultValue={queryData.Usuario.correo}
                     required={true}
                 />
                 <Input
                     label='Identificación de la persona:'
                     type='text'
                     name='identificacion'
-                    /* defaultValue={queryData.Usuario.identificacion} */
+                    defaultValue={queryData.Usuario.identificacion}
                     required={true}
                 />
-                {/* <DropDown
+                <DropDown
                     label='Estado de la persona:'
                     name='estado'
                     defaultValue={queryData.Usuario.estado}
                     required={true}
                     options={Enum_EstadoUsuario}
-                /> */}
-                <span>Rol del usuario: {/* {queryData.Usuario.rol} */}</span>
-                {/* <ButtonLoading
+                />
+                <span>Rol del usuario: {queryData.Usuario.rol}</span>
+                <ButtonLoading
                 disabled={Object.keys(formData).length === 0}
                 loading={mutationLoading}
                 text='Confirmar'
-                /> */}
+                />
             </form>
         </div>
     )
