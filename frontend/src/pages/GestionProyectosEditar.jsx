@@ -9,14 +9,14 @@ import { EDITAR_PROYECTO } from "../graphql/proyectos/mutations"
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 function GestionProyectosEditar () {
 
-    /* PLANTILLA PARA HACER LA PETICION GET DE PROYECTOS. EL RETORNO SE ALMACENA EN data */
+    /* PLANTILLA PARA HACER LA PETICION GET DE PROYECTOS. EL RETORNO SE ALMACENA EN queryData. loadingData PERMITE CONTROLAR CUANDO SE CARGA EL QUERY  */
     const { _id } = useParams();
-    const { data: queryData, loading } = useQuery(GET_PROYECTO, {
+    const { data: queryData, loading: loadingData } = useQuery(GET_PROYECTO, {
         variables: { _id },
     });
 
+    const [editarProyecto, { data: mutationData, loading: mutationLoading }] = useMutation(EDITAR_PROYECTO);
     const { form, formData, updateFormData } = useFormData();
-    const [editarProyecto, { data: mutationData }] = useMutation(EDITAR_PROYECTO);
 
     const submitForm = (e) => {
         e.preventDefault();
@@ -25,7 +25,8 @@ function GestionProyectosEditar () {
         });
     };
 
-    if(!loading){
+    /* SI loading ES FALSO, ES DECIR SI YA NO ESTÁ CARGANDO, SE RENDERIZA EL FORMULARIO PARA EDITAR EL PROYECTO SELECCIONADO */
+    if(!loadingData){
         return (
             <div className = "body-text">
                 <table>
@@ -53,7 +54,7 @@ function GestionProyectosEditar () {
                                 />
                             </td>
                         </tr>
-                        <tr>
+                        {/* <tr>
                             <td>
                                 <p>Objetivo General: </p>
                             </td>
@@ -88,7 +89,7 @@ function GestionProyectosEditar () {
                                     type = "text" 
                                 />
                             </td>
-                        </tr>
+                        </tr> */}
                         <tr>
                             <td>
                                 <input 
@@ -103,15 +104,12 @@ function GestionProyectosEditar () {
         )
     }
 
+    /* SI loading ES VERDADERO, ES DECIR SI ESTÁ CARGANDO, SE MUESTRA UN MENSAJE INFORMANDO AL USUARIO DE ESTO */
     return (
         <div className = "body-text">
             <h1>Cargando</h1>
         </div>
     );
-    
-    /* EN ESTE RETURN VA EL BOTON QUE PERMITE CAMBIAR DE INTERFAZ. 
-    AL DAR CLIC SOBRE ESTE, CAMBIA EL ESTADO DE mostrarTabla, LLAMANDO ASI AL FORMULARIO*/
-    
 };
 
 export { GestionProyectosEditar };
