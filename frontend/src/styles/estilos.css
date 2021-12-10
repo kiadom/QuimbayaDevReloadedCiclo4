@@ -190,6 +190,7 @@ header {
 }
 
 .rp_subtitulo{
+  width: 100%;
   background-color: var(--grey-bg);
   margin-top: 5px;
   margin-right: 11px; 
@@ -199,11 +200,20 @@ header {
   font-weight: bold;
 }
 
-.table{  
-  position: relative;
-  width: 100%;
-  font-size: 0.95em;
+.table{
+  margin-top: 11px;
+  height: max-content;
+  color: var(--blue-bg);
+  background-color: var(--light-bg);
+  font-size: 10px;
 }
+
+.table thead{
+  padding: 10px;
+  background-color: var(--blue-bg);
+  color: var(--light-bg);
+}
+
 /* .unpocomas .footer{
   margin: auto;
   position: absolute;
