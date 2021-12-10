@@ -67,8 +67,8 @@ const TablaProyectos = ({ listaProyectos }) => {
                         <th>Objetivo General</th>
                         <th>Objetivos Especificos</th>
                         <th>Presupuesto</th>
-                        <th>Fecha de Inicio</th>
-                        <th>Fecha de Terminacion</th>
+                        <th>Fecha de<br/>Inicio</th>
+                        <th>Fecha de <br/>Terminacion</th>
                         <th>Identificacion Lider</th>
                         <th>Nombre Lider</th>
                         <th>Estado</th>
