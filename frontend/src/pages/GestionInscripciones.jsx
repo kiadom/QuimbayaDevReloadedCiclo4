@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-//import PrivateRoute from 'components/PrivateRoute';
 import {GET_INSCRIPCIONES} from "../graphql/inscripciones/queries";
 import {APROBAR_INSCRIPCION} from '../graphql/inscripciones/mutations';
 import {RECHAZAR_INSCRIPCION} from '../graphql/inscripciones/mutations';
@@ -20,12 +19,13 @@ const GestionInscripciones  = () => {
   }, [data]);
   if (loading) return <div>Cargando...</div>;
   return (
-    <div >
+    <div className='body-text'>
       <div >
       <h1>Inscripciones</h1>
         <div >
 
         <AccordionInscripcion
+        
             titulo='Inscripciones pendientes'
             data={data.Inscripciones.filter((el) => el.estadoInscripcion === 'PENDIENTE')}
             refetch={refetch}
@@ -54,7 +54,7 @@ const AccordionInscripcion = ({ data, titulo, refetch = () => {} }) => {
         {titulo} ({data.length})
       </AccordionSummaryStyled>
       <AccordionDetailsStyled>
-        <div className='flex'>
+        <div >
           {data &&
             data.map((inscripcion) => {
               return <Inscripcion inscripcion={inscripcion} refetch={refetch} />;
@@ -128,7 +128,7 @@ const Inscripcion = ({ inscripcion, refetch }) => {
                         
                     </tr>
                 </thead>
-                <tbody>
+                <tbody >
                     <tr key = { inscripcion._id }>
                                     <td>{ inscripcion._id}</td>
                                     <td>{inscripcion.proyecto.nombre}</td>

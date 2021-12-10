@@ -38,7 +38,7 @@ header {
   background-color:var(--grey-bg);
   color: var(--blue-bg);  
   margin: 11px;
-  padding: 40px;  
+  padding: 20px 0px 30px 40px;  
 }
 
 /* estilos del navbar */
@@ -71,7 +71,7 @@ header {
   display: flex;
   position: absolute;
   right: 80px;
-  top: 123px; 
+  top: 73px; 
   
 }
 
@@ -94,8 +94,8 @@ header {
   display: flex;
   height: max-content;
   position: absolute;
-  width: 220px;
-  margin: 201px 0px 10px 11px;
+  width: 200px;
+  margin: 150px 0px 10px 11px;
   background-color:var(--light-bg);
   color: #092133;
   
@@ -138,7 +138,7 @@ header {
   background-color: violet;
 } */
 
-/* estilos del  */
+/* estilos del body */
 
 .cargando{
   margin-left: 300px;
@@ -146,10 +146,96 @@ header {
 }
 
 .body-text {
-  margin-bottom: 20px;
-  margin-left: 250px ;
-  font-size: 18px;
-  color: rgb(255, 255, 255);
+  display: block;
+  float: right;
+  width: 81%;
+  height: 1000px;
+  color: var(--light-bg);
+  background-color : var(--blue-bg);
+  padding: 0%;
+  margin: auto;
+  margin-right: 11px;
+  margin-top: -4px;
+  flex-direction: row;
+}
+
+.body-text .rp_titulo{
+  text-align: left;
+  background-color: var(--grey-bg);
+  color:var(--light-bg);  
+  font-weight: bold;   
+  padding-block: 11px;
+  padding-inline-start: 19px;
+}
+
+.boton_1{
+  margin: 11px;
+  padding:  10px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--blue-bg);
+  border: none;
+  border-radius: 5px;
+  background-color: var(--light-bg);
+  cursor: pointer;
+}
+
+.rp_formulario{
+  display: flexbox;
+  justify-content: space-between;
+  margin: auto;
+  
+}
+
+.rp_subtitulo{
+  padding-block:11px ;
+  padding-inline-start: 19px;
+  background-color: var(--grey-bg);
+  margin-top: 5px;
+  color:var(--light-bg);
+  text-align:left;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.rp_subtitulo h1{
+  margin-left: 10px;
+}
+
+.table{
+  border: 1px solid var(--blue-bg);
+  margin-top: 11px;
+  height: max-content;
+  color: var(--blue-bg);
+  background-color: var(--light-bg);
+  /* font-size: 11px; */
+  
+}
+
+.table thead th {
+  padding-block: 5px;
+  text-size-adjust: 10px;
+  text-align: center;
+  color: var(--light-bg);
+  background-color: var(--grey-bg);
+  font-size: 10px;
+  border-right: 1px solid var(--blue-bg);
+  border-bottom: 1px solid var(--blue-bg);
+ 
+}
+
+.proyectos{
+  background-color:var(--ligth-bg);
+  padding: 2px;
+  border: 2px ;
+}
+
+tbody tr td{
+  font-size: 10px;
+  border-right: 1px solid var(--blue-bg);
+  border-bottom: 1px solid var(--blue-bg);
+  padding-block: 2px;
 }
 
 /* .unpocomas .footer{
