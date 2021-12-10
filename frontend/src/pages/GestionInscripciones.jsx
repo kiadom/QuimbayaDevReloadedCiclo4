@@ -4,12 +4,19 @@ import {GET_INSCRIPCIONES} from "../graphql/inscripciones/queries";
 import {APROBAR_INSCRIPCION} from '../graphql/inscripciones/mutations';
 import {RECHAZAR_INSCRIPCION} from '../graphql/inscripciones/mutations';
 import  ButtonLoading from '../components/ButtonLoading';
+import PrivateComponent from '../components/PrivateComponent';
 import { toast } from 'react-toastify';
 import {
   AccordionStyled,
   AccordionSummaryStyled,
   AccordionDetailsStyled,
 } from '../components/Accordion';
+
+// import {GET_INSCRIPCIONES} from "../graphql/inscripciones/queries";
+// import {APROBAR_INSCRIPCION} from '../graphql/inscripciones/mutations';
+// import {RECHAZAR_INSCRIPCION} from '../graphql/inscripciones/mutations';
+import {Enum_EstadoInscripcion} from '../utils/enums'
+
 
 const GestionInscripciones  = () => {
   const { data, loading, error, refetch } = useQuery(GET_INSCRIPCIONES);
@@ -19,31 +26,34 @@ const GestionInscripciones  = () => {
   }, [data]);
   if (loading) return <div>Cargando...</div>;
   return (
-    <div className='body-text'>
-      <div >
-      <h1>Inscripciones</h1>
-        <div >
+    <PrivateComponent roleList={['ADMINISTRADOR', 'LIDER']}>
+        <div className='body-text'>
+          <div >
+          <h1>Inscripciones</h1>
+            <div >
 
-        <AccordionInscripcion
-        
-            titulo='Inscripciones pendientes'
-            data={data.Inscripciones.filter((el) => el.estadoInscripcion === 'PENDIENTE')}
-            refetch={refetch}
-          />
-          <AccordionInscripcion
-            titulo='Inscripciones aprobadas'
-            data={data.Inscripciones.filter((el) => el.estadoInscripcion === 'ACEPTADA')}
-          />
-          
-          <AccordionInscripcion
-            titulo='Inscripciones rechazadas'
-            data={data.Inscripciones.filter((el) => el.estadoInscripcion === 'RECHAZADA')}
-          />
+            <AccordionInscripcion
+            
+                titulo='Inscripciones pendientes'
+                data={data.Inscripciones.filter((el) => el.estadoInscripcion === 'PENDIENTE')}
+                refetch={refetch}
+              />
+              <AccordionInscripcion
+                titulo='Inscripciones aprobadas'
+                data={data.Inscripciones.filter((el) => el.estadoInscripcion === 'ACEPTADA')}
+              />
+              
+              <AccordionInscripcion
+                titulo='Inscripciones rechazadas'
+                data={data.Inscripciones.filter((el) => el.estadoInscripcion === 'RECHAZADA')}
+              />
 
-          
+              
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+    </PrivateComponent>
+    
   );
 };
 
@@ -114,7 +124,7 @@ const Inscripcion = ({ inscripcion, refetch }) => {
   return (
     <div >
 
-        <table>
+        <table className="table">
                 <thead>
                     <tr>
                         <th>_id</th>
@@ -129,12 +139,12 @@ const Inscripcion = ({ inscripcion, refetch }) => {
                     </tr>
                 </thead>
                 <tbody >
-                    <tr key = { inscripcion._id }>
+                    <tr  key = { inscripcion._id }>
                                     <td>{ inscripcion._id}</td>
                                     <td>{inscripcion.proyecto.nombre}</td>
                                     <td>{ (inscripcion.proyecto.lider.nombre)+' '+(inscripcion.proyecto.lider.apellido)}</td>
                                     <td>{ (inscripcion.estudianteInscrito.nombre)+' '+(inscripcion.estudianteInscrito.apellido)}</td>
-                                    <td>{ inscripcion.estadoInscripcion }</td>
+                                    <td> {Enum_EstadoInscripcion[inscripcion.estadoInscripcion]} </td>
                                     <td>{ inscripcion.fecha_ingreso }</td>
                                     <td>{ inscripcion.fecha_egreso }</td>                        
                                     <td>{inscripcion.estadoInscripcion === 'PENDIENTE' && (
@@ -146,8 +156,8 @@ const Inscripcion = ({ inscripcion, refetch }) => {
                                         loading={loading}
                                         disabled={false}
                                         />
-                                        )}</td>                                  
-                                    <td>
+                                        )}<br/>                                  
+                                    
                                     {inscripcion.estadoInscripcion === 'PENDIENTE' && (
                                         <ButtonLoading
                                         onClick={() => {
