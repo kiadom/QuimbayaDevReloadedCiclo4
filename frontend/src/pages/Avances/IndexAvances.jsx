@@ -20,13 +20,13 @@ const IndexAvances = () => {
 
     return (
         <div className="body-text">
-            <TablaAvances listaAvances = { data }/>
+            <TablaProyectos listaProyectos = { data }/>
         </div>
     );
 };
 
 /* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA LA TABLA QUE MUESTRA EL LISTADO DE AVANCES */
-const TablaAvances = ({ listaAvances }) => {
+const TablaProyectos = ({ listaProyectos }) => {
     return (
         <div>
             <h1>Lista de Proyectos en los que se Encuentra Inscrito</h1>
@@ -39,8 +39,8 @@ const TablaAvances = ({ listaAvances }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    { listaAvances && 
-                        listaAvances.Proyectos.map((p) => {
+                    { listaProyectos && 
+                        listaProyectos.Proyectos.map((p) => {
                             return (
                                 <tr key = { p._id }>
                                     <td>{ p._id }</td>

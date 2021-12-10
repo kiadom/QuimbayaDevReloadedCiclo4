@@ -1,7 +1,10 @@
+
+
 import React, { useEffect, useState } from "react";
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_AVANCESPORPROYECTO } from "../../graphql/avances/querys";
 import { useParams, Link } from "react-router-dom";
+
 
 const AvancesPorProyecto = () => {
 
@@ -34,8 +37,8 @@ const AvancesPorProyecto = () => {
                 setMostrarTabla (!mostrarTabla);
                 }}
             >{ textoBoton }</button>
-            { mostrarTabla ? (<TablaAvances listaAvances = { data }/>) : (<FormularioRegistroAvances />)}
-
+            { mostrarTabla ? (<TablaAvances listaAvances = { data }/>) 
+            : (<FormularioRegistroAvances />)}
         </div>
     );
 };

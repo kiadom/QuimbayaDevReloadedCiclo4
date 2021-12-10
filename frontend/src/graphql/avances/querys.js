@@ -4,17 +4,18 @@ const GET_AVANCES2 = gql`
   query DetalleAvances($_id: String!) {
     DetalleAvances(_id: $_id) {
     _id
-    titulo
     fecha
+    titulo
+    descripcion
     creadoPor {
       nombre
       apellido
     }
-    descripcion
     observacionesLider
   }
 }
 `;
+
 
 const GET_PROYECTOSMODAVANCE = gql`
   query ProyectosModAvances {
@@ -27,7 +28,7 @@ const GET_PROYECTOSMODAVANCE = gql`
     }
   }
 }
-`
+`;
 const GET_AVANCESPORPROYECTO = gql`
 query AvancesPorProyecto($proyecto: String!) {
   AvancesPorProyecto(proyecto: $proyecto) {

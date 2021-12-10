@@ -52,7 +52,7 @@ function App() {
               <Route exact path="/GestionInscripciones" element={<GestionInscripciones/>}/>
               <Route exact path="/Avances/IndexAvances" element={<IndexAvances/>}/>
               <Route exact path="/Avances/AvancesPorProyecto/:proyecto" element={<AvancesPorProyecto/>}/>
-              <Route exact path="/Avances/DetalleAvances/:_id" element={<DetalleAvances/>}/>
+              <Route path="/Avances/DetalleAvances/:_id" element={<DetalleAvances/>}/>
             </Routes>
           </ModulesLayout>
 
