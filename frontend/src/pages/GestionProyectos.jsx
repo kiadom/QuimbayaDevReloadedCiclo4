@@ -20,9 +20,7 @@ function GestionProyectos () {
     const [mostrarTabla, setMostrarTabla] = useState(true);
 
     /* PLANTILLA PARA HACER LA PETICION GET DE PROYECTOS. EL RETORNO SE ALMACENA EN data */
-    const { data } = useQuery(GET_PROYECTOS);
-
-    console.log("Datos ", data);
+    const { data, loading } = useQuery(GET_PROYECTOS);
     
     /* SE DEFINE EL TEXTO DEL BOTON, INICIALMENTE SERÁ "Registrar Proyecto" Y MOSTRARÁ LA INTERFAZ DE TABLA*/
     useEffect(()=>{
@@ -34,17 +32,25 @@ function GestionProyectos () {
         }
     },[mostrarTabla]);
 
+    if (!loading){
+        return (
+            <div className = "body-text">
+    
+                <button onClick = {() => {
+                    setMostrarTabla (!mostrarTabla);
+                    }}
+                >{ textoBoton }</button>
+                 { mostrarTabla ? (<TablaProyectos listaProyectos = { data }/>) : (<FormularioRegistroProyectos />)}
+    
+            </div>
+        );
+    }        
+
     /* EN ESTE RETURN VA EL BOTON QUE PERMITE CAMBIAR DE INTERFAZ. 
     AL DAR CLIC SOBRE ESTE, CAMBIA EL ESTADO DE mostrarTabla, LLAMANDO ASI AL FORMULARIO*/
     return (
         <div className = "body-text">
-
-            <button onClick = {() => {
-                setMostrarTabla (!mostrarTabla);
-                }}
-            >{ textoBoton }</button>
-             { mostrarTabla ? (<TablaProyectos listaProyectos = { data }/>) : (<FormularioRegistroProyectos />)}
-
+            <h1>Cargando</h1>
         </div>
     );
 };
