@@ -18,4 +18,22 @@ const CREAR_OBJETIVO = gql`
     }
 `;
 
-export { CREAR_OBJETIVO };
+const EDITAR_OBJETIVO = gql`
+    mutation EditarObjetivo(
+        $_id: String!, 
+        $descripcion: String!, 
+        $tipo: Enum_TipoObjetivo!
+    ) {
+        editarObjetivo(
+            _id: $_id, 
+            descripcion: $descripcion, 
+            tipo: $tipo
+        ) {
+            _id
+            descripcion
+            tipo
+        }
+    }
+`;
+
+export { CREAR_OBJETIVO, EDITAR_OBJETIVO };

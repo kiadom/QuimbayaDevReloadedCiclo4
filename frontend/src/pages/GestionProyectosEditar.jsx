@@ -9,26 +9,25 @@ import { EDITAR_PROYECTO } from "../graphql/proyectos/mutations"
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 function GestionProyectosEditar () {
 
-    /* PLANTILLA PARA HACER LA PETICION GET DE PROYECTOS. EL RETORNO SE ALMACENA EN queryData. loadingData PERMITE CONTROLAR CUANDO SE CARGA EL QUERY  */
+    const { form, formData, updateFormData } = useFormData(null);
     const { _id } = useParams();
-    const { data: queryData, loading: loadingData } = useQuery(GET_PROYECTO, {
+
+    /* PLANTILLA PARA HACER LA PETICION GET DE PROYECTOS. EL RETORNO SE ALMACENA EN queryData. loadingData PERMITE CONTROLAR CUANDO SE CARGA EL QUERY  */
+    const { data: queryData, loading: queryLoading } = useQuery(GET_PROYECTO, {
         variables: { _id },
     });
 
     const [editarProyecto, { data: mutationData, loading: mutationLoading }] = useMutation(EDITAR_PROYECTO);
-    const { form, formData, updateFormData } = useFormData();
 
     const submitForm = (e) => {
         e.preventDefault();
         editarProyecto({
-            variables: { _id, ...formData },
+            variables: { _id, ...formData, presupuesto: parseFloat(formData.presupuesto) },
         });
     };
 
-    console.log("datos del formulario ", formData);
-
     /* SI loading ES FALSO, ES DECIR SI YA NO ESTÁ CARGANDO, SE RENDERIZA EL FORMULARIO PARA EDITAR EL PROYECTO SELECCIONADO */
-    if(!loadingData){
+    if(!queryLoading){
         return (
             <div className = "body-text">
                 <table>
@@ -79,7 +78,7 @@ function GestionProyectosEditar () {
                                     type = "text" 
                                 />
                             </td>
-                        </tr>
+                        </tr> */}
                         <tr>
                             <td>
                                 <p>Presupuesto: </p>
@@ -88,10 +87,10 @@ function GestionProyectosEditar () {
                                 <input 
                                     name = 'presupuesto' 
                                     defaultValue = { queryData.Proyecto.presupuesto } 
-                                    type = "text" 
+                                    type = "number"
                                 />
                             </td>
-                        </tr> */}
+                        </tr>
                         <tr>
                             <td>
                                 <input 

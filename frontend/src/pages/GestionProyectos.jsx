@@ -118,9 +118,11 @@ const FormularioRegistroProyectos = ()=> {
     const submitForm = (e) => {
         e.preventDefault();
         crearProyecto({ 
-            variables: formData 
+            variables: {formData, presupuesto: parseFloat(formData.presupuesto), fechaInicio: Date("2021-12-10")} 
         });
     };
+
+    console.log(Date.now());
     
     return (
         <div>
@@ -139,7 +141,7 @@ const FormularioRegistroProyectos = ()=> {
                             />
                         </td>
                     </tr>
-                    <tr>
+                    {/* <tr>
                         <td>
                             <p>Objetivo General: </p>
                         </td>
@@ -162,7 +164,7 @@ const FormularioRegistroProyectos = ()=> {
                                 required
                             />
                         </td>
-                    </tr>
+                    </tr> */}
                     <tr>
                         <td>
                             <p>Presupuesto: </p>
@@ -170,7 +172,7 @@ const FormularioRegistroProyectos = ()=> {
                         <td>
                             <input 
                                 name = 'presupuesto' 
-                                type = "text" 
+                                type = "number" 
                                 required
                             />
                         </td>

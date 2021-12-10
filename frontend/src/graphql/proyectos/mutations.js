@@ -5,7 +5,7 @@ const CREAR_PROYECTO = gql`
     mutation CrearProyecto(
         $nombre: String!, 
         $presupuesto: Float!, 
-        $objetivo: [String]!
+        $objetivo: [String]
     ) {
         crearProyecto(
             nombre: $nombre, 
@@ -36,19 +36,19 @@ const EDITAR_PROYECTO = gql`
     mutation EditarProyecto(
         $_id: String, 
         $nombre: String,
-        # $presupuesto: Float,
+        $presupuesto: Float,
     ) {
         editarProyecto(
             _id: $_id, 
             nombre: $nombre,
-            # presupuesto: $presupuesto, 
+            presupuesto: $presupuesto, 
         ) {
             _id
             nombre
             # objetivo {
             #     _id
             # }
-            # presupuesto
+            presupuesto
             # fechaInicio
             # fechaFin
             # lider {
