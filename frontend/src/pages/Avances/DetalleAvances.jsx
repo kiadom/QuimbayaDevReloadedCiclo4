@@ -40,9 +40,9 @@ function DetalleAvances () {
                         </td>
                     </tr>
                 </table>
-                {/*
+                
                 <h1>ID del Avance Seleccionado: { _id }</h1> 
-                */}
+                
                 <h1>Ingrese los nuevos datos del Avance</h1>
                 <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
                     <table>
@@ -52,11 +52,8 @@ function DetalleAvances () {
                                 <p>Titulo: </p>
                             </td>
                             <td>
-                                <input 
-                                    name = 'titulo' 
-                                    defaultValue = { queryData.DetalleAvances.titulo }
-                                    type = "text" 
-                                />
+                                { queryData.DetalleAvances.titulo }
+                                
                             </td>
                         </tr>
 
@@ -65,11 +62,7 @@ function DetalleAvances () {
                                 <p>ID Del Avance: </p>
                             </td>
                             <td>
-                                <input 
-                                    name = 'ID' 
-                                    defaultValue = { queryData.DetalleAvances._id }
-                                    type = "text" 
-                                />
+                                { queryData.DetalleAvances._id }
                             </td>
                         </tr>
                         
@@ -78,11 +71,8 @@ function DetalleAvances () {
                                 <p>Creado Por: </p>
                             </td>
                             <td>
-                                <input 
-                                    name = 'creadoPor' 
-                                    defaultValue = { (queryData.DetalleAvances.creadoPor.nombre) + " " + (queryData.DetalleAvances.creadoPor.apellido) } 
-                                    type = "text" 
-                                />
+                               { (queryData.DetalleAvances.creadoPor.nombre) + " " + (queryData.DetalleAvances.creadoPor.apellido) } 
+                                
                             </td>
                         </tr>
 
@@ -91,12 +81,7 @@ function DetalleAvances () {
                                 <p>Descripcion: </p>
                             </td>
                             <td>
-                                
-                                <input
-                                    name = 'descripcion' 
-                                    defaultValue = { queryData.DetalleAvances.descripcion } 
-                                    type = "text" 
-                                />
+                                { queryData.DetalleAvances.descripcion } 
                                 
                             </td>
                         </tr>
@@ -106,12 +91,7 @@ function DetalleAvances () {
                                 <p>Observaciones Lider: </p>
                             </td>
                             <td>
-                                
-                                <input
-                                    name = 'observacionesLider' 
-                                    defaultValue = { queryData.DetalleAvances.observacionesLider } 
-                                    type = "text" 
-                                />
+                                { queryData.DetalleAvances.observacionesLider } 
                                 
                             </td>
                         </tr>

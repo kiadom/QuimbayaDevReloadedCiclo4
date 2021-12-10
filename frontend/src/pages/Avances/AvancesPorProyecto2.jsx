@@ -1,7 +1,3 @@
-
-
-
-
 import React, { useEffect, useState } from "react";
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_AVANCESPORPROYECTO, GET_AVANCES2 } from "../../graphql/avances/queries";
@@ -18,13 +14,6 @@ const AvancesPorProyecto = () => {
     const { data } = useQuery(GET_AVANCESPORPROYECTO,{
         variables:{ proyecto }
     });
-
-    const { _id } = useParams();
-    const { data2: queryData, loading } = useQuery(GET_AVANCES2, {
-        variables:{ _id },
-    });
-
-
 
     useEffect(() => {
         console.log("Datos obtenidos con GET_AVANCESPORPROYECTO", data);
@@ -57,42 +46,58 @@ const AvancesPorProyecto = () => {
 const TablaAvances = ({ listaAvances }) => {
     return (
         <div>
-            <h1>Lista de Reportes de Avance del Proyecto</h1>
-            {/*
-            <h1>ID del Avance Seleccionado: { proyecto }</h1>  
-            */}   
+            <h1>Lista de Reportes de Avance del Proyecto {proyecto} </h1>
+                
                 <table>
-                    <thead>
-                        <tr>
-                            <th>ID Del Avance</th>
-                            <th>Fecha</th>
-                            <th>Titulo Avance</th>
-                            {/*
-                            <th>Detalle del Avance</th>
-                            */}
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        { listaAvances && 
+                { listaAvances && 
                         listaAvances.AvancesPorProyecto.map((p) => {
                             return (
                                 <tr key = { p.proyecto }>
+                                    <tr>
+                                        <td>Proyecto: </td>
+                                        <td>{ p.proyecto.nombre}</td>
+                                    </tr>
+                                </tr>
+                                )
+                            })}                
+                </table>
+                
+
+
+
+
+
+
+
+
+                <table>
+                        { listaAvances && 
+                        listaAvances.AvancesPorProyecto.map((p) => {
+                            return (
+                               <tr key = { p.proyecto }>
+                                    <tr>
+                                    <td>Titulo</td>
+                                    <td>{ p.titulo}</td>
+                                    </tr>
+                                    <tr>
+                                    <td>ID del Avance</td>
                                     <td>{ p._id}</td>
-                                    <td>{ p.fecha }</td>
-                                    <td>{ p.titulo }</td>
-                                    {/*
-                                    <td>{ p.descripcion }</td>
-                                    */}
-                                    <td>
-                                        <Link to = {`/avances/DetalleAvances/${p._id}` }>
-                                            <button onClick={() => {}}> Ver Detalle </button>
-                                        </Link> 
-                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <td>Fecha</td>
+                                    <td>{ p.fecha}</td>    
+                                    </tr>
+                                    <tr>
+                                    <td>Descripcion</td>
+                                    <td>{ p.descripcion}</td>    
+                                    </tr>
+                                    <tr>
+                                    <td>Observaciones Lider</td>
+                                    <td>{ p.observacionesLider}</td>    
+                                    </tr>
                                 </tr>
                             )
                         })}
-                    </tbody>
                 </table>
         </div>
     )

@@ -1,7 +1,5 @@
 
 
-
-
 import React, { useEffect, useState } from "react";
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_AVANCESPORPROYECTO, GET_AVANCES2 } from "../../graphql/avances/queries";
@@ -58,9 +56,7 @@ const TablaAvances = ({ listaAvances }) => {
     return (
         <div>
             <h1>Lista de Reportes de Avance del Proyecto</h1>
-            {/*
-            <h1>ID del Avance Seleccionado: { proyecto }</h1>  
-            */}   
+                
                 <table>
                     <thead>
                         <tr>

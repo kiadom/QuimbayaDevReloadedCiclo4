@@ -40,6 +40,10 @@ query AvancesPorProyecto($proyecto: String!) {
     }
     titulo
     descripcion
+    proyecto {
+      _id
+      nombre
+    }
   }
 }
 `
