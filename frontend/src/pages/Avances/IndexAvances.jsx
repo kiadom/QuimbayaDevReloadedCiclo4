@@ -28,14 +28,15 @@ const IndexAvances = () => {
 /* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA LA TABLA QUE MUESTRA EL LISTADO DE AVANCES */
 const TablaProyectos = ({ listaProyectos }) => {
     return (
-        <div>
-            <h1>Lista de Proyectos en los que se Encuentra Inscrito</h1>
-                <table>
+        <div className="rp_formulario">
+            <h1 className="rp_subtitulo">Lista de Proyectos en los que se Encuentra Inscrito</h1>
+                <table className="table">
                 <thead>
                     <tr>
                         <th>ID </th>
                         <th>Nombre Proyecto</th>
                         <th>Lider Proyecto </th>
+                        <th>Acciones </th>
                     </tr>
                 </thead>
                 <tbody>

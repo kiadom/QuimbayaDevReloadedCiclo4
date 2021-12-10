@@ -24,19 +24,34 @@ mutation CrearAvance(
 const EDITAR_AVANCE = gql `
     mutation EditarAvance(
         $id: String, 
-        $titulo: String, 
-        $descripcion: String
+        $descripcion: String,
+        $observacionesLider: String,
     ) {
         editarAvance(
             _id: $id, 
-            titulo: $titulo, 
-            descripcion: $descripcion
+            descripcion: $descripcion,
+            observacionesLider: $observacionesLider
         ) {
             _id
-            titulo
             descripcion
+            observacionesLider
         }
     }
 `;
 
-export {CREAR_AVANCE, EDITAR_AVANCE};
+const EDITAR_OBSERVACION = gql `
+    mutation EditarObservacion(
+        $id: String, 
+        $observacionesLider: String
+    ) {
+        editarAvance(
+            _id: $id, 
+            observacionesLider: $descripcion,
+        ) {
+            _id
+            observacionesLider
+        }
+    }
+`;
+
+export {CREAR_AVANCE, EDITAR_AVANCE, EDITAR_OBSERVACION};

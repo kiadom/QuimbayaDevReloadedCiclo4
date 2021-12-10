@@ -46,7 +46,8 @@ const AvancesPorProyecto = () => {
 const TablaAvances = ({ listaAvances }) => {
     return (
         <div>
-                      <table>
+            <h1 className="rp_subtitulo">Lista de Avances del Proyecto</h1>
+                      <table >
                         { listaAvances && 
                         listaAvances.AvancesPorProyecto.map((p) => {
                             return (

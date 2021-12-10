@@ -9,15 +9,16 @@ import { EDITAR_AVANCE } from "../../graphql/avances/mutations";
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 function DetalleAvances () {
+    
+    const { form, formData, updateFormData } = useFormData();
+    const { _id } = useParams();
 
    /*PLANTILLA PARA HACER LA PETICION GET DE AVANCES. EL RETORNO SE ALMACENA EN data */
-    const { _id } = useParams();
     const { data: queryData, loading } = useQuery(GET_AVANCES2, {
         variables:{ _id },
     });
 
        
-    const { form, formData, updateFormData } = useFormData();
     const [editarAvance, { data: mutationData }] = useMutation(EDITAR_AVANCE);
 
     const submitForm = (e) => {
@@ -44,16 +45,24 @@ function DetalleAvances () {
                 <h1>ID del Avance Seleccionado: { _id }</h1> 
                 
                 <h1>Ingrese los nuevos datos del Avance</h1>
+                {/*
                 <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
-                    <table>
-                        
+                */}   
+                <table>
+                        <tr>
+                            <td>
+                                <p>Proyecto: </p>
+                            </td>
+                            <td>
+                                { queryData.DetalleAvances.proyecto.nombre }
+                            </td>
+                        </tr>
                         <tr>
                             <td>
                                 <p>Titulo: </p>
                             </td>
                             <td>
                                 { queryData.DetalleAvances.titulo }
-                                
                             </td>
                         </tr>
 
@@ -75,41 +84,46 @@ function DetalleAvances () {
                                 
                             </td>
                         </tr>
+                </table>
 
-                        <tr>
-                            <td>
-                                <p>Descripcion: </p>
-                            </td>
-                            <td>
-                                <input 
-                                    name = 'descripcion' 
-                                    defaultValue = { queryData.DetalleAvances.descripcion } 
-                                    type = "text" 
-                                />
-                            </td>
-                        </tr>
+                <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
+                <table>
+                    <tr>
+                        <td>
+                            <p>Descripcion: </p>
+                        </td>
+                        <td>
+                            <input 
+                                name = 'descripcion' 
+                                defaultValue = { queryData.DetalleAvances.descripcion } 
+                                type = "text" 
+                            />
+                        </td>
+                    </tr>
 
-                        <tr>
-                            <td>
-                                <p>Observaciones Lider: </p>
-                            </td>
-                            <td>
-                                { queryData.DetalleAvances.observacionesLider } 
-                                
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>
+                            <p>Observaciones Lider: </p>
+                        </td>
+                        <td><input 
+                                name = 'observacionesLider' 
+                                defaultValue ={ queryData.DetalleAvances.observacionesLider } 
+                                type = "text" 
+                            />
+                        </td>
+                    </tr>
 
 
-                        <tr>
-                            <td>
-                                <input 
-                                    type = "submit" 
-                                    value = "Guardar cambios" 
-                                />
-                            </td>
-                        </tr>
-                        
-                        </table>
+                    <tr>
+                        <td>
+                            <input 
+                                type = "submit" 
+                                value = "Guardar cambios" 
+                            />
+                        </td>
+                    </tr>
+                    
+                    </table>
                 </form>
             </div>
         )

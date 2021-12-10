@@ -43,11 +43,13 @@ function Sidebar(){
                         {/* </Link> */}
                         </li>
                         <li>
-                            
-                        {/* <Link to ='/GestionProyectos'> */}
+                         
+                        <NavLink to ='/Avances/IndexAvances'> 
+                        
                             <FontAwesomeIcon icon={faClipboardCheck} size='1x' color='#092133'/>
                             <span className=''></span> Avances
-                        
+                        </NavLink> 
+
                         </li>
                     </ul>
                 </div>

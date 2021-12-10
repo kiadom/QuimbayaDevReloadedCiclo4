@@ -1,132 +1,132 @@
-import React, { useEffect, useState } from "react";
-import { useQuery, useMutation } from '@apollo/client';
-import { GET_AVANCES2 } from "../../graphql/avances/queries";
 import { useParams, Link } from "react-router-dom";
-//import { Link } from "react-router-dom";
-import Input from "../../components/Input";
+
+import { useMutation, useQuery } from '@apollo/client';
 import useFormData from "../../hooks/useFormData";
+
+import { GET_AVANCES2 } from "../../graphql/avances/queries";
+import { EDITAR_AVANCE } from "../../graphql/avances/mutations";
 
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
-const DetalleAvances = () => {
-
-    /* ESTADOS QUE PERMITEN CONTROLAR LA VISIBILIDAD DE LAS INTERFACES */
-    const [textoBoton, setTextoBoton] = useState('Ver Listado de Avances' );
-    const [detallarAvance, setdetallarAvance] = useState(true);
-
-    /*PLANTILLA PARA HACER LA PETICION GET DE AVANCES. EL RETORNO SE ALMACENA EN data */
+function DetalleAvances () {
+    
+    const { form, formData, updateFormData } = useFormData();
     const { _id } = useParams();
-    const { data } = useQuery(GET_AVANCES2,{
+
+   /*PLANTILLA PARA HACER LA PETICION GET DE AVANCES. EL RETORNO SE ALMACENA EN data */
+    const { data: queryData, loading } = useQuery(GET_AVANCES2, {
         variables:{ _id },
     });
 
-    useEffect(() => {
-        console.log("Datos obtenidos con GET_AVANCES2", data);
-    }, [data]);
-    
-    /* SE DEFINE EL TEXTO DEL BOTON, INICIALMENTE SERÁ "Registrar Avance" Y MOSTRARÁ LA INTERFAZ DE TABLA*/
-    useEffect(()=>{
-        if (detallarAvance) {
-            setTextoBoton('Registrar Nuevo Avance');
-        }
-        else {
-            setTextoBoton('Ver Detalle del Avance');
-        }
-    },[detallarAvance]);
+       
+    const [editarAvance, { data: mutationData }] = useMutation(EDITAR_AVANCE);
 
-    /* EN ESTE RETURN VA EL BOTON QUE PERMITE CAMBIAR DE INTERFAZ. 
-    AL DAR CLIC SOBRE ESTE, CAMBIA EL ESTADO DE mostrarTabla, LLAMANDO ASI AL FORMULARIO*/
+    const submitForm = (e) => {
+        e.preventDefault();
+        editarAvance({
+            variables: { _id, ...formData },
+        });
+    };
+
+     
+    if(!loading){
+        return (
+            <div className = "body-text">
+                <table>
+                    <tr>
+                        <td>
+                            <Link to = {``}>
+                                <button onClick={() => {}}> Regresar al Listado Avances del Proyecto </button>
+                            </Link>
+                        </td>
+                    </tr>
+                </table>
+                
+                <h1>ID del Avance Seleccionado: { _id }</h1> 
+                
+                <h1>Ingrese los nuevos datos del Avance</h1>
+                <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
+                    <table>
+                        
+                        <tr>
+                            <td>
+                                <p>Titulo: </p>
+                            </td>
+                            <td>
+                                { queryData.DetalleAvances.titulo }
+                                
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p>ID Del Avance: </p>
+                            </td>
+                            <td>
+                                { queryData.DetalleAvances._id }
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                <p>Creado Por: </p>
+                            </td>
+                            <td>
+                               { (queryData.DetalleAvances.creadoPor.nombre) + " " + (queryData.DetalleAvances.creadoPor.apellido) } 
+                                
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p>Descripcion: </p>
+                            </td>
+                            <td>
+                                <input 
+                                    name = 'descripcion' 
+                                    defaultValue = { queryData.DetalleAvances.descripcion } 
+                                    type = "text" 
+                                />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p>Observaciones Lider: </p>
+                            </td>
+                            <td>
+                                { queryData.DetalleAvances.observacionesLider } 
+                                
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <input 
+                                    type = "submit" 
+                                    value = "Guardar cambios" 
+                                />
+                            </td>
+                        </tr>
+                        
+                        </table>
+                </form>
+            </div>
+        )
+    }
+    
+
     return (
-        <div className="body-text">
-            <button onClick = {() => {
-                setdetallarAvance (!detallarAvance);
-                }}
-            >{ textoBoton }</button>
-            { detallarAvance ? (<TablaAvances listaAvances = { data }/>) : (<FormularioRegistroAvances />)}
+        <div className = "body-text">
+            <h1>Cargando</h1>
         </div>
     );
+    
+    /* EN ESTE RETURN VA EL BOTON QUE PERMITE CAMBIAR DE INTERFAZ. 
+    AL DAR CLIC SOBRE ESTE, CAMBIA EL ESTADO DE mostrarTabla, LLAMANDO ASI AL FORMULARIO*/
+    
 };
 
-
-/* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA LA TABLA QUE MUESTRA EL DETALLE DEL AVANCE */
-const TablaAvances = () => {
-    return (
-        <div>
-            <h1>Detalle de Avances</h1>
-{/*
-            <table>
-                    <thead>
-                        <tr>
-                            <th>ID Avance</th>
-                            <th>Fecha</th>
-                            <th>Titulo Avance</th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                        { listaAvances && 
-                        listaAvances.AvancesPorProyecto.map((p) => {
-                            return (
-                                <tr key = { p.proyecto }>
-                                    <td>{ p._id }</td>
-                                    <td>{ p.fecha }</td>
-                                    <td>{ p.titulo }</td>
-                                    
-                                    <td>
-                                        <Link to = {`/avances/DetalleAvances/${p._id}` }>
-                                           
-                                            Detalles Avance
-                                        </Link> 
-                                    </td>
-                                </tr>
-                            )
-                        })}
-                    
-                    </tbody>
-                </table>
-*/}
-
-           
-        </div>
-    )
-}
-
-/* FUTURA FUNCION PARA CREAR UN PROYECTO, SE DEBE INVOCAR AL DAR CLIC SOBRE EL BOTON EN LA INTERFAZ DEL FORMULARIO */
-const CrearProyecto = () => {
-};
-
-/* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA EL FORMULARIO PARA REGISTRAR LOS PROYECTOS */
-const FormularioRegistroAvances = ()=> {
-    return (
-        <div>
-            <h1>Ingrese el Avance</h1>
-            <form>
-                    <tr>
-                        <td>
-                            <p>Nombre del Proyecto: </p>
-                        </td>
-                        <td>
-                            <input type = "text" required/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Descripcion: </p>
-                        </td>
-                        <td>
-                            <input type = "text" required/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type = "button" value = "Guardar Avance" />
-                        </td>
-                    </tr>
-                
-            </form>
-        </div>
-    )
-}
 
 export { DetalleAvances };

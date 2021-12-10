@@ -3,6 +3,9 @@ import { gql } from '@apollo/client';
 const GET_AVANCES2 = gql`
   query DetalleAvances($_id: String!) {
     DetalleAvances(_id: $_id) {
+    proyecto {
+      nombre
+    }
     _id
     fecha
     titulo
