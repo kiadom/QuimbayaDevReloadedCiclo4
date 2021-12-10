@@ -32,6 +32,11 @@ function Sidebar(){
                             <span className=''></span> Inscripciones
                         {/* </Link> */}
                         </li>
+                        {/* <Link to ='/GestionProyectos'> */}
+                            <FontAwesomeIcon icon={faFileSignature} size='1x' color='#092133'/>
+                            <span className=''></span> Proyectos
+                        {/* </Link> */}
+                        </li>
                         <li>
                         {/* <Link to ='/GestionProyectos'> */}
                             <FontAwesomeIcon icon={faClipboardCheck} size='1x' color='#092133'/>
