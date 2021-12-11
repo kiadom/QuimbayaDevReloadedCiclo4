@@ -35,8 +35,8 @@ function DetalleAvances () {
                 <table>
                     <tr>
                         <td>
-                            <Link to = {`/Avances/IndexAvances/`}>
-                                <button onClick={() => {}}> Regresar al Listado Avances del Proyecto </button>
+                            <Link to = {`/Avances/EntradaAvances/`}>
+                                <button onClick={() => {}}> Regresar a Menu principal Avances </button>
                             </Link>
                         </td>
                     </tr>

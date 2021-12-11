@@ -41,6 +41,22 @@ const EntradaAvances = () => {
                 </tr>
                 <tr>
                     <td>
+                        <p>Correo: </p>
+                    </td>
+                    <td>
+                        {userData.correo }
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Rol: </p>
+                    </td>
+                    <td>
+                        {userData.rol }
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         <p>Acciones: </p>
                     </td>
                     <td>
