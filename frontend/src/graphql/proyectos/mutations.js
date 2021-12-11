@@ -10,6 +10,7 @@ const CREAR_PROYECTO = gql`
         $objetivoEspecifico2: String!,
         $fechaInicio: Date!,
         $fechaFin: Date!,
+        $lider: String!,
     ) {
         crearProyecto(
             nombre: $nombre, 
@@ -19,6 +20,7 @@ const CREAR_PROYECTO = gql`
             objetivoEspecifico2: $objetivoEspecifico2,
             fechaInicio: $fechaInicio,
             fechaFin: $fechaFin,
+            lider: $lider,
         ) {
             _id
             nombre
@@ -29,8 +31,7 @@ const CREAR_PROYECTO = gql`
             fechaInicio
             fechaFin
             lider {
-                identificacion
-                nombre
+                _id
             }
             estado
             fase
@@ -62,13 +63,13 @@ const EDITAR_PROYECTO = gql`
             objetivoGeneral
             objetivoEspecifico1
             objetivoEspecifico2
-            # fechaInicio
-            # fechaFin
-            # lider {
-            #     _id
-            # }
-            # estado
-            # fase
+            fechaInicio
+            fechaFin
+            lider {
+                _id
+            }
+            estado
+            fase
         }
     }
 `;
