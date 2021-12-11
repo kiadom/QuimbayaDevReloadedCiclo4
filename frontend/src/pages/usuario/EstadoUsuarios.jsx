@@ -41,8 +41,6 @@ const EstadoUsuarios = () => {
             variables: { _id, ...formData },
         });
     };
-
-    console.log("este es el id", _id)
   
     useEffect(() => {
         if (mutationError) {
@@ -63,11 +61,11 @@ const EstadoUsuarios = () => {
     if (queryLoading) return <div>Cargando....</div>;
 
     return (
-        <div className='body-text flew flex-col w-full h-full items-center justify-center p-10'>
+        <div className='body-text'>
             <Link to='/GestionUsuarios'>
                 <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#FFFFFF' className='cursor-pointer'/>
             </Link>
-            <h1 className='m-4 text-3xl text-gray-800 font-bold text-center'>Editar Estado Usuario</h1>
+            <h1 className='rp_titulo'>Editar Estado Usuario</h1>
             <br />
             <form
                 onSubmit={submitForm}
