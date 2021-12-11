@@ -57,8 +57,8 @@ const TablaAvances = ({ listaAvances }) => {
                 <table className="table">
                     <thead>
                         <tr>
+                            <th>Proyecto</th>
                             <th>ID Avance</th>
-                            <th>Fecha</th>
                             <th>Titulo Avance</th>
                             <th>Acciones</th>
                         </tr>
@@ -69,8 +69,8 @@ const TablaAvances = ({ listaAvances }) => {
                         listaAvances.AvancesPorProyecto.map((p) => {
                             return (
                                 <tr key = { p.proyecto }>
+                                    <td>{ p.proyecto.nombre }</td>
                                     <td>{ p._id }</td>
-                                    <td>{ p.fecha }</td>
                                     <td>{ p.titulo }</td>
                                     
                                     <td>
