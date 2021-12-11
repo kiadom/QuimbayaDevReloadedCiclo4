@@ -44,7 +44,7 @@ const TablaAvances = ({ listaAvances }) => {
                         <th>ID </th>
                         <th>Nombre Proyecto</th>
                         
-                        <th>Ver Avances </th>
+                        <th>Acciones </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,10 +56,12 @@ const TablaAvances = ({ listaAvances }) => {
                                     <td>{ p.proyecto.nombre }</td>
                                     
                                     <td>
+                                        <button>
                                         <Link to = {`/avances/AvancesPorProyecto/${p.proyecto._id}` }>
                                             {/*<FontAwesomeIcon icon={faPencilAlt}/>*/}
                                             Ver Avances
                                         </Link> 
+                                        </button>
                                     </td>
                                 </tr>
                             )
