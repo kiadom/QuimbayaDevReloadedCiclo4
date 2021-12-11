@@ -11,10 +11,9 @@ import {
   AccordionSummaryStyled,
   AccordionDetailsStyled,
 } from '../components/Accordion';
+import { useUser } from '../context/userContext';
 
-// import {GET_INSCRIPCIONES} from "../graphql/inscripciones/queries";
-// import {APROBAR_INSCRIPCION} from '../graphql/inscripciones/mutations';
-// import {RECHAZAR_INSCRIPCION} from '../graphql/inscripciones/mutations';
+
 import {Enum_EstadoInscripcion} from '../utils/enums'
 
 
@@ -78,7 +77,7 @@ const AccordionInscripcion = ({ data, titulo, refetch = () => {} }) => {
 const Inscripcion = ({ inscripcion, refetch }) => {
   const [aprobarInscripcion, { data, loading, error }] = useMutation(APROBAR_INSCRIPCION);
   const [rechazarInscripcion, { data:dataRechazar, loading: loadingRechazar, error: errorRechazar }] = useMutation(RECHAZAR_INSCRIPCION);
-
+  const { userData } = useUser();
   useEffect(() => {
     if (data) {
       toast.success('Aprobado con exito');
@@ -131,6 +130,7 @@ const Inscripcion = ({ inscripcion, refetch }) => {
                         <th>Proyecto</th>
                         <th>Lider del proyecto</th>
                         <th>Estudiante Inscrito</th>
+                        <th>Correo</th>
                         <th>Estado</th>
                         <th>Fecha de ingreso</th>
                         <th>Fecha de egreso</th>
@@ -144,17 +144,19 @@ const Inscripcion = ({ inscripcion, refetch }) => {
                                     <td>{inscripcion.proyecto.nombre}</td>
                                     <td>{ (inscripcion.proyecto.lider.nombre)+' '+(inscripcion.proyecto.lider.apellido)}</td>
                                     <td>{ (inscripcion.estudianteInscrito.nombre)+' '+(inscripcion.estudianteInscrito.apellido)}</td>
+                                    <td>{ (inscripcion.estudianteInscrito.correo)}</td>
                                     <td> {Enum_EstadoInscripcion[inscripcion.estadoInscripcion]} </td>
                                     <td>{ inscripcion.fecha_ingreso }</td>
                                     <td>{ inscripcion.fecha_egreso }</td>                        
-                                    <td>{inscripcion.estadoInscripcion === 'PENDIENTE' && (
+                                    <td>
+                                      {inscripcion.estadoInscripcion === 'PENDIENTE' && (
                                         <ButtonLoading
                                         onClick={() => {
                                             AInscripcion();
                                         }}
                                         text='Aprobar Inscripcion'
                                         loading={loading}
-                                        disabled={false}
+                                        disabled={userData.rol === 'ADMINISTRADOR'}
                                         />
                                         )}<br/>                                  
                                     
@@ -165,7 +167,7 @@ const Inscripcion = ({ inscripcion, refetch }) => {
                                         }}
                                         text='Rechazar Inscripcion'
                                         loading={loading}
-                                        disabled={false}
+                                        disabled={userData.rol === 'ADMINISTRADOR'}
                                         />
                                         )} 
                                     </td>
@@ -176,5 +178,7 @@ const Inscripcion = ({ inscripcion, refetch }) => {
   );
       
 };
+
+
 
 export { GestionInscripciones};

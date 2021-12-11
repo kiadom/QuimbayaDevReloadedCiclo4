@@ -89,10 +89,12 @@ const TablaAvances = ({ listaAvances }) => {
                                     <td>{ p.titulo }</td>
                                     
                                     <td>
+                                        <button>
                                         <Link to = {`/avances/DetalleAvances/${p._id}` }>
                                            
                                             Detalles Avance
                                         </Link> 
+                                        </button>
                                     </td>
                                 </tr>
                             )

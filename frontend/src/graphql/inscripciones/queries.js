@@ -15,6 +15,7 @@ const GET_INSCRIPCIONES = gql`
                 _id
                 nombre
                 apellido
+                correo
             }
 
             fecha_ingreso
