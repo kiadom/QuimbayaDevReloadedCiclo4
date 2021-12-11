@@ -125,11 +125,11 @@ const FormularioRegistroProyectos = ()=> {
     const submitForm = (e) => {
         e.preventDefault();
         crearProyecto({ 
-            variables: {formData, 
+            variables: {...formData, 
                 presupuesto: parseFloat(formData.presupuesto), 
                 fechaInicio: "2020/10/25",
                 fechaFin: "20201/10/25",
-                lider: "61b33354ce15f6856c6f9c27"} 
+                lider: userData._id} 
         });
     };
 
@@ -242,7 +242,7 @@ const FormularioRegistroProyectos = ()=> {
 
 const InscripcionProyecto = ({ idProyecto, estado, inscripciones }) => {
     const [estadoInscripcion, setEstadoInscripcion] = useState('');
-    const [crearInscripcion, { data, loading, error }] = useMutation(CREAR_INSCRIPCION);
+    const [crearInscripcion, { data, loading }] = useMutation(CREAR_INSCRIPCION);
     const { userData } = useUser();
   
     useEffect(() => {

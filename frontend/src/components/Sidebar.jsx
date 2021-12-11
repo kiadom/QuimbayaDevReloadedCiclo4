@@ -44,9 +44,10 @@ function Sidebar(){
                         </li>
                         <li>
                             
-                        {/* <Link to ='/GestionProyectos'> */}
+                        <NavLink to ='/Avances/EntradaAvances'> 
                             <FontAwesomeIcon icon={faClipboardCheck} size='1x' color='#092133'/>
                             <span className=''></span> Avances
+                        </NavLink> 
                         
                         </li>
                     </ul>

@@ -42,7 +42,6 @@ const resolversAvance = {
                 titulo: args.titulo,
                 descripcion: args.descripcion,
                 proyecto: args.proyecto,
-                creadoPor: args.creadoPor,
             });
             return avanceCreado;
         },
@@ -50,7 +49,7 @@ const resolversAvance = {
         editarAvance: async (parent, args) => {
           const avanceEditado = await ModeloAvance.findByIdAndUpdate(args._id, {
             descripcion: args.descripcion,
-            creadoPor: args.creadoPor,
+            observacionesLider: args.observacionesLider,
           }, { new: true });
           return avanceEditado;
         },
