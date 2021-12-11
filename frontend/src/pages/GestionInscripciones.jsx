@@ -129,6 +129,7 @@ const Inscripcion = ({ inscripcion, refetch }) => {
                         <th>Proyecto</th>
                         <th>Lider del proyecto</th>
                         <th>Estudiante Inscrito</th>
+                        <th>Correo</th>
                         <th>Estado</th>
                         <th>Fecha de ingreso</th>
                         <th>Fecha de egreso</th>
@@ -142,6 +143,7 @@ const Inscripcion = ({ inscripcion, refetch }) => {
                                     <td>{inscripcion.proyecto.nombre}</td>
                                     <td>{ (inscripcion.proyecto.lider.nombre)+' '+(inscripcion.proyecto.lider.apellido)}</td>
                                     <td>{ (inscripcion.estudianteInscrito.nombre)+' '+(inscripcion.estudianteInscrito.apellido)}</td>
+                                    <td>{ (inscripcion.estudianteInscrito.correo)}</td>
                                     <td> {Enum_EstadoInscripcion[inscripcion.estadoInscripcion]} </td>
                                     <td>{ inscripcion.fecha_ingreso }</td>
                                     <td>{ inscripcion.fecha_egreso }</td>                        
