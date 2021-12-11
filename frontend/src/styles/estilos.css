@@ -238,11 +238,12 @@ tbody tr td{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  
+    
 }
 
 .logueo{
   font-size: 11px;
+  color: var(--dark-bg);
 }
 
 .input {
@@ -250,7 +251,7 @@ tbody tr td{
   width: 100%;
   height: 30px;
   font-size: 11px;
-  margin-bottom: 7px;
+  margin-bottom: 8px;
   border: none;
   font-weight: 400;
   border-radius: .3em;
@@ -260,7 +261,6 @@ tbody tr td{
 }
 
 .botonlogin{
-  margin: auto;
   padding-block: 8px;
   width: 100%;
   text-transform: uppercase;
@@ -279,4 +279,10 @@ tbody tr td{
   background-color: var(--light-bg);
   height: 100vh;
   overflow: auto;
+}
+
+.abrircuenta{
+  background-color: violet;
+  margin-top: 20px;
+  border-bottom: 1px solid var(--ligth-bg);
 }

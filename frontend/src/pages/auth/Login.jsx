@@ -48,7 +48,7 @@ const Login = () => {
                     text='Iniciar Sesión'                    
                 />
             </form>
-            <span>¿No tienes una cuenta?</span>
+            <span className='abrircuenta'>¿No tienes una cuenta?</span>
             <div>
                 <Link to='/auth/registro'>
                     <span>Regístrate</span>
