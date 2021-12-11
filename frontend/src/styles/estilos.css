@@ -228,8 +228,8 @@ tbody tr td{
   align-items: center;
   background-color:var(--grey-bg);
   position: fixed;
-  top: 25%;
-  right: 30%;
+  top: 20%;
+  right: 23%;
   border-radius: 11px;
   
 }
