@@ -41,6 +41,8 @@ const EstadoUsuarios = () => {
             variables: { _id, ...formData },
         });
     };
+
+    console.log("este es el id", _id)
   
     useEffect(() => {
         if (mutationError) {
