@@ -5,11 +5,10 @@ const GET_PROYECTOS = gql`
         Proyectos {
             _id
             nombre
-            objetivo {
-                descripcion
-                tipo
-            }
             presupuesto
+            objetivoGeneral
+            objetivoEspecifico1
+            objetivoEspecifico2
             fechaInicio
             fechaFin
             lider {
@@ -27,10 +26,9 @@ const GET_PROYECTO = gql`
         Proyecto(_id: $_id) {
             _id
             nombre
-            objetivo {
-                descripcion
-                tipo
-            }
+            objetivoGeneral
+            objetivoEspecifico1
+            objetivoEspecifico2
             presupuesto
             fechaInicio
             fechaFin
