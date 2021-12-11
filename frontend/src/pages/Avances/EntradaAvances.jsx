@@ -60,10 +60,12 @@ const EntradaAvances = () => {
                         <p>Acciones: </p>
                     </td>
                     <td>
+                        <button>
                         <Link to = {`/avances/IndexAvances/${userData._id }` }>
                             {/*<FontAwesomeIcon icon={faPencilAlt}/>*/}
-                            Ver Proyectos
+                            Ver Proyectos en los que estoy inscrito
                         </Link> 
+                        </button>
                     </td>
                 </tr>
             </table>
