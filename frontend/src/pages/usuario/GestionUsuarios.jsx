@@ -10,9 +10,6 @@ import {faPen} from "@fortawesome/free-solid-svg-icons";
 const GestionUsuarios = () => {
     const { data, error, loading } = useQuery(GET_USUARIOS);
 
-    const [testoBoton, setTextoBoton] = useState('Ver Listado de Usuarios');
-    const [mostrarTabla, setMostrarTabla] = useState(true);
-
     useEffect(() => {
         console.log('data servidor', data);
       }, [data]);
@@ -22,6 +19,8 @@ const GestionUsuarios = () => {
           toast.error('Error consultando los usuarios');
         }
       }, [error]);
+
+      if(loading) return <div>Cargando...</div>
 
     return (
         <div className="body-text">

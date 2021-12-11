@@ -7,11 +7,11 @@ import { useUser } from '../context/userContext';
 import { Enum_EstadoProyecto, Enum_FaseProyecto } from '../utils/enums';
 import useFormData from "../hooks/useFormData";
 import  ButtonLoading from '../components/ButtonLoading';
+import PrivateComponent from '../components/PrivateComponent';
 
 import { GET_PROYECTOS } from '../graphql/proyectos/queries';
 import { CREAR_PROYECTO } from "../graphql/proyectos/mutations";
 import { CREAR_INSCRIPCION } from '../graphql/inscripciones/mutations';
-// import { CREAR_OBJETIVO } from '../graphql/objetivos/mutations';
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 function GestionProyectos () {
@@ -85,7 +85,7 @@ const TablaProyectos = ({ listaProyectos }) => {
                     { listaProyectos && 
                         listaProyectos.Proyectos.map((p) => {
                             return (
-                                <tr className="proyectos" key = { p._id }>
+                                <tr className = "proyectos" key = { p._id }>
                                     <td>{ p.nombre }</td>
                                     <td>{ p.objetivoGeneral }</td>
                                     <td>{ p.objetivoEspecifico1 } <p/> { p.objetivoEspecifico2 }</td>
@@ -94,17 +94,19 @@ const TablaProyectos = ({ listaProyectos }) => {
                                     <td>{ p.fechaFin }</td>
                                     <td>{ p.lider.identificacion }</td>
                                     <td>{ p.lider.nombre }</td>
-                                    <td>{Enum_EstadoProyecto[p.estado]}</td>
-                                    <td>{Enum_FaseProyecto[p.fase]}</td>
+                                    <td>{ Enum_EstadoProyecto[p.estado] }</td>
+                                    <td>{ Enum_FaseProyecto[p.fase] }</td>
                                     <td>
                                         <Link to = {`/GestionProyectos/Editar/${ p._id }`}>
-                                            <button onClick={() => {}}> Actualizar </button>
+                                            <button onClick={ () => {} }> Actualizar </button>
                                         </Link>
+                                        
                                         <InscripcionProyecto
-                                                idProyecto={p._id}
-                                                estado={p.estado}
-                                                inscripciones={p.inscripciones}
-                                                />
+                                                idProyecto = { p._id }
+                                                estado = { p.estado }
+                                                inscripciones = { p.inscripciones }
+                                        />
+                                        
                                     </td>
                                 </tr>
                             )
@@ -127,8 +129,6 @@ const FormularioRegistroProyectos = ()=> {
         crearProyecto({ 
             variables: {...formData, 
                 presupuesto: parseFloat(formData.presupuesto), 
-                fechaInicio: "2020/10/25",
-                fechaFin: "20201/10/25",
                 lider: userData._id} 
         });
     };
@@ -240,6 +240,7 @@ const FormularioRegistroProyectos = ()=> {
     )
 };
 
+
 const InscripcionProyecto = ({ idProyecto, estado, inscripciones }) => {
     const [estadoInscripcion, setEstadoInscripcion] = useState('');
     const [crearInscripcion, { data, loading }] = useMutation(CREAR_INSCRIPCION);
@@ -264,21 +265,35 @@ const InscripcionProyecto = ({ idProyecto, estado, inscripciones }) => {
     const confirmarInscripcion = () => {
       crearInscripcion({ variables: { proyecto: idProyecto, estudianteInscrito: userData._id } });
     };
-  
+
+    if (userData.rol === 'ESTUDIANTE'){
+        return (
+         
+            <>
+              {estadoInscripcion !== '' ? (
+                <span>Ya estas inscrito en este proyecto y el estado es {estadoInscripcion}</span>
+              ) : (
+                <ButtonLoading
+                  onClick={() => confirmarInscripcion()}
+                  disabled={estado === 'INACTIVO'}
+                  loading={loading}
+                  text='Inscribirse'
+                />
+              )}
+            </>
+          );
+    }
+
     return (
-      <>
-        {estadoInscripcion !== '' ? (
-          <span>Ya estas inscrito en este proyecto y el estado es {estadoInscripcion}</span>
-        ) : (
-          <ButtonLoading
-            onClick={() => confirmarInscripcion()}
-            disabled={estado === 'INACTIVO'}
-            loading={loading}
-            text='Inscribirse'
-          />
-        )}
-      </>
-    );
+        <ButtonLoading
+                  onClick={() => {}}
+                  disabled={true}
+                  loading={loading}
+                  text='Inscribirse'
+                />
+    )
+  
+    
 };
 
 export { GestionProyectos };
