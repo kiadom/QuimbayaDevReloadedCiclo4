@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import { ModeloUsuario } from "../usuario/usuario.js";
-import { ModeloObjetivo } from "../objetivo/objetivo.js";
+// import { ModeloObjetivo } from "../objetivo/objetivo.js";
 
 const { Schema, model} = mongoose;
 
@@ -38,11 +38,18 @@ const esquemaProyecto = new Schema({
         required: true,
         ref: ModeloUsuario,
     },
-    objetivo: [{
-        type: Schema.Types.ObjectId,
+    objetivoGeneral: {
+        type: String,
         required: true,
-        ref: ModeloObjetivo,
-    }]
+    },
+    objetivoEspecifico1: {
+        type: String,
+        required: true,
+    },
+    objetivoEspecifico2: {
+        type: String,
+        required: true,
+    },
 }
 ,{
     toJSON: { virtuals: true }, //parte del virtual populate para avances

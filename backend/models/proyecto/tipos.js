@@ -11,7 +11,9 @@ type Proyecto {
         estado: Enum_EstadoProyecto!
         fase: Enum_FaseProyecto!
         lider: Usuario!
-        objetivo: [Objetivo]!
+        objetivoGeneral: String!
+        objetivoEspecifico1: String!
+        objetivoEspecifico2: String!
         avances: [Avance] 
         inscripciones: [Inscripcion] 
     }
@@ -39,7 +41,9 @@ type Proyecto {
             estado: Enum_EstadoProyecto
             fase: Enum_FaseProyecto
             lider: String!
-            objetivo: [String]!
+            objetivoGeneral: String!
+            objetivoEspecifico1: String!
+            objetivoEspecifico2: String!
         ): Proyecto
         
         editarProyecto(
@@ -48,7 +52,9 @@ type Proyecto {
             presupuesto: Float
             estado: Enum_EstadoProyecto
             fase: Enum_FaseProyecto
-            objetivo: [String]
+            objetivoGeneral: String
+            objetivoEspecifico1: String
+            objetivoEspecifico2: String
         ): Proyecto
     }
 `;
