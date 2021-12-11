@@ -99,7 +99,7 @@ function DetalleAvances () {
                             </td>
                             <td>
                                 <input 
-                                    name = 'descripcion' 
+                                    name = '$descripcion' 
                                     defaultValue = { queryData.DetalleAvances.descripcion } 
                                     type = "text" 
                                     size = "50"
@@ -111,8 +111,9 @@ function DetalleAvances () {
                             <td>
                                 <p>Observaciones Lider: </p>
                             </td>
-                            <td><input 
-                                    name = 'observacionesLider' 
+                            <td>
+                                <input 
+                                    name = '$observacionesLider' 
                                     defaultValue ={ queryData.DetalleAvances.observacionesLider } 
                                     type = "text" 
                                     size = "50"
@@ -122,7 +123,7 @@ function DetalleAvances () {
 
                         <tr>
                             <td>
-                                <input 
+                                <input className = "boton_1"
                                     type = "submit" 
                                     value = "Guardar cambios" 
                                     
