@@ -24,47 +24,47 @@ const IndexAvances = () => {
         
     
 
-    return (
-        <div className="body-text">
-            <TablaProyectos listaProyectos = { data }/>
-        </div>
-    );
-};
-
-/* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA LA TABLA QUE MUESTRA EL LISTADO DE AVANCES */
-const TablaProyectos = ({ listaProyectos }) => {
-    return (
-        <div className="rp_formulario">
-            <h1 className="rp_subtitulo">Lista de Proyectos en los que se Encuentra Inscrito</h1>
-                <table className="table">
-                <thead>
-                    <tr>
-                        <th>ID </th>
-                        <th>Nombre Proyecto</th>
-                        <th>Acciones </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    { listaProyectos && 
-                        listaProyectos.estudianteInscrito.map((p) => {
-                            return (
-                                <tr key = { p._id }>
-                                    <td>{ p._id }</td>
-                                    <td>{ p.nombre }</td>
-                                    <td>
-                                        <Link to = {`/avances/AvancesPorProyecto/${p._id}` }>
-                                            {/*<FontAwesomeIcon icon={faPencilAlt}/>*/}
-                                            Ver Avances
-                                        </Link> 
-                                    </td>
-                                </tr>
-                            )
-                        })}
-                </tbody>
-            </table>
-        </div>
-    )
-}
-
-
-export {IndexAvances};
+        return (
+            <div className="body-text">
+                <TablaProyectos listaProyectos = { data }/>
+            </div>
+        );
+    };
+    
+    /* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA LA TABLA QUE MUESTRA EL LISTADO DE AVANCES */
+    const TablaProyectos = ({ listaProyectos }) => {
+        return (
+            <div className="rp_formulario">
+                <h1 className="rp_subtitulo">Lista de Proyectos en los que se Encuentra Inscrito</h1>
+                    <table className="table">
+                    <thead>
+                        <tr>
+                            <th>ID </th>
+                            <th>Nombre Proyecto</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        { listaProyectos && 
+                            listaProyectos.InscripcionPorEstudiante.map((p) => {
+                                return (
+                                    <tr key = { p.estudianteInscrito }>
+                                        <td>{ p._id }</td>
+                                        <td>{ p.proyecto.nombre }</td>
+                                        <td>
+                                            <Link to = {`/avances/AvancesPorProyecto/${p._id}` }>
+                                                {/*<FontAwesomeIcon icon={faPencilAlt}/>*/}
+                                                Ver Avances
+                                            </Link> 
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
+    
+    
+    export {IndexAvances};

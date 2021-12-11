@@ -59,8 +59,8 @@ const GestionUsuarios = () => {
                                     </td>
                                     <td>
                                         <Link to={`/Avances/IndexAvances/${u._id}`}>
+                                            Ver Proyectos Inscritos
                                             {/*<FontAwesomeIcon icon={ faPen } size="1x" color='#FFFFFF' className='cursor-pointer text-gray-600 hover:text-gray-900'/> */}
-                                            Ver Proyectos en los que está Inscrito
                                         </Link>
                                     </td>
                                 </tr>

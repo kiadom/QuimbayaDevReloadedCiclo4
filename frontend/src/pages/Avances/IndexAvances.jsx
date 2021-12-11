@@ -1,7 +1,9 @@
 import { useParams, Link } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+
 import { useQuery, useMutation } from '@apollo/client';
-import { GET_INSCRIPCIONESDELESTUDIANTE } from "../../graphql/avances/queries";
+import { GET_PROYECTOSMODAVANCE, GET_INSCRIPCIONESDELESTUDIANTE } from "../../graphql/avances/queries";
+
+import React, { useEffect, useState } from "react";
 
 
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,9 +12,10 @@ import { GET_INSCRIPCIONESDELESTUDIANTE } from "../../graphql/avances/queries";
 const IndexAvances = () => {
 
         /* PLANTILLA PARA HACER LA PETICION GET DE AVANCES. EL RETORNO SE ALMACENA EN data */
+        /*const { data } = useQuery(GET_PROYECTOSMODAVANCE); */
         const { estudianteInscrito } = useParams();
         const { data } = useQuery(GET_INSCRIPCIONESDELESTUDIANTE,{
-            variables:{ estudianteInscrito }
+        variables:{ estudianteInscrito }
         });
     
         useEffect(() => {
@@ -38,14 +41,14 @@ const IndexAvances = () => {
                         <tr>
                             <th>ID </th>
                             <th>Nombre Proyecto</th>
-                            <th>Acciones </th>
+                            <th>Accion </th>
                         </tr>
                     </thead>
                     <tbody>
                         { listaProyectos && 
                             listaProyectos.InscripcionPorEstudiante.map((p) => {
                                 return (
-                                    <tr key = { p.InscripcionPorEstudiante }>
+                                    <tr key = { p.estudianteInscrito }>
                                         <td>{ p.proyecto._id }</td>
                                         <td>{ p.proyecto.nombre }</td>
                                         <td>

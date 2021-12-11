@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useQuery, useMutation } from '@apollo/client';
-import { GET_AVANCESPORPROYECTO, GET_AVANCES2 } from "../../graphql/avances/queries";
+import { GET_AVANCESPORPROYECTO } from "../../graphql/avances/querys";
 import { useParams, Link } from "react-router-dom";
+
 
 
 const AvancesPorProyecto = () => {
@@ -21,6 +22,7 @@ const AvancesPorProyecto = () => {
 
 
 
+
     /* SE DEFINE EL TEXTO DEL BOTON, INICIALMENTE SERÁ "Registrar Avance" Y MOSTRARÁ LA INTERFAZ DE TABLA*/
     useEffect(()=>{
         if (mostrarTabla) {
@@ -31,61 +33,56 @@ const AvancesPorProyecto = () => {
         }
     },[mostrarTabla]);
 
+
+
     return (
         <div className="body-text">
             <button onClick = {() => {
                 setMostrarTabla (!mostrarTabla);
                 }}
             >{ textoBoton }</button>
-            { mostrarTabla ? (<TablaAvances listaAvances = { data }/>) 
-            : (<FormularioRegistroAvances />)}
+            { mostrarTabla ? (<TablaAvances listaAvances = { data }/>) : (<FormularioRegistroAvances />)}
         </div>
     );
 };
 
+
+
 const TablaAvances = ({ listaAvances }) => {
     return (
-        <div>
-            <h1 className="rp_subtitulo">Lista de Avances del Proyecto</h1>
-                      <table >
+        <div className="rp_formulario">
+            <h1>Lista de Reportes de Avance del Proyecto</h1>
+                
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>ID Avance</th>
+                            <th>Fecha</th>
+                            <th>Titulo Avance</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
                         { listaAvances && 
                         listaAvances.AvancesPorProyecto.map((p) => {
                             return (
-                               <tr key = { p.proyecto }>
-                                    <tr>
-                                        <td>Titulo: </td>
-                                        <td>{ p.titulo }</td>
-                                        <td><Link to = {`/avances/DetalleAvances/${p._id}` }>
-                                                <button onClick={() => {}}> Editar Avance </button>
-                                            </Link> </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Proyecto: </td>
-                                        <td>{ p.proyecto.nombre }</td>
-                                    </tr>
+                                <tr key = { p.proyecto }>
+                                    <td>{ p._id }</td>
+                                    <td>{ p.fecha }</td>
+                                    <td>{ p.titulo }</td>
                                     
-                                    <tr>
-                                        <td>ID del Avance: </td>
-                                        <td>{ p._id}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Fecha:</td>
-                                        <td>{ p.fecha}</td>    
-                                    </tr>
-                                    <tr>
-                                        <td>Detalle del Avance:</td>
-                                        <td>{ p.descripcion}</td>    
-                                    </tr>
-                                    <tr>
-                                        <td>Observaciones Lider:</td>
-                                        <td>{ p.observacionesLider}</td>    
-                                    </tr>
-                                    
-
+                                    <td>
+                                        <Link to = {`/avances/DetalleAvances/${p._id}` }>
+                                           
+                                            Detalles Avance
+                                        </Link> 
+                                    </td>
                                 </tr>
                             )
                         })}
+                    
+                    </tbody>
                 </table>
         </div>
     )
@@ -95,12 +92,12 @@ const TablaAvances = ({ listaAvances }) => {
 const FormularioRegistroAvances = ()=> {
     return (
         <div>
-            <h1>Registre el Avance</h1>
+            <h1>Ingrese el Proyecto</h1>
             <form>
                 <table>
                     <tr>
                         <td>
-                            <p>Titulo del Avance: </p>
+                            <p>Nombre del Proyecto: </p>
                         </td>
                         <td>
                             <input type = "text" required/>
@@ -108,7 +105,7 @@ const FormularioRegistroAvances = ()=> {
                     </tr>
                     <tr>
                         <td>
-                            <p>Detalle del Avance: </p>
+                            <p>Descripcion: </p>
                         </td>
                         <td>
                             <input type = "text" required/>

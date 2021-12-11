@@ -1,15 +1,6 @@
 import { gql } from '@apollo/client';
 
-const GET_INSCRIPCIONESDELESTUDIANTE = gql`
-query InscripcionPorEstudiante($estudianteInscrito: String!) {
-  InscripcionPorEstudiante(estudianteInscrito: $estudianteInscrito) {
-    proyecto {
-      _id
-      nombre
-    }
-  }
-}
-`;
+
 
 
 const GET_AVANCES2 = gql`
@@ -30,6 +21,18 @@ const GET_AVANCES2 = gql`
   }
 }
 `;
+
+const GET_INSCRIPCIONESDELESTUDIANTE = gql`
+query InscripcionPorEstudiante($estudianteInscrito: String!) {
+  InscripcionPorEstudiante(estudianteInscrito: $estudianteInscrito) {
+    proyecto {
+      _id
+      nombre
+    }
+  }
+}
+`;
+
 
 const GET_AVANCESPORPROYECTO = gql`
 query AvancesPorProyecto($proyecto: String!) {
