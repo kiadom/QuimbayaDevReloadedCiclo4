@@ -30,7 +30,7 @@ const EDITAR_AVANCE = gql `
         editarAvance(
             _id: $id, 
             descripcion: $descripcion,
-            observacionesLider: $observacionesLider
+            observacionesLider: $observacionesLider,
         ) {
             _id
             descripcion

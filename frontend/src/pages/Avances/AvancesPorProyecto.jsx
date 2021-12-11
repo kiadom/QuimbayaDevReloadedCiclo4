@@ -95,12 +95,12 @@ const TablaAvances = ({ listaAvances }) => {
 const FormularioRegistroAvances = ()=> {
     return (
         <div>
-            <h1>Ingrese el Proyecto</h1>
+            <h1>Registre el Avance</h1>
             <form>
                 <table>
                     <tr>
                         <td>
-                            <p>Nombre del Proyecto: </p>
+                            <p>Titulo del Avance: </p>
                         </td>
                         <td>
                             <input type = "text" required/>
@@ -108,7 +108,7 @@ const FormularioRegistroAvances = ()=> {
                     </tr>
                     <tr>
                         <td>
-                            <p>Descripcion: </p>
+                            <p>Detalle del Avance: </p>
                         </td>
                         <td>
                             <input type = "text" required/>
