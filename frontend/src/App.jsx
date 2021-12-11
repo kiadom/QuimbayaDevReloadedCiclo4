@@ -81,6 +81,7 @@ function App() {
             <Routes>
               <Route path='/' element={<PrivateLayout />}>
                 <Route path="/GestionUsuarios" element={<GestionUsuarios />} />
+                <Route path="/GestionUsuarios/Editar/:_id" element={<EstadoUsuarios />} />
                 <Route path="/GestionProyectos" element={<GestionProyectos />} />
                 <Route path="/GestionProyectos/Editar/:_id" element={<GestionProyectosEditar />} />
                 <Route path="/GestionInscripciones" element={<GestionInscripciones />} />
