@@ -16,10 +16,10 @@ function Sidebar(){
                     <div className='iconoEncabezado'>
                     <FontAwesomeIcon className ="iconoEncabezado" icon={ faProjectDiagram } size="5x" color='#092133'/>
                     </div>
-                    <h4 className='tituloEncabezado'>Gestión Proyectos</h4>
+                    <h4 className='tituloEncabezado'>Sistema de Información y Soporte a la Gestión de Proyectos de Investigación</h4>
                     <ul>
                         <li>
-                        <NavLink to ='/GestionProyectos' activeClassName='decortexto'>
+                        <NavLink to ='/' activeClassName='decortexto'>
                             <FontAwesomeIcon icon={faHome} size='1x' color='#092133'/>
                             <span className=''></span> Inicio
                         </NavLink>
@@ -37,10 +37,10 @@ function Sidebar(){
                         </NavLink> 
                         </li>
                         <li>
-                        {/* <Link to ='/GestionProyectos'> */}
+                        <NavLink to ='/GestionProyectos'>
                             <FontAwesomeIcon icon={faProjectDiagram} size='1x' color='#092133'/>
                             <span className=''></span> Proyectos
-                        {/* </Link> */}
+                        </NavLink>
                         </li>
                         <li>
                             
