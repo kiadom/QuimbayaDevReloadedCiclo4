@@ -34,7 +34,7 @@ const Registro = () => {
     }, [dataMutation, setToken, navigate]);
 
 return (
-    <div>
+    <div className = 'login'>
       <h1>Regístrate</h1>
       <form onSubmit={submitForm} onChange={updateFormData} ref={form}>
         <div>
