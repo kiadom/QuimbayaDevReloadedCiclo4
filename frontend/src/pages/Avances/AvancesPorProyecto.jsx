@@ -1,29 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { useQuery, useMutation } from '@apollo/client';
+import { useParams, Link } from 'react-router-dom';
+
+import { useMutation, useQuery } from '@apollo/client';
+import { toast } from 'react-toastify';
+import { useUser } from '../../context/userContext';
+
+import useFormData from "../../hooks/useFormData";
+import  ButtonLoading from '../../components/ButtonLoading';
+
+
+
 import { GET_AVANCESPORPROYECTO } from "../../graphql/avances/queries";
-import { useParams, Link } from "react-router-dom";
+import { CREAR_AVANCE } from "../../graphql/avances/mutations";
 
-
-
-const AvancesPorProyecto = () => {
+function AvancesPorProyecto () {
 
     /* ESTADOS QUE PERMITEN CONTROLAR LA VISIBILIDAD DE LAS INTERFACES */
     const [textoBoton, setTextoBoton] = useState('Ver Avances Reportados' );
     const [mostrarTabla, setMostrarTabla] = useState(true);
 
     const { proyecto } = useParams();
-    const { data } = useQuery(GET_AVANCESPORPROYECTO,{
+    const { data, loading } = useQuery(GET_AVANCESPORPROYECTO,{
         variables:{ proyecto }
     });
 
-    useEffect(() => {
-        console.log("Datos obtenidos con GET_AVANCESPORPROYECTO", data);
-    }, [data]);
+    
+    
 
-
-
-
-    /* SE DEFINE EL TEXTO DEL BOTON, INICIALMENTE SERÁ "Registrar Avance" Y MOSTRARÁ LA INTERFAZ DE TABLA*/
+        /* SE DEFINE EL TEXTO DEL BOTON, INICIALMENTE SERÁ "Registrar Avance" Y MOSTRARÁ LA INTERFAZ DE TABLA*/
     useEffect(()=>{
         if (mostrarTabla) {
             setTextoBoton('Registrar Avance');
@@ -34,24 +38,35 @@ const AvancesPorProyecto = () => {
     },[mostrarTabla]);
 
 
-
-    return (
-        <div className="body-text">
-            <button onClick = {() => {
-                setMostrarTabla (!mostrarTabla);
-                }}
-            >{ textoBoton }</button>
+    if (!loading){
+        return (
+            <div className = "body-text">
+                <div className="rp_titulo">GESTIÓN DE AVANCES</div>
+                <div className="rend_Dinamica">
+                    <button onClick = {() => {
+                        setMostrarTabla (!mostrarTabla);
+                        }}
+                        className="boton_1">{ textoBoton }
+                    </button>
             { mostrarTabla ? (<TablaAvances listaAvances = { data }/>) : (<FormularioRegistroAvances listaAvances = { data } />)}
+            </div>
+            </div>
+        );
+    }        
+
+    /* SI loading ES VERDADERO, ES DECIR SI ESTÁ CARGANDO, SE MUESTRA UN MENSAJE INFORMANDO AL USUARIO DE ESTO */
+    return (
+        <div className = "body-text">
+            <h1>Cargando</h1>
         </div>
     );
 };
 
 
-
 const TablaAvances = ({ listaAvances }) => {
     return (
         <div className="rp_formulario">
-            <h1>Lista de Reportes de Avance del Proyecto</h1>
+            <h1>Lista de Avances del Proyecto</h1>
            
 
                 <table className="table">
@@ -87,10 +102,24 @@ const TablaAvances = ({ listaAvances }) => {
                 </table>
         </div>
     )
-}
+};
 
 /* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA EL FORMULARIO PARA REGISTRAR LOS AVANCES */
-const FormularioRegistroAvances = ({ listaAvances })=> {
+const FormularioRegistroAvances = ()=> {
+
+    const { form, formData, updateFormData } = useFormData();
+    const [CrearAvance] = useMutation(CREAR_AVANCE);
+    const { userData } = useUser();
+    
+
+    const submitForm = (e) => {
+        e.preventDefault();
+        CrearAvance({ 
+            variables: {...formData, 
+                fecha: "2020/10/25",
+                } 
+        });
+    };
     return (
         <div className="rp_formulario">
                 {/*
@@ -115,7 +144,7 @@ const FormularioRegistroAvances = ({ listaAvances })=> {
                 </table>
                     */}
         <h1>Ingrese el Avance</h1>
-            <form>
+            <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
                 <table>
                     <tr>
                         <td>
@@ -154,14 +183,19 @@ const FormularioRegistroAvances = ({ listaAvances })=> {
                     </tr>
                     <tr>
                         <td>
-                            <input type = "button" value = "Registrar Avance" />
+                        <td>
+                            <input className="boton_1"
+                                type = "submit" 
+                                value = "Registrar Nuevo Proyecto" 
+                            />
+                        </td>
                         </td>
                     </tr>
                 </table>
             </form>
         </div>
     )
-}
+};
 
 
 export {AvancesPorProyecto} ;
