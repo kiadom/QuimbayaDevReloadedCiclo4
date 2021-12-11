@@ -7,6 +7,7 @@ import { useUser } from '../context/userContext';
 import { Enum_EstadoProyecto, Enum_FaseProyecto } from '../utils/enums';
 import useFormData from "../hooks/useFormData";
 import  ButtonLoading from '../components/ButtonLoading';
+import PrivateComponent from '../components/PrivateComponent';
 
 import { GET_PROYECTOS } from '../graphql/proyectos/queries';
 import { CREAR_PROYECTO } from "../graphql/proyectos/mutations";
@@ -99,11 +100,13 @@ const TablaProyectos = ({ listaProyectos }) => {
                                         <Link to = {`/GestionProyectos/Editar/${ p._id }`}>
                                             <button onClick={ () => {} }> Actualizar </button>
                                         </Link>
+                                        
                                         <InscripcionProyecto
                                                 idProyecto = { p._id }
                                                 estado = { p.estado }
                                                 inscripciones = { p.inscripciones }
                                         />
+                                        
                                     </td>
                                 </tr>
                             )
@@ -262,21 +265,35 @@ const InscripcionProyecto = ({ idProyecto, estado, inscripciones }) => {
     const confirmarInscripcion = () => {
       crearInscripcion({ variables: { proyecto: idProyecto, estudianteInscrito: userData._id } });
     };
-  
+
+    if (userData.rol === 'ESTUDIANTE'){
+        return (
+         
+            <>
+              {estadoInscripcion !== '' ? (
+                <span>Ya estas inscrito en este proyecto y el estado es {estadoInscripcion}</span>
+              ) : (
+                <ButtonLoading
+                  onClick={() => confirmarInscripcion()}
+                  disabled={estado === 'INACTIVO'}
+                  loading={loading}
+                  text='Inscribirse'
+                />
+              )}
+            </>
+          );
+    }
+
     return (
-      <>
-        {estadoInscripcion !== '' ? (
-          <span>Ya estas inscrito en este proyecto y el estado es {estadoInscripcion}</span>
-        ) : (
-          <ButtonLoading
-            onClick={() => confirmarInscripcion()}
-            disabled={estado === 'INACTIVO'}
-            loading={loading}
-            text='Inscribirse'
-          />
-        )}
-      </>
-    );
+        <ButtonLoading
+                  onClick={() => {}}
+                  disabled={true}
+                  loading={loading}
+                  text='Inscribirse'
+                />
+    )
+  
+    
 };
 
 export { GestionProyectos };
