@@ -19,8 +19,7 @@ function DetalleAvances () {
     });
 
        
-    const [editarAvance, { data: mutationData, loading: mutationLoading }] 
-    = useMutation(EDITAR_AVANCE);
+    const [editarAvance, { data: mutationData, loading: mutationLoading }] = useMutation(EDITAR_AVANCE);
 
     const submitForm = (e) => {
         e.preventDefault();
@@ -36,16 +35,16 @@ function DetalleAvances () {
                 <table>
                     <tr>
                         <td>
-                            <Link to = {``}>
+                            <Link to = {`/Avances/IndexAvances/`}>
                                 <button onClick={() => {}}> Regresar al Listado Avances del Proyecto </button>
                             </Link>
                         </td>
                     </tr>
                 </table>
                 
-                <h1>ID del Avance Seleccionado: { _id }</h1> 
+                <h1>Editar Avance</h1> 
                 
-                <h1>Estos son los datos que No Cambian del Avance</h1>
+                
                 {/*
                 <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
                 */}
@@ -90,7 +89,7 @@ function DetalleAvances () {
                 </table>
                         
 
-                <h1>Estos son los datos a modificar</h1>
+                {/*<h1>Estos son los datos a modificar</h1>*/}
 
                 <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
                     <table>
@@ -103,6 +102,7 @@ function DetalleAvances () {
                                     name = 'descripcion' 
                                     defaultValue = { queryData.DetalleAvances.descripcion } 
                                     type = "text" 
+                                    size = "50"
                                 />
                             </td>
                         </tr>
@@ -115,6 +115,7 @@ function DetalleAvances () {
                                     name = 'observacionesLider' 
                                     defaultValue ={ queryData.DetalleAvances.observacionesLider } 
                                     type = "text" 
+                                    size = "50"
                                 />
                             </td>
                         </tr>
@@ -124,6 +125,7 @@ function DetalleAvances () {
                                 <input 
                                     type = "submit" 
                                     value = "Guardar cambios" 
+                                    
                                 />
                             </td>
                         </tr>

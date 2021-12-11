@@ -83,7 +83,7 @@ function App() {
                 <Route path="/GestionProyectos" element={<GestionProyectos />} />
                 <Route path="/GestionProyectos/Editar/:_id" element={<GestionProyectosEditar />} />
                 <Route path="/GestionInscripciones" element={<GestionInscripciones />} />
-                <Route path="/Avances/IndexAvances/:estudianteInscrito" element={<IndexAvances />} />
+                <Route path="/Avances/IndexAvances/" element={<IndexAvances />} />
                 <Route path="/Avances/AvancesPorProyecto/:proyecto" element={<AvancesPorProyecto />} />
                 <Route path="/Avances/DetalleAvances/:_id" element={<DetalleAvances />} />
               </Route>

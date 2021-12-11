@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useQuery, useMutation } from '@apollo/client';
-import { GET_PROYECTOSMODAVANCE } from "../../graphql/avances/querys";
+import { GET_PROYECTOSMODAVANCE } from "../../graphql/avances/queries";
 import { Link } from "react-router-dom";
+import { useUser } from '../../context/userContext';
 
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { faUsersCog, faPencilAlt,faTrash,faCheck} from "@fortawesome/free-solid-svg-icons";
@@ -9,6 +10,7 @@ import { Link } from "react-router-dom";
 const IndexAvances = () => {
 
         /* PLANTILLA PARA HACER LA PETICION GET DE AVANCES. EL RETORNO SE ALMACENA EN data */
+        const { userData } = useUser();
         const { data } = useQuery(GET_PROYECTOSMODAVANCE);
 
     
@@ -16,10 +18,14 @@ const IndexAvances = () => {
             console.log("Datos obtenidos con GET_PROYECTOSMODAVANCE", data);
         }, [data]);
         
+        useEffect(() => {
+            console.log("USUARIO", userData);
+        }, [data]);
     
 
     return (
         <div className="body-text">
+            <h1> {(userData.nombre)+ " " +(userData.apellido) } </h1>
             <TablaAvances listaAvances = { data }/>
         </div>
     );
@@ -30,12 +36,13 @@ const TablaAvances = ({ listaAvances }) => {
     return (
         <div>
             <h1>Lista de Proyectos en los que se Encuentra Inscrito</h1>
-                <table>
+                <table className="table">
                 <thead>
                     <tr>
                         <th>ID </th>
                         <th>Nombre Proyecto</th>
                         <th>Lider Proyecto </th>
+                        <th>Ver Avances </th>
                     </tr>
                 </thead>
                 <tbody>
