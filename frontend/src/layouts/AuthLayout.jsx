@@ -1,17 +1,15 @@
 import React from 'react';
+
 import { Outlet } from 'react-router';
 
 function AuthLayout ({ children }) {
   return (
-    <div className='body-text'>
-      <div className='contenedorlogin'>
-        <p>ALGO QUE DECIR POR ACA</p>
-        <div className='w-full h-full  overflow-y-scroll'>
+    <div className='contenedorfoto'>
+        
           <Outlet />
           <main>{ children }</main>
-        </div>
       </div>
-    </div>
+      
   );
 };
 

@@ -32,16 +32,6 @@ header {
   padding: 20px 0px 30px 40px;  
 }
 
-/* estilos del navbar */
-/* .topNavBar{
-  margin: auto;
-  margin: 10px;
-  display: flex;
-  background-color: rgb(18, 228, 175);
-  margin: px;
-  align-items: center;
-} */
-
 .iconCompany img{
   display: flex;
   height: max-content;
@@ -74,7 +64,7 @@ header {
 /* estilos del .sidebar */
 .sidebar {
   display: flex;
-  height: 100%;
+  height: 104vh;
   position: absolute;
   width: 200px;
   margin: 150px 0px 0px 11px;
@@ -114,13 +104,6 @@ header {
   border-bottom: 1px solid var(--blue-bg);
   position: relative;
 }
-
-/* .sidebar .div {
-  padding: 50px;
-  font-size: 24px;
-  display: block;
-  background-color: violet;
-} */
 
 /* estilos del body */
 
@@ -165,12 +148,6 @@ header {
   cursor: pointer;
 }
 
-/* .rp_formulario{
-  display: flexbox;
-  justify-content: space-between;
-  margin: auto;  
-} */
-
 .rp_subtitulo{
   padding-block:11px ;
   padding-inline-start: 19px;
@@ -200,8 +177,7 @@ header {
   height: max-content;
   color: var(--blue-bg);
   background-color: var(--light-bg);
-  /* font-size: 11px; */
-  
+
 }
 
 .table thead th {
@@ -241,12 +217,79 @@ tbody tr td{
   text-align: center;
 }
 
-/* .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+/*estilos del loguin*/
+
+.login{
+  padding: 11px;
+  width:max-content;
+  display: inline;
+  margin-top: auto;
+  justify-content: center;
+  align-items: center;
   background-color:var(--grey-bg);
-  color: white;
+  position: fixed;
+  top: 20%;
+  right: 23%;
+  border-radius: 11px;
+  
+}
+
+.login img{  
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 11px;
+    
+}
+
+.logueo{
+  font-size: 11px;
+  color: var(--dark-bg);
+}
+
+.input {
+  /* background-color: var(--dark-bg); */
+  width: 100%;
+  height: 30px;
+  font-size: 11px;
+  margin-bottom: 8px;
+  border: none;
+  font-weight: 400;
+  border-radius: .3em;
+  box-sizing: border-box;
+  background-color: var(--light-bg);
+
+}
+
+.botonlogin{
+  padding-block: 8px;
+  width: 100%;
+  text-transform: uppercase;
+  color: var(--light-bg);
+  border: none;
+  border-radius: 5px;
+  background-color: var(--blue-bg);
+  cursor: pointer;
+}
+
+.contenedorfoto{
+  font-family: 'Roboto', sans-serif;
+  background-image: url('../media/ImagenPrincipal.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--light-bg);
+  height: 100vh;
+  overflow: auto;
+}
+
+.abrircuenta{
+  font-size: 11px;
   text-align: center;
-} */
+  padding-block: 50px;
+  color: var(--light-bg);
+  
+}
+
+.registrologin link{
+  font-size: 8px;
+}

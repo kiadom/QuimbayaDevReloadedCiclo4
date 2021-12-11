@@ -2,15 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 
 import { useMutation, useQuery } from '@apollo/client';
-import useFormData from "../hooks/useFormData";
 import { toast } from 'react-toastify';
-import  ButtonLoading from '../components/ButtonLoading';
 import { useUser } from '../context/userContext';
+import { Enum_EstadoProyecto, Enum_FaseProyecto } from '../utils/enums';
+import useFormData from "../hooks/useFormData";
+import  ButtonLoading from '../components/ButtonLoading';
 
 import { GET_PROYECTOS } from '../graphql/proyectos/queries';
 import { CREAR_PROYECTO } from "../graphql/proyectos/mutations";
-import {CREAR_INSCRIPCION} from '../graphql/inscripciones/mutations'
-import {Enum_EstadoProyecto, Enum_FaseProyecto} from '../utils/enums'
+import { CREAR_INSCRIPCION } from '../graphql/inscripciones/mutations';
+// import { CREAR_OBJETIVO } from '../graphql/objetivos/mutations';
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 function GestionProyectos () {
@@ -86,8 +87,8 @@ const TablaProyectos = ({ listaProyectos }) => {
                             return (
                                 <tr className="proyectos" key = { p._id }>
                                     <td>{ p.nombre }</td>
-                                    <td>{ p.objetivo[0].descripcion }</td>
-                                    <td>{ p.objetivo[1].descripcion } <p/> { p.objetivo[2].descripcion }</td>
+                                    <td>{ p.objetivoGeneral }</td>
+                                    <td>{ p.objetivoEspecifico1 } <p/> { p.objetivoEspecifico2 }</td>
                                     <td>{ p.presupuesto }</td>
                                     <td>{ p.fechaInicio }</td>
                                     <td>{ p.fechaFin }</td>
@@ -118,17 +119,20 @@ const TablaProyectos = ({ listaProyectos }) => {
 const FormularioRegistroProyectos = ()=> {
 
     const { form, formData, updateFormData } = useFormData();
-    const [crearProyecto ] = useMutation(CREAR_PROYECTO);
+    const [crearProyecto] = useMutation(CREAR_PROYECTO);
+    const { userData } = useUser();
 
     const submitForm = (e) => {
         e.preventDefault();
         crearProyecto({ 
-            variables: {formData, presupuesto: parseFloat(formData.presupuesto)} 
+            variables: {...formData, 
+                presupuesto: parseFloat(formData.presupuesto), 
+                fechaInicio: "2020/10/25",
+                fechaFin: "20201/10/25",
+                lider: userData._id} 
         });
     };
 
-    console.log(Date.now());
-    
     return (
         <div>
             <h1 className = "rp_subtitulo">Ingrese el Proyecto</h1>
@@ -136,48 +140,88 @@ const FormularioRegistroProyectos = ()=> {
                 <table>
                     <tr>
                         <td>
-                            <p>Nombre: </p>
+                            <p>Nombre</p>
                         </td>
                         <td>
                             <input 
                                 name = 'nombre' 
                                 type = "text" 
-                                required
-                            />
-                        </td>
-                    </tr>
-                    {/* <tr>
-                        <td>
-                            <p>Objetivo General: </p>
-                        </td>
-                        <td>
-                            <input 
-                                name = 'objetivo_general' 
-                                type = "text" 
+                                size = "50"
                                 required
                             />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <p>Objetivos Especificos: </p>
-                        </td>
-                        <td>
-                            <input 
-                                name = 'objetivos_especificos' 
-                                type = "text" 
-                                required
-                            />
-                        </td>
-                    </tr> */}
-                    <tr>
-                        <td>
-                            <p>Presupuesto: </p>
+                            <p>Presupuesto</p>
                         </td>
                         <td>
                             <input 
                                 name = 'presupuesto' 
                                 type = "number" 
+                                required
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Fecha de Inicio</p>
+                        </td>
+                        <td>
+                            <input 
+                                name = 'fechaInicio' 
+                                type = "date" 
+                                required
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Fecha de Finalizacion</p>
+                        </td>
+                        <td>
+                            <input 
+                                name = 'fechaFin' 
+                                type = "date" 
+                                required
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Objetivo General</p>
+                        </td>
+                        <td>
+                            <input 
+                                name = 'objetivoGeneral' 
+                                type = "text" 
+                                size = "50"
+                                required
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Objetivo Especifico 1</p>
+                        </td>
+                        <td>
+                            <input 
+                                name = 'objetivoEspecifico1' 
+                                type = "text" 
+                                size = "50"
+                                required
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Objetivo Especifico 2</p>
+                        </td>
+                        <td>
+                            <input 
+                                name = 'objetivoEspecifico2' 
+                                type = "text" 
+                                size = "50"
                                 required
                             />
                         </td>
@@ -198,7 +242,7 @@ const FormularioRegistroProyectos = ()=> {
 
 const InscripcionProyecto = ({ idProyecto, estado, inscripciones }) => {
     const [estadoInscripcion, setEstadoInscripcion] = useState('');
-    const [crearInscripcion, { data, loading, error }] = useMutation(CREAR_INSCRIPCION);
+    const [crearInscripcion, { data, loading }] = useMutation(CREAR_INSCRIPCION);
     const { userData } = useUser();
   
     useEffect(() => {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useQuery, useMutation } from '@apollo/client';
-import { GET_AVANCESPORPROYECTO } from "../../graphql/avances/querys";
+import { GET_AVANCESPORPROYECTO } from "../../graphql/avances/queries";
 import { useParams, Link } from "react-router-dom";
 
 
@@ -41,7 +41,7 @@ const AvancesPorProyecto = () => {
                 setMostrarTabla (!mostrarTabla);
                 }}
             >{ textoBoton }</button>
-            { mostrarTabla ? (<TablaAvances listaAvances = { data }/>) : (<FormularioRegistroAvances />)}
+            { mostrarTabla ? (<TablaAvances listaAvances = { data }/>) : (<FormularioRegistroAvances listaAvances = { data } />)}
         </div>
     );
 };
@@ -50,16 +50,17 @@ const AvancesPorProyecto = () => {
 
 const TablaAvances = ({ listaAvances }) => {
     return (
-        <div>
+        <div className="rp_formulario">
             <h1>Lista de Reportes de Avance del Proyecto</h1>
-                
-                <table>
+           
+
+                <table className="table">
                     <thead>
                         <tr>
+                            <th>Proyecto</th>
                             <th>ID Avance</th>
-                            <th>Fecha</th>
                             <th>Titulo Avance</th>
-                            
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -68,8 +69,8 @@ const TablaAvances = ({ listaAvances }) => {
                         listaAvances.AvancesPorProyecto.map((p) => {
                             return (
                                 <tr key = { p.proyecto }>
+                                    <td>{ p.proyecto.nombre }</td>
                                     <td>{ p._id }</td>
-                                    <td>{ p.fecha }</td>
                                     <td>{ p.titulo }</td>
                                     
                                     <td>
@@ -88,16 +89,45 @@ const TablaAvances = ({ listaAvances }) => {
     )
 }
 
-/* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA EL FORMULARIO PARA REGISTRAR LOS PROYECTOS */
-const FormularioRegistroAvances = ()=> {
+/* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA EL FORMULARIO PARA REGISTRAR LOS AVANCES */
+const FormularioRegistroAvances = ({ listaAvances })=> {
     return (
-        <div>
-            <h1>Ingrese el Proyecto</h1>
+        <div className="rp_formulario">
+                {/*
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>ID Avance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        { listaAvances && 
+                        listaAvances.AvancesPorProyecto.map((p) => {
+                            return (
+                                <tr key = { p.proyecto }>
+                                    <td>{ p.proyecto._id }</td>
+                                 </tr>
+                            )
+                        })}
+                    
+                    </tbody>
+                </table>
+                    */}
+        <h1>Ingrese el Avance</h1>
             <form>
                 <table>
                     <tr>
                         <td>
-                            <p>Nombre del Proyecto: </p>
+                            <p>Fecha: </p>
+                        </td>
+                        <td>
+                            <input type = "date" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Titulo: </p>
                         </td>
                         <td>
                             <input type = "text" required/>
@@ -105,10 +135,21 @@ const FormularioRegistroAvances = ()=> {
                     </tr>
                     <tr>
                         <td>
-                            <p>Descripcion: </p>
+                            <p>Detalle de Avance: </p>
                         </td>
                         <td>
                             <input type = "text" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Proyecto: </p>
+                        </td>
+                        <td>
+                            <input 
+                                type = "text" required
+                               
+                            />
                         </td>
                     </tr>
                     <tr>

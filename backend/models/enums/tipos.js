@@ -26,10 +26,10 @@ enum  Enum_EstadoUsuario{
         NULA
     }
 
-    enum Enum_TipoObjetivo{
-        GENERAL
-        ESPECIFICO
-    }
+    # enum Enum_TipoObjetivo{
+    #     GENERAL
+    #     ESPECIFICO
+    # }
 
     enum Enum_EstadoInscripcion{
         ACEPTADA

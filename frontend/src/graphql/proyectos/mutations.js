@@ -4,26 +4,34 @@ const CREAR_PROYECTO = gql`
 
     mutation CrearProyecto(
         $nombre: String!, 
-        $presupuesto: Float!, 
-        $objetivo: [String]
+        $presupuesto: Float!,
+        $objetivoGeneral: String!,
+        $objetivoEspecifico1: String!,
+        $objetivoEspecifico2: String!,
+        $fechaInicio: Date!,
+        $fechaFin: Date!,
+        $lider: String!,
     ) {
         crearProyecto(
             nombre: $nombre, 
             presupuesto: $presupuesto, 
-            objetivo: $objetivo
+            objetivoGeneral: $objetivoGeneral,
+            objetivoEspecifico1: $objetivoEspecifico1,
+            objetivoEspecifico2: $objetivoEspecifico2,
+            fechaInicio: $fechaInicio,
+            fechaFin: $fechaFin,
+            lider: $lider,
         ) {
             _id
             nombre
-            objetivo {
-                descripcion
-                tipo
-            }
+            objetivoGeneral
+            objetivoEspecifico1
+            objetivoEspecifico2
             presupuesto
             fechaInicio
             fechaFin
             lider {
-                identificacion
-                nombre
+                _id
             }
             estado
             fase
@@ -37,25 +45,31 @@ const EDITAR_PROYECTO = gql`
         $_id: String, 
         $nombre: String,
         $presupuesto: Float,
+        $objetivoGeneral: String,
+        $objetivoEspecifico1: String,
+        $objetivoEspecifico2: String,
     ) {
         editarProyecto(
             _id: $_id, 
             nombre: $nombre,
             presupuesto: $presupuesto, 
+            objetivoGeneral: $objetivoGeneral,
+            objetivoEspecifico1: $objetivoEspecifico1,
+            objetivoEspecifico2: $objetivoEspecifico2,
         ) {
             _id
             nombre
-            # objetivo {
-            #     _id
-            # }
             presupuesto
-            # fechaInicio
-            # fechaFin
-            # lider {
-            #     _id
-            # }
-            # estado
-            # fase
+            objetivoGeneral
+            objetivoEspecifico1
+            objetivoEspecifico2
+            fechaInicio
+            fechaFin
+            lider {
+                _id
+            }
+            estado
+            fase
         }
     }
 `;

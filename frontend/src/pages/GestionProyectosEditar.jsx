@@ -52,33 +52,49 @@ function GestionProyectosEditar () {
                                     name = 'nombre' 
                                     defaultValue = { queryData.Proyecto.nombre } 
                                     type = "text" 
-                                />
-                            </td>
-                        </tr>
-                        {/* <tr>
-                            <td>
-                                <p>Objetivo General: </p>
-                            </td>
-                            <td>
-                                <input 
-                                    name = 'objetivo_general' 
-                                    defaultValue = { queryData.Proyecto.objetivo[0].descripcion } 
-                                    type = "text" 
+                                    size = "50"
                                 />
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <p>Objetivos Especificos: </p>
+                                <p>Objetivo General: </p>
                             </td>
                             <td>
                                 <input 
-                                    name = 'objetivos_especificos' 
-                                    defaultValue = { queryData.Proyecto.objetivo[1].descripcion, " / ", queryData.Proyecto.objetivo[2].descripcion }
+                                    name = 'objetivoGeneral' 
+                                    defaultValue = { queryData.Proyecto.objetivoGeneral } 
                                     type = "text" 
+                                    size = "50"
                                 />
                             </td>
-                        </tr> */}
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Objetivo Especifico (1): </p>
+                            </td>
+                            <td>
+                                <input 
+                                    name = 'objetivoEspecifico1' 
+                                    defaultValue = { queryData.Proyecto.objetivoEspecifico1 }
+                                    type = "text" 
+                                    size = "50"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Objetivo Especifico (2): </p>
+                            </td>
+                            <td>
+                                <input 
+                                    name = 'objetivoEspecifico2' 
+                                    defaultValue = { queryData.Proyecto.objetivoEspecifico2 }
+                                    type = "text" 
+                                    size = "50"
+                                />
+                            </td>
+                        </tr>
                         <tr>
                             <td>
                                 <p>Presupuesto: </p>

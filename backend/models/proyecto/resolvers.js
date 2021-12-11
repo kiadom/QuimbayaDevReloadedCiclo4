@@ -5,12 +5,12 @@ const resolversProyecto = {
     Query: {
 
         Proyectos: async (parent, args) => {
-            const proyectos = await ModeloProyecto.find().populate('lider').populate('objetivo').populate('avances').populate('inscripciones');
+            const proyectos = await ModeloProyecto.find().populate('lider').populate('avances').populate('inscripciones');
             return proyectos;
         },
 
         Proyecto: async (parent, args) => {
-            const proyecto = await ModeloProyecto.findOne({_id:args._id}).populate('lider').populate('objetivo')
+            const proyecto = await ModeloProyecto.findOne({_id:args._id}).populate('lider')
             .populate({path:'avances', populate: {path:'creadoPor'}});
             return proyecto;
         },
@@ -22,7 +22,7 @@ const resolversProyecto = {
         },
 
         ProyectosPorLider: async (parent, args) => {
-            const proyectosPorLider = await ModeloProyecto.find({lider:args.lider}).populate('objetivo').populate('avances');
+            const proyectosPorLider = await ModeloProyecto.find({lider:args.lider}).populate('avances');
             return proyectosPorLider;
         }
     },
@@ -38,7 +38,9 @@ const resolversProyecto = {
                 estado: args.estado,
                 fase: args.fase,
                 lider: args.lider,
-                objetivo: args.objetivo,
+                objetivoGeneral: args.objetivoGeneral,
+                objetivoEspecifico1: args.objetivoEspecifico1,
+                objetivoEspecifico2: args.objetivoEspecifico2,
             });
             return proyectoCreado;
         },
@@ -49,11 +51,12 @@ const resolversProyecto = {
                 presupuesto: args.presupuesto,
                 estado: args.estado,
                 fase: args.fase,
-                objetivo: args.objetivo,
+                objetivoGeneral: args.objetivoGeneral,
+                objetivoEspecifico1: args.objetivoEspecifico1,
+                objetivoEspecifico2: args.objetivoEspecifico2,
             }, { new: true });
             return proyectoEditado;
         },
-        
     },
 };
 
