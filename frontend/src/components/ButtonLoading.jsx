@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactLoading from 'react-loading';
 
-const ButtonLoading = ({ disabled, loading, text, onClick = () => {} }) => {
+const ButtonLoading = ({ disabled, loading, text }) => {
   return (
     <button
-      onClick={onClick}
       disabled={disabled}
       type='submit'
       className='botonlogin'

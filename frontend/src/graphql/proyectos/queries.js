@@ -33,6 +33,7 @@ const GET_PROYECTO = gql`
             fechaInicio
             fechaFin
             lider {
+                _id
                 identificacion
                 nombre
             }

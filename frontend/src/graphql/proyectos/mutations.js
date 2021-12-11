@@ -48,6 +48,8 @@ const EDITAR_PROYECTO = gql`
         $objetivoGeneral: String,
         $objetivoEspecifico1: String,
         $objetivoEspecifico2: String,
+        $estado: Enum_EstadoProyecto,
+        $fase: Enum_FaseProyecto,
     ) {
         editarProyecto(
             _id: $_id, 
@@ -56,6 +58,8 @@ const EDITAR_PROYECTO = gql`
             objetivoGeneral: $objetivoGeneral,
             objetivoEspecifico1: $objetivoEspecifico1,
             objetivoEspecifico2: $objetivoEspecifico2,
+            estado: $estado,
+            fase: $fase,
         ) {
             _id
             nombre

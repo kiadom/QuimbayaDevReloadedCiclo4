@@ -11,7 +11,6 @@ import  ButtonLoading from '../components/ButtonLoading';
 import { GET_PROYECTOS } from '../graphql/proyectos/queries';
 import { CREAR_PROYECTO } from "../graphql/proyectos/mutations";
 import { CREAR_INSCRIPCION } from '../graphql/inscripciones/mutations';
-// import { CREAR_OBJETIVO } from '../graphql/objetivos/mutations';
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 function GestionProyectos () {
@@ -85,7 +84,7 @@ const TablaProyectos = ({ listaProyectos }) => {
                     { listaProyectos && 
                         listaProyectos.Proyectos.map((p) => {
                             return (
-                                <tr className="proyectos" key = { p._id }>
+                                <tr className = "proyectos" key = { p._id }>
                                     <td>{ p.nombre }</td>
                                     <td>{ p.objetivoGeneral }</td>
                                     <td>{ p.objetivoEspecifico1 } <p/> { p.objetivoEspecifico2 }</td>
@@ -94,17 +93,17 @@ const TablaProyectos = ({ listaProyectos }) => {
                                     <td>{ p.fechaFin }</td>
                                     <td>{ p.lider.identificacion }</td>
                                     <td>{ p.lider.nombre }</td>
-                                    <td>{Enum_EstadoProyecto[p.estado]}</td>
-                                    <td>{Enum_FaseProyecto[p.fase]}</td>
+                                    <td>{ Enum_EstadoProyecto[p.estado] }</td>
+                                    <td>{ Enum_FaseProyecto[p.fase] }</td>
                                     <td>
                                         <Link to = {`/GestionProyectos/Editar/${ p._id }`}>
-                                            <button onClick={() => {}}> Actualizar </button>
+                                            <button onClick={ () => {} }> Actualizar </button>
                                         </Link>
                                         <InscripcionProyecto
-                                                idProyecto={p._id}
-                                                estado={p.estado}
-                                                inscripciones={p.inscripciones}
-                                                />
+                                                idProyecto = { p._id }
+                                                estado = { p.estado }
+                                                inscripciones = { p.inscripciones }
+                                        />
                                     </td>
                                 </tr>
                             )
@@ -127,8 +126,6 @@ const FormularioRegistroProyectos = ()=> {
         crearProyecto({ 
             variables: {...formData, 
                 presupuesto: parseFloat(formData.presupuesto), 
-                fechaInicio: "2020/10/25",
-                fechaFin: "20201/10/25",
                 lider: userData._id} 
         });
     };
@@ -239,6 +236,7 @@ const FormularioRegistroProyectos = ()=> {
         </div>
     )
 };
+
 
 const InscripcionProyecto = ({ idProyecto, estado, inscripciones }) => {
     const [estadoInscripcion, setEstadoInscripcion] = useState('');
