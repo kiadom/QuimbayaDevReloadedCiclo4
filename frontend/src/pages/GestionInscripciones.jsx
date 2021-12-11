@@ -12,9 +12,7 @@ import {
   AccordionDetailsStyled,
 } from '../components/Accordion';
 
-// import {GET_INSCRIPCIONES} from "../graphql/inscripciones/queries";
-// import {APROBAR_INSCRIPCION} from '../graphql/inscripciones/mutations';
-// import {RECHAZAR_INSCRIPCION} from '../graphql/inscripciones/mutations';
+
 import {Enum_EstadoInscripcion} from '../utils/enums'
 
 
