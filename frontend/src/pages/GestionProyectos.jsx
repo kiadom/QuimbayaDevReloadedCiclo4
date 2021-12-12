@@ -9,12 +9,14 @@ import useFormData from "../hooks/useFormData";
 import  ButtonLoading from '../components/ButtonLoading';
 import PrivateComponent from '../components/PrivateComponent';
 
-import { GET_PROYECTOS } from '../graphql/proyectos/queries';
+import { GET_PROYECTOS, GET_PROYECTOS_POR_LIDER } from '../graphql/proyectos/queries';
 import { CREAR_PROYECTO } from "../graphql/proyectos/mutations";
 import { CREAR_INSCRIPCION } from '../graphql/inscripciones/mutations';
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 function GestionProyectos () {
+
+    const { userData } = useUser();
 
     /* ESTADOS QUE PERMITEN CONTROLAR LA VISIBILIDAD DE LAS INTERFACES */
     const [textoBoton, setTextoBoton] = useState('Ver Listado de Proyectos' );
@@ -22,7 +24,7 @@ function GestionProyectos () {
 
     /* PLANTILLA PARA HACER LA PETICION GET DE PROYECTOS. EL RETORNO SE ALMACENA EN data. loadingData PERMITE CONTROLAR CUANDO SE CARGA EL QUERY  */
     const { data, loading } = useQuery(GET_PROYECTOS);
-    
+
     /* SE DEFINE EL TEXTO DEL BOTON, INICIALMENTE SERÁ "Registrar Proyecto" Y MOSTRARÁ LA INTERFAZ TABLA*/
     useEffect(()=>{
         if (mostrarTabla) {
@@ -37,21 +39,40 @@ function GestionProyectos () {
     EN ESTE RETURN VA EL BOTON QUE PERMITE CAMBIAR DE INTERFAZ. 
     AL DAR CLIC SOBRE ESTE, CAMBIA EL ESTADO DE mostrarTabla, LLAMANDO ASI AL FORMULARIO */
     if (!loading){
-        return (
-            <div className = "body-text">
-                <div className="rp_titulo">GESTIÓN DE PROYECTOS</div>
-                <div className="rend_Dinamica">
-                    <button onClick = {() => {
-                        setMostrarTabla (!mostrarTabla);
-                        }}
-                        className="boton_1">{ textoBoton }
-                    </button>
-                    { mostrarTabla ? (<TablaProyectos listaProyectos = { data }/>) : (<FormularioRegistroProyectos />)}
-                </div>
-            </div>
-        );
-    }        
 
+        if (userData.rol == 'ESTUDIANTE' || userData.rol == 'ADMINISTRADOR'){
+            return (
+                <div className = "body-text">
+                    <div className="rp_titulo">GESTIÓN DE PROYECTOS</div>
+                    <div className="rend_Dinamica">
+                        <button onClick = {() => {
+                            setMostrarTabla (!mostrarTabla);
+                            }}
+                            className="boton_1">{ textoBoton }
+                        </button>
+                        { mostrarTabla ? (<TablaProyectos listaProyectos = { data } />) : (<FormularioRegistroProyectos />)}
+                    </div>
+                </div>
+            );
+        }
+
+        if (userData.rol == 'LIDER'){
+            return (
+                <div className = "body-text">
+                    <div className="rp_titulo">GESTIÓN DE PROYECTOS</div>
+                    <div className="rend_Dinamica">
+                        <button onClick = {() => {
+                            setMostrarTabla (!mostrarTabla);
+                            }}
+                            className="boton_1">{ textoBoton }
+                        </button>
+                        { mostrarTabla ? (<TablaProyectosPorLider datosUsuarioLogeado = { userData } />) : (<FormularioRegistroProyectos />)}
+                    </div>
+                </div>
+            );
+        }
+    }
+        
     /* SI loading ES VERDADERO, ES DECIR SI ESTÁ CARGANDO, SE MUESTRA UN MENSAJE INFORMANDO AL USUARIO DE ESTO */
     return (
         <div className = "body-text">
@@ -100,13 +121,12 @@ const TablaProyectos = ({ listaProyectos }) => {
                                         <Link to = {`/GestionProyectos/Editar/${ p._id }`}>
                                             <button onClick={ () => {} }> Actualizar </button>
                                         </Link>
-                                        
+
                                         <InscripcionProyecto
                                                 idProyecto = { p._id }
                                                 estado = { p.estado }
                                                 inscripciones = { p.inscripciones }
                                         />
-                                        
                                     </td>
                                 </tr>
                             )
@@ -115,6 +135,69 @@ const TablaProyectos = ({ listaProyectos }) => {
             </table>
         </div>
     )
+};
+
+const TablaProyectosPorLider = ({ datosUsuarioLogeado }) => {
+
+    const { data, loading } = useQuery(GET_PROYECTOS_POR_LIDER, {
+        variables: { lider: datosUsuarioLogeado._id },
+    });
+
+    if (!loading) {
+        return (
+            <div className = "rp_formulario">
+                <h1 className = "rp_subtitulo">Lista de Proyectos</h1>
+                <table className = "table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Objetivo General</th>
+                            <th>Objetivos Especificos</th>
+                            <th>Presupuesto</th>
+                            <th>Fecha de<br/>Inicio</th>
+                            <th>Fecha de <br/>Terminacion</th>
+                            <th>Identificacion Lider</th>
+                            <th>Nombre Lider</th>
+                            <th>Estado</th>
+                            <th>Fase</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        { data && 
+                            data.ProyectosPorLider.map((p) => {
+                                return (
+                                    <tr className = "proyectos" key = { p._id }>
+                                        <td>{ p.nombre }</td>
+                                        <td>{ p.objetivoGeneral }</td>
+                                        <td>{ p.objetivoEspecifico1 } <p/> { p.objetivoEspecifico2 }</td>
+                                        <td>{ p.presupuesto }</td>
+                                        <td>{ p.fechaInicio }</td>
+                                        <td>{ p.fechaFin }</td>
+                                        <td>{ p.lider.identificacion }</td>
+                                        <td>{ p.lider.nombre }</td>
+                                        <td>{ Enum_EstadoProyecto[p.estado] }</td>
+                                        <td>{ Enum_FaseProyecto[p.fase] }</td>
+                                        <td>
+                                            <Link to = {`/GestionProyectos/Editar/${ p._id }`}>
+                                                <button onClick={ () => {} }> Actualizar </button>
+                                            </Link>
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
+
+    /* SI loading ES VERDADERO, ES DECIR SI ESTÁ CARGANDO, SE MUESTRA UN MENSAJE INFORMANDO AL USUARIO DE ESTO */
+    return (
+        <div className = "body-text">
+            <h1>Cargando</h1>
+        </div>
+    );
 };
 
 /* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA EL FORMULARIO PARA REGISTRAR LOS PROYECTOS */
@@ -137,10 +220,11 @@ const FormularioRegistroProyectos = ()=> {
         <div>
             <h1 className = "rp_subtitulo">Ingrese el Proyecto</h1>
             <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
+            <br/>
                 <table>
                     <tr>
                         <td>
-                            <p>Nombre</p>
+                            <p>Nombre: </p>
                         </td>
                         <td>
                             <input 
@@ -153,43 +237,7 @@ const FormularioRegistroProyectos = ()=> {
                     </tr>
                     <tr>
                         <td>
-                            <p>Presupuesto</p>
-                        </td>
-                        <td>
-                            <input 
-                                name = 'presupuesto' 
-                                type = "number" 
-                                required
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Fecha de Inicio</p>
-                        </td>
-                        <td>
-                            <input 
-                                name = 'fechaInicio' 
-                                type = "date" 
-                                required
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Fecha de Finalizacion</p>
-                        </td>
-                        <td>
-                            <input 
-                                name = 'fechaFin' 
-                                type = "date" 
-                                required
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Objetivo General</p>
+                            <p>Objetivo General: </p>
                         </td>
                         <td>
                             <input 
@@ -202,7 +250,7 @@ const FormularioRegistroProyectos = ()=> {
                     </tr>
                     <tr>
                         <td>
-                            <p>Objetivo Especifico (1)</p>
+                            <p>Objetivo Especifico (1): </p>
                         </td>
                         <td>
                             <input 
@@ -215,13 +263,49 @@ const FormularioRegistroProyectos = ()=> {
                     </tr>
                     <tr>
                         <td>
-                            <p>Objetivo Especifico (2)</p>
+                            <p>Objetivo Especifico (2): </p>
                         </td>
                         <td>
                             <input 
                                 name = 'objetivoEspecifico2' 
                                 type = "text" 
                                 size = "50"
+                                required
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Presupuesto: </p>
+                        </td>
+                        <td>
+                            <input 
+                                name = 'presupuesto' 
+                                type = "number" 
+                                required
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Fecha de Inicio: </p>
+                        </td>
+                        <td>
+                            <input 
+                                name = 'fechaInicio' 
+                                type = "date" 
+                                required
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Fecha de Finalizacion: </p>
+                        </td>
+                        <td>
+                            <input 
+                                name = 'fechaFin' 
+                                type = "date" 
                                 required
                             />
                         </td>
@@ -239,7 +323,6 @@ const FormularioRegistroProyectos = ()=> {
         </div>
     )
 };
-
 
 const InscripcionProyecto = ({ idProyecto, estado, inscripciones }) => {
     const [estadoInscripcion, setEstadoInscripcion] = useState('');

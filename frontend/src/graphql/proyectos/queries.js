@@ -1,14 +1,14 @@
 import { gql } from '@apollo/client';
 
 const GET_PROYECTOS = gql`
-    query ConsutaProyectos {
+    query ConsultaProyectos {
         Proyectos {
             _id
             nombre
-            presupuesto
             objetivoGeneral
             objetivoEspecifico1
             objetivoEspecifico2
+            presupuesto
             fechaInicio
             fechaFin
             lider {
@@ -22,7 +22,7 @@ const GET_PROYECTOS = gql`
 `;
 
 const GET_PROYECTO = gql`
-    query Proyecto($_id: String!) {
+    query ConsultaProyecto($_id: String!) {
         Proyecto(_id: $_id) {
             _id
             nombre
@@ -43,4 +43,25 @@ const GET_PROYECTO = gql`
     }
 `;
 
-export { GET_PROYECTOS, GET_PROYECTO };
+const GET_PROYECTOS_POR_LIDER = gql`
+    query ConsultaProyectosPorLider($lider: String!) {
+        ProyectosPorLider(lider: $lider) {
+            _id
+            nombre
+            objetivoGeneral
+            objetivoEspecifico1
+            objetivoEspecifico2
+            presupuesto
+            fechaInicio
+            fechaFin
+            lider {
+                identificacion
+                nombre
+            }
+            estado
+            fase
+        }
+    }
+`;
+
+export { GET_PROYECTOS, GET_PROYECTO, GET_PROYECTOS_POR_LIDER };
