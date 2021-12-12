@@ -5,15 +5,15 @@ const tiposProyecto = gql`
 type Proyecto {
         _id: ID!
         nombre: String!
-        presupuesto: Float!
-        fechaInicio: Date!
-        fechaFin: Date!
-        estado: Enum_EstadoProyecto!
-        fase: Enum_FaseProyecto!
-        lider: Usuario!
         objetivoGeneral: String!
         objetivoEspecifico1: String!
         objetivoEspecifico2: String!
+        presupuesto: Float!
+        fechaInicio: Date!
+        fechaFin: Date!
+        lider: Usuario!
+        estado: Enum_EstadoProyecto!
+        fase: Enum_FaseProyecto!
         avances: [Avance] 
         inscripciones: [Inscripcion] 
     }
@@ -35,26 +35,27 @@ type Proyecto {
         
         crearProyecto(
             nombre: String!
-            presupuesto: Float!
-            fechaInicio: Date!
-            fechaFin: Date!
-            estado: Enum_EstadoProyecto
-            fase: Enum_FaseProyecto
-            lider: String!
             objetivoGeneral: String!
             objetivoEspecifico1: String!
             objetivoEspecifico2: String!
+            presupuesto: Float!
+            fechaInicio: Date!
+            fechaFin: Date!
+            lider: String!
+            estado: Enum_EstadoProyecto
+            fase: Enum_FaseProyecto
         ): Proyecto
         
         editarProyecto(
             _id: String
             nombre: String
-            presupuesto: Float
-            estado: Enum_EstadoProyecto
-            fase: Enum_FaseProyecto
             objetivoGeneral: String
             objetivoEspecifico1: String
             objetivoEspecifico2: String
+            presupuesto: Float
+            estado: Enum_EstadoProyecto
+            fase: Enum_FaseProyecto
+            
         ): Proyecto
     }
 `;

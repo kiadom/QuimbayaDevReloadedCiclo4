@@ -32,15 +32,15 @@ const resolversProyecto = {
         crearProyecto: async (parent, args) => {
             const proyectoCreado = await ModeloProyecto.create({
                 nombre: args.nombre,
-                presupuesto: args.presupuesto,
-                fechaInicio: args.fechaInicio,
-                fechaFin: args.fechaFin,
-                estado: args.estado,
-                fase: args.fase,
-                lider: args.lider,
                 objetivoGeneral: args.objetivoGeneral,
                 objetivoEspecifico1: args.objetivoEspecifico1,
                 objetivoEspecifico2: args.objetivoEspecifico2,
+                presupuesto: args.presupuesto,
+                fechaInicio: args.fechaInicio,
+                fechaFin: args.fechaFin,
+                lider: args.lider,
+                estado: args.estado,
+                fase: args.fase,
             });
             return proyectoCreado;
         },
@@ -48,12 +48,12 @@ const resolversProyecto = {
         editarProyecto: async (parent, args) => {
             const proyectoEditado = await ModeloProyecto.findByIdAndUpdate(args._id, {
                 nombre: args.nombre,
-                presupuesto: args.presupuesto,
-                estado: args.estado,
-                fase: args.fase,
                 objetivoGeneral: args.objetivoGeneral,
                 objetivoEspecifico1: args.objetivoEspecifico1,
                 objetivoEspecifico2: args.objetivoEspecifico2,
+                presupuesto: args.presupuesto,
+                estado: args.estado,
+                fase: args.fase,
             }, { new: true });
             return proyectoEditado;
         },

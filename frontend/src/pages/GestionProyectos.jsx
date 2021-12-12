@@ -202,7 +202,7 @@ const FormularioRegistroProyectos = ()=> {
                     </tr>
                     <tr>
                         <td>
-                            <p>Objetivo Especifico 1</p>
+                            <p>Objetivo Especifico (1)</p>
                         </td>
                         <td>
                             <input 
@@ -215,7 +215,7 @@ const FormularioRegistroProyectos = ()=> {
                     </tr>
                     <tr>
                         <td>
-                            <p>Objetivo Especifico 2</p>
+                            <p>Objetivo Especifico (2)</p>
                         </td>
                         <td>
                             <input 
