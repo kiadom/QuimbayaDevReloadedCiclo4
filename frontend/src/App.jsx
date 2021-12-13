@@ -17,6 +17,7 @@ import { AuthContext } from "./context/authContext";
 import { UserContext } from './context/userContext';
 
 import { IndexAvances } from "./pages/Avances/IndexAvances";
+import { IndexAvancesLider } from "./pages/Avances/IndexAvancesLider";
 import { AvancesPorProyecto } from "./pages/Avances/AvancesPorProyecto";
 import { DetalleAvances } from "./pages/Avances/DetalleAvances";
 import EntradaAvances from "./pages/Avances/EntradaAvances";
@@ -87,6 +88,7 @@ function App() {
                 <Route path="/GestionInscripciones" element={<GestionInscripciones />} />
                 <Route path="/Avances/EntradaAvances/" element={<EntradaAvances />} />
                 <Route path="/Avances/IndexAvances/:estudianteInscrito" element={<IndexAvances />} />
+                <Route path="/Avances/IndexAvancesLider/:lider" element={<IndexAvancesLider />} />
                 <Route path="/Avances/AvancesPorProyecto/:proyecto" element={<AvancesPorProyecto />} />
                 <Route path="/Avances/DetalleAvances/:_id" element={<DetalleAvances />} />
               </Route>

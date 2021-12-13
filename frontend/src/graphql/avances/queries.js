@@ -33,6 +33,15 @@ query InscripcionPorEstudiante($estudianteInscrito: String!) {
 }
 `;
 
+const GET_PROYECTOSPORLIDER = gql`
+query ProyectosPorLider($lider: String!) {
+  ProyectosPorLider(lider: $lider) {
+    _id
+    nombre
+  }
+}
+`;
+
 
 const GET_AVANCESPORPROYECTO = gql`
 query AvancesPorProyecto($proyecto: String!) {
@@ -71,4 +80,4 @@ const GET_PROYECTOSMODAVANCE = gql`
 
 
 
-export { GET_AVANCES2, GET_PROYECTOSMODAVANCE, GET_AVANCESPORPROYECTO, GET_INSCRIPCIONESDELESTUDIANTE };
+export { GET_AVANCES2, GET_PROYECTOSMODAVANCE, GET_AVANCESPORPROYECTO, GET_INSCRIPCIONESDELESTUDIANTE, GET_PROYECTOSPORLIDER };

@@ -67,6 +67,14 @@ const EntradaAvances = () => {
                         </Link> 
                         </button>
                     </td>
+                    <td>
+                        <button>
+                        <Link to = {`/avances/IndexAvancesLider/${userData._id }` }>
+                            {/*<FontAwesomeIcon icon={faPencilAlt}/>*/}
+                            Ver Proyectos que Lidero
+                        </Link> 
+                        </button>
+                    </td>
                 </tr>
             </table>
         </div>
