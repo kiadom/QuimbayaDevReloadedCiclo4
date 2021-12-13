@@ -9,10 +9,10 @@ export const HeaderInicio = () => {
                 <img src= {logoheader} />
             </div>
             <div className='botonHeaderInicio'>
-                <p>Registro</p>
-                <p>Ingreso</p>
-                <p>Usuario</p>
-                <p><Logout/></p>
+                <button>Registro</button>
+                <button>Ingreso</button>
+                <button>Usuario</button>
+                <button><Logout/></button>
               </div>
             
         </div>

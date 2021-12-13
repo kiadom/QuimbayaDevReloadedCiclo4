@@ -67,13 +67,18 @@ header {
   display: flex;
 }
 
-.botonHeaderInicio p{ 
+.botonHeaderInicio button{ 
   display: flex;
   text-align: center;
-  margin: 11px;
-  padding: 5px;
-  
-  
+  margin-top: 20px;
+  margin-inline: 7px;
+  padding: 5px;  
+  background-color: var(--dark-bg);
+  border-radius: 5px;
+  border: none;
+  overflow: hidden;
+  transition: all 500ms ease;
+
 }
 
 .botonHeader p{
@@ -83,7 +88,6 @@ header {
   border-radius: 1px;
   font-size: 10px;
   padding: 0px 7px 70px 7px;
-  /* margin: 7px; */
   background-color: var(--light-bg);
 
 }
