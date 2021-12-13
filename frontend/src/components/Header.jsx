@@ -14,7 +14,7 @@ function Header  () {
         <div className="wrapper">
             <header className="principal"> 
               <div className="iconCompany">
-                <img src= {logoheader} alt="logo-header" height="70px"/>
+                <img src= {logoheader} />
               </div>
               <div className='botonHeader'>
                 <p>Registro</p>
@@ -22,9 +22,6 @@ function Header  () {
                 <p>Usuario</p>
                 <p><Logout/></p>
               </div>
-                
-
-            {/* </div> */}
             </header>
         </div>
     );
