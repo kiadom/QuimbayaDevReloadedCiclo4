@@ -219,6 +219,16 @@ tbody tr td{
 
 /*estilos del loguin*/
 
+.contenedorfoto{
+  font-family: 'Roboto', sans-serif;
+  background-image: url('../media/ImagenPrincipal.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--light-bg);
+  height: 100vh;
+  overflow: auto;
+}
+
 .login{
   padding: 11px;
   width:max-content;
@@ -228,7 +238,7 @@ tbody tr td{
   align-items: center;
   background-color:var(--grey-bg);
   position: fixed;
-  top: 20%;
+  top: 17%;
   right: 23%;
   border-radius: 11px;
   
@@ -258,7 +268,17 @@ tbody tr td{
   border-radius: .3em;
   box-sizing: border-box;
   background-color: var(--light-bg);
+}
 
+.logueo button {
+  background-color: var(--light-bg);
+  font-size: 10px;
+  margin-block: 8px;
+  padding: 3px;
+  border-radius: .3em;
+  color: var(--blue-bg);
+  cursor: pointer;
+  text-transform: uppercase;
 }
 
 .botonlogin{
@@ -272,24 +292,16 @@ tbody tr td{
   cursor: pointer;
 }
 
-.contenedorfoto{
-  font-family: 'Roboto', sans-serif;
-  background-image: url('../media/ImagenPrincipal.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: var(--light-bg);
-  height: 100vh;
-  overflow: auto;
-}
 
 .abrircuenta{
-  font-size: 11px;
-  text-align: center;
-  padding-block: 50px;
+  font-size: 12px;
+  padding-block: 5px;
   color: var(--light-bg);
   
 }
 
-.registrologin link{
-  font-size: 8px;
+.registroLogin span{
+  font-size: 15px;
+  color: var(--dark-bg);
+  
 }

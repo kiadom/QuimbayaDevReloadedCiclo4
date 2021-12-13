@@ -40,15 +40,17 @@ const Login = () => {
                 <img src={logo} alt="logo" />
             </div>
             <form className='logueo' onSubmit={submitForm} onChange={updateFormData} ref={form}>
-                <p><Input className='correo' type='email' label='Correo' placeholder='Correo' required={true} /></p>
+                <p><Input Name='correo' type='email' label='Correo' placeholder='Correo' required={true} /></p>
                 <p><Input name='contrasena' type='password' label='Contraseña' required={true} /></p>
-                <ButtonLoading
+                <ButtonLoading 
                     disabled={Object.keys(formData).length === 0}
                     loading={mutationLoading}
                     text='Iniciar Sesión'                    
                 />
             </form>
-            <span className='abrircuenta'>¿No tienes una cuenta?</span>
+            <div className='abrircuenta'>
+                <span>¿No tienes una cuenta?</span>
+            </div>
             <div className='registroLogin'>
                 <Link to='/auth/registro'>
                     <span>Regístrate</span>

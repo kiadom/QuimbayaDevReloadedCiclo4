@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
-
 import { useMutation, useQuery } from '@apollo/client';
 import { toast } from 'react-toastify';
 import { useUser } from '../context/userContext';
@@ -8,7 +7,6 @@ import { Enum_EstadoProyecto, Enum_FaseProyecto } from '../utils/enums';
 import useFormData from "../hooks/useFormData";
 import  ButtonLoading from '../components/ButtonLoading';
 import PrivateComponent from '../components/PrivateComponent';
-
 import { GET_PROYECTOS, GET_PROYECTOS_POR_LIDER } from '../graphql/proyectos/queries';
 import { CREAR_PROYECTO } from "../graphql/proyectos/mutations";
 import { CREAR_INSCRIPCION } from '../graphql/inscripciones/mutations';
