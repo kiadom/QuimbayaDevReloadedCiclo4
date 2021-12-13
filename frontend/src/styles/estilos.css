@@ -74,11 +74,15 @@ header {
   margin-inline: 7px;
   padding: 5px;  
   background-color: var(--dark-bg);
-  border-radius: 5px;
+  /* border-radius: 5px; */
   border: none;
-  overflow: hidden;
   transition: all 500ms ease;
+  box-shadow: 0px 2px 2px var(--blue-bg) ;
 
+}
+
+a:hover {
+  background-color: rgb(0, 195, 255);
 }
 
 .botonHeader p{
@@ -131,12 +135,29 @@ header {
   text-decoration: none;
 }
 
-.wrapper .sidebar ul li{
+/* .wrapper .sidebar ul li{
   display: block;
   padding: 20px 35px;
   border-bottom: 1px solid var(--blue-bg);
   position: relative;
+} */
+
+.wrapper .sidebar ul li a{
+  display: block;
+  padding: 20px 35px;
+  border-bottom: 1px solid var(--light-bg);
+  color: var(--grey-bg);
+  font-size: 16px;
+  
 }
+
+.wrapper .sidebar ul li a:hover,
+.wrapper .sidebar ul li a.active{
+    color: var(--blue-bg);
+    background: var(--dark-bg);
+    border-right: 2px solid var(--light-bg);
+}
+
 
 /* estilos del body */
 
@@ -162,7 +183,7 @@ header {
 .body-text .rp_titulo{
   text-align: left;
   background-color: var(--grey-bg);
-  color:var(--light-bg);  
+  color:var(--dark-bg);  
   font-weight: bold;   
   padding-block: 11px;
   padding-inline-start: 19px;
@@ -181,12 +202,16 @@ header {
   cursor: pointer;
 }
 
+.boton_1:hover {
+  background-color: var(--dark-bg);
+}
+
 .rp_subtitulo{
   padding-block:11px ;
   padding-inline-start: 19px;
   background-color: var(--grey-bg);
   margin-top: 5px;
-  color:var(--light-bg);
+  color:var(--dark-bg);
   text-align:left;
   font-weight: bold;
   font-size: 17px;
