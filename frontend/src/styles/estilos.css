@@ -32,6 +32,21 @@ header {
   padding: 20px 0px 30px 40px;  
 }
 
+.header-inicio {
+  height: max-content; /* toma el tamaño de su contenido a lo largo */
+  margin: auto;/* mantiene el div centrado con respecto a su padre*/
+  display: block ;
+  background-color:var(--grey-bg);
+  color: var(--blue-bg);  
+  padding: 20px;   
+}
+
+.iconCompanyInicio img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .iconCompany img{
   display: flex;
   height: max-content;
@@ -44,6 +59,20 @@ header {
   position: absolute;
   right: 80px;
   top: 73px; 
+  
+}
+
+.botonHeaderInicio{
+  justify-content: center;
+  display: flex;
+}
+
+.botonHeaderInicio p{ 
+  display: flex;
+  text-align: center;
+  margin: 11px;
+  padding: 5px;
+  
   
 }
 

@@ -1,26 +1,22 @@
-import React, { useState }from 'react';
 import logoheader from '../media/logoheader.png';
-import { useAuth } from '../context/authContext';
 import { NavLink } from 'react-router-dom';
+import { useAuth } from '../context/authContext';
 
-
-
-function Header  () {
+export const HeaderInicio = () => {
     return (
-        <div className="wrapper">
-            <header className="principal"> 
-              <div className="iconCompany">
+        <div className='header-inicio'>
+            <div className="iconCompanyInicio">
                 <img src= {logoheader} />
-              </div>
-              <div className='botonHeader'>
+            </div>
+            <div className='botonHeaderInicio'>
                 <p>Registro</p>
                 <p>Ingreso</p>
                 <p>Usuario</p>
                 <p><Logout/></p>
               </div>
-            </header>
+            
         </div>
-    );
+    )
 };
 
 const Logout = () => {
@@ -38,8 +34,5 @@ const Logout = () => {
           </div>
         </NavLink>
       </li>
-    );
-  };
-
-
-export {Header} ;
+       );
+    };
