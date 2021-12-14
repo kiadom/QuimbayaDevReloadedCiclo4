@@ -1,6 +1,7 @@
-import React, { useState }from 'react';
+import React from 'react';
 import logoheader from '../media/logoheader.png';
 import { useAuth } from '../context/authContext';
+import { useUser } from '../context/userContext';
 import { NavLink } from 'react-router-dom';
 
 
@@ -33,7 +34,12 @@ function Header  () {
               
             </header>
         </div>
-    );
+        <div className='botonHeader'>
+          <p><Logout /></p>
+        </div>
+      </header>
+    </div>
+  );
 };
 
 const Logout = () => {
@@ -55,6 +61,17 @@ const Logout = () => {
     
     );
   };
+  return (
+    <li onClick={() => deleteToken()}>
+      <NavLink to='/auth/login'>
+        <div >
+          <i />
+          <span >Cerrar Sesión</span>
+        </div>
+      </NavLink>
+    </li>
+  );
+};
 
 
-export {Header} ;
+export { Header };
