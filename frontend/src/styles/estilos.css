@@ -151,6 +151,15 @@ a:hover {
   
 }
 
+.botonHeaderInicio li a{
+  display: flex;
+  padding: 2px;
+  border-radius: 5px;
+  color: var(--dark-bg);
+  font-size: 14px;
+  
+}
+
 .wrapper .sidebar ul li a:hover,
 .wrapper .sidebar ul li a.active{
     color: var(--blue-bg);

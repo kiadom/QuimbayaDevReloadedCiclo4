@@ -13,9 +13,9 @@ function Header  () {
                 <img src= {logoheader} />
               </div>
               <div className='botonHeader'>
-                <p>Registro</p>
-                <p>Ingreso</p>
-                <p>Usuario</p>
+                <bottom>Registro</bottom>
+                <bottom>Ingreso</bottom>
+                <bottom>Usuario</bottom>
                 <p><Logout/></p>
               </div>
             </header>
@@ -38,6 +38,8 @@ const Logout = () => {
           </div>
         </NavLink>
       </li>
+      
+    
     );
   };
 
