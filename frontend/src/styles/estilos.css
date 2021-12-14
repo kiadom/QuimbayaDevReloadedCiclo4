@@ -38,7 +38,8 @@ header {
   display: block ;
   background-color:var(--grey-bg);
   color: var(--blue-bg);  
-  padding: 20px;   
+  padding: 20px;  
+  padding-bottom: 0px; 
 }
 
 .iconCompanyInicio img {
@@ -131,16 +132,29 @@ a:hover {
   justify-content: flex-start;  
 }
 
-.decortexto{
-  text-decoration: none;
-}
-
 /* .wrapper .sidebar ul li{
   display: block;
   padding: 20px 35px;
   border-bottom: 1px solid var(--blue-bg);
   position: relative;
-} */
+ */
+
+.botonHeaderInicio li a{
+  display: flex;
+  margin-top: 11px;
+  padding: 11px 11px 50px 11px;
+ 
+  color: var(--light-bg);
+  font-size: 14px;
+  
+}
+
+.botonHeaderInicio li a:hover,
+.botonHeaderInicio li a.active{
+    color: var(--black-bg);
+    background: var(--dark-bg);
+    border-right: 2px solid var(--blue-bg);
+}
 
 .wrapper .sidebar ul li a{
   display: block;
@@ -148,15 +162,6 @@ a:hover {
   border-bottom: 1px solid var(--light-bg);
   color: var(--grey-bg);
   font-size: 16px;
-  
-}
-
-.botonHeaderInicio li a{
-  display: flex;
-  padding: 2px;
-  border-radius: 5px;
-  color: var(--dark-bg);
-  font-size: 14px;
   
 }
 

@@ -16,12 +16,12 @@ export const HeaderInicio = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/Registro'>
+                  <NavLink to='/Loguin'>
                     <span>Ingreso</span>
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/Registro'>
+                  <NavLink to='/EstadoUsuarios'>
                     <span>Usuario</span>
                   </NavLink>
                 </li>              
