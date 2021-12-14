@@ -35,7 +35,7 @@ function Sidebar(){
                     <h4 className='tituloEncabezado'>Sistema de Información y Soporte a la Gestión de Proyectos de Investigación</h4>
                     <ul>
                         <li>
-                        <NavLink to ='/' activeClassName='decortexto'>
+                        <NavLink to ='/'>
                             <FontAwesomeIcon icon={faHome} size='1x' color='#092133'/>
                             <span className=''></span> Inicio
                         </NavLink>

@@ -14,12 +14,8 @@ function Header() {
           <img src={logoheader} alt="logo-header" height="70px" />
         </div>
         <div className='botonHeader'>
-
-          <p>Hola <NombreUsuario/> <Logout /></p>
+          <p><Logout /></p>
         </div>
-
-
-        {/* </div> */}
       </header>
     </div>
   );
@@ -43,9 +39,5 @@ const Logout = () => {
   );
 };
 
-const NombreUsuario = () => {
-  const { userData } = useUser();
-  return (userData.nombre)
-};
 
 export { Header };

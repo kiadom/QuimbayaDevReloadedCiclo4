@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-
+import { InicioLayout } from "./layouts/InicioLayout";
 import PrivateLayout from './layouts/PrivateLayout'
 import { AuthLayout } from './layouts/AuthLayout';
+import { Inicio } from "./pages/Inicio";
 import { GestionInscripciones } from './pages/GestionInscripciones';
 import { GestionProyectos } from './pages/GestionProyectos';
 import { GestionProyectosEditar } from './pages/GestionProyectosEditar';
@@ -92,6 +93,10 @@ function App() {
               </Route>
               <Route path='/auth' element={<AuthLayout />}>
                 <Route path="Registro" element={<Registro />} />
+                <Route path="Login" element={<Login />} />
+              </Route>
+              <Route path='/Inicio' element={<InicioLayout />}>
+                <Route path="/Inicio" element={<Inicio />} />
                 <Route path="Login" element={<Login />} />
               </Route>
             </Routes>

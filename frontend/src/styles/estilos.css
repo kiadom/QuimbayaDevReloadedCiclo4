@@ -32,6 +32,21 @@ header {
   padding: 20px 0px 30px 40px;  
 }
 
+.header-inicio {
+  height: max-content; /* toma el tamaño de su contenido a lo largo */
+  margin: auto;/* mantiene el div centrado con respecto a su padre*/
+  display: block ;
+  background-color:var(--grey-bg);
+  color: var(--blue-bg);  
+  padding: 20px;   
+}
+
+.iconCompanyInicio img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .iconCompany img{
   display: flex;
   height: max-content;
@@ -47,6 +62,29 @@ header {
   
 }
 
+.botonHeaderInicio{
+  justify-content: center;
+  display: flex;
+}
+
+.botonHeaderInicio button{ 
+  display: flex;
+  text-align: center;
+  margin-top: 20px;
+  margin-inline: 7px;
+  padding: 5px;  
+  background-color: var(--dark-bg);
+  /* border-radius: 5px; */
+  border: none;
+  transition: all 500ms ease;
+  box-shadow: 0px 2px 2px var(--blue-bg) ;
+
+}
+
+a:hover {
+  background-color: rgb(0, 195, 255);
+}
+
 .botonHeader p{
   display: flex;
   margin: auto;
@@ -54,7 +92,6 @@ header {
   border-radius: 1px;
   font-size: 10px;
   padding: 0px 7px 70px 7px;
-  /* margin: 7px; */
   background-color: var(--light-bg);
 
 }
@@ -98,12 +135,29 @@ header {
   text-decoration: none;
 }
 
-.wrapper .sidebar ul li{
+/* .wrapper .sidebar ul li{
   display: block;
   padding: 20px 35px;
   border-bottom: 1px solid var(--blue-bg);
   position: relative;
+} */
+
+.wrapper .sidebar ul li a{
+  display: block;
+  padding: 20px 35px;
+  border-bottom: 1px solid var(--light-bg);
+  color: var(--grey-bg);
+  font-size: 16px;
+  
 }
+
+.wrapper .sidebar ul li a:hover,
+.wrapper .sidebar ul li a.active{
+    color: var(--blue-bg);
+    background: var(--dark-bg);
+    border-right: 2px solid var(--light-bg);
+}
+
 
 /* estilos del body */
 
@@ -129,7 +183,7 @@ header {
 .body-text .rp_titulo{
   text-align: left;
   background-color: var(--grey-bg);
-  color:var(--light-bg);  
+  color:var(--dark-bg);  
   font-weight: bold;   
   padding-block: 11px;
   padding-inline-start: 19px;
@@ -148,12 +202,16 @@ header {
   cursor: pointer;
 }
 
+.boton_1:hover {
+  background-color: var(--dark-bg);
+}
+
 .rp_subtitulo{
   padding-block:11px ;
   padding-inline-start: 19px;
   background-color: var(--grey-bg);
   margin-top: 5px;
-  color:var(--light-bg);
+  color:var(--dark-bg);
   text-align:left;
   font-weight: bold;
   font-size: 17px;
@@ -219,6 +277,16 @@ tbody tr td{
 
 /*estilos del loguin*/
 
+.contenedorfoto{
+  font-family: 'Roboto', sans-serif;
+  background-image: url('../media/ImagenPrincipal.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--light-bg);
+  height: 100vh;
+  overflow: auto;
+}
+
 .login{
   padding: 11px;
   width:max-content;
@@ -228,7 +296,7 @@ tbody tr td{
   align-items: center;
   background-color:var(--grey-bg);
   position: fixed;
-  top: 20%;
+  top: 17%;
   right: 23%;
   border-radius: 11px;
   
@@ -258,7 +326,17 @@ tbody tr td{
   border-radius: .3em;
   box-sizing: border-box;
   background-color: var(--light-bg);
+}
 
+.logueo button {
+  background-color: var(--light-bg);
+  font-size: 10px;
+  margin-block: 8px;
+  padding: 3px;
+  border-radius: .3em;
+  color: var(--blue-bg);
+  cursor: pointer;
+  text-transform: uppercase;
 }
 
 .botonlogin{
@@ -272,23 +350,16 @@ tbody tr td{
   cursor: pointer;
 }
 
-.contenedorfoto{
-  font-family: 'Roboto', sans-serif;
-  background-image: url('../media/ImagenPrincipal.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: var(--light-bg);
-  height: 100vh;
-  overflow: auto;
-}
 
 .abrircuenta{
-  font-size: 11px;
-  text-align: center;
+  font-size: 12px;
+  padding-block: 5px;
   color: var(--light-bg);
   
 }
 
-.registrologin link{
-  font-size: 8px;
+.registroLogin span{
+  font-size: 15px;
+  color: var(--dark-bg);
+  
 }

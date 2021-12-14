@@ -91,7 +91,7 @@ const Inscripcion = ({ inscripcion, refetch }) => {
     }
   }, [error]);
 
-  useEffect(() => {
+   useEffect(() => {
     if (dataRechazar) {
       toast.success('Rechazado con exito');
       refetch();
@@ -103,6 +103,10 @@ const Inscripcion = ({ inscripcion, refetch }) => {
       toast.error('Error rechazando la inscripcion');
     }
   }, [errorRechazar]);
+
+  if(loading) return <div>Cargando...</div>
+  if(loadingRechazar) return <div>Cargando...</div>
+  
 
   const AInscripcion = () => {
     aprobarInscripcion({
@@ -162,9 +166,7 @@ const Inscripcion = ({ inscripcion, refetch }) => {
                                     
                                     {inscripcion.estadoInscripcion === 'PENDIENTE' && (
                                         <ButtonLoading
-                                        onClick={() => {
-                                            RInscripcion();
-                                        }}
+                                        onClick={() => RInscripcion()}
                                         text='Rechazar Inscripcion'
                                         loading={loading}
                                         disabled={userData.rol === 'ADMINISTRADOR'}
