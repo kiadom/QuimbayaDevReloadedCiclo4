@@ -52,7 +52,7 @@ const Registro = () => {
         />
       </form>
       <span className='abrircuenta'>¿Ya tienes una cuenta?</span>
-      <div>
+      <div className='registroLogin'>
         <Link to='/auth/login'>
           <span>Inicia sesión</span>
         </Link>
