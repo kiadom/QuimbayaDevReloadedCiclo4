@@ -11,13 +11,26 @@ function Header  () {
             <header className="principal"> 
               <div className="iconCompany">
                 <img src= {logoheader} />
-              </div>
-              <div className='botonHeader'>
-                <bottom>Registro</bottom>
-                <bottom>Ingreso</bottom>
-                <bottom>Usuario</bottom>
-                <p><Logout/></p>
-              </div>
+              </div>              
+              <ul className='botonHeader'>
+                <li>
+                  <NavLink to='/Registro'>
+                    <span>Registro</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to='/Loguin'>
+                    <span>Ingreso</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to='/EstadoUsuarios'>
+                    <span>Usuario</span>
+                  </NavLink>
+                </li>              
+                <li><Logout/></li> 
+              </ul>
+              
             </header>
         </div>
     );
