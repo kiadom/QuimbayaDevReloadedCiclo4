@@ -6,7 +6,8 @@ import { NavLink } from 'react-router-dom';
 
 
 
-function Header  () {
+
+function Header () {
     return (
         <div className="wrapper">
             <header className="principal"> 
@@ -30,17 +31,12 @@ function Header  () {
                   </NavLink>
                 </li>              
                 <li><Logout/></li> 
-              </ul>
-              
+              </ul>              
             </header>
-        </div>
-        <div className='botonHeader'>
-          <p><Logout /></p>
-        </div>
-      </header>
-    </div>
-  );
-};
+          </div>
+    )
+  };  
+
 
 const Logout = () => {
     const { setToken } = useAuth();
@@ -56,22 +52,8 @@ const Logout = () => {
             <span >Cerrar Sesión</span>
           </div>
         </NavLink>
-      </li>
-      
-    
+      </li>  
     );
   };
-  return (
-    <li onClick={() => deleteToken()}>
-      <NavLink to='/auth/login'>
-        <div >
-          <i />
-          <span >Cerrar Sesión</span>
-        </div>
-      </NavLink>
-    </li>
-  );
-};
 
-
-export { Header };
+  export {Header};
