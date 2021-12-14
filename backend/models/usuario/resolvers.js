@@ -1,5 +1,5 @@
 import { ModeloUsuario } from "./usuario.js"
-import bcrypt from 'bcryptjs';
+import bcrypt from 'bcrypt';
 
 const resolversUsuario = {
     Query: {

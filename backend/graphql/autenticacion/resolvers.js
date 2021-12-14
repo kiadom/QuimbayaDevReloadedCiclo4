@@ -1,5 +1,5 @@
 import { ModeloUsuario } from '../../models/usuario/usuario.js';
-import bcrypt from 'bcryptjs';
+import bcrypt from 'bcrypt';
 import { generarToken } from '../../util/tokenUtil.js';
 
 const resolversAutenticacion = {
