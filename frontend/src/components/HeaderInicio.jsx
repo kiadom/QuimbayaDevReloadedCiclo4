@@ -2,7 +2,7 @@ import logoheader from '../media/logoheader.png';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
 
-export const HeaderInicio = () => {
+const HeaderInicio = () => {
   
     return (
         <div className='header-inicio'>
@@ -53,3 +53,5 @@ const Logout = () => {
       </div>
        );
     };
+
+export {HeaderInicio};

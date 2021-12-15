@@ -4,6 +4,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAddressCard, faHome, faUsers, faProjectDiagram, faFileSignature, faClipboardCheck, faSignOutAlt, faBullseye} from "@fortawesome/free-solid-svg-icons";
 import { Link, NavLink } from 'react-router-dom';
+import { useAuth } from '../context/authContext';
 
 const Index = () => {
     return (        
@@ -11,7 +12,7 @@ const Index = () => {
             <div className="square">
                 <NavLink to='/GestionProyectos'>
                     <FontAwesomeIcon icon={faProjectDiagram} size='5x'/>            
-                    <p className='proyectos'>Proyectos</p>                            
+                    <p>Proyectos</p>                            
                 </NavLink>
             </div>
             <div className="square">
@@ -41,11 +42,34 @@ const Index = () => {
             <div className="square">
                 <NavLink to='/GestionInscripciones'>
                     <FontAwesomeIcon icon={faSignOutAlt} size='5x'/>
-                    <p>Objetivos</p>
+                    <p><Logout className='dark'/></p>
                 </NavLink>
             </div>
         </div>
     )
 };
+
+const Logout = () => {
+    const { setToken } = useAuth();
+    const deleteToken = () => {
+      console.log('eliminar token');
+      setToken(null);
+    };
+    return (
+      <div>
+        <ul>
+
+          <li onClick={() => deleteToken()}>
+            <NavLink to='/auth/login'>
+              <div class='salirIndex'>
+                <span >Cerrar Sesión</span>
+              </div>
+            </NavLink>
+          </li>
+            
+        </ul>
+      </div>
+       );
+    };
 
 export {Index};
