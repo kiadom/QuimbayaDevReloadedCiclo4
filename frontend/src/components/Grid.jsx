@@ -16,7 +16,7 @@ const Grid = () => {
                 </NavLink>
             </div>
             <div className="square">
-                <NavLink to='/EstadoUsuario'>
+                <NavLink to='/GestionUsuarios'>
                     <FontAwesomeIcon icon={faUsers} size='5x'/>            
                     <p>Usuarios</p>
                 </NavLink>                    
@@ -28,16 +28,16 @@ const Grid = () => {
                 </NavLink>
             </div>                
             <div className="square">
-                <NavLink to='/IndexAvances'>
+                <NavLink to='/Avances/EntradaAvances'>
                     <FontAwesomeIcon icon={faClipboardCheck} size='5x'/>
                     <p>Avances</p>
                 </NavLink>
             </div>
             <div className="square">
-                <NavLink to='https://github.com/kiadom/QuimbayaDevReloadedCiclo4/blob/release/README.md'>
+                <a href='https://github.com/kiadom/QuimbayaDevReloadedCiclo4/blob/release/README.md'>
                     <img src={logoindex}alt="" />
                     <p>NerdAlert</p>
-                </NavLink>
+                </a>
             </div>           
             <div className="square">
                 <NavLink to='/GestionInscripciones'>
