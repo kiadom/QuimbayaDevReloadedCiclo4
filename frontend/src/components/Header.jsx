@@ -16,7 +16,7 @@ function Header () {
               </div>              
               <ul className='botonHeader'>
                 <li>
-                  <NavLink to='/Registro'>
+                  <NavLink to='/auth/Registro'>
                     <span>Registro</span>
                   </NavLink>
                 </li>

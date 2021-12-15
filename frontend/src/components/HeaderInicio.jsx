@@ -9,7 +9,7 @@ export const HeaderInicio = () => {
             <div className="iconCompanyInicio">
                 <img src= {logoheader} />
             </div>
-            <ul className='botonHeaderInicio'>
+            {/* <ul className='botonHeaderInicio'>
                 <li>
                   <NavLink to='/Registro'>
                     <span>Registro</span>
@@ -26,7 +26,7 @@ export const HeaderInicio = () => {
                   </NavLink>
                 </li>              
                 <li><Logout/></li>                
-            </ul>            
+            </ul>             */}
         </div>
     )
 };

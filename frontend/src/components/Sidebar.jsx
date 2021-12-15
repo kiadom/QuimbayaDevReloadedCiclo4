@@ -30,7 +30,7 @@ function Sidebar(){
             <div className ="sidebar">
                 <div className ="EncabezadoModulo">
                     <div className='iconoEncabezado'>
-                    <FontAwesomeIcon className ="iconoEncabezado" icon={ faProjectDiagram } size="5x" color='#092133'/>
+                    <FontAwesomeIcon icon={ faProjectDiagram } size="5x" color='#092133'/>
                     </div>
                     <h4 className='tituloEncabezado'>Sistema de Información y <br/> Soporte a la Gestión <br /> de Proyectos de Investigación</h4>
                     <ul>
