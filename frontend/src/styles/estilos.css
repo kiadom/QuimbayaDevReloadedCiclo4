@@ -32,19 +32,8 @@ header {
   padding: 20px 0px 30px 40px;  
 }
 
-.header-inicio {
-  height: max-content; /* toma el tamaño de su contenido a lo largo */
-  margin: auto;/* mantiene el div centrado con respecto a su padre*/
-  display: block ;
-  background-color:var(--grey-bg);
-  color: var(--blue-bg);  
-  padding: 20px;   
-}
-
-.iconCompanyInicio img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.iconCompany{
+  width: 60%;
 }
 
 .iconCompany img{
@@ -53,13 +42,42 @@ header {
   margin-left: 14px;
 }
 
-.botonHeader{
-  align-items: flex-end;
+.botonHeader{  
   display: flex;
-  position: absolute;
-  right: 80px;
-  top: 73px; 
   
+}
+
+.botonHeader li a{
+  display: flex;
+  margin-top: 11px;
+  padding: 11px 11px 50px 11px; 
+  color: var(--light-bg);
+  font-size: 14px;
+  
+}
+
+.botonHeader li a:hover,
+.botonHeader li a.active{
+    color: var(--blue-bg);
+    background: var(--dark-bg);
+    border-right: 2px solid var(--blue-bg);
+}
+
+.header-inicio {
+  height: max-content; /* toma el tamaño de su contenido a lo largo */
+  margin: auto;/* mantiene el div centrado con respecto a su padre*/
+  display: block ;
+  background-color:var(--grey-bg);
+  color: var(--blue-bg);  
+  /* padding: 20px;  */
+  
+}
+
+.iconCompanyInicio img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-block: 30px;
 }
 
 .botonHeaderInicio{
@@ -67,34 +85,27 @@ header {
   display: flex;
 }
 
-.botonHeaderInicio button{ 
+.botonHeaderInicio li a{
   display: flex;
-  text-align: center;
-  margin-top: 20px;
-  margin-inline: 7px;
-  padding: 5px;  
-  background-color: var(--dark-bg);
-  /* border-radius: 5px; */
-  border: none;
-  transition: all 500ms ease;
-  box-shadow: 0px 2px 2px var(--blue-bg) ;
-
+  margin-top: 11px;
+  padding: 11px 11px 50px 11px; 
+  color: var(--light-bg);
+  font-size: 14px;
+  
 }
 
-a:hover {
-  background-color: rgb(0, 195, 255);
+.botonHeaderInicio li a:hover,
+.botonHeaderInicio li a.active{
+    color: var(--black-bg);
+    background: var(--dark-bg);
+    border-right: 2px solid var(--blue-bg);
 }
 
-.botonHeader p{
-  display: flex;
-  margin: auto;
-  border-left: 1px solid var(--blue-bg);
-  border-radius: 1px;
-  font-size: 10px;
-  padding: 0px 7px 70px 7px;
-  background-color: var(--light-bg);
 
-}
+
+
+
+
 
 /* ********************** */
 
@@ -124,23 +135,15 @@ a:hover {
   text-align: center;
   color: var(--blue-bg);
   padding-top: 20px ;
-  font-size: 17px;
+  font-size: 11px;
+  margin-bottom: 11px;
 }
 
 .EncabezadoModulo ul{ 
   justify-content: flex-start;  
 }
 
-.decortexto{
-  text-decoration: none;
-}
 
-/* .wrapper .sidebar ul li{
-  display: block;
-  padding: 20px 35px;
-  border-bottom: 1px solid var(--blue-bg);
-  position: relative;
-} */
 
 .wrapper .sidebar ul li a{
   display: block;
@@ -150,7 +153,6 @@ a:hover {
   font-size: 16px;
   
 }
-
 .wrapper .sidebar ul li a:hover,
 .wrapper .sidebar ul li a.active{
     color: var(--blue-bg);
@@ -287,6 +289,10 @@ tbody tr td{
   overflow: auto;
 }
 
+.login h1{
+  color: var(--light-bg);
+}
+
 .login{
   padding: 11px;
   width:max-content;
@@ -316,7 +322,6 @@ tbody tr td{
 }
 
 .input {
-  /* background-color: var(--dark-bg); */
   width: 100%;
   height: 30px;
   font-size: 11px;
@@ -360,8 +365,32 @@ tbody tr td{
 
 .registroLogin span{
   font-size: 15px;
+  color: var(--dark-bg);  
+}
+
+/* ********* -------*********/
+
+/*Estilos index-body*/
+
+.Body-index {  
+  margin: auto;
+  /* background-color: var(--grey-bg); */
+  width: 50%;
+  padding: 11px 11px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.square{  
+  padding: 24px;
+  margin: auto;
+  display: grid;
+}
+
+.square a{
   color: var(--dark-bg);
-  
+  text-align: center;
+  text-decoration-color: var(--ligth-bg);
 }
 
 .dropdown {
@@ -389,3 +418,16 @@ tbody tr td{
   color: var(--blue-bg);
   background-color: var(--dark-bg);
 }
+.square p{
+  font-weight: bold;
+  margin-top: 20px;
+  color: var(--light-bg);
+  text-align: center;
+}
+
+.salirIndex{
+  color: var(--light-bg);
+}
+
+
+

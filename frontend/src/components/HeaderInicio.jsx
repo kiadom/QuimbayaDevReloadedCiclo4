@@ -2,19 +2,31 @@ import logoheader from '../media/logoheader.png';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
 
-export const HeaderInicio = () => {
+const HeaderInicio = () => {
+  
     return (
         <div className='header-inicio'>
             <div className="iconCompanyInicio">
                 <img src= {logoheader} />
             </div>
-            <div className='botonHeaderInicio'>
-                <button>Registro</button>
-                <button>Ingreso</button>
-                <button>Usuario</button>
-                <button><Logout/></button>
-              </div>
-            
+            {/* <ul className='botonHeaderInicio'>
+                <li>
+                  <NavLink to='/Registro'>
+                    <span>Registro</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to='/Loguin'>
+                    <span>Ingreso</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to='/EstadoUsuarios'>
+                    <span>Usuario</span>
+                  </NavLink>
+                </li>              
+                <li><Logout/></li>                
+            </ul>             */}
         </div>
     )
 };
@@ -26,13 +38,20 @@ const Logout = () => {
       setToken(null);
     };
     return (
-      <li onClick={() => deleteToken()}>
-        <NavLink to='/auth/login'>
-          <div >
-            <i  />
-            <span >Cerrar Sesión</span>
-          </div>
-        </NavLink>
-      </li>
+      <div>
+        <ul>
+
+          <li onClick={() => deleteToken()}>
+            <NavLink to='/auth/login'>
+              <div class='bg red'>
+                <span >Cerrar Sesión</span>
+              </div>
+            </NavLink>
+          </li>
+            
+        </ul>
+      </div>
        );
     };
+
+export {HeaderInicio};

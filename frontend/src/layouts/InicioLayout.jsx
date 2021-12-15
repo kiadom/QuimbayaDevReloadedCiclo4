@@ -2,13 +2,14 @@ import React from 'react'
 import { Outlet } from 'react-router';
 import { Header } from '../components/Header';
 import { HeaderInicio } from '../components/HeaderInicio';
-
+import {Footer} from '../components/Footer'
 const InicioLayout = ({ children }) => {
     return (
-        <div className='miInicio'>
+        <div className='index'>
             <HeaderInicio />
             <Outlet />
-            <main>{ children }</main>            
+            <main>{ children }</main>
+            <Footer/>           
         </div>
     )
 };
