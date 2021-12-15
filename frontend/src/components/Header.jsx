@@ -1,8 +1,9 @@
 import React from 'react';
 import logoheader from '../media/logoheader.png';
 import { useAuth } from '../context/authContext';
-import { useUser } from '../context/userContext';
 import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCogs } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -14,7 +15,13 @@ function Header() {
           <img src={logoheader} alt="logo-header" height="70px" />
         </div>
         <div className='botonHeader'>
-          <p><Logout /></p>
+          <div class="dropdown">
+            <button> &nbsp;Bienvenido &nbsp;| &nbsp;<FontAwesomeIcon icon={faCogs} size='1x' color='#092133' />&nbsp;</button>
+            <div class="dropdown-content">
+              <a><NavLink to={`/usuario/EditarPerfil`}>Editar Perfil</NavLink></a>
+              <a><Logout /></a>
+            </div>
+          </div>
         </div>
       </header>
     </div>
@@ -30,14 +37,10 @@ const Logout = () => {
   return (
     <li onClick={() => deleteToken()}>
       <NavLink to='/auth/login'>
-        <div >
-          <i />
-          <span >Cerrar Sesión</span>
-        </div>
+        <span >Cerrar Sesión</span>
       </NavLink>
     </li>
   );
 };
-
 
 export { Header };

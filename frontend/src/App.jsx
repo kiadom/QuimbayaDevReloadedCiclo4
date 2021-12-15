@@ -21,6 +21,7 @@ import { IndexAvances } from "./pages/Avances/IndexAvances";
 import { AvancesPorProyecto } from "./pages/Avances/AvancesPorProyecto";
 import { DetalleAvances } from "./pages/Avances/DetalleAvances";
 import EntradaAvances from "./pages/Avances/EntradaAvances";
+import EditarPerfil from "./pages/usuario/EditarPerfil";
 
 //import { GestionAvances } from './pages/GestionAvances';
 
@@ -90,6 +91,7 @@ function App() {
                 <Route path="/Avances/IndexAvances/:estudianteInscrito" element={<IndexAvances />} />
                 <Route path="/Avances/AvancesPorProyecto/:proyecto" element={<AvancesPorProyecto />} />
                 <Route path="/Avances/DetalleAvances/:_id" element={<DetalleAvances />} />
+                <Route path="/usuario/EditarPerfil" element={<EditarPerfil/>}/>
               </Route>
               <Route path='/auth' element={<AuthLayout />}>
                 <Route path="Registro" element={<Registro />} />
