@@ -34,10 +34,10 @@ const Grid = () => {
                 </NavLink>
             </div>
             <div className="square">
-                <NavLink to='https://github.com/kiadom/QuimbayaDevReloadedCiclo4/blob/release/README.md'>
+                <a href='https://github.com/kiadom/QuimbayaDevReloadedCiclo4/blob/release/README.md'>
                     <img src={logoindex}alt="" />
                     <p>NerdAlert</p>
-                </NavLink>
+                </a>
             </div>           
             <div className="square">
                 <NavLink to='/GestionInscripciones'>
