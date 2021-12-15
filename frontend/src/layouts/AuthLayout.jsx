@@ -2,11 +2,11 @@ import React from 'react';
 
 import { Outlet } from 'react-router';
 
-function AuthLayout ({ children }) {
+function AuthLayout () {
   return (
     <div className='contenedorfoto'>        
           <Outlet />
-          <main>{ children }</main>
+          <main></main>
       </div>      
   )
 };

@@ -1,14 +1,16 @@
 import React from 'react'
-import { Outlet } from 'react-router';
+import { Outlet } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { HeaderInicio } from '../components/HeaderInicio';
 import {Footer} from '../components/Footer'
-const InicioLayout = ({ children }) => {
+import { Grid } from '../components/Grid';
+const InicioLayout = () => {
     return (
         <div className='index'>
             <HeaderInicio />
+            <Grid/>
             <Outlet />
-            <main>{ children }</main>
+            <main></main>
             <Footer/>           
         </div>
     )

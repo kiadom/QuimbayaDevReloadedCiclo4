@@ -38,13 +38,13 @@ const PrivateLayout = ({ children }) => {
   if (loadingMutation || loadingAuth) return <div>Loading...</div>;
 
   return (
-<div className = 'mainContainer'>
-            <Sidebar />
-            <Header />
-            <main>{ children }</main>
-            <Footer />
-            <Outlet />
-        </div>
+    <div className = 'mainContainer'>
+        <Header />
+        <Sidebar />
+        <Outlet />
+        <main></main>
+        <Footer />
+    </div>
   );
 };
 
