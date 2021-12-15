@@ -289,6 +289,10 @@ tbody tr td{
   overflow: auto;
 }
 
+.login h1{
+  color: var(--light-bg);
+}
+
 .login{
   padding: 11px;
   width:max-content;
