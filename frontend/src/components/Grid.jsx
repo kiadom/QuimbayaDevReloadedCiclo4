@@ -16,7 +16,7 @@ const Grid = () => {
                 </NavLink>
             </div>
             <div className="square">
-                <NavLink to='/EstadoUsuario'>
+                <NavLink to='/GestionUsuarios'>
                     <FontAwesomeIcon icon={faUsers} size='5x'/>            
                     <p>Usuarios</p>
                 </NavLink>                    
@@ -28,7 +28,7 @@ const Grid = () => {
                 </NavLink>
             </div>                
             <div className="square">
-                <NavLink to='/IndexAvances'>
+                <NavLink to='/Avances/EntradaAvances'>
                     <FontAwesomeIcon icon={faClipboardCheck} size='5x'/>
                     <p>Avances</p>
                 </NavLink>
