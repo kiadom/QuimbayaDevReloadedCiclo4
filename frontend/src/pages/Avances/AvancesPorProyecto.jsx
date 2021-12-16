@@ -119,59 +119,73 @@ const TablaAvances = ({ listaAvances }) => {
 const FormularioRegistroAvances = ()=> {
 
     const { form, formData, updateFormData } = useFormData();
-    const { userData } = useUser();
-    
-    const [CrearAvance, {
-        data: mutationData, 
-        loading: mutationLoading, 
-        error: mutationError
-    }] = useMutation(CREAR_AVANCE);
-    
-    
+    const [crearAvance] = useMutation(CREAR_AVANCE);
+    const { proyecto } = useParams();
+    const { data, loading } = useQuery(GET_AVANCESPORPROYECTO,{
+        variables:{ proyecto }
+    });
 
     const submitForm = (e) => {
         e.preventDefault();
-        CrearAvance({ 
+        crearAvance({ 
             variables: {...formData, 
                 } 
         });
     };
+
     return (
-        <div >
+        <div>
             <h1 className = "rp_subtitulo">Ingrese el Avance</h1>
             <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
             <br/>
                 <table>
-                   <tr>
+                    <tr>
+                        <td>
+                            <p>Proyecto: </p>
+                        </td>
+                        <td>
+                            <input 
+                                name = 'proyecto' 
+                                type = "text" 
+                                size = "50"
+                                required
+                            />
+                        </td>
+                    </tr>
+
+                    <tr>
                         <td>
                             <p>Titulo: </p>
                         </td>
                         <td>
                             <input 
-                            name = "titulo" 
-                            type = "text" 
-                            required/>
+                                name = 'titulo' 
+                                type = "text" 
+                                size = "50"
+                                required
+                            />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <p>Detalle de Avance: </p>
+                            <p>Detalle Avance: </p>
                         </td>
                         <td>
                             <input 
-                            name = "descripcion"
-                            type = "text" 
-                            required/>
+                                name = 'descripcion' 
+                                type = "text" 
+                                size = "50"
+                                required
+                            />
                         </td>
                     </tr>
                     
                     <tr>
                         <td>
-                        <td>
-                            <button className="boton_1">
-                                    Editar Avance
-                            </button>
-                        </td>
+                            <input className="boton_1"
+                                type = "submit" 
+                                value = "Registrar Nuevo Avance" 
+                            />
                         </td>
                     </tr>
                 </table>

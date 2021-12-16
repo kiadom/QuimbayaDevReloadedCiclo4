@@ -11,7 +11,7 @@ import { DetalleAvances } from "./DetalleAvances";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 
-function AvancesPorProyectoLider () {
+function AvancesPorProyectoCrear () {
 
     /* ESTADOS QUE PERMITEN CONTROLAR LA VISIBILIDAD DE LAS INTERFACES */
     const [textoBoton, setTextoBoton] = useState('Ver Avances Reportados' );
@@ -32,7 +32,7 @@ function AvancesPorProyectoLider () {
         /* SE DEFINE EL TEXTO DEL BOTON, INICIALMENTE SERÁ "Registrar Avance" Y MOSTRARÁ LA INTERFAZ DE TABLA*/
     useEffect(()=>{
         if (mostrarTabla) {
-            setTextoBoton('Ver Avances Reportados');
+            setTextoBoton('Registrar Avance');
         }
         else {
             setTextoBoton('Ver Avances Reportados');
@@ -50,7 +50,7 @@ function AvancesPorProyectoLider () {
                         }}
                         className="boton_1">{ textoBoton }
                     </button>
-            { mostrarTabla ? (<TablaAvances listaAvances = { data }/>) : (<TablaAvances listaAvances = { data } />)}
+            { mostrarTabla ? (<TablaAvances listaAvances = { data }/>) : (<FormularioRegistroAvances listaAvances = { data } />)}
             </div>
             </div>
         );
@@ -99,9 +99,9 @@ const TablaAvances = ({ listaAvances }) => {
                                     <td>{ p.observacionesLider }</td>
                                     <td>
                                         <button className="boton_1">
-                                        <Link to = {`/avances/DetalleAvancesLider/${p._id}` }>
+                                        <Link to = {`/avances/DetalleAvances/${p._id}` }>
                                            
-                                            Editar Observacion
+                                            Editar Avance
                                         </Link> 
                                         </button>
                                     </td>
@@ -119,59 +119,59 @@ const TablaAvances = ({ listaAvances }) => {
 const FormularioRegistroAvances = ()=> {
 
     const { form, formData, updateFormData } = useFormData();
-    const { userData } = useUser();
-    
-    const [CrearAvance, {
-        data: mutationData, 
-        loading: mutationLoading, 
-        error: mutationError
-    }] = useMutation(CREAR_AVANCE);
-    
-    
+    const [crearAvance] = useMutation(CREAR_AVANCE);
+    const { proyecto } = useParams();
+    const { data, loading } = useQuery(GET_AVANCESPORPROYECTO,{
+        variables:{ proyecto }
+    });
 
     const submitForm = (e) => {
         e.preventDefault();
-        CrearAvance({ 
+        crearProyecto({ 
             variables: {...formData, 
-                } 
+                proyecto: {proyecto}} 
         });
     };
+
     return (
-        <div >
+        <div>
             <h1 className = "rp_subtitulo">Ingrese el Avance</h1>
             <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
             <br/>
                 <table>
-                   <tr>
+                    <tr>
                         <td>
                             <p>Titulo: </p>
                         </td>
                         <td>
                             <input 
-                            name = "titulo" 
-                            type = "text" 
-                            required/>
+                                name = 'titulo' 
+                                type = "text" 
+                                size = "50"
+                                required
+                            />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <p>Detalle de Avance: </p>
+                            <p>Detalle Avance: </p>
                         </td>
                         <td>
                             <input 
-                            name = "descripcion"
-                            type = "text" 
-                            required/>
+                                name = 'descripcion' 
+                                type = "text" 
+                                size = "50"
+                                required
+                            />
                         </td>
                     </tr>
                     
                     <tr>
                         <td>
-                        <td>
-                            <button className="boton_1">
-                                    Editar Avance
-                            </button>
-                        </td>
+                            <input className="boton_1"
+                                type = "submit" 
+                                value = "Registrar Nuevo Avance" 
+                            />
                         </td>
                     </tr>
                 </table>
@@ -181,4 +181,4 @@ const FormularioRegistroAvances = ()=> {
 };
 
 
-export {AvancesPorProyectoLider} ;
+export {AvancesPorProyectoCrear} ;

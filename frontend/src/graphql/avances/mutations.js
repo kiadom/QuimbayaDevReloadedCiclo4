@@ -2,13 +2,13 @@ import { gql } from '@apollo/client';
 
 const CREAR_AVANCE = gql`
 mutation CrearAvance(
-    $titulo: String!, 
-    $descripcion: String!, 
+    $titulo: String! 
+    $descripcion: String!
     $proyecto: String!
 ) {
     crearAvance(
-        titulo: $titulo, 
-        descripcion: $descripcion, 
+        titulo: $titulo 
+        descripcion: $descripcion 
         proyecto: $proyecto
     ) {
         _id
@@ -26,7 +26,7 @@ const EDITAR_AVANCE = gql `
         $observacionesLider: String
         ) {
         editarAvance(
-          _id: $_id, 
+          _id: $_id 
           descripcion: $descripcion 
           observacionesLider: $observacionesLider
           ) {
