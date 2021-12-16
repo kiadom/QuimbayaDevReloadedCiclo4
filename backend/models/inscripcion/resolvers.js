@@ -28,7 +28,10 @@ const resolversInscripcion = {
         },
 
         InscripcionPorEstudiante: async (parent, args) => {
-            const inscripcionPorEstudiante = await ModeloInscripcion.find({estudianteInscrito:args.estudianteInscrito}).populate('proyecto');
+            const inscripcionPorEstudiante = await ModeloInscripcion.find({estudianteInscrito:args.estudianteInscrito})
+            .populate({path:'proyecto', populate: {
+                path:'avance'
+            }});
             return inscripcionPorEstudiante;
         },
 
