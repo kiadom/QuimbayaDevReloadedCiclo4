@@ -4,9 +4,8 @@ import { GET_PROYECTOSPORLIDER, GET_INSCRIPCIONESDELESTUDIANTE } from "../../gra
 import { useParams, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useUser } from '../../context/userContext';
-
-//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-//import { faUsersCog, faPencilAlt,faTrash,faCheck} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 
 const IndexAvances = () => {
 
@@ -49,8 +48,14 @@ const IndexAvances = () => {
 const TablaAvances = ({ listaAvances }) => {
     return (
         <div>
-            <h1 className = "rp_subtitulo">Modulo de Avances</h1>
-            <h1 className = "rp_subtitulo">Lista de Proyectos en los que se Encuentra Inscrito</h1>
+<h1 className='m-4 text-3xl text-gray-800 font-bold text-center'>Gestion de Avances</h1>
+            <h1 className = "rp_subtitulo">Proyectos En los que estoy Inscrito</h1>
+            <Link to='/Avances/EntradaAvances'>
+            <h1 className = "rp_subtitulo">
+                <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#FFFFFF' className='cursor-pointer'/>
+                <span>   Volver Menu Avances </span></h1>            
+            </Link>
+            <br />
                 <table className="table">
                 <thead>
                     <tr>

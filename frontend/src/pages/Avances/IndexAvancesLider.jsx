@@ -3,6 +3,9 @@ import { useQuery, useMutation } from '@apollo/client';
 import { GET_PROYECTOSPORLIDER, GET_INSCRIPCIONESDELESTUDIANTE } from "../../graphql/avances/queries";
 import { useParams, Link } from "react-router-dom";
 import { useUser } from '../../context/userContext';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
+
 
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { faUsersCog, faPencilAlt,faTrash,faCheck} from "@fortawesome/free-solid-svg-icons";
@@ -43,8 +46,14 @@ const IndexAvancesLider = () => {
 const TablaAvances = ({ listaAvances2 }) => {
     return (
         <div>
-            <h1 className = "rp_subtitulo">Modulo de Avances</h1>
+            <h1 className='m-4 text-3xl text-gray-800 font-bold text-center'>Gestion de Avances</h1>
             <h1 className = "rp_subtitulo">Lista de Proyectos Liderados</h1>
+            <Link to='/Avances/EntradaAvances'>
+            <h1 className = "rp_subtitulo">
+                <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#FFFFFF' className='cursor-pointer'/>
+                <span>   Volver Menu Avances </span></h1>            
+            </Link>
+            <br />
                 <table className="table">
                 <thead>
                     <tr>
@@ -63,7 +72,7 @@ const TablaAvances = ({ listaAvances2 }) => {
                                     <td>{ p.nombre }</td>
                                     
                                     <td>
-                                        <button>
+                                        <button className="boton_1">
                                         <Link to = {`/avances/AvancesPorProyecto/${p._id}` }>
                                             {/*<FontAwesomeIcon icon={faPencilAlt}/>*/}
                                             Ver Avances

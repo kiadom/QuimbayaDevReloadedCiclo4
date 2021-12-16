@@ -8,6 +8,8 @@ import  ButtonLoading from '../../components/ButtonLoading';
 import { GET_AVANCESPORPROYECTO, GET_AVANCES2 } from "../../graphql/avances/queries";
 import { CREAR_AVANCE } from "../../graphql/avances/mutations";
 import { DetalleAvances } from "./DetalleAvances";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 
 function AvancesPorProyecto () {
 
@@ -66,6 +68,11 @@ function AvancesPorProyecto () {
 const TablaAvances = ({ listaAvances }) => {
     return (
         <div className="rp_formulario">
+            <Link to='/Avances/EntradaAvances'>
+            <h1 className = "rp_subtitulo">
+                <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#FFFFFF' className='cursor-pointer'/>
+                <span>   Volver Menu Avances </span></h1>            
+            </Link>
             <h1>Lista de Avances del Proyecto</h1>
 
                 <table className="table">
