@@ -73,7 +73,7 @@ const TablaAvances = ({ listaAvances2 }) => {
                                     
                                     <td>
                                         <button className="boton_1">
-                                        <Link to = {`/avances/AvancesPorProyecto/${p._id}` }>
+                                        <Link to = {`/avances/AvancesPorProyectoLider/${p._id}` }>
                                             {/*<FontAwesomeIcon icon={faPencilAlt}/>*/}
                                             Ver Avances
                                         </Link> 

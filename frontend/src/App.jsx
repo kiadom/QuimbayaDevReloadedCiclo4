@@ -17,13 +17,15 @@ import jwt_decode from 'jwt-decode';
 import { AuthContext } from "./context/authContext";
 import { UserContext } from './context/userContext';
 
+import EntradaAvances from "./pages/Avances/EntradaAvances";
 import { IndexAvances } from "./pages/Avances/IndexAvances";
 import { IndexAvancesLider } from "./pages/Avances/IndexAvancesLider";
 import { AvancesPorProyecto } from "./pages/Avances/AvancesPorProyecto";
+import { AvancesPorProyectoLider } from "./pages/Avances/AvancesPorProyectoLider";
 import { DetalleAvances } from "./pages/Avances/DetalleAvances";
-import EntradaAvances from "./pages/Avances/EntradaAvances";
-import { AvancesFinal } from "./pages/Avances/AvancesFinal";
-import EdicionAvances from "./pages/Avances/EdicionAvances";
+import { DetalleAvancesLider } from "./pages/Avances/DetalleAvancesLider";
+//import { AvancesFinal } from "./pages/Avances/AvancesFinal";
+//import EdicionAvances from "./pages/Avances/EdicionAvances";
 
 
 //import { GestionAvances } from './pages/GestionAvances';
@@ -94,12 +96,14 @@ function App() {
                 <Route path="/GestionProyectos/Editar/:_id" element={<GestionProyectosEditar />} />
                 <Route path="/GestionInscripciones" element={<GestionInscripciones />} />
                 
-                <Route path="/AvancesFinal" element={<AvancesFinal />} />
+               
                 <Route path="/Avances/EntradaAvances/" element={<EntradaAvances />} />
                 <Route path="/Avances/IndexAvances/:estudianteInscrito" element={<IndexAvances />} />
                 <Route path="/Avances/IndexAvancesLider/:lider" element={<IndexAvancesLider />} />
                 <Route path="/Avances/AvancesPorProyecto/:proyecto" element={<AvancesPorProyecto />} />
+                <Route path="/Avances/AvancesPorProyectoLider/:proyecto" element={<AvancesPorProyectoLider />} />
                 <Route path="/Avances/DetalleAvances/:_id" element={<DetalleAvances />} />
+                <Route path="/Avances/DetalleAvancesLider/:_id" element={<DetalleAvancesLider />} />
               </Route>
               <Route path='/auth' element={<AuthLayout />}>
                 <Route path="Registro" element={<Registro />} />

@@ -82,7 +82,8 @@ function DetalleAvances () {
                 <br/>
                 <span>ID del Avance: {queryData.DetalleAvance._id}</span>
                 <br/>    
-                
+                <span>Observaciones del Lider: {queryData.DetalleAvance.observacionesLider}</span>
+                <br/>
                 <table>
                     <tr>
                         <td>
@@ -97,7 +98,7 @@ function DetalleAvances () {
                             />
                         </td>
                     </tr>
-
+                    {/*
                     <tr>
                         <td>
                             <p>Observaciones Lider: </p>
@@ -111,7 +112,7 @@ function DetalleAvances () {
                             />
                         </td>
                     </tr>
-
+                    */}
                     <tr>
                         <td>
                             <ButtonLoading
