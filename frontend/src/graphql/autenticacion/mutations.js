@@ -33,6 +33,7 @@ const LOGIN = gql`
 
 const EDITAR_PERFIL = gql`
   mutation EditarPerfilUsuario(
+    $id: String
     $nombre: String
     $apellido: String
     $identificacion: String
@@ -40,6 +41,7 @@ const EDITAR_PERFIL = gql`
     $contrasena: String
   ) {
     editarPerfilUsuario(
+      _id: $id
       nombre: $nombre
       apellido: $apellido
       identificacion: $identificacion

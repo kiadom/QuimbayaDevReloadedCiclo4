@@ -13,6 +13,8 @@ import GestionUsuarios from './pages/usuario/GestionUsuarios';
 import EstadoUsuarios from "./pages/usuario/EstadoUsuarios";
 import Registro from './pages/auth/Registro';
 import Login from './pages/auth/Login';
+import Perfil from "./pages/usuario/Perfil";
+import PerfilEditar from "./pages/usuario/PerfilEditar";
 import jwt_decode from 'jwt-decode';
 import { AuthContext } from "./context/authContext";
 import { UserContext } from './context/userContext';
@@ -21,7 +23,7 @@ import { IndexAvances } from "./pages/Avances/IndexAvances";
 import { AvancesPorProyecto } from "./pages/Avances/AvancesPorProyecto";
 import { DetalleAvances } from "./pages/Avances/DetalleAvances";
 import EntradaAvances from "./pages/Avances/EntradaAvances";
-import EditarPerfil from "./pages/usuario/EditarPerfil";
+
 
 
 //import { GestionAvances } from './pages/GestionAvances';
@@ -95,7 +97,8 @@ function App() {
                 <Route path="/Avances/IndexAvances/:estudianteInscrito" element={<IndexAvances />} />
                 <Route path="/Avances/AvancesPorProyecto/:proyecto" element={<AvancesPorProyecto />} />
                 <Route path="/Avances/DetalleAvances/:_id" element={<DetalleAvances />} />
-                <Route path="/usuario/EditarPerfil" element={<EditarPerfil/>}/>
+                <Route path="/usuario/Perfil" element={<Perfil/>}/>
+                <Route path="/usuario/Perfil/Editar/:_id" element={<PerfilEditar/>}/>
               </Route>
               <Route path='/auth' element={<AuthLayout />}>
                 <Route path="Registro" element={<Registro />} />
