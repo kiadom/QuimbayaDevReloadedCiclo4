@@ -7,6 +7,7 @@ import useFormData from "../../hooks/useFormData";
 import  ButtonLoading from '../../components/ButtonLoading';
 import { GET_AVANCESPORPROYECTO, GET_AVANCES2 } from "../../graphql/avances/queries";
 import { CREAR_AVANCE } from "../../graphql/avances/mutations";
+import { DetalleAvances } from "./DetalleAvances";
 
 function AvancesPorProyecto () {
 
@@ -71,29 +72,6 @@ const TablaAvances = ({ listaAvances }) => {
                     <thead>
                         <tr>
                             <th>Nombre Proyecto</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                        { listaAvances && 
-                        listaAvances.AvancesPorProyecto.map((p) => {
-                            return (
-                                <tr key = { p.proyecto }>
-                                    <td>{ p.proyecto.nombre }</td>
-                                </tr>
-                            )
-                        })}
-                    
-                    </tbody>
-                </table>
-
-
-
-
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th>Nombre Proyecto</th>
                             <th>ID Avance</th>
                             <th>Titulo Avance</th>
                             <th>Descripcion</th>
@@ -116,7 +94,7 @@ const TablaAvances = ({ listaAvances }) => {
                                         <button className="boton_1">
                                         <Link to = {`/avances/DetalleAvances/${p._id}` }>
                                            
-                                            Detalles Avance
+                                            Editar Avance
                                         </Link> 
                                         </button>
                                     </td>
@@ -142,50 +120,24 @@ const FormularioRegistroAvances = ()=> {
         e.preventDefault();
         CrearAvance({ 
             variables: {...formData, 
-                fecha: "2020/10/25",
                 } 
         });
     };
     return (
-        <div className="rp_formulario">
-                {/*
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th>ID Avance</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                        { listaAvances && 
-                        listaAvances.AvancesPorProyecto.map((p) => {
-                            return (
-                                <tr key = { p.proyecto }>
-                                    <td>{ p.proyecto._id }</td>
-                                 </tr>
-                            )
-                        })}
-                    
-                    </tbody>
-                </table>
-                    */}
-        <h1>Ingrese el Avance</h1>
+        <div >
+            <h1 className = "rp_subtitulo">Ingrese el Avance</h1>
             <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
+            <br/>
                 <table>
-                    <tr>
-                        <td>
-                            <p>Fecha: </p>
-                        </td>
-                        <td>
-                            <input type = "date" required/>
-                        </td>
-                    </tr>
-                    <tr>
+                   <tr>
                         <td>
                             <p>Titulo: </p>
                         </td>
                         <td>
-                            <input type = "text" required/>
+                            <input 
+                            name = "titulo" 
+                            type = "text" 
+                            required/>
                         </td>
                     </tr>
                     <tr>
@@ -193,26 +145,19 @@ const FormularioRegistroAvances = ()=> {
                             <p>Detalle de Avance: </p>
                         </td>
                         <td>
-                            <input type = "text" required/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Proyecto: </p>
-                        </td>
-                        <td>
                             <input 
-                                type = "text" required
-                               
-                            />
+                            name = "descripcion"
+                            type = "text" 
+                            required/>
                         </td>
                     </tr>
+                    
                     <tr>
                         <td>
                         <td>
                             <input className="boton_1"
                                 type = "submit" 
-                                value = "Registrar Nuevo Proyecto" 
+                                value = "Registrar Nuevo Avance" 
                             />
                         </td>
                         </td>

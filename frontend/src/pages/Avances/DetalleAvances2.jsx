@@ -129,7 +129,7 @@ function DetalleAvances () {
                         </td>
                         <td>
                             <input 
-                                name = 'descripcion' 
+                                name = "descripcion" 
                                 defaultValue = { queryData.DetalleAvance.descripcion } 
                                 type = "text" 
                                 size = "50"
@@ -143,7 +143,7 @@ function DetalleAvances () {
                         </td>
                         <td>
                             <input 
-                                name = 'observacionesLider' 
+                                name = "observacionesLider" 
                                 defaultValue ={ queryData.DetalleAvance.observacionesLider } 
                                 type = "text" 
                                 size = "50"
@@ -167,3 +167,4 @@ function DetalleAvances () {
 };
 
 export {DetalleAvances};
+
