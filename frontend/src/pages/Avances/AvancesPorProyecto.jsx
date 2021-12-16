@@ -119,8 +119,14 @@ const TablaAvances = ({ listaAvances }) => {
 const FormularioRegistroAvances = ()=> {
 
     const { form, formData, updateFormData } = useFormData();
-    const [CrearAvance] = useMutation(CREAR_AVANCE);
     const { userData } = useUser();
+    
+    const [CrearAvance, {
+        data: mutationData, 
+        loading: mutationLoading, 
+        error: mutationError
+    }] = useMutation(CREAR_AVANCE);
+    
     
 
     const submitForm = (e) => {
@@ -162,10 +168,9 @@ const FormularioRegistroAvances = ()=> {
                     <tr>
                         <td>
                         <td>
-                            <input className="boton_1"
-                                type = "submit" 
-                                value = "Registrar Nuevo Avance" 
-                            />
+                            <button className="boton_1">
+                                    Editar Avance
+                            </button>
                         </td>
                         </td>
                     </tr>
