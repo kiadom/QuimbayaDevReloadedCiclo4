@@ -5,7 +5,7 @@ import { Enum_Rol, Enum_EstadoUsuario } from '../../utils/enums';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faPen} from "@fortawesome/free-solid-svg-icons";
+import {faPen, faTrashAlt} from "@fortawesome/free-solid-svg-icons";
 
 const GestionUsuarios = () => {
     const { data, error, loading } = useQuery(GET_USUARIOS);
@@ -24,9 +24,9 @@ const GestionUsuarios = () => {
 
     return (
         <div className="body-text">
-            <h1>MODULO DE GESTION DE USUARIOS</h1>
+            <h1 className='rp_titulo'>MODULO DE GESTION DE USUARIOS</h1>
             <br/>
-            <table>
+            <table className='table'>
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -53,8 +53,9 @@ const GestionUsuarios = () => {
                                     <td>{Enum_EstadoUsuario[u.estado]}</td>
                                     <td>
                                         <Link to={`/GestionUsuarios/Editar/${u._id}`}>
-                                            <FontAwesomeIcon icon={ faPen } size="1x" color='#FFFFFF' className='cursor-pointer text-gray-600 hover:text-gray-900'/> 
+                                            <FontAwesomeIcon icon={ faPen } size="1x" color='#636363' className='cursor-pointer'/>
                                         </Link>
+                                        <FontAwesomeIcon icon={ faTrashAlt } size="1x" color='#636363' className='cursor-pointer'/>
                                     </td>
                                 </tr>
                             )

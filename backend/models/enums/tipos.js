@@ -25,12 +25,7 @@ enum  Enum_EstadoUsuario{
         TERMINADO
         NULA
     }
-
-    # enum Enum_TipoObjetivo{
-    #     GENERAL
-    #     ESPECIFICO
-    # }
-
+    
     enum Enum_EstadoInscripcion{
         ACEPTADA
         RECHAZADA

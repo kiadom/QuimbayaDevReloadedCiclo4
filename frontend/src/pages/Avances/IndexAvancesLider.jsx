@@ -43,7 +43,8 @@ const IndexAvancesLider = () => {
 const TablaAvances = ({ listaAvances2 }) => {
     return (
         <div>
-            <h1>Lista de Proyectos Liderados</h1>
+            <h1 className = "rp_subtitulo">Modulo de Avances</h1>
+            <h1 className = "rp_subtitulo">Lista de Proyectos Liderados</h1>
                 <table className="table">
                 <thead>
                     <tr>

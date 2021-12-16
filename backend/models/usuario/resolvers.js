@@ -1,10 +1,10 @@
 import { ModeloUsuario } from "./usuario.js"
-import bcrypt from 'bcryptjs';
+import bcrypt from 'bcrypt';
 
 const resolversUsuario = {
     Query: {
         Usuarios: async (parent, args) => {
-            const usuarios = await ModeloUsuario.find().populate('proyectos').populate('avances').populate('inscripciones');
+            const usuarios = await ModeloUsuario.find().populate('proyectos').populate('avance').populate('inscripciones');
             return usuarios;
         },
 

@@ -49,7 +49,8 @@ const IndexAvances = () => {
 const TablaAvances = ({ listaAvances }) => {
     return (
         <div>
-            <h1>Lista de Proyectos en los que se Encuentra Inscrito</h1>
+            <h1 className = "rp_subtitulo">Modulo de Avances</h1>
+            <h1 className = "rp_subtitulo">Lista de Proyectos en los que se Encuentra Inscrito</h1>
                 <table className="table">
                 <thead>
                     <tr>
@@ -66,7 +67,7 @@ const TablaAvances = ({ listaAvances }) => {
                                 <tr key = { p.$estudianteInscrito }>
                                     <td>{ p.proyecto._id }</td>
                                     <td>{ p.proyecto.nombre }</td>
-                                    <td>{ p.proyecto.objetivoGeneral }</td>
+                                  
                                     <td>
                                         <button className="boton_1">
                                         <Link to = {`/avances/AvancesPorProyecto/${p.proyecto._id}` }>

@@ -113,7 +113,7 @@ const TablaAvances = ({ listaAvances }) => {
                                     <td>{ p.descripcion }</td>
                                     <td>{ p.observacionesLider }</td>
                                     <td>
-                                        <button>
+                                        <button className="boton_1">
                                         <Link to = {`/avances/DetalleAvances/${p._id}` }>
                                            
                                             Detalles Avance

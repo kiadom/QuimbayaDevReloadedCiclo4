@@ -2,15 +2,13 @@ import React from 'react';
 
 import { Outlet } from 'react-router';
 
-function AuthLayout ({ children }) {
+function AuthLayout () {
   return (
-    <div className='contenedorfoto'>
-        
+    <div className='contenedorfoto'>        
           <Outlet />
-          <main>{ children }</main>
-      </div>
-      
-  );
+          <main></main>
+      </div>      
+  )
 };
 
 export { AuthLayout };

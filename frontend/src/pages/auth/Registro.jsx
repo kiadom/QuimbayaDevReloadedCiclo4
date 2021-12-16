@@ -12,31 +12,31 @@ import { Enum_Rol } from '../../utils/enums';
 import ButtonLoading from '../../components/ButtonLoading';
 
 const Registro = () => {
-    const { form, formData, updateFormData } = useFormData();
-    const { setToken } = useAuth();
-    const navigate = useNavigate();
+  const { form, formData, updateFormData } = useFormData();
+  const { setToken } = useAuth();
+  const navigate = useNavigate();
 
-    const [registro, { data: dataMutation, loading: loadingMutation, error: errorMutation }] =
-        useMutation(REGISTRO);
-    
-    const submitForm = (e) => {
-        e.preventDefault();
-        registro({ variables: formData });
-    };
+  const [registro, { data: dataMutation, loading: loadingMutation, error: errorMutation }] =
+    useMutation(REGISTRO);
 
-    useEffect(() => {
-      if (dataMutation) {
-        if (dataMutation.registro.token) {
-          setToken(dataMutation.registro.token);
-          navigate('/auth/login');
-        }
+  const submitForm = (e) => {
+    e.preventDefault();
+    registro({ variables: formData });
+  };
+
+  useEffect(() => {
+    if (dataMutation) {
+      if (dataMutation.registro.token) {
+        setToken(dataMutation.registro.token);
+        navigate('/auth/login');
       }
-    }, [dataMutation, setToken, navigate]);
+    }
+  }, [dataMutation, setToken, navigate]);
 
-return (
-    <div>
+  return (
+    <div className='login'>
       <h1>Regístrate</h1>
-      <form onSubmit={submitForm} onChange={updateFormData} ref={form}>
+      <form className='logueo' onSubmit={submitForm} onChange={updateFormData} ref={form}>
         <div>
           <p><Input label='Nombre:' name='nombre' type='text' required /></p>
           <p><Input label='Apellido:' name='apellido' type='text' required /></p>
@@ -51,10 +51,13 @@ return (
           text='Registrarme'
         />
       </form>
-      <span>¿Ya tienes una cuenta?</span>
-      <Link to='/auth/login'>
-        <span>Inicia sesión</span>
-      </Link>
+      <span className='abrircuenta'>¿Ya tienes una cuenta?</span>
+      <div className='registroLogin'>
+        <Link to='/auth/login'>
+          <span>Inicia sesión</span>
+        </Link>
+      </div>
+
     </div>
   );
 };

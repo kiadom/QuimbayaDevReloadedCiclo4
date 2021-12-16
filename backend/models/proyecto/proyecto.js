@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 import { ModeloUsuario } from "../usuario/usuario.js";
-// import { ModeloObjetivo } from "../objetivo/objetivo.js";
 
 const { Schema, model} = mongoose;
 
@@ -10,6 +9,18 @@ const esquemaProyecto = new Schema({
         type: String,
         required: true,
         unique: true,
+    },
+    objetivoGeneral: {
+        type: String,
+        required: true,
+    },
+    objetivoEspecifico1: {
+        type: String,
+        required: true,
+    },
+    objetivoEspecifico2: {
+        type: String,
+        required: true,
     },
     presupuesto: {
         type: Number,
@@ -23,6 +34,11 @@ const esquemaProyecto = new Schema({
         type: Date,
         required: true,
     },
+    lider: {
+        type: Schema.Types.ObjectId,
+        required: true,
+        ref: ModeloUsuario,
+    },
     estado:{
         type: String,
         enum: ["ACTIVO", "INACTIVO"],
@@ -32,23 +48,6 @@ const esquemaProyecto = new Schema({
         type: String,
         enum: ["INICIADO", "EN_DESARROLLO", "TERMINADO", "NULA"],
         default: "NULA",
-    },
-    lider: {
-        type: Schema.Types.ObjectId,
-        required: true,
-        ref: ModeloUsuario,        
-    },
-    objetivoGeneral: {
-        type: String,
-        required: true,
-    },
-    objetivoEspecifico1: {
-        type: String,
-        required: true,
-    },
-    objetivoEspecifico2: {
-        type: String,
-        required: true,
     },
 }
 ,{

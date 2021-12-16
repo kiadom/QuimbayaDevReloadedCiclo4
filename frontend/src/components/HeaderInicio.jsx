@@ -1,22 +1,17 @@
-import React from 'react';
 import logoheader from '../media/logoheader.png';
-import { useAuth } from '../context/authContext';
-import { useUser } from '../context/userContext';
 import { NavLink } from 'react-router-dom';
+import { useAuth } from '../context/authContext';
 
-
-
-
-function Header () {
+const HeaderInicio = () => {
+  
     return (
-        <div className="wrapper">
-            <header className="principal"> 
-              <div className="iconCompany">
+        <div className='header-inicio'>
+            <div className="iconCompanyInicio">
                 <img src= {logoheader} />
-              </div>              
-              <ul className='botonHeader'>
+            </div>
+            {/* <ul className='botonHeaderInicio'>
                 <li>
-                  <NavLink to='/auth/Registro'>
+                  <NavLink to='/Registro'>
                     <span>Registro</span>
                   </NavLink>
                 </li>
@@ -30,13 +25,11 @@ function Header () {
                     <span>Usuario</span>
                   </NavLink>
                 </li>              
-                <li><Logout/></li> 
-              </ul>              
-            </header>
-          </div>
+                <li><Logout/></li>                
+            </ul>             */}
+        </div>
     )
-  };  
-
+};
 
 const Logout = () => {
     const { setToken } = useAuth();
@@ -45,15 +38,20 @@ const Logout = () => {
       setToken(null);
     };
     return (
-      <li onClick={() => deleteToken()}>
-        <NavLink to='/auth/login'>
-          <div >
-            <i  />
-            <span >Cerrar Sesión</span>
-          </div>
-        </NavLink>
-      </li>  
-    );
-  };
+      <div>
+        <ul>
 
-  export {Header};
+          <li onClick={() => deleteToken()}>
+            <NavLink to='/auth/login'>
+              <div class='bg red'>
+                <span >Cerrar Sesión</span>
+              </div>
+            </NavLink>
+          </li>
+            
+        </ul>
+      </div>
+       );
+    };
+
+export {HeaderInicio};

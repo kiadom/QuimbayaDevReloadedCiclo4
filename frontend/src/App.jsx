@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-
+import { InicioLayout } from "./layouts/InicioLayout";
 import PrivateLayout from './layouts/PrivateLayout'
 import { AuthLayout } from './layouts/AuthLayout';
+import { Index } from "./pages/Index";
 import { GestionInscripciones } from './pages/GestionInscripciones';
 import { GestionProyectos } from './pages/GestionProyectos';
 import { GestionProyectosEditar } from './pages/GestionProyectosEditar';
@@ -22,6 +23,7 @@ import { AvancesPorProyecto } from "./pages/Avances/AvancesPorProyecto";
 import { DetalleAvances } from "./pages/Avances/DetalleAvances";
 import EntradaAvances from "./pages/Avances/EntradaAvances";
 import { AvancesFinal } from "./pages/Avances/AvancesFinal";
+
 
 //import { GestionAvances } from './pages/GestionAvances';
 
@@ -81,7 +83,10 @@ function App() {
         <UserContext.Provider value={{ userData, setUserData }}>
           <Router>
             <Routes>
-              <Route path='/' element={<PrivateLayout />}>
+              <Route path='/' element={<InicioLayout />}>
+                <Route path="/Index" element={<Index />} />
+              </Route>
+              <Route path='' element={<PrivateLayout/>}>
                 <Route path="/GestionUsuarios" element={<GestionUsuarios />} />
                 <Route path="/GestionUsuarios/Editar/:_id" element={<EstadoUsuarios />} />
                 <Route path="/GestionProyectos" element={<GestionProyectos />} />

@@ -1,12 +1,28 @@
 import React from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faAddressCard, faHome, faUsers, faProjectDiagram, faFileSignature, faClipboardCheck} from "@fortawesome/free-solid-svg-icons";
+import {faAddressCard, faHome, faUsers, faProjectDiagram, faFileSignature, faClipboardCheck, faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
 import PrivateComponent from './PrivateComponent';
 
 library.add(faAddressCard);
+
+const Logout = () => {
+    const { setToken } = useAuth();
+    const deleteToken = () => {
+      console.log('eliminar token');
+      setToken(null);
+    };
+    return (
+      <li onClick={() => deleteToken()}>
+        <NavLink to='/auth/login'>
+            <FontAwesomeIcon icon={faSignOutAlt} size='1x' color='#092133'/>
+            <span ></span> Cerrar Sesión
+        </NavLink>
+      </li>
+    );
+  };
 
 function Sidebar(){
     return (
@@ -14,12 +30,12 @@ function Sidebar(){
             <div className ="sidebar">
                 <div className ="EncabezadoModulo">
                     <div className='iconoEncabezado'>
-                    <FontAwesomeIcon className ="iconoEncabezado" icon={ faProjectDiagram } size="5x" color='#092133'/>
+                    <FontAwesomeIcon icon={ faProjectDiagram } size="5x" color='#092133'/>
                     </div>
-                    <h4 className='tituloEncabezado'>Sistema de Información y Soporte a la Gestión de Proyectos de Investigación</h4>
+                    <h4 className='tituloEncabezado'>Sistema de Información y <br/> Soporte a la Gestión <br /> de Proyectos de Investigación</h4>
                     <ul>
                         <li>
-                        <NavLink to ='/' activeClassName='decortexto'>
+                        <NavLink to ='/'>
                             <FontAwesomeIcon icon={faHome} size='1x' color='#092133'/>
                             <span className=''></span> Inicio
                         </NavLink>
@@ -49,6 +65,9 @@ function Sidebar(){
                             <span className=''></span> Avances
                         </NavLink> 
                         
+                        </li>
+                        <li>
+                            <p><Logout/></p>
                         </li>
                     </ul>
                 </div>
