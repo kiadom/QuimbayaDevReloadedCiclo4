@@ -29,28 +29,17 @@ function Header() {
 };
 
 const Logout = () => {
-    const { setToken } = useAuth();
-    const deleteToken = () => {
-      console.log('eliminar token');
-      setToken(null);
-    };
-    return (
-      <li onClick={() => deleteToken()}>
-        <NavLink to='/auth/login'>
-          <div >
-            <i  />
-            <span >Cerrar Sesión</span>
-          </div>
-        </NavLink>
-      </li>  
-    );
+  const { setToken } = useAuth();
+  const deleteToken = () => {
+    console.log('eliminar token');
+    setToken(null);
   };
   return (
-    <li onClick={() => deleteToken()}>
+    <div onClick={() => deleteToken()}>
       <NavLink to='/auth/login'>
         <span >Cerrar Sesión</span>
       </NavLink>
-    </li>
+    </div>
   );
 };
 
