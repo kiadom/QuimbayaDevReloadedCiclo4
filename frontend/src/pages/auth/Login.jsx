@@ -35,30 +35,32 @@ const Login = () => {
     }, [dataMutation, setToken, navigate]);
 
     return (
-        <div className='login'>
-            <div>
-                <img src={logo} alt="logo" />
-            </div>
-            <form className='logueo' onSubmit={submitForm} onChange={updateFormData} ref={form}>
+        <div className='body-text'>
+            <div className='login'>
                 <div>
-                    <p><Input name='correo' type='email' label='Correo' placeholder='Correo' required={true} /></p>
-                    <p><Input name='contrasena' type='password' label='Contraseña' required={true} /></p>
+                    <img src={logo} alt="logo" />
                 </div>
-                <ButtonLoading
-                    disabled={Object.keys(formData).length === 0}
-                    loading={mutationLoading}
-                    text='Iniciar Sesión'                    
-                />
-            </form>
-            <div className='abrircuenta'>
-                <span>¿No tienes una cuenta?</span>
-            </div>
-            <div className='registroLogin'>
-                <Link to='/auth/registro'>
-                    <span>Regístrate</span>
-                </Link>
-            </div>
+                <form className='logueo' onSubmit={submitForm} onChange={updateFormData} ref={form}>
+                    <div>
+                        <p><Input name='correo' type='email' label='Correo' placeholder='Correo' required={true} /></p>
+                        <p><Input name='contrasena' type='password' label='Contraseña' required={true} /></p>
+                    </div>
+                    <ButtonLoading
+                        disabled={Object.keys(formData).length === 0}
+                        loading={mutationLoading}
+                        text='Iniciar Sesión'                    
+                    />
+                </form>
+                <div className='abrircuenta'>
+                    <span>¿No tienes una cuenta?</span>
+                </div>
+                <div className='registroLogin'>
+                    <Link to='/auth/registro'>
+                        <span>Regístrate</span>
+                    </Link>
+                </div>
 
+            </div>
         </div>
     );
 };

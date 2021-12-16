@@ -10,6 +10,11 @@ import PrivateComponent from '../components/PrivateComponent';
 import { GET_PROYECTOS, GET_PROYECTOS_POR_LIDER } from '../graphql/proyectos/queries';
 import { CREAR_PROYECTO } from "../graphql/proyectos/mutations";
 import { CREAR_INSCRIPCION } from '../graphql/inscripciones/mutations';
+import {Sidebar} from '../components/Sidebar';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faAddressCard, faHome, faUsers, faProjectDiagram, faFileSignature, faClipboardCheck, faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
+
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 function GestionProyectos () {
@@ -35,8 +40,11 @@ function GestionProyectos () {
     if (userData.rol == 'ESTUDIANTE' || userData.rol == 'ADMINISTRADOR'){
         return (
             <div className = "body-text">
-                <div className="rp_titulo">GESTIÓN DE PROYECTOS</div>
-                <TablaProyectos />
+                <Sidebar icono={faProjectDiagram} titulo='Sistema de Información y Soporte a la Gestión de Proyectos de Investigación'/>
+                <div className="contenedor-body">
+                    <div className="rp_titulo">GESTIÓN DE PROYECTOS</div>
+                    <TablaProyectos />
+                </div>
             </div>
         );
     }
@@ -45,15 +53,18 @@ function GestionProyectos () {
     TablaProyectosPorLider HACE EL QUERY DE LOS PROYECTOS DEL LIDER*/
     if (userData.rol == 'LIDER'){
         return (
-            <div className = "body-text">
-                <div className="rp_titulo">GESTIÓN DE PROYECTOS</div>
-                <div className="rend_Dinamica">
-                    <button onClick = {() => {
-                        setMostrarTabla (!mostrarTabla);
-                        }}
-                        className="boton_1">{ textoBoton }
-                    </button>
-                    { mostrarTabla ? (<TablaProyectosPorLider datosUsuarioLogeado = { userData } />) : (<FormularioRegistroProyectos />)}
+            <div className="body-text">
+                <Sidebar icono={faProjectDiagram} titulo='Sistema de Información y Soporte a la Gestión de Proyectos de Investigación'/>                
+                <div className="contenedor-body">
+                    <div className="rp_titulo">GESTIÓN DE PROYECTOS</div>
+                    <div className="rend_Dinamica">
+                        <button onClick = {() => {
+                            setMostrarTabla (!mostrarTabla);
+                            }}
+                            className="boton_1">{ textoBoton }
+                        </button>
+                        { mostrarTabla ? (<TablaProyectosPorLider datosUsuarioLogeado = { userData } />) : (<FormularioRegistroProyectos />)}
+                    </div>
                 </div>
             </div>
         );
@@ -142,6 +153,7 @@ const TablaProyectosPorLider = ({ datosUsuarioLogeado }) => {
 
     if (!loading) {
         return (
+            // <div className="contenedor-body">
             <div className = "rp_formulario">
                 <h1 className = "rp_subtitulo">Lista de Proyectos</h1>
                 <table className = "table">
@@ -186,6 +198,7 @@ const TablaProyectosPorLider = ({ datosUsuarioLogeado }) => {
                     </tbody>
                 </table>
             </div>
+            // </div>
         )
     }
 

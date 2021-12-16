@@ -40,9 +40,9 @@ const PrivateLayout = ({ children }) => {
   return (
     <div className = 'mainContainer'>
         <Header />
-        <Sidebar />
-        <Outlet />
+        {/* <Sidebar /> */}
         <main></main>
+        <Outlet />
         <Footer />
     </div>
   );

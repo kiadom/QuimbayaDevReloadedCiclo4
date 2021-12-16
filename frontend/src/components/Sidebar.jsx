@@ -24,45 +24,45 @@ const Logout = () => {
     );
   };
 
-function Sidebar(){
+function Sidebar(props){
     return (
-        <div className="wrapper">
+        <div className="body-tex">
             <div className ="sidebar">
-                <div className ="EncabezadoModulo">
+               
                     <div className='iconoEncabezado'>
-                    <FontAwesomeIcon icon={ faProjectDiagram } size="5x" color='#092133'/>
+                        <FontAwesomeIcon icon={props.icono} size="5x" color= '#eeeeee'/>
+                        <h4 className='tituloEncabez{ado'>{props.titulo}</h4>
                     </div>
-                    <h4 className='tituloEncabezado'>Sistema de Información y <br/> Soporte a la Gestión <br /> de Proyectos de Investigación</h4>
                     <ul>
                         <li>
                         <NavLink to ='/'>
-                            <FontAwesomeIcon icon={faHome} size='1x' color='#092133'/>
-                            <span className=''></span> Inicio
+                            <FontAwesomeIcon icon={faHome} size='1x' color='#eeeeee'/>
+                            <span className='item'></span> Inicio
                         </NavLink>
                         </li>
                         <li>
                         <NavLink to ='/GestionUsuarios'> 
-                            <FontAwesomeIcon icon={faUsers} size='1x' color='#092133'/>
-                            <span className=''></span> Usuarios
+                            <FontAwesomeIcon icon={faUsers} size='1x' color='#eeeeee'/>
+                            <span className='item'></span> Usuarios
                         </NavLink> 
                         </li>
                         <li>
                         <NavLink to ='/GestionInscripciones'> 
-                            <FontAwesomeIcon icon={faFileSignature} size='1x' color='#092133'/>
-                            <span className=''></span> Inscripciones
+                            <FontAwesomeIcon icon={faFileSignature} size='1x' color='#eeeeee'/>
+                            <span className='item'></span> Inscripciones
                         </NavLink> 
                         </li>
                         <li>
                         <NavLink to ='/GestionProyectos'>
-                            <FontAwesomeIcon icon={faProjectDiagram} size='1x' color='#092133'/>
-                            <span className=''></span> Proyectos
+                            <FontAwesomeIcon icon={faProjectDiagram} size='1x' color='#eeeeee'/>
+                            <span className='item'></span> Proyectos
                         </NavLink>
                         </li>
                         <li>
                             
                         <NavLink to ='/Avances/EntradaAvances'> 
-                            <FontAwesomeIcon icon={faClipboardCheck} size='1x' color='#092133'/>
-                            <span className=''></span> Avances
+                            <FontAwesomeIcon icon={faClipboardCheck} size='1x' color='#eeeeee'/>
+                            <span className='item'></span> Avances
                         </NavLink> 
                         
                         </li>
@@ -73,7 +73,7 @@ function Sidebar(){
                 </div>
                 
             </div>
-        </div>
+        
     )
 }
 

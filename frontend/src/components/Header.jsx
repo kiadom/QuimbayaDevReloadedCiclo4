@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom';
 
 function Header () {
     return (
-        <div className="wrapper">
+        <div className="body-text">
             <header className="principal"> 
               <div className="iconCompany">
                 <img src= {logoheader} />

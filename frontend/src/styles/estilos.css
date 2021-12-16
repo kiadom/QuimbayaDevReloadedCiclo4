@@ -16,15 +16,27 @@
 }
 
 body{
-  background-color: var(--blue-bg);
+  /* background-color: var(--dark-bg); */
 }
+
+ .mainContainer {
+   
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    background-color: var(--light-bg);
+  }
+
+  .mainContainer > main {
+    overflow-y: scroll;
+  }
 
 /* estilos del header */
 header {
   height: max-content; /* toma el tamaño de su contenido a lo largo */
   margin: auto; /* mantiene el div centrado con respecto a su padre*/
   align-items: flex-end; /* centra vertical*/
-  overflow-y: visible; /* mantiene los elemnto dentro del contenedor*/
+  /* overflow-y: visible;    mantiene los elemnto dentro del contenedor */
   display: flex;
   background-color:var(--grey-bg);
   color: var(--blue-bg);  
@@ -100,67 +112,60 @@ header {
     background: var(--dark-bg);
     border-right: 2px solid var(--blue-bg);
 }
-
-
-
-
-
-
-
 /* ********************** */
-
 /* estilos del .sidebar */
-.sidebar {
-  display: flex;
-  height: 104vh;
-  position: absolute;
-  width: 200px;
-  margin: 0px 0px 0px 11px;
-  background-color:var(--light-bg);
-  color: #092133;
-}
 
-.EncabezadoModulo{
-  justify-content: center;
-  margin: auto;
-  margin-top: 20px;
-  margin-bottom: 10px;
+/* @media (max-width:600px) {
+  .sidebar{
+    display: none;
+}
+} */
+
+.sidebar {
+  position: absolute;
+  margin-left: 11px;
+  display: block;
+  height: 100%;  
+  width: 17%;  
+  background-color: var(--grey-bg);
 }
 
 .iconoEncabezado{
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: var(--dark-bg);
 }
 
-.wrapper .sidebar .EncabezadoModulo h4{
+.sidebar h4{
   text-align: center;
-  color: var(--blue-bg);
-  padding-top: 20px ;
+  padding: 20px ;
   font-size: 11px;
   margin-bottom: 11px;
+  font-weight: bold;
 }
 
-.EncabezadoModulo ul{ 
+.sidebar ul{ 
   justify-content: flex-start;  
 }
 
-
-
-.wrapper .sidebar ul li a{
+.sidebar ul li a{
   display: block;
   padding: 20px 35px;
   border-bottom: 1px solid var(--light-bg);
-  color: var(--grey-bg);
+  color: white;
   font-size: 16px;
   
 }
-.wrapper .sidebar ul li a:hover,
-.wrapper .sidebar ul li a.active{
-    color: var(--blue-bg);
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active{
+    color: var(--ligth-bg);
     background: var(--dark-bg);
     border-right: 2px solid var(--light-bg);
 }
 
-
+/******************************/
 /* estilos del body */
 
 .cargando{
@@ -168,21 +173,20 @@ header {
   margin-top:20px ;
 }
 
-.body-text {
-  display: block;
-  float: right;
-  width: 81%;
+.body-text{
   height: 100%;
-  color: var(--light-bg);
-  background-color : var(--blue-bg);
-  padding: 0%;
-  margin: auto;
-  margin-right: 11px;
-  margin-top: -4px;
-  flex-direction: row;
+  width:100%;
 }
 
-.body-text .rp_titulo{
+.contenedor-body{
+  /* height: 100%; */
+  display: block;
+  float: right;
+  width: 80%;
+  margin-inline: 11px;  
+}
+
+.rp_titulo{
   text-align: left;
   background-color: var(--grey-bg);
   color:var(--dark-bg);  
