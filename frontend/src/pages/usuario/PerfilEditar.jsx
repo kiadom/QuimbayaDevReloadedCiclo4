@@ -61,7 +61,7 @@ const Editar = () => {
             </div>
             <form className='logueo' onSubmit={submitForm} onChange={updateFormData} ref={form}>
                     <div>
-                        <span>{queryData.Usuario._id}</span>
+                        <span>_id:{queryData.Usuario._id}</span>
                   
                         <p><Input label='Nombre:' name='nombre' type='text' defaultValue={queryData.Usuario.nombre}/></p>
                         <p><Input label='Apellido:' name='apellido' type='text' defaultValue={queryData.Usuario.apellido}/></p>

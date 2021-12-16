@@ -40,7 +40,7 @@ const GestionUsuarios = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.Usuarios.map((u) => {
+                    {data && data.Usuarios.map((u) => {
                             return (
                                 <tr key={u._id}>
                                     <td>{u._id}</td>
