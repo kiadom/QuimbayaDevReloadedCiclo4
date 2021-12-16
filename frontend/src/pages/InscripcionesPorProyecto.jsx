@@ -46,7 +46,7 @@ const TablaInscripciones = ({ listaInscripciones }) => {
                         
                     </tr>
                 </thead>
-                <tbody >
+                {/* <tbody >
                     
                 { listaInscripciones && 
                           listaInscripciones.InscripcionPorProyecto.map((e) => {
@@ -55,7 +55,7 @@ const TablaInscripciones = ({ listaInscripciones }) => {
                                     <td>{ e._id}</td>
                                     
 
-                                    {/* <td>{ (e.estudianteInscrito.nombre)+' '+(e.estudianteInscrito.apellido)}</td>
+                                    <td>{ (e.estudianteInscrito.nombre)+' '+(e.estudianteInscrito.apellido)}</td>
                                     <td>{ (e.estudianteInscrito.correo)}</td>
                                     <td> {Enum_EstadoInscripcion[e.estadoInscripcion]} </td>
                                     <td>{ e.fecha_ingreso }</td>
@@ -80,13 +80,13 @@ const TablaInscripciones = ({ listaInscripciones }) => {
                                         disabled={userData.rol === 'ADMINISTRADOR'}
                                         />
                                     )}
-                                    </td> */}
+                                    </td>
                                     </tr>
                                 })
                                     
                                     
                           }
-                                    </tbody>
+                                    </tbody> */}
             </table>
         </div>
     

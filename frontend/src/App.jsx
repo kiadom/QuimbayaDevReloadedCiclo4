@@ -94,7 +94,7 @@ function App() {
                 <Route path="/GestionProyectos" element={<GestionProyectos />} />
                 <Route path="/GestionProyectos/Editar/:_id" element={<GestionProyectosEditar />} />
                 <Route path="/GestionInscripciones" element={<GestionInscripciones />} />
-                <Route path="/InscripcionesPorProyecto" element={<InscripcionesPorProyecto />} />
+                <Route path="/InscripcionesPorProyecto/:proyecto" element={<InscripcionesPorProyecto />} />
                 <Route path="/Avances/EntradaAvances/" element={<EntradaAvances />} />
                 <Route path="/Avances/IndexAvances/:estudianteInscrito" element={<IndexAvances />} />
                 <Route path="/Avances/IndexAvancesLider/:lider" element={<IndexAvancesLider />} />
