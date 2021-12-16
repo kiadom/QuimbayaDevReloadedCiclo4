@@ -14,9 +14,8 @@ import { GET_AVANCES2 } from "../../graphql/avances/queries";
 import { EDITAR_AVANCE } from "../../graphql/avances/mutations"
 
 
-/* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
-function DetalleAvances () {
-    
+function DetalleAvances2 () {
+
     const { form, formData, updateFormData } = useFormData(null);
     const { _id } = useParams();
 
@@ -163,4 +162,4 @@ function DetalleAvances () {
     );
 };
 
-export {DetalleAvances};
+export {DetalleAvances2};

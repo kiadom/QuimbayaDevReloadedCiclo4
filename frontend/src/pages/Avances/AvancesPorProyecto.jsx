@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from 'react-router-dom';
-
 import { useMutation, useQuery } from '@apollo/client';
 import { toast } from 'react-toastify';
 import { useUser } from '../../context/userContext';
-
 import useFormData from "../../hooks/useFormData";
 import  ButtonLoading from '../../components/ButtonLoading';
-
-
-
-import { GET_AVANCESPORPROYECTO } from "../../graphql/avances/queries";
+import { GET_AVANCESPORPROYECTO, GET_AVANCES2 } from "../../graphql/avances/queries";
 import { CREAR_AVANCE } from "../../graphql/avances/mutations";
 
 function AvancesPorProyecto () {
@@ -19,12 +14,16 @@ function AvancesPorProyecto () {
     const [textoBoton, setTextoBoton] = useState('Ver Avances Reportados' );
     const [mostrarTabla, setMostrarTabla] = useState(true);
 
+    /* PLANTILLA PARA HACER LA PETICION GET DE AVANCES. EL RETORNO SE ALMACENA EN data */
+
     const { proyecto } = useParams();
     const { data, loading } = useQuery(GET_AVANCESPORPROYECTO,{
         variables:{ proyecto }
     });
-
     
+    useEffect(() => {
+        console.log("Datos obtenidos con GET_AVANCESPORPROYECTO", proyecto);
+    }, [data]);
     
 
         /* SE DEFINE EL TEXTO DEL BOTON, INICIALMENTE SERÁ "Registrar Avance" Y MOSTRARÁ LA INTERFAZ DE TABLA*/
@@ -67,14 +66,38 @@ const TablaAvances = ({ listaAvances }) => {
     return (
         <div className="rp_formulario">
             <h1>Lista de Avances del Proyecto</h1>
-           
 
                 <table className="table">
                     <thead>
                         <tr>
-                            <th>Proyecto</th>
+                            <th>Nombre Proyecto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        { listaAvances && 
+                        listaAvances.AvancesPorProyecto.map((p) => {
+                            return (
+                                <tr key = { p.proyecto }>
+                                    <td>{ p.proyecto.nombre }</td>
+                                </tr>
+                            )
+                        })}
+                    
+                    </tbody>
+                </table>
+
+
+
+
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Nombre Proyecto</th>
                             <th>ID Avance</th>
                             <th>Titulo Avance</th>
+                            <th>Descripcion</th>
+                            <th>Observaciones Lider</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -87,7 +110,8 @@ const TablaAvances = ({ listaAvances }) => {
                                     <td>{ p.proyecto.nombre }</td>
                                     <td>{ p._id }</td>
                                     <td>{ p.titulo }</td>
-                                    
+                                    <td>{ p.descripcion }</td>
+                                    <td>{ p.observacionesLider }</td>
                                     <td>
                                         <button>
                                         <Link to = {`/avances/DetalleAvances/${p._id}` }>

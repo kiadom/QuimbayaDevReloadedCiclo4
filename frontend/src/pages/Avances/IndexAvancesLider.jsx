@@ -15,14 +15,20 @@ const IndexAvancesLider = () => {
         const { data } = useQuery(GET_PROYECTOSPORLIDER,{
         variables:{ lider }
         });
-    
         useEffect(() => {
             console.log("Datos obtenidos con GET_PROYECTOSPORLIDER", data);
         }, [data]);
+
+        {/*
+        const { $estudianteInscrito } = useParams();
+        const { data2, error, loading } = useQuery(GET_INSCRIPCIONESDELESTUDIANTE,{
+        variables:{ $estudianteInscrito }
+        });
+        useEffect(() => {
+            console.log("Datos obtenidos con GET_INSCRIPCIONESDELESTUDIANTE", data2);
+        }, [data2]);
+        */}  
         
-        {/*useEffect(() => {
-            console.log("USUARIO", userData);
-        }, [data]);*/}
     
 
     return (
@@ -51,7 +57,7 @@ const TablaAvances = ({ listaAvances2 }) => {
                     { listaAvances2 && 
                         listaAvances2.ProyectosPorLider.map((p) => {
                             return (
-                                <tr key = { p.lider }>
+                                <tr key = { p.$lider }>
                                     <td>{ p._id }</td>
                                     <td>{ p.nombre }</td>
                                     

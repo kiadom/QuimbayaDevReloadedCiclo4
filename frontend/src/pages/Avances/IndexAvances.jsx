@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_PROYECTOSPORLIDER, GET_INSCRIPCIONESDELESTUDIANTE } from "../../graphql/avances/queries";
 import { useParams, Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import { useUser } from '../../context/userContext';
 
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,28 +13,30 @@ const IndexAvances = () => {
         /* PLANTILLA PARA HACER LA PETICION GET DE AVANCES. EL RETORNO SE ALMACENA EN data */
         /*const { userData } = useUser();*/
         const { estudianteInscrito } = useParams();
-        const { data } = useQuery(GET_INSCRIPCIONESDELESTUDIANTE,{
+        const { data, error, loading } = useQuery(GET_INSCRIPCIONESDELESTUDIANTE,{
         variables:{ estudianteInscrito }
         });
+        
         useEffect(() => {
             console.log("Datos obtenidos con GET_INSCRIPCIONESDELESTUDIANTE", data);
         }, [data]);
 
-        const { lider } = useParams();
-        const { dataLider } = useQuery(GET_PROYECTOSPORLIDER,{
+        {/*const { lider } = useParams();
+        const { data2 } = useQuery(GET_PROYECTOSPORLIDER,{
         variables:{ lider }
         });
-        useEffect(() => {
-            console.log("Datos obtenidos con GET_PROYECTOSPORLIDER", dataLider);
-        }, [dataLider]);
-
-        
-        
-        {/*useEffect(() => {
-            console.log("USUARIO", userData);
-        }, [data]);*/}
     
+        useEffect(() => {
+            console.log("Datos obtenidos con GET_PROYECTOSPORLIDER", data2);
+        }, [data2]);
 
+        useEffect (() => {
+            if (error) {
+                toast.error("Error consultando los usuarios");
+            }
+        }, [error]);*/}
+
+        
     return (
         <div className="body-text">
             {/*<h1> {(userData.nombre)+ " " +(userData.apellido) } </h1>*/}
@@ -60,12 +63,12 @@ const TablaAvances = ({ listaAvances }) => {
                     { listaAvances && 
                         listaAvances.InscripcionPorEstudiante.map((p) => {
                             return (
-                                <tr key = { p.estudianteInscrito }>
+                                <tr key = { p.$estudianteInscrito }>
                                     <td>{ p.proyecto._id }</td>
                                     <td>{ p.proyecto.nombre }</td>
-                                    
+                                    <td>{ p.proyecto.objetivoGeneral }</td>
                                     <td>
-                                        <button>
+                                        <button className="boton_1">
                                         <Link to = {`/avances/AvancesPorProyecto/${p.proyecto._id}` }>
                                             {/*<FontAwesomeIcon icon={faPencilAlt}/>*/}
                                             Ver Avances
