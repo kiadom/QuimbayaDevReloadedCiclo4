@@ -11,7 +11,7 @@ const tiposUsuario = gql`
         rol: Enum_Rol
         estado: Enum_EstadoUsuario
         proyectos:[Proyecto]
-        avances:[Avance]
+        avance:[Avance]
         inscripciones:[Inscripcion]
     }
 
