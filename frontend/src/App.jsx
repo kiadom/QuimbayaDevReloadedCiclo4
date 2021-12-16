@@ -23,6 +23,7 @@ import { DetalleAvances } from "./pages/Avances/DetalleAvances";
 import EntradaAvances from "./pages/Avances/EntradaAvances";
 import EditarPerfil from "./pages/usuario/EditarPerfil";
 
+
 //import { GestionAvances } from './pages/GestionAvances';
 
 const httpLink = createHttpLink({
@@ -81,7 +82,10 @@ function App() {
         <UserContext.Provider value={{ userData, setUserData }}>
           <Router>
             <Routes>
-              <Route path='/' element={<PrivateLayout />}>
+              <Route path='/' element={<InicioLayout />}>
+                <Route path="/Index" element={<Index />} />
+              </Route>
+              <Route path='' element={<PrivateLayout/>}>
                 <Route path="/GestionUsuarios" element={<GestionUsuarios />} />
                 <Route path="/GestionUsuarios/Editar/:_id" element={<EstadoUsuarios />} />
                 <Route path="/GestionProyectos" element={<GestionProyectos />} />
@@ -96,9 +100,6 @@ function App() {
               <Route path='/auth' element={<AuthLayout />}>
                 <Route path="Registro" element={<Registro />} />
                 <Route path="Login" element={<Login />} />
-              </Route>
-              <Route path='/' element={<InicioLayout />}>
-                <Route path="/Index" element={<Index />} />
               </Route>
             </Routes>
           </Router>

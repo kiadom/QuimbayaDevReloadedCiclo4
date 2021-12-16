@@ -30,7 +30,9 @@ const resolversInscripcion = {
         InscripcionPorEstudiante: async (parent, args) => {
             const inscripcionPorEstudiante = await ModeloInscripcion.find({estudianteInscrito:args.estudianteInscrito}).populate('proyecto');
             return inscripcionPorEstudiante;
-        }
+        },
+
+        
 
     },
 

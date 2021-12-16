@@ -24,6 +24,11 @@ const resolversProyecto = {
         ProyectosPorLider: async (parent, args) => {
             const proyectosPorLider = await ModeloProyecto.find({lider:args.lider}).populate('lider').populate('avances');
             return proyectosPorLider;
+        },
+
+        InscripcionesLider: async (parent, args) => {
+            const inscripcionesPorLider = await ModeloProyecto.find({lider:args.lider}).populate('lider').populate('inscripciones');
+            return inscripcionesPorLider;
         }
     },
 

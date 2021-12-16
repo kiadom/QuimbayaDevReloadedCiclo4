@@ -22,6 +22,10 @@ type Query{
             estudianteInscrito: String!
     ): [Inscripcion]
 
+    InscripcionPorLider(
+        lider: String!
+    ): [Inscripcion]
+
 }
 
 type Mutation{

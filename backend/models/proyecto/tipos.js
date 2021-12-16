@@ -29,6 +29,10 @@ type Proyecto {
         ProyectosPorLider(
             lider: String!
         ): [Proyecto]
+
+        InscripcionesLider(
+            lider: String!
+        ): [Proyecto]
     }
 
     type Mutation {

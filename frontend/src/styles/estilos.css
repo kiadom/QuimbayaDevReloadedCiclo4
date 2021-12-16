@@ -115,7 +115,7 @@ header {
   height: 104vh;
   position: absolute;
   width: 200px;
-  margin: 150px 0px 0px 11px;
+  margin: 0px 0px 0px 11px;
   background-color:var(--light-bg);
   color: #092133;
 }
