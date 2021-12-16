@@ -5,6 +5,7 @@ query AvancesPorProyecto($proyecto: String!) {
   AvancesPorProyecto(proyecto: $proyecto) {
     _id
     titulo
+    fechaAvance
     descripcion
     observacionesLider
     proyecto {

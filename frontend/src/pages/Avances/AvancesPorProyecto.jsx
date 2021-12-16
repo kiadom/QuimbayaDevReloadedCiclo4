@@ -79,6 +79,7 @@ const TablaAvances = ({ listaAvances }) => {
                     <thead>
                         <tr>
                             <th>Nombre Proyecto</th>
+                            <th>Fecha Avance</th>
                             <th>ID Avance</th>
                             <th>Titulo Avance</th>
                             <th>Descripcion</th>
@@ -93,6 +94,7 @@ const TablaAvances = ({ listaAvances }) => {
                             return (
                                 <tr key = { p.proyecto }>
                                     <td>{ p.proyecto.nombre }</td>
+                                    <td>{ p.fechaAvance }</td>
                                     <td>{ p._id }</td>
                                     <td>{ p.titulo }</td>
                                     <td>{ p.descripcion }</td>
@@ -100,7 +102,6 @@ const TablaAvances = ({ listaAvances }) => {
                                     <td>
                                         <button className="boton_1">
                                         <Link to = {`/avances/DetalleAvances/${p._id}` }>
-                                           
                                             Editar Avance
                                         </Link> 
                                         </button>
@@ -152,6 +153,19 @@ const FormularioRegistroAvances = ()=> {
                             />
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <p>Fecha del Avance: </p>
+                        </td>
+                        <td>
+                            <input 
+                                name = 'fechaAvance' 
+                                type = "date" 
+                                
+                            />
+                        </td>
+                    </tr>
+ 
 
                     <tr>
                         <td>
