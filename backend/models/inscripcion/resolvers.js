@@ -32,6 +32,13 @@ const resolversInscripcion = {
             return inscripcionPorEstudiante;
         },
 
+        InscripcionPorProyecto: async (parent, args) => {
+            const inscripcionPorProyecto = await ModeloInscripcion.find({proyecto:args.proyecto}).populate('estudianteInscrito').populate({path:'proyecto', populate: {
+                path:'lider'
+            }});
+            return inscripcionPorProyecto;
+          },
+
         
 
     },

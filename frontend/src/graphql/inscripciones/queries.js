@@ -39,28 +39,34 @@ query InscripcionPorEstudiante($estudianteInscrito: String!) {
 }
 `;
 
-const GET_INSCRIPCIONLIDER = gql`
-query InscripcionesLider($lider: String!) {
-  InscripcionesLider(lider: $lider) {
-          nombre
-          lider {
-            nombre
-            apellido
-          }
-          inscripciones {
-            estudianteInscrito {
-              nombre
-              apellido
-              correo
-            }
-            estadoInscripcion
-            fecha_ingreso
-            fecha_egreso
-            
-          }
-        }
-      }
+const GET_INSCRIPCIONPROYECTO = gql`
+query Query($proyecto: String!) {
+  InscripcionPorProyecto(proyecto: $proyecto) {
+    _id
+    fecha_ingreso
+    fecha_egreso
+    estadoInscripcion
+    proyecto {
+      nombre
+    }
+    estudianteInscrito {
+      nombre
+      apellido
+      correo
+    }
+  }}
 
 `;
 
-export { GET_INSCRIPCIONES, GET_INSCRIPCIONESESTUDIANTE, GET_INSCRIPCIONLIDER};
+const GET_PROYECTOSLIDER = gql`
+query ProyectosPorLider($lider: String!) {
+  ProyectosPorLider(lider: $lider) {
+    _id
+    nombre
+    estado
+    fase
+  }
+}
+`;
+
+export { GET_INSCRIPCIONES, GET_INSCRIPCIONESESTUDIANTE, GET_INSCRIPCIONPROYECTO, GET_PROYECTOSLIDER};
