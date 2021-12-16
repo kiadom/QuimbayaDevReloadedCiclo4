@@ -27,12 +27,18 @@ const esquemaAvance = new Schema ({
         type: String,
         required: false,
     },
+    
+    fechaAvance: {
+        type: Date,
+        required: false,
+    },
 
     lider: {
         type: Schema.Types.ObjectId,
         ref: ModeloUsuario,
         required: false,
     },
+
 
 });
 
