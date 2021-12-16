@@ -14,7 +14,7 @@ type Proyecto {
         objetivoGeneral: String!
         objetivoEspecifico1: String!
         objetivoEspecifico2: String!
-        avances: [Avance] 
+        avance: [Avance] 
         inscripciones: [Inscripcion] 
     }
 

@@ -1,15 +1,24 @@
 import mongoose from "mongoose";
 import { ModeloProyecto } from "../proyecto/proyecto.js";
 import { ModeloUsuario } from "../usuario/usuario.js";
+import { ModeloInscripcion } from "../inscripcion/inscripcion.js";
 
 const { Schema, model } = mongoose;
 
 //definir el esquema:
+//fecha: {
+//    type: Date,
+//    required: true,
+//},
+
+//creadoPor: {
+//    type: Schema.Types.ObjectId,
+//    ref: ModeloUsuario,
+//    required: false,
+//},
+
 const esquemaAvance = new Schema ({
-    fecha: {
-        type: Date,
-        required: true,
-    },
+    
 
     titulo: {
     type: String,
@@ -26,11 +35,7 @@ const esquemaAvance = new Schema ({
         ref: ModeloProyecto,
         required: true,        
     },
-    creadoPor: {
-        type: Schema.Types.ObjectId,
-        ref: ModeloUsuario,
-        required: true,
-    },
+    
     observacionesLider: {
         type: String,
         required: false,
@@ -45,6 +50,6 @@ const esquemaAvance = new Schema ({
 });
 
 // se define el modelo:
-const ModeloAvance = model("Avance", esquemaAvance, "Avances");
+const ModeloAvance = model("Avance", esquemaAvance, "Avance");
 
 export { ModeloAvance } ;

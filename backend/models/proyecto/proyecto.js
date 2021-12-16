@@ -36,7 +36,7 @@ const esquemaProyecto = new Schema({
     lider: {
         type: Schema.Types.ObjectId,
         required: true,
-        ref: ModeloUsuario,
+        ref: ModeloUsuario,        
     },
     objetivoGeneral: {
         type: String,
@@ -58,7 +58,7 @@ const esquemaProyecto = new Schema({
 );
 
 //VirtualPopulate para traer todos los avances del proyecto:
-esquemaProyecto.virtual("avances",{
+esquemaProyecto.virtual("avance",{
     ref:"Avance",
     localField:"_id",
     foreignField: "proyecto"
