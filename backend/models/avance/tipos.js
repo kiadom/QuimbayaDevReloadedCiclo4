@@ -39,7 +39,6 @@ const tiposAvance = gql`
 
     editarAvance(
         _id: String
-        proyecto: String
         descripcion: String
         observacionesLider: String
         ): Avance
