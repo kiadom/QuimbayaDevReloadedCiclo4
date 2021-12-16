@@ -1,22 +1,29 @@
 import { gql } from '@apollo/client';
 
-
+const GET_AVANCESPORPROYECTO = gql`
+query AvancesPorProyecto($proyecto: String!) {
+  AvancesPorProyecto(proyecto: $proyecto) {
+    _id
+    titulo
+    descripcion
+    observacionesLider
+    proyecto {
+      nombre
+    }
+  }
+}
+`;
 
 
 const GET_AVANCES2 = gql`
-  query DetalleAvances($_id: String!) {
-    DetalleAvances(_id: $_id) {
+  query DetalleAvance($_id: String!) {
+    DetalleAvance(_id: $_id) {
     _id
     proyecto {
       nombre
     }
-    fecha
     titulo
     descripcion
-    creadoPor {
-      nombre
-      apellido
-    }
     observacionesLider
   }
 }
@@ -28,30 +35,23 @@ query InscripcionPorEstudiante($estudianteInscrito: String!) {
     proyecto {
       _id
       nombre
+      objetivoGeneral
+      
     }
   }
 }
 `;
 
-
-const GET_AVANCESPORPROYECTO = gql`
-query AvancesPorProyecto($proyecto: String!) {
-  AvancesPorProyecto(proyecto: $proyecto) {
+const GET_PROYECTOSPORLIDER = gql`
+query ProyectosPorLider($lider: String!) {
+  ProyectosPorLider(lider: $lider) {
     _id
-    fecha
-    creadoPor {
-      nombre
-      apellido
-    }
-    titulo
-    descripcion
-    proyecto {
-      _id
-      nombre
-    }
+    nombre
   }
 }
 `;
+
+
 
 const GET_PROYECTOSMODAVANCE = gql`
   query ProyectosModAvances {
@@ -71,4 +71,4 @@ const GET_PROYECTOSMODAVANCE = gql`
 
 
 
-export { GET_AVANCES2, GET_PROYECTOSMODAVANCE, GET_AVANCESPORPROYECTO, GET_INSCRIPCIONESDELESTUDIANTE };
+export { GET_AVANCES2, GET_PROYECTOSMODAVANCE, GET_AVANCESPORPROYECTO, GET_INSCRIPCIONESDELESTUDIANTE, GET_PROYECTOSPORLIDER };

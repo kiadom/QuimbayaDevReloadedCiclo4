@@ -22,8 +22,8 @@ type Query{
             estudianteInscrito: String!
     ): [Inscripcion]
 
-    InscripcionPorLider(
-        lider: String!
+    InscripcionPorProyecto(
+        proyecto: String!
     ): [Inscripcion]
 
 }

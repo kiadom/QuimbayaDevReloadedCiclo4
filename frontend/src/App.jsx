@@ -7,6 +7,7 @@ import PrivateLayout from './layouts/PrivateLayout'
 import { AuthLayout } from './layouts/AuthLayout';
 import { Index } from "./pages/Index";
 import { GestionInscripciones } from './pages/GestionInscripciones';
+import { InscripcionesPorProyecto } from './pages/InscripcionesPorProyecto';
 import { GestionProyectos } from './pages/GestionProyectos';
 import { GestionProyectosEditar } from './pages/GestionProyectosEditar';
 import GestionUsuarios from './pages/usuario/GestionUsuarios';
@@ -20,9 +21,12 @@ import { AuthContext } from "./context/authContext";
 import { UserContext } from './context/userContext';
 
 import { IndexAvances } from "./pages/Avances/IndexAvances";
+import { IndexAvancesLider } from "./pages/Avances/IndexAvancesLider";
 import { AvancesPorProyecto } from "./pages/Avances/AvancesPorProyecto";
 import { DetalleAvances } from "./pages/Avances/DetalleAvances";
 import EntradaAvances from "./pages/Avances/EntradaAvances";
+import { AvancesFinal } from "./pages/Avances/AvancesFinal";
+import EdicionAvances from "./pages/Avances/EdicionAvances";
 
 
 
@@ -93,8 +97,10 @@ function App() {
                 <Route path="/GestionProyectos" element={<GestionProyectos />} />
                 <Route path="/GestionProyectos/Editar/:_id" element={<GestionProyectosEditar />} />
                 <Route path="/GestionInscripciones" element={<GestionInscripciones />} />
+                <Route path="/InscripcionesPorProyecto/:proyecto" element={<InscripcionesPorProyecto />} />
                 <Route path="/Avances/EntradaAvances/" element={<EntradaAvances />} />
                 <Route path="/Avances/IndexAvances/:estudianteInscrito" element={<IndexAvances />} />
+                <Route path="/Avances/IndexAvancesLider/:lider" element={<IndexAvancesLider />} />
                 <Route path="/Avances/AvancesPorProyecto/:proyecto" element={<AvancesPorProyecto />} />
                 <Route path="/Avances/DetalleAvances/:_id" element={<DetalleAvances />} />
                 <Route path="/usuario/Perfil" element={<Perfil/>}/>

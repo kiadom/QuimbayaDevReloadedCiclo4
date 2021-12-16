@@ -57,7 +57,7 @@ const esquemaProyecto = new Schema({
 );
 
 //VirtualPopulate para traer todos los avances del proyecto:
-esquemaProyecto.virtual("avances",{
+esquemaProyecto.virtual("avance",{
     ref:"Avance",
     localField:"_id",
     foreignField: "proyecto"

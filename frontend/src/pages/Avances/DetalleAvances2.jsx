@@ -3,8 +3,11 @@ import { useParams, Link } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
 import useFormData from "../../hooks/useFormData";
 import { toast } from 'react-toastify';
+import Input from '../../components/Input';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
+import DropDown from '../../components/DropDown';
+import { Enum_Rol, Enum_EstadoUsuario } from '../../utils/enums';
 import ButtonLoading from '../../components/ButtonLoading';
 
 import { GET_AVANCES2 } from "../../graphql/avances/queries";
@@ -43,7 +46,9 @@ function DetalleAvances () {
         });
     };
 
-     useEffect(() => {
+    console.log("este es el id", _id)
+  
+    useEffect(() => {
         if (mutationError) {
           toast.error('Error modificando el Avance');
         }
@@ -70,20 +75,54 @@ function DetalleAvances () {
             </Link>
             <h1 className='m-4 text-3xl text-gray-800 font-bold text-center'>Editar Avance</h1>
             <br />
-            <form
+            {/*<form
                 onSubmit={submitForm}
                 onChange={updateFormData}
                 ref={form}
                 className='flex flex-col items-center justify-center'
-                >
-                <span>Proyecto: {queryData.DetalleAvance.proyecto.nombre}</span>
-                <br/>
-                <span>Titulo: {queryData.DetalleAvance.titulo}</span>
-                <br/>
-                <span>ID del Avance: {queryData.DetalleAvance._id}</span>
-                <br/>    
-                
+            > */}
                 <table>
+                        
+                        <tr>
+                            <td>
+                                <p>Proyecto: </p>
+                            </td>
+                            <td>
+                                { queryData.DetalleAvance.proyecto.nombre }
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Titulo: </p>
+                            </td>
+                            <td>
+                                { queryData.DetalleAvance.titulo }
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p>ID Del Avance: </p>
+                            </td>
+                            <td>
+                                { queryData.DetalleAvance._id }
+                            </td>
+                        </tr>
+                        
+                        
+                </table>
+                        
+
+                {/*<h1>Estos son los datos a modificar</h1>*/}
+
+                <form
+                onSubmit={submitForm}
+                onChange={updateFormData}
+                ref={form}
+                className='flex flex-col items-center justify-center'
+                >                    
+                <table>
+
                     <tr>
                         <td>
                             <p>Descripcion: </p>
@@ -121,7 +160,7 @@ function DetalleAvances () {
                             />
                         </td>
                     </tr>
-                </table>            
+                </table>
             </form>
         </div>
     );

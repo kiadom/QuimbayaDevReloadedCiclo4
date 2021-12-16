@@ -9,6 +9,9 @@ import { useAuth } from '../context/authContext';
 import { REFRESH_TOKEN } from '../graphql/autenticacion/mutations';
 import { useNavigate } from 'react-router-dom';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const PrivateLayout = ({ children }) => {
   const navigate = useNavigate();

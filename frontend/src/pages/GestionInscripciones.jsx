@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-import {GET_INSCRIPCIONES, GET_INSCRIPCIONESESTUDIANTE, GET_INSCRIPCIONLIDER} from "../graphql/inscripciones/queries";
+import {GET_INSCRIPCIONES, GET_INSCRIPCIONESESTUDIANTE, GET_PROYECTOSLIDER} from "../graphql/inscripciones/queries";
 import {APROBAR_INSCRIPCION} from '../graphql/inscripciones/mutations';
 import {RECHAZAR_INSCRIPCION} from '../graphql/inscripciones/mutations';
 import  ButtonLoading from '../components/ButtonLoading';
@@ -12,7 +12,7 @@ import {
 } from '../components/Accordion';
 import { useUser } from '../context/userContext';
 import {Enum_EstadoInscripcion} from '../utils/enums'
-
+import { useParams, Link } from "react-router-dom";
 
 const GestionInscripciones  = () => {
   const { data, loading, error, refetch } = useQuery(GET_INSCRIPCIONES);
@@ -252,10 +252,11 @@ const InscripcionEstudiante = ({ idEstudiante }) => {
 
 const InscripcionLider = ({ idLider }) => {
   const { userData } = useUser();
-  const { data, loading } = useQuery(GET_INSCRIPCIONLIDER, {
+  const { data, loading } = useQuery(GET_PROYECTOSLIDER, {
       variables: { lider: userData._id },
   });
-  
+
+
 
   if (!loading) {
       return (
@@ -265,28 +266,31 @@ const InscripcionLider = ({ idLider }) => {
                   <thead>
                       <tr>
                         <th>Proyecto</th>
-                        <th>Lider del proyecto</th>
-                        <th>Estudiante Inscrito</th>
-                        <th>Correo Estudiante</th>
-                        <th>Fecha de ingreso</th>
-                        <th>Fecha de egreso</th>
+                        <th>Nombre del proyecto</th>
                         <th>Estado</th>
+                        <th>Fase</th>
+                        <th> </th>
+                        
                       </tr>
                   </thead>
                   <tbody>
                       { data && 
-                          data.InscripcionesLider.map((l) => {
+                          data.ProyectosPorLider.map((l) => {
                               return (
                                   <tr  key = { l._id }>
-                                    <td>{l.nombre }</td>
-                                    <td>{(l.lider.nombre)+' '+(l.lider.apellido)}</td>
-                                    
-                                    {/* 
-                                    <td>{data.l.inscripciones.estudianteInscrito.nombre}</td>
-                                    <td>{l.inscripciones.estudianteInscrito.correo}</td>
-                                    <td>{ l.inscripciones.fecha_ingreso }</td>
-                                    <td>{ l.inscripciones.fecha_egreso }</td>   
-                                    <td> {Enum_EstadoInscripcion[l.inscripciones.estadoInscripcion]} </td> */}
+                                    <td>{l._id }</td>
+                                    <td>{(l.nombre)}</td>
+                                    <td>{(l.estado)}</td>
+                                    <td>{(l.fase)}</td>
+                                    <td>
+                                        <button>
+                                        <Link to = {`/InscripcionesPorProyecto/${l._id}`} >
+                                        {/*<FontAwesomeIcon icon={faPencilAlt}/>*/}
+                                        Ver Inscripciones
+                                           
+                                        </Link> 
+                                        </button>
+                                    </td>
                                     </tr>
                               )
                           })}
