@@ -14,8 +14,9 @@ import { GET_AVANCES2 } from "../../graphql/avances/queries";
 import { EDITAR_AVANCE } from "../../graphql/avances/mutations"
 
 
-function DetalleAvances2 () {
-
+/* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
+function DetalleAvances () {
+    
     const { form, formData, updateFormData } = useFormData(null);
     const { _id } = useParams();
 
@@ -38,8 +39,8 @@ function DetalleAvances2 () {
     const submitForm = (e) => {
         e.preventDefault();
         console.log('FormData', formData);
-        delete formData.$descripcion;
-        delete formData.$observacionesLider;
+        delete formData.descripcion;
+        delete formData.observacionesLider;
         editarAvance({
             variables: { _id, ...formData },
         });
@@ -67,8 +68,10 @@ function DetalleAvances2 () {
 
     return (
         <div className='body-text flew flex-col w-full h-full items-center justify-center p-10'>
-            <Link to='/GestionUsuarios'>
+            <Link to='/Avances/EntradaAvances'>
+            <h1 className = "rp_subtitulo">
                 <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#FFFFFF' className='cursor-pointer'/>
+                <span>   Volver Menu Avances </span></h1>            
             </Link>
             <h1 className='m-4 text-3xl text-gray-800 font-bold text-center'>Editar Avance</h1>
             <br />
@@ -119,13 +122,14 @@ function DetalleAvances2 () {
                 className='flex flex-col items-center justify-center'
                 >                    
                 <table>
+
                     <tr>
                         <td>
                             <p>Descripcion: </p>
                         </td>
                         <td>
                             <input 
-                                name = '$descripcion' 
+                                name = 'descripcion' 
                                 defaultValue = { queryData.DetalleAvance.descripcion } 
                                 type = "text" 
                                 size = "50"
@@ -139,7 +143,7 @@ function DetalleAvances2 () {
                         </td>
                         <td>
                             <input 
-                                name = '$observacionesLider' 
+                                name = 'observacionesLider' 
                                 defaultValue ={ queryData.DetalleAvance.observacionesLider } 
                                 type = "text" 
                                 size = "50"
@@ -162,4 +166,4 @@ function DetalleAvances2 () {
     );
 };
 
-export {DetalleAvances2};
+export {DetalleAvances};

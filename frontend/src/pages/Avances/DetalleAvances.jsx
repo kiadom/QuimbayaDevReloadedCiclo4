@@ -39,8 +39,8 @@ function DetalleAvances () {
     const submitForm = (e) => {
         e.preventDefault();
         console.log('FormData', formData);
-        delete formData.$descripcion;
-        delete formData.$observacionesLider;
+        delete formData.descripcion;
+        delete formData.observacionesLider;
         editarAvance({
             variables: { _id, ...formData },
         });
@@ -122,13 +122,14 @@ function DetalleAvances () {
                 className='flex flex-col items-center justify-center'
                 >                    
                 <table>
+
                     <tr>
                         <td>
                             <p>Descripcion: </p>
                         </td>
                         <td>
                             <input 
-                                name = '$descripcion' 
+                                name = 'descripcion' 
                                 defaultValue = { queryData.DetalleAvance.descripcion } 
                                 type = "text" 
                                 size = "50"
@@ -142,7 +143,7 @@ function DetalleAvances () {
                         </td>
                         <td>
                             <input 
-                                name = '$observacionesLider' 
+                                name = 'observacionesLider' 
                                 defaultValue ={ queryData.DetalleAvance.observacionesLider } 
                                 type = "text" 
                                 size = "50"
@@ -166,3 +167,4 @@ function DetalleAvances () {
 };
 
 export {DetalleAvances};
+

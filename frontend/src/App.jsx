@@ -23,6 +23,7 @@ import { AvancesPorProyecto } from "./pages/Avances/AvancesPorProyecto";
 import { DetalleAvances } from "./pages/Avances/DetalleAvances";
 import EntradaAvances from "./pages/Avances/EntradaAvances";
 import { AvancesFinal } from "./pages/Avances/AvancesFinal";
+import EdicionAvances from "./pages/Avances/EdicionAvances";
 
 
 //import { GestionAvances } from './pages/GestionAvances';
