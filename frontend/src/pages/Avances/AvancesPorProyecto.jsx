@@ -79,7 +79,7 @@ const TablaAvances = ({ listaAvances }) => {
                     <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#FFFFFF' className='cursor-pointer'/>
                     <span>   Volver Menu Avances </span></h1>            
                 </Link>
-                <h1>Lista de Avances del Proyecto</h1>
+                <h2>Lista de Avances del Proyecto</h2>
 
                     <table className="table">
                         <thead>
