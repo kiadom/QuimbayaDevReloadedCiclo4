@@ -4,8 +4,8 @@ import { GET_PROYECTOSPORLIDER, GET_INSCRIPCIONESDELESTUDIANTE } from "../../gra
 import { useParams, Link } from "react-router-dom";
 import { useUser } from '../../context/userContext';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
-
+import {faArrowLeft, faClipboardCheck} from "@fortawesome/free-solid-svg-icons";
+import {Sidebar} from '../../components/Sidebar';
 
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { faUsersCog, faPencilAlt,faTrash,faCheck} from "@fortawesome/free-solid-svg-icons";
@@ -36,8 +36,12 @@ const IndexAvancesLider = () => {
 
     return (
         <div className="body-text">
-            
+            <Sidebar icono={faClipboardCheck} titulo='PROYECTOS QUE LIDERO'/>
+            <div className="contenedor-body">
             <TablaAvances listaAvances2 = { data }/>
+
+            </div>
+            
         </div>
     );
 };
@@ -46,7 +50,7 @@ const IndexAvancesLider = () => {
 const TablaAvances = ({ listaAvances2 }) => {
     return (
         <div>
-            <h1 className='m-4 text-3xl text-gray-800 font-bold text-center'>Gestion de Avances</h1>
+            <h2 className='rp_titulo'>Gestion de Avances</h2>
             <h1 className = "rp_subtitulo">Lista de Proyectos Liderados</h1>
             <Link to='/Avances/EntradaAvances'>
             <h1 className = "rp_subtitulo">

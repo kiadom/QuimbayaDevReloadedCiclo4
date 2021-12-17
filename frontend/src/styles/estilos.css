@@ -227,6 +227,10 @@ header {
   font-weight: bold
 }
 
+.boton_3:hover a {
+  background-color: var(--dark-bg);
+}
+
 .entrada-avances td{  
   padding: 3px;
 }
