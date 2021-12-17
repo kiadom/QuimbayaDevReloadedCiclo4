@@ -549,9 +549,11 @@ tbody tr td{
 
 .logueo p .input {
   font-size: 14px;
-  background-color: var(--dark-bg);
+  background-color: var(--light-bg);
   border-radius: 5px;
 }
+
+
 
 .input {
   width: 100%;
