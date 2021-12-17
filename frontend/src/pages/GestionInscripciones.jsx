@@ -57,7 +57,7 @@ const GestionInscripciones  = () => {
     
     
         <div className='body-text'>
-          <Sidebar icono={faAddressCard} titulo='Inscripciones'/>
+          <Sidebar icono={faAddressCard} titulo='INSCRIPCIONES'/>
           <div className='contenedor-body'>
           <h1 className='rp_titulo'>Inscripciones</h1>
             <div >

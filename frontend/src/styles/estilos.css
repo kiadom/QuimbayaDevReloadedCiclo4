@@ -625,9 +625,24 @@ tbody tr td{
 }
 
 .square a{
+  display: block;
+  padding: 20px 35px;
+  border-bottom: 1px solid var(--light-bg);
   color: var(--grey-bg);
+  font-size: 16px;
+  
+}
+
+.square a:hover,
+.square a.active{
+    color: var(--dark-bg);
+    /* background: var(--dark-bg); */
+    border-right: 2px solid var(--light-bg);
+}
+
+.quimbaya{
   text-align: center;
-  text-decoration-color: var(--blue-bg);
+  margin: auto;
 }
 
 .dropdown {
