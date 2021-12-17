@@ -172,7 +172,7 @@ const EditarProyecto = ({ datosProyecto, idProyecto }) => {
                 <h1 className = "rp_subtitulo">Ingrese los nuevos datos del Proyecto</h1>
                 <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
                     <br/>
-                    <table>
+                    <table className='cambios-estado-admon'>
                         <tr>
                             <td>
                                 <p>Nombre: </p>

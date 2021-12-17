@@ -1,25 +1,16 @@
 import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import {GET_INSCRIPCIONES, GET_INSCRIPCIONESESTUDIANTE, GET_PROYECTOSLIDER} from "../graphql/inscripciones/queries";
-
+import { Sidebar } from '../components/Sidebar';
 import {
   AccordionStyled,
   AccordionSummaryStyled,
   AccordionDetailsStyled,
 } from '../components/Accordion';
 import { useUser } from '../context/userContext';
-<<<<<<< HEAD
-import { library } from '@fortawesome/fontawesome-svg-core';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faAddressCard, faHome, faUsers, faProjectDiagram, faFileSignature, faTrashAlt, faPen, faClipboardCheck, faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
-import {Sidebar} from '../components/Sidebar';
-
-
-=======
->>>>>>> 1a8c3fbb1d06887a1fb3fea3a89ca8360f94a915
 import {Enum_EstadoInscripcion} from '../utils/enums'
 import { Link } from "react-router-dom";
-
+import {faAddressCard, faHome, faUsers, faProjectDiagram, faFileSignature, faClipboardCheck, faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
 const GestionInscripciones  = () => {
   const { data, loading, error, refetch } = useQuery(GET_INSCRIPCIONES);
   const { userData } = useUser();

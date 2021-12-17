@@ -26,11 +26,10 @@ const GestionUsuarios = () => {
 
     return (
         <div className="body-text">
-<<<<<<< HEAD
             <Sidebar icono ={faUsers} titulo='MODULO DE GESTION DE USUARIOS'/>
                 <div className='contenedor-body'>
-                    <h1 className='rp_titulo'>MODULO DE GESTION DE USUARIOS</h1>
-                    <br/>
+                    <h1 className='rp_subtitulo'>MODULO DE GESTION DE USUARIOS</h1>
+                    
                     <div className='tablaUsuarios'>
                         <table className='table'>
                             <thead>
@@ -43,40 +42,6 @@ const GestionUsuarios = () => {
                                     <th>Rol</th>
                                     <th>Estado</th>
                                     <th>Editar</th>
-=======
-            <h1 className='rp_titulo'>MODULO DE GESTION DE USUARIOS</h1>
-            <br/>
-            <table className='table'>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Identificacion</th>
-                        <th>Nombre</th>
-                        <th>Apellidos</th>
-                        <th>Correo</th>
-                        <th>Rol</th>
-                        <th>Estado</th>
-                        <th>Editar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {data && data.Usuarios.map((u) => {
-                            return (
-                                <tr key={u._id}>
-                                    <td>{u._id}</td>
-                                    <td>{u.identificacion}</td>
-                                    <td>{u.nombre}</td>
-                                    <td>{u.apellido}</td>
-                                    <td>{u.correo}</td>
-                                    <td>{Enum_Rol[u.rol]}</td>
-                                    <td>{Enum_EstadoUsuario[u.estado]}</td>
-                                    <td>
-                                        <Link to={`/GestionUsuarios/Editar/${u._id}`}>
-                                            <FontAwesomeIcon icon={ faPen } size="1x" color='#636363' className='cursor-pointer'/>
-                                        </Link>
-                                        <FontAwesomeIcon icon={ faTrashAlt } size="1x" color='#636363' className='cursor-pointer'/>
-                                    </td>
->>>>>>> 1a8c3fbb1d06887a1fb3fea3a89ca8360f94a915
                                 </tr>
                             </thead>
                             <tbody>
