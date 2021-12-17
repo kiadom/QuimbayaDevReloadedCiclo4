@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPen, faTrashAlt} from "@fortawesome/free-solid-svg-icons";
+import Input from '../../components/Input';
+import ButtonLoading from '../../components/ButtonLoading';
+import { Select } from '@material-ui/core';
 
 const GestionUsuarios = () => {
     const { data, error, loading } = useQuery(GET_USUARIOS);
@@ -25,7 +28,27 @@ const GestionUsuarios = () => {
     return (
         <div className="body-text">
             <h1 className='rp_titulo'>MODULO DE GESTION DE USUARIOS</h1>
-            <br/>
+            <table>
+                <thead>
+                    <tr>
+                        <th color='white'>
+                            <Select name='filtro' size='4' autoFocus>
+                                <option value='Identificacion'>Identificacion</option>
+                                <option value='Nombre'>Nombre</option>
+                                <option value='Apellido'>Apellido</option>
+                                <option value='Correo' text-color='white'>Correo</option>
+                            </Select>
+                        </th>
+                        <th><Input name='filtro' type='email' label='Filtro' placeholder='Correo'/></th>
+                        <th><input type="submit" value="Filtrar"/></th>
+                        <th><ButtonLoading 
+                            // disabled={Object.keys(formData).length === 0}
+                            // loading={mutationLoading}
+                            text='Filtrar'
+                        /></th>
+                    </tr>
+                </thead>
+            </table>
             <table className='table'>
                 <thead>
                     <tr>

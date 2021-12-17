@@ -17,11 +17,7 @@ const EstadoUsuarios = () => {
     const { form, formData, updateFormData } = useFormData(null);
     const { _id } = useParams();
 
-    const {
-        data: queryData,
-        error: queryError,
-        loading: queryLoading,
-    } = useQuery(GET_USUARIO, {
+    const {data: queryData, error: queryError, loading: queryLoading,} = useQuery(GET_USUARIO, {
         variables: {_id},
     });
 
