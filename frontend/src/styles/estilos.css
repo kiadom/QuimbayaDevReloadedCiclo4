@@ -191,6 +191,22 @@ header {
   padding: 5px; 
 }
 
+.editarusuario {
+  line-height: 23px;
+  border-radius: 10px;
+  margin: auto;
+  padding: 20px;;
+  width: max-content;
+  height: 100%;
+  background-color: var(--grey-bg);
+  color: var(--light-bg);
+  
+}
+
+.editarusuario .dropdown{
+  margin-top: 20px;
+}
+
 .registro-proyectos table{
   /* text-align: center; */
   margin:auto
@@ -265,9 +281,9 @@ header {
 
 .boton-usuarios a{
   margin-right: 9px;
-  padding: 2px;
+  padding: 1px;
   border-radius: 3px;
-  color: var(--black-bg);
+  color: var(--grey-bg);
   /* background-color: var(--grey-bg); */
 }
 
