@@ -56,13 +56,16 @@ header {
 .botonHeader{  
   display: flex;
   
+  width: 150px;
+  height: 50px;
+  
 }
 
 .botonHeader li a{
   display: flex;
   margin-top: 11px;
   padding: 11px 11px 50px 11px; 
-  color: var(--light-bg);
+  color: var(--dark-bg);
   font-size: 14px;
   
 }

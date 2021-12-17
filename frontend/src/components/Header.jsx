@@ -16,7 +16,7 @@ function Header() {
         </div>
         <div className='botonHeader'>
           <div class="dropdown">
-            <button> &nbsp;Bienvenido &nbsp;| &nbsp;<FontAwesomeIcon icon={faCogs} size='1x' color='#092133' />&nbsp;</button>
+            <button> &nbsp;Bienvenido &nbsp;| &nbsp;<FontAwesomeIcon icon={faCogs} size='12x' color='#092133' />&nbsp;</button>
             <div class="dropdown-content">
               <a><NavLink to={`/usuario/Perfil`}>Editar Perfil</NavLink></a>
               <a><Logout /></a>
