@@ -21,6 +21,7 @@ const EntradaAvances = () => {
 
     return (
         <div className="body-text">
+            <div className="entrada-avances">
             <table>
                 <tr>
                     <td>
@@ -59,23 +60,23 @@ const EntradaAvances = () => {
                         <p>Acciones: </p>
                     </td>
                     <td>
-                        <button className="boton_1">
-                        <Link to = {`/avances/IndexAvances/${userData._id }` }>
-                            
+                        <button className="boton_3">
+                        <Link to = {`/avances/IndexAvances/${userData._id }` }>                            
                             Ver Proyectos en los que estoy inscrito
                         </Link> 
                         </button>
                     </td>
                     <td>
-                        <button className="boton_1">
-                        <Link to = {`/avances/IndexAvancesLider/${userData._id }` }>
-                            
+                        <button className="boton_3">
+                        <Link to = {`/avances/IndexAvancesLider/${userData._id }` }>                            
                             Ver Proyectos que Lidero
                         </Link> 
                         </button>
                     </td>
                 </tr>
             </table>
+
+            </div>
         </div>
     );
 };

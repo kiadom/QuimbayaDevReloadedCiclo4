@@ -203,19 +203,47 @@ header {
   
 }
 
+.entrada-avances{
+  line-height: 33px;
+  border-radius: 10px;
+  margin: auto;
+  padding: 20px;;
+  width: max-content;
+  height: 100%;
+  background-color: var(--grey-bg);
+  color: var(--light-bg);
+
+  
+}
+
+.boton_3 a{
+  border: none;
+  border-radius: 4px;
+  color: var(--blue-bg);
+  background-color: var(--light-bg);
+  padding: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: bold
+}
+
+.entrada-avances td{  
+  padding: 3px;
+}
+
 .label {
   color: var(--dark-bg);
 }
 
 .boton_3{
-  padding: 3px;
+  /* padding: 3px;
   text-transform: uppercase;
-  color: var(--blue-bg);
+  color: var(--grey-bg);
   border: none;
   border-radius: 5px;
   background-color: var(--light-bg);
   cursor: pointer;
-  font-weight: bold;
+  font-weight: bold; */
 }
 
 .boton_3:hover {
