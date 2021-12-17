@@ -5,8 +5,10 @@ import { useMutation, useQuery } from "@apollo/client";
 import useFormData from "../../hooks/useFormData";
 import { toast } from 'react-toastify';
 import Input from '../../components/Input';
-import ButtonLoading from '../../components/ButtonLoading';
+import ButtonLoading1 from '../../components/ButtonLoading1';
 import { useParams } from 'react-router-dom';
+import { Sidebar } from '../../components/Sidebar';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
 
 const Editar = () => {
     const { form, formData, updateFormData } = useFormData();
@@ -55,26 +57,30 @@ const Editar = () => {
 
     return (
         <div className="body-text">
-            <div className="rp_formulario">
-                <h1 className="rp_subtitulo">Editar perfil</h1>
-                <br />
+            <Sidebar icono={faUsers} titulo='EDITAR PERFIL'/>
+            <div className='contenedor-body'>
+                <div className="rp_formulario">
+                    <h1 className="rp_subtitulo">Editar perfil</h1>
+                    <br />
+                </div>
+                <form className='logueo' onSubmit={submitForm} onChange={updateFormData} ref={form}>
+                        <div className='editar-perfil'>
+                            <span>_id:{queryData.Usuario._id}</span>
+                    
+                            <p><Input label='Nombre:' name='nombre' type='text' defaultValue={queryData.Usuario.nombre}/></p>
+                            <p><Input label='Apellido:' name='apellido' type='text' defaultValue={queryData.Usuario.apellido}/></p>
+                            <p><Input label='Documento:' name='identificacion' type='text' defaultValue={queryData.Usuario.identificacion}/></p>
+                            <p><Input label='Nuevo Correo:' name='correo' type='email' defaultValue={queryData.Usuario.correo} /></p>
+                            <p><Input label='Nueva Contraseña:' name='contrasena' type='password' /></p>
+                        </div>
+                        <ButtonLoading1
+                            disabled={Object.keys(formData).length === 0}
+                            loading={loadingMutation}
+                            text='Editar'
+                            
+                        />
+                    </form>
             </div>
-            <form className='logueo' onSubmit={submitForm} onChange={updateFormData} ref={form}>
-                    <div>
-                        <span>_id:{queryData.Usuario._id}</span>
-                  
-                        <p><Input label='Nombre:' name='nombre' type='text' defaultValue={queryData.Usuario.nombre}/></p>
-                        <p><Input label='Apellido:' name='apellido' type='text' defaultValue={queryData.Usuario.apellido}/></p>
-                        <p><Input label='Documento:' name='identificacion' type='text' defaultValue={queryData.Usuario.identificacion}/></p>
-                        <p><Input label='Nuevo Correo:' name='correo' type='email' defaultValue={queryData.Usuario.correo} /></p>
-                        <p><Input label='Nueva Contraseña:' name='contrasena' type='password' /></p>
-                    </div>
-                    <ButtonLoading
-                        disabled={Object.keys(formData).length === 0}
-                        loading={loadingMutation}
-                        text='Editar'
-                    />
-                </form>
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import logoheader from '../media/logoheader.png';
+import logoheader from '../media/logoheader1.png';
 import { useAuth } from '../context/authContext';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
