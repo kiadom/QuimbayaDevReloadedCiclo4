@@ -106,12 +106,8 @@ function App() {
                 <Route path="/Avances/AvancesPorProyecto/:proyecto" element={<AvancesPorProyecto />} />
                 <Route path="/Avances/AvancesPorProyectoLider/:proyecto" element={<AvancesPorProyectoLider />} />
                 <Route path="/Avances/DetalleAvances/:_id" element={<DetalleAvances />} />
-<<<<<<< HEAD
-                <Route path="/Avances/DetalleAvancesLider/:_id" element={<DetalleAvancesLider />} />
-=======
                 <Route path="/usuario/Perfil" element={<Perfil/>}/>
                 <Route path="/usuario/Perfil/Editar/:_id" element={<PerfilEditar/>}/>
->>>>>>> 4cf853eb9b3a6077068b3ce07c4a95a316302eb3
               </Route>
               <Route path='/auth' element={<AuthLayout />}>
                 <Route path="Registro" element={<Registro />} />
