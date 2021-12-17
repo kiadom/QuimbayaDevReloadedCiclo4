@@ -5,8 +5,8 @@ import { useParams, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useUser } from '../../context/userContext';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
-
+import {faArrowLeft, faClipboardCheck} from "@fortawesome/free-solid-svg-icons";
+import { Sidebar } from "../../components/Sidebar";
 const IndexAvances = () => {
 
         /* PLANTILLA PARA HACER LA PETICION GET DE AVANCES. EL RETORNO SE ALMACENA EN data */
@@ -38,8 +38,11 @@ const IndexAvances = () => {
         
     return (
         <div className="body-text">
-            {/*<h1> {(userData.nombre)+ " " +(userData.apellido) } </h1>*/}
-            <TablaAvances listaAvances = { data }/>
+            <Sidebar icono={faClipboardCheck} titulo ='PROYECTOS EN LOS QUE ESTOY INSCRITO'/>
+            <div className="contenedor-body">
+                {/*<h1> {(userData.nombre)+ " " +(userData.apellido) } </h1>*/}
+                <TablaAvances listaAvances = { data }/>
+            </div>
         </div>
     );
 };
@@ -48,7 +51,7 @@ const IndexAvances = () => {
 const TablaAvances = ({ listaAvances }) => {
     return (
         <div>
-<h1 className='m-4 text-3xl text-gray-800 font-bold text-center'>Gestion de Avances</h1>
+<h2 className='rp_titulo'>Gestion de Avances</h2>
             <h1 className = "rp_subtitulo">Proyectos En los que estoy Inscrito</h1>
             <Link to='/Avances/EntradaAvances'>
             <h1 className = "rp_subtitulo">

@@ -206,14 +206,16 @@ header {
 .entrada-avances{
   line-height: 33px;
   border-radius: 10px;
-  margin: auto;
+  margin: 11px;
   padding: 20px;;
   width: max-content;
   height: 100%;
   background-color: var(--grey-bg);
-  color: var(--light-bg);
+  color: var(--light-bg);  
+}
 
-  
+.entrada-avances td{  
+  padding: 3px;
 }
 
 .boton_3 a{
@@ -231,9 +233,6 @@ header {
   background-color: var(--dark-bg);
 }
 
-.entrada-avances td{  
-  padding: 3px;
-}
 
 .label {
   color: var(--dark-bg);
