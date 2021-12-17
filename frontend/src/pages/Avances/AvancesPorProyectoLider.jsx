@@ -9,8 +9,8 @@ import { GET_AVANCESPORPROYECTO, GET_AVANCES2 } from "../../graphql/avances/quer
 import { CREAR_AVANCE } from "../../graphql/avances/mutations";
 import { DetalleAvances } from "./DetalleAvances";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
-
+import {faArrowLeft, faClipboardCheck} from "@fortawesome/free-solid-svg-icons";
+import {Sidebar} from'../../components/Sidebar';
 function AvancesPorProyectoLider () {
 
     /* ESTADOS QUE PERMITEN CONTROLAR LA VISIBILIDAD DE LAS INTERFACES */
@@ -43,6 +43,8 @@ function AvancesPorProyectoLider () {
     if (!loading){
         return (
             <div className = "body-text">
+                <Sidebar icono={faClipboardCheck} titulo='AVANCES POR PROYECTO LIDER'/>
+                <div className="contenedor-body">
                 <div className="rp_titulo">GESTIÓN DE AVANCES</div>
                 <div className="rend_Dinamica">
                     <button onClick = {() => {
@@ -51,7 +53,8 @@ function AvancesPorProyectoLider () {
                         className="boton_1">{ textoBoton }
                     </button>
             { mostrarTabla ? (<TablaAvances listaAvances = { data }/>) : (<TablaAvances listaAvances = { data } />)}
-            </div>
+                </div>
+                </div>
             </div>
         );
     }        
@@ -59,7 +62,8 @@ function AvancesPorProyectoLider () {
     /* SI loading ES VERDADERO, ES DECIR SI ESTÁ CARGANDO, SE MUESTRA UN MENSAJE INFORMANDO AL USUARIO DE ESTO */
     return (
         <div className = "body-text">
-            <h1>Cargando</h1>
+            <div className='cargando'>        
+      </div>
         </div>
     );
 };
