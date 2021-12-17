@@ -4,18 +4,18 @@ import { generarToken } from '../../util/tokenUtil.js';
 
 const resolversAutenticacion = {
   Mutation: {
-    registro: async (parent, args) =>{
-        const salt = await bcrypt.genSalt(10);
-        const hashedContrasena= await bcrypt.hashSync(args.contrasena, salt)
-        const nuevoUsuario = await ModeloUsuario.create({
-            correo:args.correo,
-            identificacion:args.identificacion,
-            nombre:args.nombre,
-            apellido:args.apellido,
-            contrasena:hashedContrasena,
-            rol:args.rol
+    registro: async (parent, args) => {
+      const salt = await bcrypt.genSalt(10);
+      const hashedContrasena = await bcrypt.hashSync(args.contrasena, salt)
+      const nuevoUsuario = await ModeloUsuario.create({
+        correo: args.correo,
+        identificacion: args.identificacion,
+        nombre: args.nombre,
+        apellido: args.apellido,
+        contrasena: hashedContrasena,
+        rol: args.rol
       });
-      if (Object.keys(args).includes('estado')){
+      if (Object.keys(args).includes('estado')) {
         nuevoUsuario.estado = args.estado;
       }
       //console.log('Nuevo usuario', nuevoUsuario);
@@ -45,6 +45,29 @@ const resolversAutenticacion = {
           }),
         };
       }
+    },
+
+    editarPerfilUsuario: async (parent, args) => {
+      const salt = await bcrypt.genSalt(10);
+      const hashedContrasena = await bcrypt.hashSync(args.contrasena, salt)
+      const perfilEditado = await ModeloUsuario.findByIdAndUpdate(args._id, {
+        nombre: args.nombre,
+        apellido: args.apellido,
+        identificacion: args.identificacion,
+        correo: args.correo,
+        contrasena: hashedContrasena,
+      },
+        { new: true } //esto se utiliza para traer los datos nuevos al actualizar
+      );
+      return {
+        token: generarToken({
+          _id: perfilEditado._id,
+          nombre: perfilEditado.nombre,
+          apellido: perfilEditado.apellido,
+          identificacion: perfilEditado.identificacion,
+          correo: perfilEditado.correo,
+        }),
+      };
     },
 
     refreshToken: async (parent, args, context) => {

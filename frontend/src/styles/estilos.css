@@ -393,6 +393,31 @@ tbody tr td{
   text-decoration-color: var(--ligth-bg);
 }
 
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  width: 100%;
+  overflow: auto;
+  box-shadow: 0px 10px 10px 0px var(--blue-bg);
+  font-size: 12px;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown-content a {
+  display: block;
+  color: var(--light-bg);
+  padding: 5px;
+  text-decoration: none;
+}
+.dropdown-content a:hover {
+  color: var(--blue-bg);
+  background-color: var(--dark-bg);
+}
 .square p{
   font-weight: bold;
   margin-top: 20px;

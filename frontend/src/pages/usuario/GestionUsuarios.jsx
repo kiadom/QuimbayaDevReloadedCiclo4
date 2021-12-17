@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client'
 import { GET_USUARIOS } from '../../graphql/usuarios/querys'
 import { Enum_Rol, Enum_EstadoUsuario } from '../../utils/enums';
@@ -40,8 +40,7 @@ const GestionUsuarios = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data &&
-                        data.Usuarios.map((u) => {
+                    {data && data.Usuarios.map((u) => {
                             return (
                                 <tr key={u._id}>
                                     <td>{u._id}</td>
