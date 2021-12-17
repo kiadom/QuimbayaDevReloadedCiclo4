@@ -9,7 +9,8 @@ import { GET_AVANCESPORPROYECTO, GET_AVANCES2 } from "../../graphql/avances/quer
 import { CREAR_AVANCE } from "../../graphql/avances/mutations";
 import { DetalleAvances } from "./DetalleAvances";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
+import {faArrowLeft, faClipboardCheck, faProjectDiagram } from "@fortawesome/free-solid-svg-icons";
+import { Sidebar } from "../../components/Sidebar";
 
 function AvancesPorProyecto () {
 
@@ -43,15 +44,18 @@ function AvancesPorProyecto () {
     if (!loading){
         return (
             <div className = "body-text">
-                <div className="rp_titulo">GESTIÓN DE AVANCES</div>
-                <div className="rend_Dinamica">
-                    <button onClick = {() => {
-                        setMostrarTabla (!mostrarTabla);
-                        }}
-                        className="boton_1">{ textoBoton }
-                    </button>
-            { mostrarTabla ? (<TablaAvances listaAvances = { data }/>) : (<FormularioRegistroAvances listaAvances = { data } />)}
-            </div>
+                <Sidebar icono={faClipboardCheck} titulo ='AVANCES DE LOS PROYECTOS INSCRITOS'/>
+                <div className="contenedor-body">                
+                    <div className="rp_titulo">GESTIÓN DE AVANCES</div>
+                    <div className="rend_Dinamica">
+                        <button onClick = {() => {
+                            setMostrarTabla (!mostrarTabla);
+                            }}
+                            className="boton_1">{ textoBoton }
+                        </button>
+                        { mostrarTabla ? (<TablaAvances listaAvances = { data }/>) : (<FormularioRegistroAvances listaAvances = { data } />)}
+                    </div>
+                </div>
             </div>
         );
     }        
@@ -59,7 +63,10 @@ function AvancesPorProyecto () {
     /* SI loading ES VERDADERO, ES DECIR SI ESTÁ CARGANDO, SE MUESTRA UN MENSAJE INFORMANDO AL USUARIO DE ESTO */
     return (
         <div className = "body-text">
-            <h1>Cargando</h1>
+            <Sidebar icono={faClipboardCheck} titulo ='PROYECTOS EN LOS QUE ESTOY INSCRITO'/>
+            <div className="contenedor-body">
+                <TablaAvances listaAvances = { data }/>
+            </div>
         </div>
     );
 };
@@ -67,7 +74,7 @@ function AvancesPorProyecto () {
 
 const TablaAvances = ({ listaAvances }) => {
     return (
-        <div className="rp_formulario">
+        <div>
             <Link to='/Avances/EntradaAvances'>
             <h1 className = "rp_subtitulo">
                 <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#FFFFFF' className='cursor-pointer'/>
@@ -80,7 +87,6 @@ const TablaAvances = ({ listaAvances }) => {
                         <tr>
                             <th>Nombre Proyecto</th>
                             <th>Fecha Avance</th>
-                            <th>ID Avance</th>
                             <th>Titulo Avance</th>
                             <th>Descripcion</th>
                             <th>Observaciones Lider</th>
@@ -95,7 +101,6 @@ const TablaAvances = ({ listaAvances }) => {
                                 <tr key = { p.proyecto }>
                                     <td>{ p.proyecto._id }</td>
                                     <td>{ p.fechaAvance }</td>
-                                    <td>{ p._id }</td>
                                     <td>{ p.titulo }</td>
                                     <td>{ p.descripcion }</td>
                                     <td>{ p.observacionesLider }</td>

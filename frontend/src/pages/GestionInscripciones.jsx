@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react';
-import { useMutation, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import {GET_INSCRIPCIONES, GET_INSCRIPCIONESESTUDIANTE, GET_PROYECTOSLIDER} from "../graphql/inscripciones/queries";
-import {APROBAR_INSCRIPCION} from '../graphql/inscripciones/mutations';
-import {RECHAZAR_INSCRIPCION} from '../graphql/inscripciones/mutations';
-import  ButtonLoading from '../components/ButtonLoading';
-import { toast } from 'react-toastify';
+import { Sidebar } from '../components/Sidebar';
 import {
   AccordionStyled,
   AccordionSummaryStyled,
@@ -12,8 +9,8 @@ import {
 } from '../components/Accordion';
 import { useUser } from '../context/userContext';
 import {Enum_EstadoInscripcion} from '../utils/enums'
-import { useParams, Link } from "react-router-dom";
-
+import { Link } from "react-router-dom";
+import {faAddressCard, faHome, faUsers, faProjectDiagram, faFileSignature, faClipboardCheck, faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
 const GestionInscripciones  = () => {
   const { data, loading, error, refetch } = useQuery(GET_INSCRIPCIONES);
   const { userData } = useUser();
@@ -21,12 +18,22 @@ const GestionInscripciones  = () => {
   useEffect(() => {
     console.log(data);
   }, [data]);
-  if (loading) return <div>Cargando...</div>;
+
+  useEffect(() => {
+    console.log(error);
+  }, [error]);
+
+  if(!loading){
 
   if (userData.rol === 'ESTUDIANTE'){
     return (
       <div className = "body-text">
+        <Sidebar icono={faAddressCard} titulo='INSCRIPCIONES'/>
+        <div className='contenedor-body'>
           <InscripcionEstudiante idEstudiante = { userData }  />
+
+        </div>
+          
       </div>
     )
 
@@ -35,7 +42,11 @@ const GestionInscripciones  = () => {
   if (userData.rol === 'LIDER'){
     return (
       <div className = "body-text">
+        <Sidebar icono={faAddressCard} titulo='INSCRIPCIONES'/>
+        <div className='contenedor-body'>
           <InscripcionLider idLider = { userData }  />
+
+        </div>
       </div>
     )
 
@@ -46,8 +57,9 @@ const GestionInscripciones  = () => {
     
     
         <div className='body-text'>
-          <div >
-          <h1>Inscripciones</h1>
+          <Sidebar icono={faAddressCard} titulo='INSCRIPCIONES'/>
+          <div className='contenedor-body'>
+          <h2 className='rp_titulo'>Inscripciones</h2>
             <div >
 
             <AccordionInscripcion
@@ -74,6 +86,16 @@ const GestionInscripciones  = () => {
     
   );
 };
+
+}
+
+/* MIENTRAS LA APLICACION ESTÁ CARGANDO SE MUESTRA UN MENSAJE INFORMANDO AL USUARIO DE ESTO */
+return (
+    <div className = "contenedor-body">
+      <div className='cargando'>        
+      </div>
+    </div>
+)
 };
 
 const AccordionInscripcion = ({ data, titulo, refetch = () => {} }) => {
@@ -95,57 +117,11 @@ const AccordionInscripcion = ({ data, titulo, refetch = () => {} }) => {
   );
 };
 
+
+
 const Inscripcion = ({ inscripcion, refetch }) => {
-  const [aprobarInscripcion, { data, loading, error }] = useMutation(APROBAR_INSCRIPCION);
-  const [rechazarInscripcion, { data:dataRechazar, loading: loadingRechazar, error: errorRechazar }] = useMutation(RECHAZAR_INSCRIPCION);
-  const { userData } = useUser();
- 
-  useEffect(() => {
-    if (data) {
-      toast.success('Aprobado con exito');
-      
-    }
-  }, [data]);
 
-  useEffect(() => {
-    if (error) {
-      toast.error('Error aprobando la inscripcion');
-    }
-  }, [error]);
-
-   useEffect(() => {
-    if (dataRechazar) {
-      toast.success('Rechazado con exito');
-      refetch();
-    }
-  }, [dataRechazar]);
-
-  useEffect(() => {
-    if (errorRechazar) {
-      toast.error('Error rechazando la inscripcion');
-    }
-  }, [errorRechazar]);
-
-  if(loading) return <div>Cargando...</div>
-  if(loadingRechazar) return <div>Cargando...</div>
   
-
-  const AInscripcion = () => {
-    aprobarInscripcion({
-      variables: {
-        aprobarInscripcionId: inscripcion._id,
-      },
-    });
-  };
-
-  const RInscripcion = () => {
-    rechazarInscripcion({
-      variables: {
-        rechazarInscripcionId: inscripcion._id,
-      },
-    });
-  };
-
   return (
     <div >
 
@@ -160,7 +136,7 @@ const Inscripcion = ({ inscripcion, refetch }) => {
                         <th>Estado</th>
                         <th>Fecha de ingreso</th>
                         <th>Fecha de egreso</th>
-                        <th>Editar</th>
+                       
                         
                     </tr>
                 </thead>
@@ -174,27 +150,7 @@ const Inscripcion = ({ inscripcion, refetch }) => {
                                     <td> {Enum_EstadoInscripcion[inscripcion.estadoInscripcion]} </td>
                                     <td>{ inscripcion.fecha_ingreso }</td>
                                     <td>{ inscripcion.fecha_egreso }</td>                        
-                                    <td>
-                                      {inscripcion.estadoInscripcion === 'PENDIENTE' && (
-                                        <ButtonLoading
-                                        onClick={() => {
-                                            AInscripcion();
-                                        }}
-                                        text='Aprobar Inscripcion'
-                                        loading={loading}
-                                        disabled={userData.rol === 'ADMINISTRADOR'}
-                                        />
-                                        )}<br/>                                  
                                     
-                                    {inscripcion.estadoInscripcion === 'PENDIENTE' && (
-                                        <ButtonLoading
-                                        onClick={() => RInscripcion()}
-                                        text='Rechazar Inscripcion'
-                                        loading={loading}
-                                        disabled={userData.rol === 'ADMINISTRADOR'}
-                                        />
-                                        )} 
-                                    </td>
                                     </tr>
                                     </tbody>
             </table>
@@ -244,9 +200,12 @@ const InscripcionEstudiante = ({ idEstudiante }) => {
   }
 
   return (
-      <div className = "body-text">
-          <h1>Cargando</h1>
+    
+      <div className = "contenedor-body">
+          <div className='cargando'>        
       </div>
+      </div>
+  
   );
 };
 
@@ -261,7 +220,8 @@ const InscripcionLider = ({ idLider }) => {
   if (!loading) {
       return (
           <div className = "rp_formulario">
-              <h1 className = "rp_subtitulo">Inscripciones</h1>
+              <h1 className = "rp_subtitulo">
+                Inscripciones</h1>
               <table className = "table">
                   <thead>
                       <tr>
@@ -283,7 +243,7 @@ const InscripcionLider = ({ idLider }) => {
                                     <td>{(l.estado)}</td>
                                     <td>{(l.fase)}</td>
                                     <td>
-                                        <button>
+                                        <button className="boton_2">
                                         <Link to = {`/InscripcionesPorProyecto/${l._id}`} >
                                         {/*<FontAwesomeIcon icon={faPencilAlt}/>*/}
                                         Ver Inscripciones
@@ -301,8 +261,9 @@ const InscripcionLider = ({ idLider }) => {
   }
 
   return (
-      <div className = "body-text">
-          <h1>Cargando</h1>
+      <div className = "contenedor-body">
+          <div className='cargando'>        
+      </div>
       </div>
   );
 };

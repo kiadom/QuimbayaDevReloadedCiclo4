@@ -19,9 +19,6 @@ const APROBAR_INSCRIPCION = gql`
             fecha_ingreso
             fecha_egreso
             estadoInscripcion
-            proyecto {
-            nombre
-            }
             estudianteInscrito {
             nombre
             apellido
@@ -30,21 +27,22 @@ const APROBAR_INSCRIPCION = gql`
         }
 `;
 const RECHAZAR_INSCRIPCION = gql`
-    mutation rechazarInscripcion($rechazarInscripcionId: String!){
-        rechazarInscripcion(id: $rechazarInscripcionId) {
-        _id
-        fecha_ingreso
-        fecha_egreso
-        estadoInscripcion
-        proyecto {
-            nombre
-        }
-        estudianteInscrito {
+    mutation rechazarInscripcion(
+        $rechazarInscripcionId: String!
+        ){
+        rechazarInscripcion(
+            id: $rechazarInscripcionId
+            ) {
+            _id
+            fecha_ingreso
+            fecha_egreso
+            estadoInscripcion
+            estudianteInscrito {
             nombre
             apellido
+            }
         }
         }
-    }
 `;
 
 
