@@ -3,9 +3,11 @@ import { useParams, Link } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
 import { useUser } from '../context/userContext';
 import useFormData from "../hooks/useFormData";
-
+import { Sidebar } from '../components/Sidebar';
 import { GET_PROYECTO } from '../graphql/proyectos/queries';
 import { EDITAR_PROYECTO } from "../graphql/proyectos/mutations"
+import { faDiaspora } from '@fortawesome/free-brands-svg-icons';
+import { faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
 function GestionProyectosEditar () {
@@ -23,8 +25,11 @@ function GestionProyectosEditar () {
         if (userData.rol == 'ADMINISTRADOR'){
             return (
                 <div className = "body-text">
-                    <div className="rp_titulo">GESTIÓN DE PROYECTOS</div>
-                    <EditarEstadoFase datosProyecto = { queryData } idProyecto = { _id } />
+                    <Sidebar icono={faProjectDiagram} titulo='EDITAR PROYECTO'/>
+                    <div className='contenedor-body'>
+                        <div className="rp_titulo">GESTIÓN DE PROYECTOS</div>
+                        <EditarEstadoFase datosProyecto = { queryData } idProyecto = { _id } />
+                    </div>
                 </div>
             );
         }
@@ -32,8 +37,11 @@ function GestionProyectosEditar () {
         if (userData.rol == 'LIDER'){
             return (
                 <div className = "body-text">
+                    <Sidebar icono={faProjectDiagram} titulo='EDITAR PROYECTO'/>
+                    <div className='contenedor-body'>
                     <div className="rp_titulo">GESTIÓN DE PROYECTOS</div>
                     <EditarProyecto datosProyecto = { queryData } idProyecto = { _id } />
+                    </div>
                 </div>
             );
         }
@@ -41,6 +49,8 @@ function GestionProyectosEditar () {
         if (userData.rol == 'ESTUDIANTE'){
             return (
                 <div className = "body-text">
+                    <Sidebar icono={faProjectDiagram} titulo='EDICIÓN DE PROYECTOS'/>
+                    <div className='contenedor-body'>
                     <div className="rp_titulo">GESTIÓN DE PROYECTOS</div>
                     <div className="rend_Dinamica">
                         <table>
@@ -53,6 +63,7 @@ function GestionProyectosEditar () {
                             </tr>
                         </table>
                         <h1 className = "rp_subtitulo">El rol de estudiante no puede editar proyectos</h1>
+                    </div>
                     </div>
                 </div>
             );
@@ -93,7 +104,7 @@ const EditarEstadoFase = ({ datosProyecto, idProyecto }) => {
             <h1 className = "rp_subtitulo">Ingrese los nuevos datos del Proyecto</h1>
             <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
                 <br/>
-                <table>
+                <table className='cambios-estado-admon'>
                     <tr>
                         <td>
                             <p>Estado: </p>
