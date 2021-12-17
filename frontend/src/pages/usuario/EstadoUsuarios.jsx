@@ -55,12 +55,13 @@ const EstadoUsuarios = () => {
         }
     }, [mutationData]);
 
-    if (queryLoading) return 
-    <div className = "contenedor-body">
-            <div className='cargando'>        
-      </div>
-        </div>;
-
+    if (queryLoading) {
+        return (
+            <div className = "contenedor-body">
+                <div className='cargando'></div>
+        </div>
+    )}
+    
     return (
         <div className='body-text'>
             <Sidebar icono={faUsers} titulo='EDITAR ESTADO USUARIO'/>
