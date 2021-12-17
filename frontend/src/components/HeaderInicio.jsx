@@ -1,4 +1,4 @@
-import logoheader from '../media/logoheader.png';
+import logoheader1 from '../media/logoheader1.png';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
 
@@ -7,7 +7,7 @@ const HeaderInicio = () => {
     return (
         <div className='header-inicio'>
             <div className="iconCompanyInicio">
-                <img src= {logoheader} />
+                <img src= {logoheader1} />
             </div>
             {/* <ul className='botonHeaderInicio'>
                 <li>

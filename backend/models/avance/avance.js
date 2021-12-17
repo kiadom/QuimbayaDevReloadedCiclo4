@@ -5,28 +5,15 @@ import { ModeloInscripcion } from "../inscripcion/inscripcion.js";
 
 const { Schema, model } = mongoose;
 
-//definir el esquema:
-//fecha: {
-//    type: Date,
-//    required: true,
-//},
-
-//creadoPor: {
-//    type: Schema.Types.ObjectId,
-//    ref: ModeloUsuario,
-//    required: false,
-//},
 
 const esquemaAvance = new Schema ({
-    
-
     titulo: {
-    type: String,
+        type: String,
         required: true,
     },
 
     descripcion: {
-    type: String,
+        type: String,
         required: true,
     },
 
@@ -40,12 +27,18 @@ const esquemaAvance = new Schema ({
         type: String,
         required: false,
     },
+    
+    fechaAvance: {
+        type: Date,
+        required: false,
+    },
 
     lider: {
         type: Schema.Types.ObjectId,
         ref: ModeloUsuario,
         required: false,
     },
+
 
 });
 

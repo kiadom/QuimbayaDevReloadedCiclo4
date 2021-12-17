@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import {GET_INSCRIPCIONES, GET_INSCRIPCIONESESTUDIANTE, GET_PROYECTOSLIDER} from "../graphql/inscripciones/queries";
-
+import { Sidebar } from '../components/Sidebar';
 import {
   AccordionStyled,
   AccordionSummaryStyled,
@@ -10,7 +10,7 @@ import {
 import { useUser } from '../context/userContext';
 import {Enum_EstadoInscripcion} from '../utils/enums'
 import { Link } from "react-router-dom";
-
+import {faAddressCard, faHome, faUsers, faProjectDiagram, faFileSignature, faClipboardCheck, faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
 const GestionInscripciones  = () => {
   const { data, loading, error, refetch } = useQuery(GET_INSCRIPCIONES);
   const { userData } = useUser();
@@ -23,12 +23,17 @@ const GestionInscripciones  = () => {
     console.log(error);
   }, [error]);
 
-  if (loading) return <div>Cargando...</div>;
+  if(!loading){
 
   if (userData.rol === 'ESTUDIANTE'){
     return (
       <div className = "body-text">
+        <Sidebar icono={faAddressCard} titulo='INSCRIPCIONES'/>
+        <div className='contenedor-body'>
           <InscripcionEstudiante idEstudiante = { userData }  />
+
+        </div>
+          
       </div>
     )
 
@@ -37,7 +42,11 @@ const GestionInscripciones  = () => {
   if (userData.rol === 'LIDER'){
     return (
       <div className = "body-text">
+        <Sidebar icono={faAddressCard} titulo='INSCRIPCIONES'/>
+        <div className='contenedor-body'>
           <InscripcionLider idLider = { userData }  />
+
+        </div>
       </div>
     )
 
@@ -48,8 +57,9 @@ const GestionInscripciones  = () => {
     
     
         <div className='body-text'>
-          <div >
-          <h1>Inscripciones</h1>
+          <Sidebar icono={faAddressCard} titulo='INSCRIPCIONES'/>
+          <div className='contenedor-body'>
+          <h2 className='rp_titulo'>Inscripciones</h2>
             <div >
 
             <AccordionInscripcion
@@ -76,6 +86,16 @@ const GestionInscripciones  = () => {
     
   );
 };
+
+}
+
+/* MIENTRAS LA APLICACION ESTÁ CARGANDO SE MUESTRA UN MENSAJE INFORMANDO AL USUARIO DE ESTO */
+return (
+    <div className = "contenedor-body">
+      <div className='cargando'>        
+      </div>
+    </div>
+)
 };
 
 const AccordionInscripcion = ({ data, titulo, refetch = () => {} }) => {
@@ -100,7 +120,7 @@ const AccordionInscripcion = ({ data, titulo, refetch = () => {} }) => {
 
 
 const Inscripcion = ({ inscripcion, refetch }) => {
-const { userData } = useUser();
+
   
   return (
     <div >
@@ -180,9 +200,12 @@ const InscripcionEstudiante = ({ idEstudiante }) => {
   }
 
   return (
-      <div className = "body-text">
-          <h1>Cargando</h1>
+    
+      <div className = "contenedor-body">
+          <div className='cargando'>        
       </div>
+      </div>
+  
   );
 };
 
@@ -220,7 +243,7 @@ const InscripcionLider = ({ idLider }) => {
                                     <td>{(l.estado)}</td>
                                     <td>{(l.fase)}</td>
                                     <td>
-                                        <button className="boton_1">
+                                        <button className="boton_2">
                                         <Link to = {`/InscripcionesPorProyecto/${l._id}`} >
                                         {/*<FontAwesomeIcon icon={faPencilAlt}/>*/}
                                         Ver Inscripciones
@@ -238,8 +261,9 @@ const InscripcionLider = ({ idLider }) => {
   }
 
   return (
-      <div className = "body-text">
-          <h1>Cargando</h1>
+      <div className = "contenedor-body">
+          <div className='cargando'>        
+      </div>
       </div>
   );
 };

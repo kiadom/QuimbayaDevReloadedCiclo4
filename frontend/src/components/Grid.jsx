@@ -1,5 +1,5 @@
 import React from 'react'
-import logoindex from '../media/logoindex.png';
+import logoindex from '../media/logoindex-01.svg';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAddressCard, faHome, faUsers, faProjectDiagram, faFileSignature, faClipboardCheck, faSignOutAlt, faBullseye} from "@fortawesome/free-solid-svg-icons";
@@ -34,7 +34,7 @@ const Grid = () => {
                 </NavLink>
             </div>
             <div className="square">
-                <a href='https://github.com/kiadom/QuimbayaDevReloadedCiclo4/blob/release/README.md'>
+                <a className='quimbaya' href='https://github.com/kiadom/QuimbayaDevReloadedCiclo4/blob/release/README.md'>
                     <img src={logoindex}alt="" />
                     <p>NerdAlert</p>
                 </a>

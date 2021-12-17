@@ -13,7 +13,7 @@ import { EDITAR_AVANCE } from "../../graphql/avances/mutations"
 
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
-function DetalleAvances () {
+function DetalleAvancesLider () {
     
     const { form, formData, updateFormData } = useFormData(null);
     const { _id } = useParams();
@@ -58,21 +58,20 @@ function DetalleAvances () {
         if (mutationData) {
           toast.success('Avance modificado correctamente');
         }
-        }, [mutationData]);
+    }, [mutationData]);
 
     if (queryLoading) return <div>Cargando....</div>;
 
     return (
-        <div className = "body-text">
-            <Sidebar icono={faClipboardCheck} titulo='EDITAR AVANCE'/>
-            
+        <div className= "body-text">
+            <Sidebar icono={faClipboardCheck} titulo='REGISTRAR OBSERVACION'/>
             <div className='contenedor-body'>
-            <Link to='/Avances/EntradaAvances'>
+                <Link to='/Avances/EntradaAvances'>
                 <h1 className = "rp_subtitulo">
                     <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#FFFFFF' className='cursor-pointer'/>
                     <span>   Volver Menu Avances </span></h1>            
                 </Link>
-                <h1 className="rp_titulo">Editar Avance</h1>
+                <h1 className="rp_titulo">Registrar Observaciones</h1>
                 <br />
                 <form
                     onSubmit={submitForm}
@@ -85,10 +84,12 @@ function DetalleAvances () {
                     <span>Titulo: {queryData.DetalleAvance.titulo}</span>
                     <br/>
                     <span>ID del Avance: {queryData.DetalleAvance._id}</span>
-                    <br/>    
-                    <span>Observaciones del Lider: {queryData.DetalleAvance.observacionesLider}</span>
-                    <br/>
+                    <br/> 
+                    <span>Detalle de Avance: {queryData.DetalleAvance.descripcion}</span>
+                    <br/>   
+                    
                     <table>
+                        {/*
                         <tr>
                             <td>
                                 <p>Descripcion: </p>
@@ -102,7 +103,8 @@ function DetalleAvances () {
                                 />
                             </td>
                         </tr>
-                        {/*
+                        */}
+                        
                         <tr>
                             <td>
                                 <p>Observaciones Lider: </p>
@@ -116,7 +118,7 @@ function DetalleAvances () {
                                 />
                             </td>
                         </tr>
-                        */}
+                        
                         <tr>
                             <td>
                                 <ButtonLoading
@@ -133,5 +135,5 @@ function DetalleAvances () {
     );
 };
 
-export {DetalleAvances};
+export {DetalleAvancesLider};
 
