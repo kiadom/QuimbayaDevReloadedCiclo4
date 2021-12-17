@@ -59,7 +59,11 @@ function DetalleAvancesLider () {
         }
     }, [mutationData]);
 
-    if (queryLoading) return <div>Cargando....</div>;
+    if (queryLoading) return 
+    <div className = "contenedor-body">
+            <div className='cargando'>        
+      </div>
+        </div>;
 
     return (
         <div className='body-text flew flex-col w-full h-full items-center justify-center p-10'>

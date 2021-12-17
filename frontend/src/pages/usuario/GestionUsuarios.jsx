@@ -22,8 +22,11 @@ const GestionUsuarios = () => {
         }
       }, [error]);
 
-      if(loading) return <div><div className='cargando'>        
-      </div></div>
+      if(loading) return
+      <div className = "contenedor-body">
+      <div className='cargando'>        
+</div>
+  </div>
 
     return (
         <div className="body-text">

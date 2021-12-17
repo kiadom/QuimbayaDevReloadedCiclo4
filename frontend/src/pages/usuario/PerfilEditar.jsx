@@ -53,7 +53,11 @@ const Editar = () => {
         }
     }, [dataMutation]);
 
-    if (queryLoading) return <div>Cargando....</div>;
+    if (queryLoading) return 
+    <div className = "contenedor-body">
+            <div className='cargando'>        
+      </div>
+        </div>;
 
     return (
         <div className="body-text">

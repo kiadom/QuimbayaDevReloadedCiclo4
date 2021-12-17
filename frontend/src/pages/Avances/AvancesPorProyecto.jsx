@@ -62,7 +62,7 @@ function AvancesPorProyecto () {
 
     /* SI loading ES VERDADERO, ES DECIR SI ESTÁ CARGANDO, SE MUESTRA UN MENSAJE INFORMANDO AL USUARIO DE ESTO */
     return (
-        <div className = "body-text">
+        <div className = "contenedor-body">
             <div className='cargando'>        
       </div>
         </div>

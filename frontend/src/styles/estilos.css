@@ -350,6 +350,23 @@ header {
 .boton_2:hover {
   background-color: var(--dark-bg);
 }
+.boton_2 a{
+  margin: 2px;
+  padding:  7px;
+  font-size: 9px;
+  /* font-weight: bold; */
+  text-transform: uppercase;
+  color: var(--light-bg);
+  border: none;
+  border-radius: 2px;
+  /* background-color: var(--grey-bg); */
+  cursor: pointer;
+}
+
+.boton_2 a :hover {
+  background-color: var(--dark-bg);
+  color: var(--blue-bg);
+}
 
 .boton-usuarios a{
   margin-right: 9px;
@@ -382,10 +399,13 @@ header {
 }
 
 .cargando{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 70px;
   height: 70px;
   border: 10px solid #eee;
-  border-top: 10px solid #666;
+  border-top: 10px solid #092133;
   border-radius: 50%;
   animation-name: girar;
   animation-duration: 2s;
