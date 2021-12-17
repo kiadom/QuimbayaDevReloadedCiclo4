@@ -7,6 +7,7 @@ import PrivateLayout from './layouts/PrivateLayout'
 import { AuthLayout } from './layouts/AuthLayout';
 import { Index } from "./pages/Index";
 import { GestionInscripciones } from './pages/GestionInscripciones';
+import { InscripcionesPorProyecto } from './pages/InscripcionesPorProyecto';
 import { GestionProyectos } from './pages/GestionProyectos';
 import { GestionProyectosEditar } from './pages/GestionProyectosEditar';
 import GestionUsuarios from './pages/usuario/GestionUsuarios';
@@ -95,8 +96,7 @@ function App() {
                 <Route path="/GestionProyectos" element={<GestionProyectos />} />
                 <Route path="/GestionProyectos/Editar/:_id" element={<GestionProyectosEditar />} />
                 <Route path="/GestionInscripciones" element={<GestionInscripciones />} />
-                
-               
+                <Route path="/InscripcionesPorProyecto" element={<InscripcionesPorProyecto />} />
                 <Route path="/Avances/EntradaAvances/" element={<EntradaAvances />} />
                 <Route path="/Avances/IndexAvances/:estudianteInscrito" element={<IndexAvances />} />
                 <Route path="/Avances/IndexAvancesLider/:lider" element={<IndexAvancesLider />} />

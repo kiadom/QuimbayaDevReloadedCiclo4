@@ -10,6 +10,7 @@ query AvancesPorProyecto($proyecto: String!) {
     observacionesLider
     proyecto {
       nombre
+      _id
     }
   }
 }

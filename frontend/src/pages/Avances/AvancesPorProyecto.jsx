@@ -93,7 +93,7 @@ const TablaAvances = ({ listaAvances }) => {
                         listaAvances.AvancesPorProyecto.map((p) => {
                             return (
                                 <tr key = { p.proyecto }>
-                                    <td>{ p.proyecto.nombre }</td>
+                                    <td>{ p.proyecto._id }</td>
                                     <td>{ p.fechaAvance }</td>
                                     <td>{ p._id }</td>
                                     <td>{ p.titulo }</td>
@@ -129,7 +129,7 @@ const FormularioRegistroAvances = ()=> {
     const submitForm = (e) => {
         e.preventDefault();
         crearAvance({ 
-            variables: {...formData, 
+            variables: {...formData, proyecto: proyecto
                 } 
         });
     };
@@ -139,7 +139,7 @@ const FormularioRegistroAvances = ()=> {
             <h1 className = "rp_subtitulo">Ingrese el Avance</h1>
             <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
             <br/>
-                <table>
+                <table>  {/*}
                     <tr>
                         <td>
                             <p>Proyecto: </p>
@@ -152,8 +152,8 @@ const FormularioRegistroAvances = ()=> {
                                 required
                             />
                         </td>
-                    </tr>
-                    <tr>
+                    </tr> */}
+                    <tr> 
                         <td>
                             <p>Fecha del Avance: </p>
                         </td>
@@ -199,6 +199,7 @@ const FormularioRegistroAvances = ()=> {
                             <input className="boton_1"
                                 type = "submit" 
                                 value = "Registrar Nuevo Avance" 
+                                
                             />
                         </td>
                     </tr>
