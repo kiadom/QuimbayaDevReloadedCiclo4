@@ -20,15 +20,6 @@ const tiposAutenticacion = gql`
       correo: String!, 
       contrasena: String!
       ): Token
-
-    editarPerfilUsuario(
-      _id: String
-      nombre: String
-      apellido: String
-      identificacion: String
-      correo: String
-      contrasena: String
-    ): Token
     
     refreshToken: Token
   }

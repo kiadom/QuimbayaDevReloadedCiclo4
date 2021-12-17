@@ -59,7 +59,7 @@ const esquemaUsuario =
         foreignField:'lider',
     });
 
-    esquemaUsuario.virtual('avance',{
+    esquemaUsuario.virtual('avances',{
         ref: 'Avance',
         localField:'_id',
         foreignField:'creadoPor',

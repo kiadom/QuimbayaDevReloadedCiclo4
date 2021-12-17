@@ -1,10 +1,11 @@
-import React, { useEffect }from 'react'
+import React, { useRef, useEffect, useState }from 'react'
 import { useParams, Link } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
 import useFormData from "../../hooks/useFormData";
 import { GET_USUARIO } from '../../graphql/usuarios/querys';
 import { EDITAR_USUARIO } from "../../graphql/usuarios/mutation"
 import { toast } from 'react-toastify';
+import Input from '../../components/Input';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import DropDown from '../../components/DropDown';

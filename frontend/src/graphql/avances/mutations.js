@@ -5,18 +5,15 @@ mutation CrearAvance(
     $titulo: String! 
     $descripcion: String!
     $proyecto: String!
-    $fechaAvance: Date
 ) {
     crearAvance(
         titulo: $titulo 
         descripcion: $descripcion 
         proyecto: $proyecto
-        fechaAvance: $fechaAvance
     ) {
         _id
         titulo
         descripcion
-        fechaAvance
     }
 }
 

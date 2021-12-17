@@ -79,7 +79,7 @@ const TablaAvances = ({ listaAvances }) => {
                     <thead>
                         <tr>
                             <th>Nombre Proyecto</th>
-                            <th>Fecha Avance</th>
+                            <th>ID Avance</th>
                             <th>Titulo Avance</th>
                             <th>Descripcion</th>
                             <th>Observaciones Lider</th>
@@ -93,7 +93,7 @@ const TablaAvances = ({ listaAvances }) => {
                             return (
                                 <tr key = { p.proyecto }>
                                     <td>{ p.proyecto.nombre }</td>
-                                    <td>{ p.fechaAvance }</td>
+                                    <td>{ p._id }</td>
                                     <td>{ p.titulo }</td>
                                     <td>{ p.descripcion }</td>
                                     <td>{ p.observacionesLider }</td>
