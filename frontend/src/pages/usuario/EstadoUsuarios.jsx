@@ -64,9 +64,6 @@ const EstadoUsuarios = () => {
         <div className='body-text'>
             <Sidebar icono={faUsers} titulo='EDITAR ESTADO USUARIO'/>
             <div className='contenedor-body'>
-                {/* <Link to='/GestionUsuarios'>
-                    <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#FFFFFF' className='cursor-pointer'/>
-                </Link> */}
                 <h1 className='rp_subtitulo'>Editar Estado Usuario</h1>
                 <br />
                 <div className='editarusuario'>
@@ -90,7 +87,7 @@ const EstadoUsuarios = () => {
                         <br/>
                         <br/>
                         <DropDown
-                            label='Estado de la persona:'
+                            label='Estado del usuario:'
                             name='estado'
                             defaultValue={queryData.Usuario.estado}
                             required={true}
@@ -104,6 +101,9 @@ const EstadoUsuarios = () => {
                         />
                     </form>
                 </div>
+                <Link to='/GestionUsuarios'>
+                    <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#092133' className='cursor-pointer'/>
+                </Link>
             </div>
         </div>
     );
