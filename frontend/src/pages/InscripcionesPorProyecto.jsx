@@ -27,7 +27,8 @@ const InscripcionesPorProyecto = () => {
     };
     return (
         <div className = "body-text">
-            <h1>Cargando</h1>
+            <div className='cargando'>        
+      </div>
         </div>
     );
 };
@@ -40,7 +41,7 @@ const { data, loading } = useQuery(GET_INSCRIPCIONES);
     return (
         
         <div className = "body-text">
-            <Sidebar icono={faAddressCard} titulo='INSCRIPCIONES POR PROYECTO'/>
+            <Sidebar icono={faAddressCard} titulo='INSCRIPCIONES POR P'/>
             <div className="contenedor-body">
                 <Link to = {`/GestionInscripciones`}>
                 <h1 className = "rp_subtitulo">
@@ -98,7 +99,8 @@ const { data, loading } = useQuery(GET_INSCRIPCIONES);
 
 return (
     <div className = "body-text">
-        <h1>Cargando</h1>
+        <div className='cargando'>        
+      </div>
     </div>
 );
 };
@@ -135,7 +137,8 @@ const AprobarInscripcion = ({ idInscripcion}) => {
           );
 }; return (
     <div className = "body-text">
-        <h1>Cargando</h1>
+        <div className='cargando'>        
+      </div>
     </div>
 );
 
@@ -171,7 +174,8 @@ const RechazarInscripcion = ({ idInscripcion}) => {
 
         }; return (
             <div className = "body-text">
-                <h1>Cargando</h1>
+                <div className='cargando'>        
+      </div>
             </div>
         );
 };

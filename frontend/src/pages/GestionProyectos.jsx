@@ -73,7 +73,8 @@ function GestionProyectos () {
     /* MIENTRAS LA APLICACION ESTÁ CARGANDO SE MUESTRA UN MENSAJE INFORMANDO AL USUARIO DE ESTO */
     return (
         <div className = "body-text">
-            <h1>Cargando</h1>
+            <div className='cargando'>        
+      </div>
         </div>
     );
 };
@@ -140,7 +141,8 @@ const TablaProyectos = () => {
     
     return (
         <div className = "body-text">
-            <h1>Cargando</h1>
+            <div className='cargando'>        
+      </div>
         </div>
     );
 };
@@ -205,7 +207,8 @@ const TablaProyectosPorLider = ({ datosUsuarioLogeado }) => {
     /* SI loading ES VERDADERO, ES DECIR SI ESTÁ CARGANDO, SE MUESTRA UN MENSAJE INFORMANDO AL USUARIO DE ESTO */
     return (
         <div className = "body-text">
-            <h1>Cargando</h1>
+            <div className='cargando'>        
+      </div>
         </div>
     );
 };

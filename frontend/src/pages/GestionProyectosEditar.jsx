@@ -73,7 +73,8 @@ function GestionProyectosEditar () {
     /* MIENTRAS LA APLICACION ESTÁ CARGANDO SE MUESTRA UN MENSAJE INFORMANDO AL USUARIO DE ESTO */
     return (
         <div className = "body-text">
-            <h1>Cargando</h1>
+            <div className='cargando'>        
+      </div>
         </div>
     )
 };
