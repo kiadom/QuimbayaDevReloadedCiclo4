@@ -28,9 +28,21 @@ const resolversInscripcion = {
         },
 
         InscripcionPorEstudiante: async (parent, args) => {
-            const inscripcionPorEstudiante = await ModeloInscripcion.find({estudianteInscrito:args.estudianteInscrito}).populate('proyecto');
+            const inscripcionPorEstudiante = await ModeloInscripcion.find({estudianteInscrito:args.estudianteInscrito})
+            .populate({path:'proyecto', populate: {
+                path:'avance'
+            }});
             return inscripcionPorEstudiante;
-        }
+        },
+
+        InscripcionPorProyecto: async (parent, args) => {
+            const inscripcionPorProyecto = await ModeloInscripcion.find({proyecto:args.proyecto}).populate('estudianteInscrito').populate({path:'proyecto', populate: {
+                path:'lider'
+            }});
+            return inscripcionPorProyecto;
+          },
+
+        
 
     },
 

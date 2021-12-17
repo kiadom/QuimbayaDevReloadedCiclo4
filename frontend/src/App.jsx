@@ -7,20 +7,29 @@ import PrivateLayout from './layouts/PrivateLayout'
 import { AuthLayout } from './layouts/AuthLayout';
 import { Index } from "./pages/Index";
 import { GestionInscripciones } from './pages/GestionInscripciones';
+import { InscripcionesPorProyecto } from './pages/InscripcionesPorProyecto';
 import { GestionProyectos } from './pages/GestionProyectos';
 import { GestionProyectosEditar } from './pages/GestionProyectosEditar';
 import GestionUsuarios from './pages/usuario/GestionUsuarios';
 import EstadoUsuarios from "./pages/usuario/EstadoUsuarios";
 import Registro from './pages/auth/Registro';
 import Login from './pages/auth/Login';
+import Perfil from "./pages/usuario/Perfil";
+import PerfilEditar from "./pages/usuario/PerfilEditar";
 import jwt_decode from 'jwt-decode';
 import { AuthContext } from "./context/authContext";
 import { UserContext } from './context/userContext';
 
-import { IndexAvances } from "./pages/Avances/IndexAvances";
-import { AvancesPorProyecto } from "./pages/Avances/AvancesPorProyecto";
-import { DetalleAvances } from "./pages/Avances/DetalleAvances";
 import EntradaAvances from "./pages/Avances/EntradaAvances";
+import { IndexAvances } from "./pages/Avances/IndexAvances";
+import { IndexAvancesLider } from "./pages/Avances/IndexAvancesLider";
+import { AvancesPorProyecto } from "./pages/Avances/AvancesPorProyecto";
+import { AvancesPorProyectoLider } from "./pages/Avances/AvancesPorProyectoLider";
+import { DetalleAvances } from "./pages/Avances/DetalleAvances";
+import { DetalleAvancesLider } from "./pages/Avances/DetalleAvancesLider";
+//import { AvancesFinal } from "./pages/Avances/AvancesFinal";
+//import EdicionAvances from "./pages/Avances/EdicionAvances";
+
 
 
 //import { GestionAvances } from './pages/GestionAvances';
@@ -90,10 +99,19 @@ function App() {
                 <Route path="/GestionProyectos" element={<GestionProyectos />} />
                 <Route path="/GestionProyectos/Editar/:_id" element={<GestionProyectosEditar />} />
                 <Route path="/GestionInscripciones" element={<GestionInscripciones />} />
+                <Route path="/InscripcionesPorProyecto/:proyecto" element={<InscripcionesPorProyecto />} />
                 <Route path="/Avances/EntradaAvances/" element={<EntradaAvances />} />
                 <Route path="/Avances/IndexAvances/:estudianteInscrito" element={<IndexAvances />} />
+                <Route path="/Avances/IndexAvancesLider/:lider" element={<IndexAvancesLider />} />
                 <Route path="/Avances/AvancesPorProyecto/:proyecto" element={<AvancesPorProyecto />} />
+                <Route path="/Avances/AvancesPorProyectoLider/:proyecto" element={<AvancesPorProyectoLider />} />
                 <Route path="/Avances/DetalleAvances/:_id" element={<DetalleAvances />} />
+<<<<<<< HEAD
+                <Route path="/Avances/DetalleAvancesLider/:_id" element={<DetalleAvancesLider />} />
+=======
+                <Route path="/usuario/Perfil" element={<Perfil/>}/>
+                <Route path="/usuario/Perfil/Editar/:_id" element={<PerfilEditar/>}/>
+>>>>>>> 4cf853eb9b3a6077068b3ce07c4a95a316302eb3
               </Route>
               <Route path='/auth' element={<AuthLayout />}>
                 <Route path="Registro" element={<Registro />} />

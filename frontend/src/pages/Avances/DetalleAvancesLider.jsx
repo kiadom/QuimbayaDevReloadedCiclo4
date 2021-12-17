@@ -12,7 +12,7 @@ import { EDITAR_AVANCE } from "../../graphql/avances/mutations"
 
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
-function DetalleAvances () {
+function DetalleAvancesLider () {
     
     const { form, formData, updateFormData } = useFormData(null);
     const { _id } = useParams();
@@ -68,7 +68,7 @@ function DetalleAvances () {
                 <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#FFFFFF' className='cursor-pointer'/>
                 <span>   Volver Menu Avances </span></h1>            
             </Link>
-            <h1 className='m-4 text-3xl text-gray-800 font-bold text-center'>Editar Avance</h1>
+            <h1 className='m-4 text-3xl text-gray-800 font-bold text-center'>Registrar Observaciones</h1>
             <br />
             <form
                 onSubmit={submitForm}
@@ -81,10 +81,12 @@ function DetalleAvances () {
                 <span>Titulo: {queryData.DetalleAvance.titulo}</span>
                 <br/>
                 <span>ID del Avance: {queryData.DetalleAvance._id}</span>
-                <br/>    
-                <span>Observaciones del Lider: {queryData.DetalleAvance.observacionesLider}</span>
-                <br/>
+                <br/> 
+                <span>Detalle de Avance: {queryData.DetalleAvance.descripcion}</span>
+                <br/>   
+                
                 <table>
+                    {/*
                     <tr>
                         <td>
                             <p>Descripcion: </p>
@@ -98,7 +100,8 @@ function DetalleAvances () {
                             />
                         </td>
                     </tr>
-                    {/*
+                    */}
+                    
                     <tr>
                         <td>
                             <p>Observaciones Lider: </p>
@@ -112,7 +115,7 @@ function DetalleAvances () {
                             />
                         </td>
                     </tr>
-                    */}
+                    
                     <tr>
                         <td>
                             <ButtonLoading
@@ -128,5 +131,5 @@ function DetalleAvances () {
     );
 };
 
-export {DetalleAvances};
+export {DetalleAvancesLider};
 

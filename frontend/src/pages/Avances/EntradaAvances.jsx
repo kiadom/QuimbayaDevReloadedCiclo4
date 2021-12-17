@@ -9,8 +9,7 @@ const EntradaAvances = () => {
         /* PLANTILLA PARA HACER LA PETICION GET DE AVANCES. EL RETORNO SE ALMACENA EN data */
         const { userData } = useUser();
         const { data } = useQuery(GET_PROYECTOSMODAVANCE);
-
-    
+        
         useEffect(() => {
             console.log("Datos obtenidos con GET_PROYECTOSMODAVANCE", data);
         }, [data]);
@@ -60,10 +59,18 @@ const EntradaAvances = () => {
                         <p>Acciones: </p>
                     </td>
                     <td>
-                        <button>
+                        <button className="boton_1">
                         <Link to = {`/avances/IndexAvances/${userData._id }` }>
-                            {/*<FontAwesomeIcon icon={faPencilAlt}/>*/}
+                            
                             Ver Proyectos en los que estoy inscrito
+                        </Link> 
+                        </button>
+                    </td>
+                    <td>
+                        <button className="boton_1">
+                        <Link to = {`/avances/IndexAvancesLider/${userData._id }` }>
+                            
+                            Ver Proyectos que Lidero
                         </Link> 
                         </button>
                     </td>

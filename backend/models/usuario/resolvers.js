@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 const resolversUsuario = {
     Query: {
         Usuarios: async (parent, args) => {
-            const usuarios = await ModeloUsuario.find().populate('proyectos').populate('avances').populate('inscripciones');
+            const usuarios = await ModeloUsuario.find().populate('proyectos').populate('avance').populate('inscripciones');
             return usuarios;
         },
 
@@ -13,12 +13,6 @@ const resolversUsuario = {
                 _id: args._id
             });
             return usuario;
-        },
-
-        // query por correo para evidenciar HU2 clave encriptada
-        Correo: async (parent, args) => {
-            const correo = await ModeloUsuario.findOne({ correo: args.correo });
-            return correo;
         },
     },
 
@@ -47,20 +41,6 @@ const resolversUsuario = {
                 nombre: args.nombre,
                 apellido: args.apellido, */
                 // // contrasena: args.contrasena,
-                estado: args.estado
-            },
-                { new: true } //esto se utiliza para traer los datos nuevos al actualizar
-            );
-            return usuarioEditado;
-        },
-
-        editarPerfilUsuario: async (parent, args) => {
-            const usuarioEditado = await ModeloUsuario.findByIdAndUpdate(args._id, {
-                correo: args.correo,
-                identificacion: args.identificacion,
-                nombre: args.nombre,
-                apellido: args.apellido,
-                // contrasena: args.contrasena,
                 estado: args.estado
             },
                 { new: true } //esto se utiliza para traer los datos nuevos al actualizar

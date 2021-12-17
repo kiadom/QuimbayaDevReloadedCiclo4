@@ -1,7 +1,6 @@
 import { gql } from 'apollo-server-express';
 
 const tiposProyecto = gql`
-
 type Proyecto {
         _id: ID!
         nombre: String!
@@ -14,23 +13,22 @@ type Proyecto {
         lider: Usuario!
         estado: Enum_EstadoProyecto!
         fase: Enum_FaseProyecto!
-        avances: [Avance] 
+        avance: [Avance] 
         inscripciones: [Inscripcion] 
     }
-
     type Query {
         
         Proyectos: [Proyecto]
-
         Proyecto(
             _id: String!
         ): Proyecto
-
         ProyectosPorLider(
             lider: String!
         ): [Proyecto]
+        InscripcionesLider(
+            lider: String!
+        ): [Proyecto]
     }
-
     type Mutation {
         
         crearProyecto(

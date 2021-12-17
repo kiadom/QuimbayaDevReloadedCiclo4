@@ -2,20 +2,21 @@ import { gql } from '@apollo/client';
 
 const CREAR_AVANCE = gql`
 mutation CrearAvance(
-    $fecha: Date!, 
-    $titulo: String!, 
-    $descripcion: String!, 
+    $titulo: String! 
+    $descripcion: String!
     $proyecto: String!
+    $fechaAvance: Date
 ) {
     crearAvance(
-        fecha: $fecha, 
-        titulo: $titulo, 
-        descripcion: $descripcion, 
+        titulo: $titulo 
+        descripcion: $descripcion 
         proyecto: $proyecto
+        fechaAvance: $fechaAvance
     ) {
         _id
         titulo
         descripcion
+        fechaAvance
     }
 }
 
@@ -23,13 +24,13 @@ mutation CrearAvance(
 
 const EDITAR_AVANCE = gql `
     mutation EditarAvance(
-        $id: String, 
-        $descripcion: String, 
+        $_id: String 
+        $descripcion: String 
         $observacionesLider: String
         ) {
         editarAvance(
-          _id: $id, 
-          descripcion: $descripcion, 
+          _id: $_id 
+          descripcion: $descripcion 
           observacionesLider: $observacionesLider
           ) {
           _id

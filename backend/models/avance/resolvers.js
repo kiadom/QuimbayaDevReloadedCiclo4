@@ -3,24 +3,23 @@ import { ModeloAvance } from "./avance.js";
 const resolversAvance = {
 
     Query: {
-        Avances: async (parent, args) => {
-          const avances = await ModeloAvance.find().populate('proyecto')
+        Avance: async (parent, args) => {
+          const avance = await ModeloAvance.find().populate('proyecto')
           .populate('lider')
-          .populate('creadoPor');
-          return avances;
+         ;
+          return avance;
         },
 
-        DetalleAvances: async (parent, args) => {
-          const detalleAvances = await ModeloAvance.findOne({_id:args._id})
+        DetalleAvance: async (parent, args) => {
+          const detalleAvance = await ModeloAvance.findOne({_id:args._id})
           .populate('proyecto')  
-          .populate('creadoPor');
-          return detalleAvances;
+          ;
+          return detalleAvance;
         },
 
         AvancesPorProyecto: async (parent, args) => {
           const avancesPorProyecto = await ModeloAvance.find({proyecto:args.proyecto})
           .populate('lider')
-          .populate('creadoPor')
           .populate('proyecto');
           return avancesPorProyecto;
         },
@@ -29,7 +28,7 @@ const resolversAvance = {
           const observacionesLiderFiltrado = await ModeloAvance.find({ proyecto: args.idProyecto })
             .populate('proyecto')
             .populate('lider')
-            .populate('creadoPor');
+            ;
           return observacionesLiderFiltrado;
         
       }
@@ -38,8 +37,9 @@ const resolversAvance = {
     Mutation: {
         crearAvance: async(parent,args)=> {
             const avanceCreado = ModeloAvance.create({
-                fecha: args.fecha,
+                
                 titulo: args.titulo,
+                fechaAvance: args.fechaAvance,
                 descripcion: args.descripcion,
                 proyecto: args.proyecto,
             });
