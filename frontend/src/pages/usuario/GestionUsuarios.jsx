@@ -56,11 +56,11 @@ const GestionUsuarios = () => {
                                                 <td>{u.correo}</td>
                                                 <td>{Enum_Rol[u.rol]}</td>
                                                 <td>{Enum_EstadoUsuario[u.estado]}</td>
-                                                <td>
+                                                <td className='boton-usuarios'>
                                                     <Link to={`/GestionUsuarios/Editar/${u._id}`}>
-                                                        <FontAwesomeIcon icon={ faPen } size="1x" color='#636363' className='cursor-pointer'/>
+                                                        <FontAwesomeIcon icon={ faPen } size="1x"/>
                                                     </Link>
-                                                    <FontAwesomeIcon icon={ faTrashAlt } size="1x" color='#636363' className='cursor-pointer'/>
+                                                    <FontAwesomeIcon icon={ faTrashAlt } size="1x"/>
                                                 </td>
                                             </tr>
                                         )

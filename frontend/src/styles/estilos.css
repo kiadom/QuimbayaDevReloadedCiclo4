@@ -263,6 +263,18 @@ header {
   background-color: var(--dark-bg);
 }
 
+.boton-usuarios a{
+  margin-right: 9px;
+  padding: 2px;
+  border-radius: 3px;
+  color: var(--black-bg);
+  /* background-color: var(--grey-bg); */
+}
+
+.boton-usuarios a:hover {
+  background-color: var(--dark-bg);
+}
+
 .rp_subtitulo{
   padding-block:11px ;
   padding-inline-start: 19px;
