@@ -626,8 +626,6 @@ tbody tr td{
 
 .square a{
   display: block;
-  padding: 20px 35px;
-  
   color: var(--grey-bg);
   font-size: 16px;
   
