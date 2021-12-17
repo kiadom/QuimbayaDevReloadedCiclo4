@@ -22,11 +22,6 @@ const Enum_FaseProyecto = {
   NULA: 'Nula',
 };
 
-// const Enum_TipoObjetivo = {
-//   GENERAL: 'General',
-//   ESPECIFICO: 'Especifico',
-// };
-
 const Enum_EstadoInscripcion = {
   ACEPTADA: 'Aceptada',
   RECHAZADA: 'Rechazada',

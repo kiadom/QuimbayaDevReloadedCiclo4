@@ -90,6 +90,8 @@ const EditarEstadoFase = ({ datosProyecto, idProyecto }) => {
             variables: { idProyecto, ...formData, presupuesto: parseFloat(formData.presupuesto) },
         });
     };
+
+    console.log("formData", formData);
     
     return (
         <div className="rend_Dinamica">
