@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import ButtonLoading from '../../components/ButtonLoading';
-
+import { Sidebar } from '../../components/Sidebar';
 import { GET_AVANCES2 } from "../../graphql/avances/queries";
 import { EDITAR_AVANCE } from "../../graphql/avances/mutations"
 

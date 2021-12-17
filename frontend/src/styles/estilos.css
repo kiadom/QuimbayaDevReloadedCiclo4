@@ -320,6 +320,22 @@ header {
 .boton_1:hover {
   background-color: var(--dark-bg);
 }
+.boton_1 a{
+  margin: 11px;
+  padding:  10px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--light-bg);
+  border: none;
+  border-radius: 5px;
+  background-color: var(--grey-bg);
+  cursor: pointer;
+}
+
+.boton_1:hover a{
+  background-color: var(--dark-bg);
+}
 .boton_2{
   margin: 2px;
   padding:  7px;

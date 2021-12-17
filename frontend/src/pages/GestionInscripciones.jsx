@@ -28,7 +28,12 @@ const GestionInscripciones  = () => {
   if (userData.rol === 'ESTUDIANTE'){
     return (
       <div className = "body-text">
+        <Sidebar icono={faAddressCard} titulo='INSCRIPCIONES'/>
+        <div className='contenedor-body'>
           <InscripcionEstudiante idEstudiante = { userData }  />
+
+        </div>
+          
       </div>
     )
 
@@ -37,7 +42,11 @@ const GestionInscripciones  = () => {
   if (userData.rol === 'LIDER'){
     return (
       <div className = "body-text">
+        <Sidebar icono={faAddressCard} titulo='INSCRIPCIONES'/>
+        <div className='contenedor-body'>
           <InscripcionLider idLider = { userData }  />
+
+        </div>
       </div>
     )
 

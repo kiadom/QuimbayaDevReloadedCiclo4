@@ -8,8 +8,8 @@ import {Enum_EstadoInscripcion} from '../utils/enums'
 import  ButtonLoading from '../components/ButtonLoading';
 import { GET_INSCRIPCIONPROYECTO, GET_INSCRIPCIONES } from "../graphql/inscripciones/queries";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
-
+import {faAddressCard, faArrowLeft} from "@fortawesome/free-solid-svg-icons";
+import { Sidebar } from "../components/Sidebar";
 
 
 const InscripcionesPorProyecto = () => {
@@ -40,55 +40,58 @@ const { data, loading } = useQuery(GET_INSCRIPCIONES);
     return (
         
         <div className = "body-text">
-            <Link to = {`/GestionInscripciones`}>
-            <h1 className = "rp_subtitulo">
-                <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#FFFFFF' className='cursor-pointer'/>
-                <span>   Volver Menu Inscripciones </span></h1>            
-            </Link>
-            <br/>
+            <Sidebar icono={faAddressCard} titulo='INSCRIPCIONES POR PROYECTO'/>
+            <div className="contenedor-body">
+                <Link to = {`/GestionInscripciones`}>
+                <h1 className = "rp_subtitulo">
+                    <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#FFFFFF' className='cursor-pointer'/>
+                    <span>   Volver Menu Inscripciones </span></h1>            
+                </Link>
+                <br/>
 
-        <table className="table">
-                <thead>
-                    <tr>
-                        <th>_id</th>
-                        <th>Estudiante Inscrito</th>
-                        <th>Correo</th>
-                        <th>Estado</th>
-                        <th>Fecha de ingreso</th>
-                        <th>Fecha de egreso</th>
-                        <th>Editar</th>
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>_id</th>
+                            <th>Estudiante Inscrito</th>
+                            <th>Correo</th>
+                            <th>Estado</th>
+                            <th>Fecha de ingreso</th>
+                            <th>Fecha de egreso</th>
+                            <th>Editar</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody >
                         
-                    </tr>
-                </thead>
-                <tbody >
-                    
-                { listaInscripciones && 
-                          listaInscripciones.InscripcionPorProyecto.map((e) => {
-                              return (
-                                    <tr  key = { e.proyecto._id }>
-                                    <td>{ e._id}</td>
-                                    <td>{ (e.estudianteInscrito.nombre)+' '+(e.estudianteInscrito.apellido)}</td>
-                                    <td>{ (e.estudianteInscrito.correo)}</td>
-                                    <td> {Enum_EstadoInscripcion[e.estadoInscripcion]} </td>
-                                    <td>{ e.fecha_ingreso }</td>
-                                    <td>{ e.fecha_egreso }</td>                        
-                                    <td>{e.estadoInscripcion === 'PENDIENTE' && (
-                                    <AprobarInscripcion
-                                                    idInscripcion = { e._id }/>
-                                    )}<br/> 
-                                    {e.estadoInscripcion === 'PENDIENTE' && (
-                                    <RechazarInscripcion
-                                                    idInscripcion = { e._id }/>
-                                    )}
-                                    
-                                    </td>
-                                    </tr>
-                           ) })
-                                    
-                                    
-                          }
-                                    </tbody>
-            </table>
+                    { listaInscripciones && 
+                            listaInscripciones.InscripcionPorProyecto.map((e) => {
+                                return (
+                                        <tr  key = { e.proyecto._id }>
+                                        <td>{ e._id}</td>
+                                        <td>{ (e.estudianteInscrito.nombre)+' '+(e.estudianteInscrito.apellido)}</td>
+                                        <td>{ (e.estudianteInscrito.correo)}</td>
+                                        <td> {Enum_EstadoInscripcion[e.estadoInscripcion]} </td>
+                                        <td>{ e.fecha_ingreso }</td>
+                                        <td>{ e.fecha_egreso }</td>                        
+                                        <td>{e.estadoInscripcion === 'PENDIENTE' && (
+                                        <AprobarInscripcion
+                                                        idInscripcion = { e._id }/>
+                                        )}<br/> 
+                                        {e.estadoInscripcion === 'PENDIENTE' && (
+                                        <RechazarInscripcion
+                                                        idInscripcion = { e._id }/>
+                                        )}
+                                        
+                                        </td>
+                                        </tr>
+                            ) })
+                                        
+                                        
+                            }
+                                        </tbody>
+                </table>
+            </div>
         </div>
     )
 }
