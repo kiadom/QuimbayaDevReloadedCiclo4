@@ -23,7 +23,7 @@ const GestionInscripciones  = () => {
     console.log(error);
   }, [error]);
 
-  if (loading) return <div>Cargando...</div>;
+  if(!loading){
 
   if (userData.rol === 'ESTUDIANTE'){
     return (
@@ -76,6 +76,15 @@ const GestionInscripciones  = () => {
     
   );
 };
+
+}
+
+/* MIENTRAS LA APLICACION ESTÁ CARGANDO SE MUESTRA UN MENSAJE INFORMANDO AL USUARIO DE ESTO */
+return (
+    <div className = "body-text">
+        <h1>Cargando</h1>
+    </div>
+)
 };
 
 const AccordionInscripcion = ({ data, titulo, refetch = () => {} }) => {
@@ -100,7 +109,7 @@ const AccordionInscripcion = ({ data, titulo, refetch = () => {} }) => {
 
 
 const Inscripcion = ({ inscripcion, refetch }) => {
-const { userData } = useUser();
+
   
   return (
     <div >
