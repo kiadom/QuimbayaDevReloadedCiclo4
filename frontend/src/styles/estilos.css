@@ -203,6 +203,10 @@ header {
   
 }
 
+.editarusuario .datos{
+  color: var(--dark-bg);
+}
+
 .editarusuario .dropdown{
   margin-top: 20px;
 }

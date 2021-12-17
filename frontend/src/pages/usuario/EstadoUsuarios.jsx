@@ -76,17 +76,17 @@ const EstadoUsuarios = () => {
                         ref={form}
                         
                     >
-                        <span>Id: {queryData.Usuario._id}</span>
+                        <span className='datos'>id: {queryData.Usuario._id}</span>
                         <br/>
-                        <span>Identificación: {queryData.Usuario.identificacion}</span>
+                        <span className='datos'>Identificación: {queryData.Usuario.identificacion}</span>
                         <br/>
-                        <span>Nombres: {queryData.Usuario.nombre}</span>
+                        <span className='datos'>Nombres: {queryData.Usuario.nombre}</span>
                         <br/>
-                        <span>Apellidos: {queryData.Usuario.apellido}</span>
+                        <span className='datos'>Apellidos: {queryData.Usuario.apellido}</span>
                         <br/>
-                        <span>Correo Electronico: {queryData.Usuario.correo}</span>
+                        <span className='datos'>Correo Electronico: {queryData.Usuario.correo}</span>
                         <br/>
-                        <span>Rol del usuario: {Enum_Rol[queryData.Usuario.rol]}</span>
+                        <span className='datos'>Rol del usuario: {Enum_Rol[queryData.Usuario.rol]}</span>
                         <br/>
                         <br/>
                         <DropDown
