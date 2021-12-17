@@ -5,8 +5,11 @@ import { useParams, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useUser } from '../../context/userContext';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faArrowLeft, faClipboardCheck} from "@fortawesome/free-solid-svg-icons";
+import {faArrowLeft, faClipboardCheck, faProjectDiagram } from "@fortawesome/free-solid-svg-icons";
 import { Sidebar } from "../../components/Sidebar";
+
+
+
 const IndexAvances = () => {
 
         /* PLANTILLA PARA HACER LA PETICION GET DE AVANCES. EL RETORNO SE ALMACENA EN data */
@@ -51,7 +54,7 @@ const IndexAvances = () => {
 const TablaAvances = ({ listaAvances }) => {
     return (
         <div>
-<h2 className='rp_titulo'>Gestion de Avances</h2>
+            <h2 className='rp_titulo'>Gestion de Avances</h2>
             <h1 className = "rp_subtitulo">Proyectos En los que estoy Inscrito</h1>
             <Link to='/Avances/EntradaAvances'>
             <h1 className = "rp_subtitulo">

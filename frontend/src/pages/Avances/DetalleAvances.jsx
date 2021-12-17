@@ -4,8 +4,9 @@ import { useMutation, useQuery } from '@apollo/client';
 import useFormData from "../../hooks/useFormData";
 import { toast } from 'react-toastify';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
+import {faArrowLeft, faClipboardCheck} from "@fortawesome/free-solid-svg-icons";
 import ButtonLoading from '../../components/ButtonLoading';
+import { Sidebar } from '../../components/Sidebar';
 
 import { GET_AVANCES2 } from "../../graphql/avances/queries";
 import { EDITAR_AVANCE } from "../../graphql/avances/mutations"
@@ -57,17 +58,17 @@ function DetalleAvances () {
         if (mutationData) {
           toast.success('Avance modificado correctamente');
         }
-    }, [mutationData]);
+        }, [mutationData]);
 
-    if (queryLoading) return
-    <div className = "contenedor-body">
-        <div className='cargando'>        
-        </div>
-    </div>;
+    if (queryLoading) return <div>Cargando....</div>;
 
     return (
-        <div className='body-text flew flex-col w-full h-full items-center justify-center p-10'>
+        <div className = "body-text">
+            <Sidebar icono={faClipboardCheck} titulo='EDITAR AVANCE'/>
+            
+            <div className='contenedor-body'>
             <Link to='/Avances/EntradaAvances'>
+<<<<<<< HEAD
             <h1 className = "rp_subtitulo">
                 <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#F0A500' className='cursor-pointer'/>
                 <span>   Volver Menu Avances </span></h1>            
@@ -128,6 +129,69 @@ function DetalleAvances () {
                     </tr>
                 </table>            
             </form>
+=======
+                <h1 className = "rp_subtitulo">
+                    <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#FFFFFF' className='cursor-pointer'/>
+                    <span>   Volver Menu Avances </span></h1>            
+                </Link>
+                <h1 className="rp_titulo">Editar Avance</h1>
+                <br />
+                <form
+                    onSubmit={submitForm}
+                    onChange={updateFormData}
+                    ref={form}
+                    className='flex flex-col items-center justify-center'
+                    >
+                    <span>Proyecto: {queryData.DetalleAvance.proyecto.nombre}</span>
+                    <br/>
+                    <span>Titulo: {queryData.DetalleAvance.titulo}</span>
+                    <br/>
+                    <span>ID del Avance: {queryData.DetalleAvance._id}</span>
+                    <br/>    
+                    <span>Observaciones del Lider: {queryData.DetalleAvance.observacionesLider}</span>
+                    <br/>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Descripcion: </p>
+                            </td>
+                            <td>
+                                <input 
+                                    name = "descripcion" 
+                                    defaultValue = { queryData.DetalleAvance.descripcion } 
+                                    required = {false} 
+                                    
+                                />
+                            </td>
+                        </tr>
+                        {/*
+                        <tr>
+                            <td>
+                                <p>Observaciones Lider: </p>
+                            </td>
+                            <td>
+                                <input 
+                                    name = "observacionesLider" 
+                                    defaultValue ={ queryData.DetalleAvance.observacionesLider } 
+                                    required = {false} 
+                                    
+                                />
+                            </td>
+                        </tr>
+                        */}
+                        <tr>
+                            <td>
+                                <ButtonLoading
+                                disabled={Object.keys(formData).length === 0}
+                                loading={mutationLoading}
+                                text='CONFIRMAR'
+                                />
+                            </td>
+                        </tr>
+                    </table>            
+                </form>
+            </div>
+>>>>>>> dfd3fe59c166f18583837feeaaede3088e2a3b38
         </div>
     );
 };

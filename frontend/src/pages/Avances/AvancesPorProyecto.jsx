@@ -9,8 +9,8 @@ import { GET_AVANCESPORPROYECTO, GET_AVANCES2 } from "../../graphql/avances/quer
 import { CREAR_AVANCE } from "../../graphql/avances/mutations";
 import { DetalleAvances } from "./DetalleAvances";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faArrowLeft, faClipboardCheck} from "@fortawesome/free-solid-svg-icons";
-import {Sidebar} from'../../components/Sidebar';
+import {faArrowLeft, faClipboardCheck, faProjectDiagram } from "@fortawesome/free-solid-svg-icons";
+import { Sidebar } from "../../components/Sidebar";
 
 function AvancesPorProyecto () {
 
@@ -44,8 +44,8 @@ function AvancesPorProyecto () {
     if (!loading){
         return (
             <div className = "body-text">
-                <Sidebar icono={faClipboardCheck} titulo='AVANCES POR PROYECTO'/>
-                <div className="contenedor-body">
+                <Sidebar icono={faClipboardCheck} titulo ='AVANCES DE LOS PROYECTOS INSCRITOS'/>
+                <div className="contenedor-body">                
                     <div className="rp_titulo">GESTIÓN DE AVANCES</div>
                     <div className="rend_Dinamica">
                         <button onClick = {() => {
@@ -53,7 +53,7 @@ function AvancesPorProyecto () {
                             }}
                             className="boton_1">{ textoBoton }
                         </button>
-                { mostrarTabla ? (<TablaAvances listaAvances = { data }/>) : (<FormularioRegistroAvances listaAvances = { data } />)}
+                        { mostrarTabla ? (<TablaAvances listaAvances = { data }/>) : (<FormularioRegistroAvances listaAvances = { data } />)}
                     </div>
                 </div>
             </div>
@@ -62,9 +62,11 @@ function AvancesPorProyecto () {
 
     /* SI loading ES VERDADERO, ES DECIR SI ESTÁ CARGANDO, SE MUESTRA UN MENSAJE INFORMANDO AL USUARIO DE ESTO */
     return (
-        <div className = "contenedor-body">
-            <div className='cargando'>        
-      </div>
+        <div className = "body-text">
+            <Sidebar icono={faClipboardCheck} titulo ='PROYECTOS EN LOS QUE ESTOY INSCRITO'/>
+            <div className="contenedor-body">
+                <TablaAvances listaAvances = { data }/>
+            </div>
         </div>
     );
 };
@@ -72,53 +74,49 @@ function AvancesPorProyecto () {
 
 const TablaAvances = ({ listaAvances }) => {
     return (
-        <div className="body-text">
-            <div className="rp_formulario">
-                <Link to='/Avances/EntradaAvances'>
-                <h1 className = "rp_subtitulo">
-                    <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#FFFFFF' className='cursor-pointer'/>
-                    <span>   Volver Menu Avances </span></h1>            
-                </Link>
-                <h2>Lista de Avances del Proyecto</h2>
+        <div>
+            <Link to='/Avances/EntradaAvances'>
+            <h1 className = "rp_subtitulo">
+                <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#FFFFFF' className='cursor-pointer'/>
+                <span>   Volver Menu Avances </span></h1>            
+            </Link>
+            <h1>Lista de Avances del Proyecto</h1>
 
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th>Nombre Proyecto</th>
-                                <th>Fecha Avance</th>
-                                <th>ID Avance</th>
-                                <th>Titulo Avance</th>
-                                <th>Descripcion</th>
-                                <th>Observaciones Lider</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                            { listaAvances && 
-                            listaAvances.AvancesPorProyecto.map((p) => {
-                                return (
-                                    <tr key = { p.proyecto }>
-                                        <td>{ p.proyecto._id }</td>
-                                        <td>{ p.fechaAvance }</td>
-                                        <td>{ p._id }</td>
-                                        <td>{ p.titulo }</td>
-                                        <td>{ p.descripcion }</td>
-                                        <td>{ p.observacionesLider }</td>
-                                        <td>
-                                            <button className="boton_1">
-                                            <Link to = {`/avances/DetalleAvances/${p._id}` }>
-                                                Editar Avance
-                                            </Link> 
-                                            </button>
-                                        </td>
-                                    </tr>
-                                )
-                            })}
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Nombre Proyecto</th>
+                            <th>Fecha Avance</th>
+                            <th>Titulo Avance</th>
+                            <th>Descripcion</th>
+                            <th>Observaciones Lider</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         
-                        </tbody>
-                    </table>
-            </div>
+                        { listaAvances && 
+                        listaAvances.AvancesPorProyecto.map((p) => {
+                            return (
+                                <tr key = { p.proyecto }>
+                                    <td>{ p.proyecto._id }</td>
+                                    <td>{ p.fechaAvance }</td>
+                                    <td>{ p.titulo }</td>
+                                    <td>{ p.descripcion }</td>
+                                    <td>{ p.observacionesLider }</td>
+                                    <td>
+                                        <button className="boton_1">
+                                        <Link to = {`/avances/DetalleAvances/${p._id}` }>
+                                            Editar Avance
+                                        </Link> 
+                                        </button>
+                                    </td>
+                                </tr>
+                            )
+                        })}
+                    
+                    </tbody>
+                </table>
         </div>
     )
 };
@@ -142,80 +140,76 @@ const FormularioRegistroAvances = ()=> {
     };
 
     return (
-        <div className="body-text">
-            {/* <div className="contenedor-body"> */}
-                <h1 className = "rp_subtitulo">Ingrese el Avance</h1>
-                <form onSubmit = { submitForm } onChange = { updateFormData }
-                ref = { form } className="cambios-estado-admon">
-                <br/>
-                    <table>  {/*}
-                        <tr>
-                            <td>
-                                <p>Proyecto: </p>
-                            </td>
-                            <td>
-                                <input 
-                                    name = 'proyecto' 
-                                    type = "text" 
-                                    size = "50"
-                                    required
-                                />
-                            </td>
-                        </tr> */}
-                        <tr> 
-                            <td>
-                                <p>Fecha del Avance: </p>
-                            </td>
-                            <td>
-                                <input 
-                                    name = 'fechaAvance' 
-                                    type = "date" 
-                                    
-                                />
-                            </td>
-                        </tr>
-    
+        <div>
+            <h1 className = "rp_subtitulo">Ingrese el Avance</h1>
+            <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
+            <br/>
+                <table>  {/*}
+                    <tr>
+                        <td>
+                            <p>Proyecto: </p>
+                        </td>
+                        <td>
+                            <input 
+                                name = 'proyecto' 
+                                type = "text" 
+                                size = "50"
+                                required
+                            />
+                        </td>
+                    </tr> */}
+                    <tr> 
+                        <td>
+                            <p>Fecha del Avance: </p>
+                        </td>
+                        <td>
+                            <input 
+                                name = 'fechaAvance' 
+                                type = "date" 
+                                
+                            />
+                        </td>
+                    </tr>
+ 
 
-                        <tr>
-                            <td>
-                                <p>Titulo: </p>
-                            </td>
-                            <td>
-                                <input 
-                                    name = 'titulo' 
-                                    type = "text" 
-                                    size = "50"
-                                    required
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>Detalle Avance: </p>
-                            </td>
-                            <td>
-                                <input 
-                                    name = 'descripcion' 
-                                    type = "text" 
-                                    size = "50"
-                                    required
-                                />
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                <input className="boton_1"
-                                    type = "submit" 
-                                    value = "Registrar Nuevo Avance" 
-                                    
-                                />
-                            </td>
-                        </tr>
-                    </table>
-                </form>
-            {/* </div> */}
-
+                    <tr>
+                        <td>
+                            <p>Titulo: </p>
+                        </td>
+                        <td>
+                            <input 
+                                name = 'titulo' 
+                                type = "text" 
+                                size = "50"
+                                required
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Detalle Avance: </p>
+                        </td>
+                        <td>
+                            <input 
+                                name = 'descripcion' 
+                                type = "text" 
+                                size = "50"
+                                required
+                            />
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <input className="boton_1"
+                                type = "submit" 
+                                value = "Registrar Nuevo Avance" 
+                                
+                            />
+                        </td>
+                    </tr>
+                </table>
+            </form>
         </div>
     )
 };

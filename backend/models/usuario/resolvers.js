@@ -14,6 +14,12 @@ const resolversUsuario = {
             });
             return usuario;
         },
+
+        // query por correo para evidenciar HU2 clave encriptada
+        Correo: async (parent, args) => {
+            const correo = await ModeloUsuario.findOne({ correo: args.correo });
+            return correo;
+        },
     },
 
     Mutation: {
@@ -41,6 +47,20 @@ const resolversUsuario = {
                 nombre: args.nombre,
                 apellido: args.apellido, */
                 // // contrasena: args.contrasena,
+                estado: args.estado
+            },
+                { new: true } //esto se utiliza para traer los datos nuevos al actualizar
+            );
+            return usuarioEditado;
+        },
+
+        editarPerfilUsuario: async (parent, args) => {
+            const usuarioEditado = await ModeloUsuario.findByIdAndUpdate(args._id, {
+                correo: args.correo,
+                identificacion: args.identificacion,
+                nombre: args.nombre,
+                apellido: args.apellido,
+                // contrasena: args.contrasena,
                 estado: args.estado
             },
                 { new: true } //esto se utiliza para traer los datos nuevos al actualizar

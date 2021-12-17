@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client'
 import { GET_USUARIOS } from '../../graphql/usuarios/querys'
 import { Enum_Rol, Enum_EstadoUsuario } from '../../utils/enums';
@@ -22,11 +22,13 @@ const GestionUsuarios = () => {
         }
       }, [error]);
 
-      if(loading) return
-      <div className = "contenedor-body">
-      <div className='cargando'>        
-</div>
-  </div>
+    if(loading) { 
+        return(
+            <div className = "contenedor-body">
+                <div className='cargando'></div>
+            </div>
+        )
+    }
 
     return (
         <div className="body-text">

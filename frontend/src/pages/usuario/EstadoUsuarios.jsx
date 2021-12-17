@@ -1,10 +1,11 @@
-import React, { useEffect }from 'react'
+import React, { useRef, useEffect, useState }from 'react'
 import { useParams, Link } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
 import useFormData from "../../hooks/useFormData";
 import { GET_USUARIO } from '../../graphql/usuarios/querys';
 import { EDITAR_USUARIO } from "../../graphql/usuarios/mutation"
 import { toast } from 'react-toastify';
+import Input from '../../components/Input';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowLeft, faUsers} from "@fortawesome/free-solid-svg-icons";
 import DropDown from '../../components/DropDown';
@@ -17,11 +18,7 @@ const EstadoUsuarios = () => {
     const { form, formData, updateFormData } = useFormData(null);
     const { _id } = useParams();
 
-    const {
-        data: queryData,
-        error: queryError,
-        loading: queryLoading,
-    } = useQuery(GET_USUARIO, {
+    const {data: queryData, error: queryError, loading: queryLoading,} = useQuery(GET_USUARIO, {
         variables: {_id},
     });
 
@@ -58,12 +55,13 @@ const EstadoUsuarios = () => {
         }
     }, [mutationData]);
 
-    if (queryLoading) return 
-    <div className = "contenedor-body">
-            <div className='cargando'>        
-      </div>
-        </div>;
-
+    if (queryLoading) {
+        return (
+            <div className = "contenedor-body">
+                <div className='cargando'></div>
+        </div>
+    )}
+    
     return (
         <div className='body-text'>
             <Sidebar icono={faUsers} titulo='EDITAR ESTADO USUARIO'/>

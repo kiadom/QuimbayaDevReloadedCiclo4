@@ -9,8 +9,9 @@ import { GET_AVANCESPORPROYECTO, GET_AVANCES2 } from "../../graphql/avances/quer
 import { CREAR_AVANCE } from "../../graphql/avances/mutations";
 import { DetalleAvances } from "./DetalleAvances";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faArrowLeft, faClipboardCheck} from "@fortawesome/free-solid-svg-icons";
-import {Sidebar} from'../../components/Sidebar';
+import {faArrowLeft, faClipboardCheck, faProjectDiagram} from "@fortawesome/free-solid-svg-icons";
+import {Sidebar} from '../../components/Sidebar';
+
 function AvancesPorProyectoLider () {
 
     /* ESTADOS QUE PERMITEN CONTROLAR LA VISIBILIDAD DE LAS INTERFACES */
@@ -43,27 +44,27 @@ function AvancesPorProyectoLider () {
     if (!loading){
         return (
             <div className = "body-text">
-                <Sidebar icono={faClipboardCheck} titulo='AVANCES POR PROYECTO LIDER'/>
+                <Sidebar icono={faClipboardCheck} titulo ='AVANCES DE LOS PROYECTOS LIDERADOS'/>
                 <div className="contenedor-body">
-                <div className="rp_titulo">GESTIÓN DE AVANCES</div>
-                <div className="rend_Dinamica">
-                    <button onClick = {() => {
-                        setMostrarTabla (!mostrarTabla);
-                        }}
-                        className="boton_1">{ textoBoton }
-                    </button>
-            { mostrarTabla ? (<TablaAvances listaAvances = { data }/>) : (<TablaAvances listaAvances = { data } />)}
-                </div>
+                    <div className="rp_titulo">GESTIÓN DE AVANCES</div>
+                    <div className="rend_Dinamica">
+                        <button onClick = {() => {
+                            setMostrarTabla (!mostrarTabla);
+                            }}
+                            className="boton_1">{ textoBoton }
+                        </button>
+                        { mostrarTabla ? (<TablaAvances listaAvances = { data }/>) : (<TablaAvances listaAvances = { data } />)}
+                     </div>
                 </div>
             </div>
         );
     }        
 
-    /* SI loading ES VERDADERO, ES DECIR SI ESTÁ CARGANDO, SE MUESTRA UN MENSAJE INFORMANDO AL USUARIO DE ESTO */
+    /* MIENTRAS LA APLICACION ESTÁ CARGANDO SE MUESTRA UN MENSAJE INFORMANDO AL USUARIO DE ESTO */
     return (
         <div className = "contenedor-body">
             <div className='cargando'>        
-      </div>
+            </div>
         </div>
     );
 };
@@ -71,7 +72,7 @@ function AvancesPorProyectoLider () {
 
 const TablaAvances = ({ listaAvances }) => {
     return (
-        <div className="rp_formulario">
+        <div className = "rp_formulario">
             <Link to='/Avances/EntradaAvances'>
             <h1 className = "rp_subtitulo">
                 <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#FFFFFF' className='cursor-pointer'/>
@@ -83,7 +84,7 @@ const TablaAvances = ({ listaAvances }) => {
                     <thead>
                         <tr>
                             <th>Nombre Proyecto</th>
-                            <th>Fecha Avance</th>
+                            <th>ID Avance</th>
                             <th>Titulo Avance</th>
                             <th>Descripcion</th>
                             <th>Observaciones Lider</th>
@@ -97,7 +98,7 @@ const TablaAvances = ({ listaAvances }) => {
                             return (
                                 <tr key = { p.proyecto }>
                                     <td>{ p.proyecto.nombre }</td>
-                                    <td>{ p.fechaAvance }</td>
+                                    <td>{ p._id }</td>
                                     <td>{ p.titulo }</td>
                                     <td>{ p.descripcion }</td>
                                     <td>{ p.observacionesLider }</td>
@@ -119,70 +120,7 @@ const TablaAvances = ({ listaAvances }) => {
     )
 };
 
-/* FUNCION QUE CONTIENE LA INTERFAZ DONDE SE ENCUENTRA EL FORMULARIO PARA REGISTRAR LOS AVANCES */
-const FormularioRegistroAvances = ()=> {
 
-    const { form, formData, updateFormData } = useFormData();
-    const { userData } = useUser();
-    
-    const [CrearAvance, {
-        data: mutationData, 
-        loading: mutationLoading, 
-        error: mutationError
-    }] = useMutation(CREAR_AVANCE);
-    
-    
-
-    const submitForm = (e) => {
-        e.preventDefault();
-        CrearAvance({ 
-            variables: {...formData, 
-                } 
-        });
-    };
-    return (
-        <div >
-            <h1 className = "rp_subtitulo">Ingrese el Avance</h1>
-            <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
-            <br/>
-                <table>
-                   <tr>
-                        <td>
-                            <p>Titulo: </p>
-                        </td>
-                        <td>
-                            <input 
-                            name = "titulo" 
-                            type = "text" 
-                            required/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Detalle de Avance: </p>
-                        </td>
-                        <td>
-                            <input 
-                            name = "descripcion"
-                            type = "text" 
-                            required/>
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td>
-                        <td>
-                            <button className="boton_1">
-                                    Editar Avance
-                            </button>
-                        </td>
-                        </td>
-                    </tr>
-                </table>
-            </form>
-        </div>
-    )
-};
 
 
 export {AvancesPorProyectoLider} ;
