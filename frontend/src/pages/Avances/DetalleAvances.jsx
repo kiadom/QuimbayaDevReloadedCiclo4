@@ -36,8 +36,8 @@ function DetalleAvances () {
     const submitForm = (e) => {
         e.preventDefault();
         console.log('FormData', formData);
-        delete formData.descripcion;
-        delete formData.observacionesLider;
+        {/*delete formData.descripcion;
+        delete formData.observacionesLider;*/}
         editarAvance({
             variables: { _id, ...formData },
         });
@@ -82,7 +82,8 @@ function DetalleAvances () {
                 <br/>
                 <span>ID del Avance: {queryData.DetalleAvance._id}</span>
                 <br/>    
-                
+                <span>Observaciones del Lider: {queryData.DetalleAvance.observacionesLider}</span>
+                <br/>
                 <table>
                     <tr>
                         <td>
@@ -92,12 +93,12 @@ function DetalleAvances () {
                             <input 
                                 name = "descripcion" 
                                 defaultValue = { queryData.DetalleAvance.descripcion } 
-                                type = "text" 
-                                size = "50"
+                                required = {false} 
+                                
                             />
                         </td>
                     </tr>
-
+                    {/*
                     <tr>
                         <td>
                             <p>Observaciones Lider: </p>
@@ -106,12 +107,12 @@ function DetalleAvances () {
                             <input 
                                 name = "observacionesLider" 
                                 defaultValue ={ queryData.DetalleAvance.observacionesLider } 
-                                type = "text" 
-                                size = "50"
+                                required = {false} 
+                                
                             />
                         </td>
                     </tr>
-
+                    */}
                     <tr>
                         <td>
                             <ButtonLoading

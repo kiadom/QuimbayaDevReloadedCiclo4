@@ -20,13 +20,15 @@ import jwt_decode from 'jwt-decode';
 import { AuthContext } from "./context/authContext";
 import { UserContext } from './context/userContext';
 
+import EntradaAvances from "./pages/Avances/EntradaAvances";
 import { IndexAvances } from "./pages/Avances/IndexAvances";
 import { IndexAvancesLider } from "./pages/Avances/IndexAvancesLider";
 import { AvancesPorProyecto } from "./pages/Avances/AvancesPorProyecto";
+import { AvancesPorProyectoLider } from "./pages/Avances/AvancesPorProyectoLider";
 import { DetalleAvances } from "./pages/Avances/DetalleAvances";
-import EntradaAvances from "./pages/Avances/EntradaAvances";
-import { AvancesFinal } from "./pages/Avances/AvancesFinal";
-import EdicionAvances from "./pages/Avances/EdicionAvances";
+import { DetalleAvancesLider } from "./pages/Avances/DetalleAvancesLider";
+//import { AvancesFinal } from "./pages/Avances/AvancesFinal";
+//import EdicionAvances from "./pages/Avances/EdicionAvances";
 
 
 
@@ -102,9 +104,14 @@ function App() {
                 <Route path="/Avances/IndexAvances/:estudianteInscrito" element={<IndexAvances />} />
                 <Route path="/Avances/IndexAvancesLider/:lider" element={<IndexAvancesLider />} />
                 <Route path="/Avances/AvancesPorProyecto/:proyecto" element={<AvancesPorProyecto />} />
+                <Route path="/Avances/AvancesPorProyectoLider/:proyecto" element={<AvancesPorProyectoLider />} />
                 <Route path="/Avances/DetalleAvances/:_id" element={<DetalleAvances />} />
+<<<<<<< HEAD
+                <Route path="/Avances/DetalleAvancesLider/:_id" element={<DetalleAvancesLider />} />
+=======
                 <Route path="/usuario/Perfil" element={<Perfil/>}/>
                 <Route path="/usuario/Perfil/Editar/:_id" element={<PerfilEditar/>}/>
+>>>>>>> 4cf853eb9b3a6077068b3ce07c4a95a316302eb3
               </Route>
               <Route path='/auth' element={<AuthLayout />}>
                 <Route path="Registro" element={<Registro />} />

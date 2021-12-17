@@ -39,6 +39,7 @@ const resolversAvance = {
             const avanceCreado = ModeloAvance.create({
                 
                 titulo: args.titulo,
+                fechaAvance: args.fechaAvance,
                 descripcion: args.descripcion,
                 proyecto: args.proyecto,
             });

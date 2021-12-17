@@ -3,11 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
 import useFormData from "../../hooks/useFormData";
 import { toast } from 'react-toastify';
-import Input from '../../components/Input';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
-import DropDown from '../../components/DropDown';
-import { Enum_Rol, Enum_EstadoUsuario } from '../../utils/enums';
 import ButtonLoading from '../../components/ButtonLoading';
 
 import { GET_AVANCES2 } from "../../graphql/avances/queries";
@@ -15,7 +12,7 @@ import { EDITAR_AVANCE } from "../../graphql/avances/mutations"
 
 
 /* FUNCION PRINCIPAL QUE SE EJECUTA, DESDE ACA SE LLAMAN LAS DEMAS FUNCIONES Y SE DEFINEN LOS ESTADOS */
-function DetalleAvances () {
+function DetalleAvancesLider () {
     
     const { form, formData, updateFormData } = useFormData(null);
     const { _id } = useParams();
@@ -39,16 +36,14 @@ function DetalleAvances () {
     const submitForm = (e) => {
         e.preventDefault();
         console.log('FormData', formData);
-        delete formData.descripcion;
-        delete formData.observacionesLider;
+        {/*delete formData.descripcion;
+        delete formData.observacionesLider;*/}
         editarAvance({
             variables: { _id, ...formData },
         });
     };
 
-    console.log("este es el id", _id)
-  
-    useEffect(() => {
+     useEffect(() => {
         if (mutationError) {
           toast.error('Error modificando el Avance');
         }
@@ -73,56 +68,25 @@ function DetalleAvances () {
                 <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#FFFFFF' className='cursor-pointer'/>
                 <span>   Volver Menu Avances </span></h1>            
             </Link>
-            <h1 className='m-4 text-3xl text-gray-800 font-bold text-center'>Editar Avance</h1>
+            <h1 className='m-4 text-3xl text-gray-800 font-bold text-center'>Registrar Observaciones</h1>
             <br />
-            {/*<form
+            <form
                 onSubmit={submitForm}
                 onChange={updateFormData}
                 ref={form}
                 className='flex flex-col items-center justify-center'
-            > */}
+                >
+                <span>Proyecto: {queryData.DetalleAvance.proyecto.nombre}</span>
+                <br/>
+                <span>Titulo: {queryData.DetalleAvance.titulo}</span>
+                <br/>
+                <span>ID del Avance: {queryData.DetalleAvance._id}</span>
+                <br/> 
+                <span>Detalle de Avance: {queryData.DetalleAvance.descripcion}</span>
+                <br/>   
+                
                 <table>
-                        
-                        <tr>
-                            <td>
-                                <p>Proyecto: </p>
-                            </td>
-                            <td>
-                                { queryData.DetalleAvance.proyecto.nombre }
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>Titulo: </p>
-                            </td>
-                            <td>
-                                { queryData.DetalleAvance.titulo }
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <p>ID Del Avance: </p>
-                            </td>
-                            <td>
-                                { queryData.DetalleAvance._id }
-                            </td>
-                        </tr>
-                        
-                        
-                </table>
-                        
-
-                {/*<h1>Estos son los datos a modificar</h1>*/}
-
-                <form
-                onSubmit={submitForm}
-                onChange={updateFormData}
-                ref={form}
-                className='flex flex-col items-center justify-center'
-                >                    
-                <table>
-
+                    {/*
                     <tr>
                         <td>
                             <p>Descripcion: </p>
@@ -131,12 +95,13 @@ function DetalleAvances () {
                             <input 
                                 name = "descripcion" 
                                 defaultValue = { queryData.DetalleAvance.descripcion } 
-                                type = "text" 
-                                size = "50"
+                                required = {false} 
+                                
                             />
                         </td>
                     </tr>
-
+                    */}
+                    
                     <tr>
                         <td>
                             <p>Observaciones Lider: </p>
@@ -145,12 +110,12 @@ function DetalleAvances () {
                             <input 
                                 name = "observacionesLider" 
                                 defaultValue ={ queryData.DetalleAvance.observacionesLider } 
-                                type = "text" 
-                                size = "50"
+                                required = {false} 
+                                
                             />
                         </td>
                     </tr>
-
+                    
                     <tr>
                         <td>
                             <ButtonLoading
@@ -160,11 +125,11 @@ function DetalleAvances () {
                             />
                         </td>
                     </tr>
-                </table>
+                </table>            
             </form>
         </div>
     );
 };
 
-export {DetalleAvances};
+export {DetalleAvancesLider};
 
