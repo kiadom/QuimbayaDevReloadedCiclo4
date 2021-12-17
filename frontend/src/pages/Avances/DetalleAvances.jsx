@@ -69,7 +69,7 @@ function DetalleAvances () {
         <div className='body-text flew flex-col w-full h-full items-center justify-center p-10'>
             <Link to='/Avances/EntradaAvances'>
             <h1 className = "rp_subtitulo">
-                <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#FFFFFF' className='cursor-pointer'/>
+                <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#F0A500' className='cursor-pointer'/>
                 <span>   Volver Menu Avances </span></h1>            
             </Link>
             <h1 className='m-4 text-3xl text-gray-800 font-bold text-center'>Editar Avance</h1>
