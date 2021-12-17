@@ -120,7 +120,7 @@ const TablaProyectos = () => {
                                         <td>{ Enum_FaseProyecto[p.fase] }</td>
                                         <td>
                                             <Link to = {`/GestionProyectos/Editar/${ p._id }`}>
-                                                <button onClick={ () => {} }> Actualizar </button>
+                                                <button onClick={ () => {} } className="boton_2"> Actualizar </button>
                                             </Link>
     
                                             <InscripcionProyecto
@@ -189,7 +189,7 @@ const TablaProyectosPorLider = ({ datosUsuarioLogeado }) => {
                                         <td>{ Enum_FaseProyecto[p.fase] }</td>
                                         <td>
                                             <Link to = {`/GestionProyectos/Editar/${ p._id }`}>
-                                                <button onClick={ () => {} }> Actualizar </button>
+                                                <button onClick={ () => {} }className="boton_2"> Actualizar </button>
                                             </Link>
                                         </td>
                                     </tr>
@@ -227,7 +227,7 @@ const FormularioRegistroProyectos = ()=> {
     };
 
     return (
-        <div>
+        <div className="registro-proyectos">
             <h1 className = "rp_subtitulo">Ingrese el Proyecto</h1>
             <form onSubmit = { submitForm } onChange = { updateFormData } ref = { form }>
             <br/>

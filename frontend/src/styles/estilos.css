@@ -16,15 +16,14 @@
 }
 
 body{
-  /* background-color: var(--dark-bg); */
+  background-color: var(--light-bg);
 }
 
  .mainContainer {
    
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
-    height: max-content;
-    background-color: var(--light-bg);
+    /* background-color: var(--light-bg); */
   }
 
   .mainContainer > main {
@@ -138,11 +137,14 @@ header {
 }
 
 .sidebar h4{
-  text-align: center;
+  text-align: center;  
   padding: 20px ;
-  font-size: 11px;
+  font-size: 12px;
   margin-bottom: 11px;
+  margin-top: 11px;
   font-weight: bold;
+  font-kerning: 50px;
+  line-height: 17px;
 }
 
 .sidebar ul{ 
@@ -179,11 +181,24 @@ header {
 }
 
 .contenedor-body{
-  /* height: 100%; */
+  background-color: var(--light-bg);
   display: block;
   float: right;
   width: 80%;
-  margin-inline: 11px;  
+  height: 100%;
+  margin-inline: 11px; 
+  padding: 5px; 
+}
+
+.registro-proyectos table{
+  /* text-align: center; */
+  margin:auto
+  
+}
+
+.registro-proyectos td{
+  /* background-color: violet; */
+  padding: 7px;
 }
 
 .rp_titulo{
@@ -201,14 +216,30 @@ header {
   font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
-  color: var(--blue-bg);
+  color: var(--light-bg);
   border: none;
   border-radius: 5px;
-  background-color: var(--light-bg);
+  background-color: var(--grey-bg);
   cursor: pointer;
 }
 
 .boton_1:hover {
+  background-color: var(--dark-bg);
+}
+.boton_2{
+  margin: 1px;
+  padding:  7px;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--light-bg);
+  border: none;
+  border-radius: 5px;
+  background-color: var(--grey-bg);
+  cursor: pointer;
+}
+
+.boton_2:hover {
   background-color: var(--dark-bg);
 }
 
@@ -239,6 +270,7 @@ header {
   margin-top: 11px;
   margin-bottom: 66px;
   height: max-content;
+  width: 100%;
   color: var(--blue-bg);
   background-color: var(--light-bg);
 
@@ -392,20 +424,20 @@ tbody tr td{
 }
 
 .square a{
-  color: var(--dark-bg);
+  color: var(--grey-bg);
   text-align: center;
-  text-decoration-color: var(--ligth-bg);
+  text-decoration-color: var(--blue-bg);
 }
 
 .square p{
   font-weight: bold;
   margin-top: 20px;
-  color: var(--light-bg);
+  color: var(--blue-bg);
   text-align: center;
 }
 
 .salirIndex{
-  color: var(--light-bg);
+  color: var(--blue-bg);
 }
 
 
