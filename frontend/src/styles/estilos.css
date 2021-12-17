@@ -227,9 +227,12 @@ header {
   color: var(--light-bg);
 }
 
-.editarusuario .dropdown{
-  margin-top: 20px;
+.editar-perfil{
+  /* margin: 11px; */
+  margin:auto;
+  /* color: #000000; */
 }
+
 
 .registro-proyectos table{
   /* text-align: center; */
