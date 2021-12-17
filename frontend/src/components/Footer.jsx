@@ -3,7 +3,7 @@ import quimbayadev from '../media/quimbayafooter.png';
 
 function Footer(){
     return (
-        <div className='wrapper'>
+        <div className='body-text'>
             <div class="footer">
                 <img src={quimbayadev}/>                
             </div>

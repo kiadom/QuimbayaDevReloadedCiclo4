@@ -8,6 +8,15 @@ import {
   AccordionDetailsStyled,
 } from '../components/Accordion';
 import { useUser } from '../context/userContext';
+<<<<<<< HEAD
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faAddressCard, faHome, faUsers, faProjectDiagram, faFileSignature, faTrashAlt, faPen, faClipboardCheck, faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
+import {Sidebar} from '../components/Sidebar';
+
+
+=======
+>>>>>>> 1a8c3fbb1d06887a1fb3fea3a89ca8360f94a915
 import {Enum_EstadoInscripcion} from '../utils/enums'
 import { Link } from "react-router-dom";
 
@@ -48,8 +57,9 @@ const GestionInscripciones  = () => {
     
     
         <div className='body-text'>
-          <div >
-          <h1>Inscripciones</h1>
+          <Sidebar icono={faAddressCard} titulo='Inscripciones'/>
+          <div className='contenedor-body'>
+          <h1 className='rp_titulo'>Inscripciones</h1>
             <div >
 
             <AccordionInscripcion
