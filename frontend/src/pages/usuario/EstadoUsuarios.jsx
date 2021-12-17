@@ -65,6 +65,12 @@ const EstadoUsuarios = () => {
             <Sidebar icono={faUsers} titulo='EDITAR ESTADO USUARIO'/>
             <div className='contenedor-body'>
                 <h1 className='rp_subtitulo'>Editar Estado Usuario</h1>
+                <Link to='/GestionUsuarios'>
+                    <h1 className='rp_subtitulo' >
+                        <FontAwesomeIcon icon={ faArrowLeft } size="1x"/>
+                        <span> Volver al listado de usuarios</span>
+                    </h1>
+                </Link>
                 <br />
                 <div className='editarusuario'>
                     <form
@@ -100,10 +106,7 @@ const EstadoUsuarios = () => {
                         text='Confirmar'
                         />
                     </form>
-                </div>
-                <Link to='/GestionUsuarios'>
-                    <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#092133' className='cursor-pointer'/>
-                </Link>
+                </div>                
             </div>
         </div>
     );
