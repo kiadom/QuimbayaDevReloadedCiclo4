@@ -106,6 +106,7 @@ function App() {
                 <Route path="/Avances/AvancesPorProyecto/:proyecto" element={<AvancesPorProyecto />} />
                 <Route path="/Avances/AvancesPorProyectoLider/:proyecto" element={<AvancesPorProyectoLider />} />
                 <Route path="/Avances/DetalleAvances/:_id" element={<DetalleAvances />} />
+                <Route path="/Avances/DetalleAvancesLider/:_id" element={<DetalleAvancesLider />} />
                 <Route path="/usuario/Perfil" element={<Perfil/>}/>
                 <Route path="/usuario/Perfil/Editar/:_id" element={<PerfilEditar/>}/>
               </Route>
