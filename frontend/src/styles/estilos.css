@@ -166,18 +166,13 @@ header {
 
 .sidebar ul li a:hover,
 .sidebar ul li a.active{
-    color: var(--ligth-bg);
+    color: var(--blue-bg);
     background: var(--dark-bg);
     border-right: 2px solid var(--light-bg);
 }
 
 /******************************/
 /* estilos del body */
-
-.cargando{
-  margin-left: 300px;
-  margin-top:20px ;
-}
 
 .body-text{
   height: 100%;

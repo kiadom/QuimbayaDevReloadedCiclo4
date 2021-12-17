@@ -4,6 +4,7 @@ import { GET_PROYECTOSMODAVANCE } from "../../graphql/avances/queries";
 import { Link } from "react-router-dom";
 import { useUser } from '../../context/userContext';
 import { Sidebar } from "../../components/Sidebar";
+import { faClipboardCheck } from "@fortawesome/free-solid-svg-icons";
 
 const EntradaAvances = () => {
 
@@ -22,7 +23,7 @@ const EntradaAvances = () => {
 
     return (
         <div className="body-text">
-            <Sidebar/>
+            <Sidebar icono={faClipboardCheck} titulo='AVANCES'/>
             <div className="contenedor-body">
                 <div className="entrada-avances">
                 <table>

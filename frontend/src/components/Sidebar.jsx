@@ -17,7 +17,7 @@ const Logout = () => {
     return (
       <li onClick={() => deleteToken()}>
         <NavLink to='/auth/login'>
-            <FontAwesomeIcon icon={faSignOutAlt} size='1x' color='#092133'/>
+            <FontAwesomeIcon icon={faSignOutAlt} size='1x' color='#eeeeee'/>
             <span ></span> Cerrar Sesión
         </NavLink>
       </li>
