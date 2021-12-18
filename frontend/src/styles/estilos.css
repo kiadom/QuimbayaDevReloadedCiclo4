@@ -557,6 +557,13 @@ tbody tr td{
   padding: 3px;
 }
 
+.logueo1{
+  font-size: 17px;
+  color: var(--dark-bg);
+  margin: 7px;
+  padding-block: 5px;
+}
+
 .editar-perfil span  {
   background-color: var(--grey-bg);
   color: var(--light-bg);

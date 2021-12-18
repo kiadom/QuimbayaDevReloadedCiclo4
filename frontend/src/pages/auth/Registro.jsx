@@ -36,7 +36,7 @@ const Registro = () => {
   return (
     <div className='login'>
       <h1>Regístrate</h1>
-      <form className='logueo' onSubmit={submitForm} onChange={updateFormData} ref={form}>
+      <form className='logueo1' onSubmit={submitForm} onChange={updateFormData} ref={form}>
         <div>
           <p><Input label='Nombre:' name='nombre' type='text' required /></p>
           <p><Input label='Apellido:' name='apellido' type='text' required /></p>
