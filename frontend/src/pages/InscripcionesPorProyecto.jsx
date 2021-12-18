@@ -41,7 +41,7 @@ const { data, loading } = useQuery(GET_INSCRIPCIONES);
     return (
         
         <div className = "body-text">
-            <Sidebar icono={faAddressCard} titulo='INSCRIPCIONES POR P'/>
+            <Sidebar icono={faAddressCard} titulo='INSCRIPCIONES'/>
             <div className="contenedor-body">
                 <Link to = {`/GestionInscripciones`}>
                 <h1 className = "rp_subtitulo">
