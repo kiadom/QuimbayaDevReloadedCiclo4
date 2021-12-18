@@ -87,11 +87,9 @@ const EditarEstadoFase = ({ datosProyecto, idProyecto }) => {
     const submitForm = (e) => {
         e.preventDefault();
         editarProyecto({
-            variables: { idProyecto, ...formData, presupuesto: parseFloat(formData.presupuesto) },
+            variables: { _id: idProyecto, estado: formData.estado, fase: formData.fase },
         });
     };
-
-    console.log("formData", formData);
     
     return (
         <div className="rend_Dinamica">
@@ -156,10 +154,10 @@ const EditarProyecto = ({ datosProyecto, idProyecto }) => {
     const submitForm = (e) => {
         e.preventDefault();
         editarProyecto({
-            variables: { idProyecto, ...formData, presupuesto: parseFloat(formData.presupuesto) },
+            variables: { _id: idProyecto, ...formData, presupuesto: parseFloat(formData.presupuesto) },
         });
     };
-    
+
     if (datosProyecto.Proyecto.estado == 'ACTIVO'){
         return (
             <div className="rend_Dinamica">
