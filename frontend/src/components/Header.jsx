@@ -15,13 +15,15 @@ function Header() {
           <img src={logoheader} alt="logo-header" height="70px" />
         </div>
         <div className='botonHeader'>
-          <div class="dropdown">
+          <h1>Bienvenido</h1>
+          {/* <div class="dropdown">
             <button> &nbsp;Bienvenido &nbsp;| &nbsp;<FontAwesomeIcon icon={faCogs} size='12x' color='#092133' />&nbsp;</button>
             <div class="dropdown-content">
               <a><NavLink to={`/usuario/Perfil`}>Editar Perfil</NavLink></a>
               <a><Logout /></a>
             </div>
-          </div>
+          </div> */}
+
         </div>
       </header>
     </div>
