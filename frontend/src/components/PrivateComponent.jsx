@@ -8,7 +8,7 @@ const PrivateComponent = ({ roleList, children }) => {
     return children;
   }
 
-  return <>No estás autorizado para ver este sitio</>;
+  return <></>;
 };
 
 export default PrivateComponent;

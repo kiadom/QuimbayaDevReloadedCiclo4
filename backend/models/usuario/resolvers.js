@@ -3,9 +3,21 @@ import bcrypt from 'bcrypt';
 
 const resolversUsuario = {
     Query: {
-        Usuarios: async (parent, args) => {
-            const usuarios = await ModeloUsuario.find().populate('proyectos').populate('avance').populate('inscripciones');
-            return usuarios;
+        // Usuarios: async (parent, args) => {
+        //     const usuarios = await ModeloUsuario.find().populate('proyectos').populate('avance').populate('inscripciones');
+        //     return usuarios;
+        // },
+
+        Usuarios: async (parent, args, context) => {
+            console.log("context", context);
+            if(context.userData.rol==="ADMINISTRADOR"){
+                const usuarios = await ModeloUsuario.find().populate('proyectos').populate('avance').populate('inscripciones');
+                return usuarios;
+            }
+            else if(context.userData.rol==="LIDER"){
+                const usuarios = await ModeloUsuario.find({rol:"ESTUDIANTE"});
+                return usuarios;
+            }
         },
 
         Usuario: async (parent, args) => {
@@ -54,18 +66,10 @@ const resolversUsuario = {
             return usuarioEditado;
         },
 
-        editarPerfilUsuario: async (parent, args) => {
-            const usuarioEditado = await ModeloUsuario.findByIdAndUpdate(args._id, {
-                correo: args.correo,
-                identificacion: args.identificacion,
-                nombre: args.nombre,
-                apellido: args.apellido,
-                // contrasena: args.contrasena,
-                estado: args.estado
-            },
-                { new: true } //esto se utiliza para traer los datos nuevos al actualizar
-            );
-            return usuarioEditado;
+        editarPerfil: async (parent, args) => {
+            
+            const perfilEditado = await ModeloUsuario.findByIdAndUpdate(args._id,{...args.campos},{ new: true });
+            return perfilEditado;
         },
 
         eliminarUsuario: async (paent, args) => {

@@ -15,6 +15,14 @@ const tiposUsuario = gql`
         inscripciones:[Inscripcion]
     }
 
+    input CamposEditarPerfil{
+            identificacion:String
+            nombre:String
+            apellido:String
+            correo:String
+            # contrasena:String
+        }
+
     # query por correo para evidenciar HU2 clave encriptada
     type Correo{
         _id: ID!
@@ -48,14 +56,7 @@ const tiposUsuario = gql`
             estado: Enum_EstadoUsuario
         ): Usuario
 
-        editarPerfilUsuario(
-            _id: String!
-            correo: String!
-            identificacion: String!
-            nombre: String!
-            apellido: String!
-            estado: Enum_EstadoUsuario!
-        ): Usuario
+        editarPerfil(_id: String!, campos:CamposEditarPerfil!): Usuario
 
         eliminarUsuario(
             _id:String

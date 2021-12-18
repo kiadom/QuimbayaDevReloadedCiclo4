@@ -5,6 +5,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAddressCard, faHome, faUsers, faProjectDiagram, faFileSignature, faClipboardCheck, faSignOutAlt, faBullseye} from "@fortawesome/free-solid-svg-icons";
 import { Link, NavLink } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
+import PrivateComponent from './PrivateComponent';
 
 const Grid = () => {
     return (        
@@ -16,10 +17,16 @@ const Grid = () => {
                 </NavLink>
             </div>
             <div className="square">
+            <PrivateComponent roleList={["ADMINISTRADOR", "LIDER"]}>
                 <NavLink to='/GestionUsuarios'>
                     <FontAwesomeIcon icon={faUsers} size='5x'/>            
                     <p>Usuarios</p>
-                </NavLink>                    
+                </NavLink>
+            </PrivateComponent>
+            <PrivateComponent roleList={["ESTUDIANTE"]}>
+                <FontAwesomeIcon icon={faUsers} size='5x' color="#344857"/>            
+                <p>Usuarios</p> 
+            </PrivateComponent>                   
             </div>
             <div className="square">
                 <NavLink to='/GestionInscripciones'>

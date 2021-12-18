@@ -1,7 +1,7 @@
 import React from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faAddressCard, faHome, faUsers, faProjectDiagram, faFileSignature, faClipboardCheck, faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
+import {faAddressCard, faHome, faUsers, faUser, faProjectDiagram, faFileSignature, faClipboardCheck, faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
 import PrivateComponent from './PrivateComponent';
@@ -34,18 +34,26 @@ function Sidebar(props){
                         <h4 className='tituloEncabez{ado'>{props.titulo}</h4>
                     </div>
                     <ul>
+                    <li>
+                        <NavLink to ='/Perfil'> 
+                            <FontAwesomeIcon icon={faUser} size='1x' color='#eeeeee'/>
+                            <span className='item'></span> Perfil
+                        </NavLink> 
+                        </li>
                         <li>
                         <NavLink to ='/'>
                             <FontAwesomeIcon icon={faHome} size='1x' color='#eeeeee'/>
                             <span className='item'></span> Inicio
                         </NavLink>
                         </li>
+                        <PrivateComponent roleList={["ADMINISTRADOR", "LIDER"]}>
                         <li>
                         <NavLink to ='/GestionUsuarios'> 
                             <FontAwesomeIcon icon={faUsers} size='1x' color='#eeeeee'/>
                             <span className='item'></span> Usuarios
                         </NavLink> 
                         </li>
+                        </PrivateComponent>
                         <li>
                         <NavLink to ='/GestionInscripciones'> 
                             <FontAwesomeIcon icon={faFileSignature} size='1x' color='#eeeeee'/>
