@@ -50,8 +50,8 @@ const Perfil = () => {
           <div className="rp_formulario">
             <h1 className="rp_subtitulo">Información del perfil</h1>
             <br />
-            <form className="perfil dato_1" ref={form} onChange={updateFormData} onSubmit={submitForm}>
-                <span className="datos">id: {queryData.Usuario._id}</span>
+            <form className="editarusuario" ref={form} onChange={updateFormData} onSubmit={submitForm}>
+            <span className="datos">id: {queryData.Usuario._id}</span>
                <br />
                <br /> 
               <Input 
