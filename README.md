@@ -9,8 +9,7 @@ En la rama main se encuentra el código final del Sprint 5 (Finalización del Pr
 - [Instalar los Módulos](#instalar-los-modulos)
 - [Crear el Archivo de Variables de Entorno](#crear-el-archivo-de-variables-de-entorno)
 - [Iniciar el Servidor](#iniciar-el-servidor)
-- [Crear Documentos](#crear-documentos)
-- [Consultar Documentos](#consultar-documentos)
+- [Explorar las Funcionalidades](#explorar-las-funcionalidades)
 
 <br>
 
@@ -36,7 +35,7 @@ El servidor se inicia usando YARN, ejecutar en la consola de Visual Studio Code 
 ```yarn start```
 El proyecto backend mostrará por consola el mensaje "Conexion Exitosa" y el proyecto frontend abrirá el navegador con el index de la aplicación.
 
-## Explorar las funcionalidades
+## Explorar las Funcionalidades
 
 Ya puede crear un usuario con diferentes roles y dependiendo del rol, crear proyectos, inscribirse a los mismos, añadir avances y observaciones, editarlas e interactuar con los diferentes modulos del Sistema de Información y Soporte a la Gestión de Proyectos de Investigación
 
