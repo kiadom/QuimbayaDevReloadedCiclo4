@@ -594,9 +594,10 @@ tbody tr td{
 
 .logueo button {
   background-color: var(--light-bg);
+  margin-left: 7px;
   font-size: 10px;
   margin-block: 8px;
-  padding: 3px;
+  padding: 7px;
   border-radius: .3em;
   color: var(--blue-bg);
   cursor: pointer;
