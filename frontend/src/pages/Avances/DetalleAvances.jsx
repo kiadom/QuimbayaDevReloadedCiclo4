@@ -65,7 +65,6 @@ function DetalleAvances () {
     return (
         <div className = "body-text">
             <Sidebar icono={faClipboardCheck} titulo='EDITAR AVANCE'/>
-            
             <div className='contenedor-body'>
             <Link to='/Avances/EntradaAvances'>
                 <h1 className = "rp_subtitulo">
