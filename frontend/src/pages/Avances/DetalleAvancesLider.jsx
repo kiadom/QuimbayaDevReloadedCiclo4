@@ -68,12 +68,12 @@ function DetalleAvancesLider () {
             <div className='contenedor-body'>
                 <Link to='/Avances/EntradaAvances'>
                 <h1 className = "rp_subtitulo">
-                    <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#FFFFFF' className='cursor-pointer'/>
+                    <FontAwesomeIcon icon={ faArrowLeft } size="1x" color='#F0A500' className='cursor-pointer'/>
                     <span>   Volver Menu Avances </span></h1>            
                 </Link>
-                <h1 className="rp_titulo">Registrar Observaciones</h1>
+                <h2 className="rp_titulo">Registrar Observaciones</h2>
                 <br />
-                <form
+                <form className='cambios-estado-admon'
                     onSubmit={submitForm}
                     onChange={updateFormData}
                     ref={form}
@@ -110,7 +110,7 @@ function DetalleAvancesLider () {
                                 <p>Observaciones Lider: </p>
                             </td>
                             <td>
-                                <input 
+                                <input size='120' maxLength='500'
                                     name = "observacionesLider" 
                                     defaultValue ={ queryData.DetalleAvance.observacionesLider } 
                                     required = {false} 

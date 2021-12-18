@@ -34,17 +34,17 @@ function Sidebar(props){
                         <h4 className='tituloEncabez{ado'>{props.titulo}</h4>
                     </div>
                     <ul>
-                    <li>
-                        <NavLink to ='/Perfil'> 
-                            <FontAwesomeIcon icon={faUser} size='1x' color='#eeeeee'/>
-                            <span className='item'></span> Perfil
-                        </NavLink> 
-                        </li>
                         <li>
                         <NavLink to ='/'>
                             <FontAwesomeIcon icon={faHome} size='1x' color='#eeeeee'/>
                             <span className='item'></span> Inicio
                         </NavLink>
+                        </li>
+                        <li>
+                        <NavLink to ='/Perfil'> 
+                            <FontAwesomeIcon icon={faUser} size='1x' color='#eeeeee'/>
+                            <span className='item'></span> Perfil
+                        </NavLink> 
                         </li>
                         <PrivateComponent roleList={["ADMINISTRADOR", "LIDER"]}>
                         <li>
